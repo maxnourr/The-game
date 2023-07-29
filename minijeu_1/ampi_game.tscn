@@ -57,5 +57,64 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -35.5
+offset_right = 75.5
+offset_bottom = 35.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = -181.0
+offset_top = -148.0
+offset_right = 327.0
+offset_bottom = -79.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 25
+text = "careful ! bacterias attack your culture. 
+Find the good tube and give them"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = -180.5
+offset_top = 146.5
+offset_right = 327.5
+offset_bottom = 222.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 25
+text = "select and move a tube 
+with the \"up\" touch"
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.5
+offset_top = -65.0
+offset_right = 61.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+
 [connection signal="area_entered" from="bacterias" to="." method="_on_bacterias_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

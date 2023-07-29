@@ -4,6 +4,7 @@ var textureAMPI = preload("res://AMPI.png")
 var textureBLUE = preload("res://BLUE.png")
 var textureSOC = preload("res://SOC.png")
 var CanDrag = false
+#var mouse = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -32,5 +33,14 @@ func _input_event(viewport, event, shape_idx):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#if mouse and Input.is_action_pressed("ui_up"):
 	if CanDrag:
-		$".".global_position = get_global_mouse_position()
+		$".".global_position =  get_global_mouse_position()
+
+
+#func _on_mouse_entered():
+#	mouse = true
+
+
+#func _on_mouse_exited():
+#	mouse = false
