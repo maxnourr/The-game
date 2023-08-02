@@ -1,4 +1,5 @@
 extends Area2D
+var type_list = ["AMPI","SOC","BLUE"] 
 var type = "BLUE"
 var textureAMPI = preload("res://AMPI.png")
 var textureBLUE = preload("res://BLUE.png")
