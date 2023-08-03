@@ -1,96 +1,123 @@
 
 extends Node
 
-static var nb_tube = 3
+#static because we want to increase the number with the difficulty (each turn)
+static var nb_tube = 1
 
 #timer
-var time = 10
-var malus = false
-var malus_time = 5
+var time = 5
+var malus = false #change the time if activated
+var malus_time = 3
 
 # screen
-var width = 0
+var width = 0 #will be initialised in ready() 
 var height = 0
 
 #tubes
-var linktube = preload("res://ampi.tscn")
+var linktube = preload("res://ampi.tscn") #to create new tube
 var rng = RandomNumberGenerator.new()
 
 #circle
-var step = 0
-var max_size = 1
+var step = 0 #will be initialisate in ready(), change in diameter at each delta
+var max_size = 1 
 
 #game
-var lose = false
+var lose = false 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Button2.hide()
-	$Timer.wait_time = time
+	$Button2.hide() #no restart
+	$Timer.wait_time = time #set timer
 	
+	#set screen data
 	width = get_viewport().size.x
 	height = get_viewport().size.y
-	resize()
+	resize() #resize the elements
 		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 
+#resize and position each element depending of the screen dimensions
 func resize():
+	
+	#at the center
 	$bacterias.position.x = get_viewport().size.x/2
 	$bacterias.position.y = get_viewport().size.y/2
 	
+	#at the center
 	$circle.position.x = get_viewport().size.x/2
 	$circle.position.y = get_viewport().size.y/2
 	
+	#scale bacterias
 	$bacterias.scale.x = get_viewport().size.x*0.5/1152
 	$bacterias.scale.y = $bacterias.scale.x
 	
+	#size circle dep on bacterias + step dep on screen dimensions
 	max_size = $bacterias.scale.x*1.5
 	$circle.scale.x = max(0,max_size)
 	$circle.scale.y = $circle.scale.x
 	step = max(0,(max_size/2)/time)
 	
+	#we do not resize tube because... because
+	
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
+	#resize if size change !
 	if width != get_viewport().size.x or height != get_viewport().size.y:
 		width = get_viewport().size.x
 		height = get_viewport().size.y
 		resize()
 		
-	
+	#if timer running we update
 	if not $Timer.is_stopped():
+		
+		#if malus we remove some time
+		#do not successed to remove time from timer
 		var T = max(0,round($Timer.time_left))
 		if malus:
-			T = max(0,T-3)
+			T = max(0,T-3) 
 		
+		#update time
 		$TEXT/time.text = str(max(0,T))
 			
+		#update circle size
 		$circle.scale.x = max(max_size/2,$circle.scale.x - step*delta)
 		$circle.scale.y = $circle.scale.x
 		
+		#if time runs out (do not use signal because of malus
 		if T == 0:
 			if lose == false:
 				$TEXT/win_state.text = "haha looser"
-				$Button2.show()
-			lose = true
+				restart()
+			lose = true 
 
+func restart(): 
+	$Button2.show() # show restart
+	if nb_tube == 1:
+		$TEXT/explanation.text = "Ampicillin is an antibiotic\nmodified bacterias have antibiotic resistance\n adding AMPI will avoid contamination"
+	elif nb_tube == 2:
+		$TEXT/explanation.text = "SOC is a nutrition buffer\n it help bacterias grow, even unwanted bacterias\n if you had without AMPI, you risk contamination"
+	elif nb_tube == 3:
+		$TEXT/explanation.text = "Blue dye is just blue dye... it does nothing in that case"
 
-
+#called when a tube enter the bacterias
 func _on_bacterias_area_entered(area):
 
-	if area.type == "AMPI":
+	if area.type == "AMPI": # we want ampicillin
 		$Timer.stop()
 		$TEXT/win_state.text = "you win"
-		$Button2.show()
-	elif area.type == "BLUE":
+		restart()
+	elif area.type == "BLUE": #do nothing
 		$TEXT/win_state.text = "I'm blue didadudidaduda"
-	elif area.type == "SOC":
+	elif area.type == "SOC": #good medium grow even unwanted bacterias
 		$TEXT/win_state.text = "Bacteria's happy ! malus time"   
-		malus = true
-		step = max(0,(max_size/2)/(max(0,time-malus_time)))
+		malus = true 
+		step = max(0,(max_size/2)/(max(0,time-malus_time))) #change step if malus !
 
+#called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
-	$Button.hide()
+	$Button.hide() #hide start
 	
+	#instantiate tubes
 	for n in nb_tube:
 		var tube = linktube.instantiate()
 		add_child(tube)
@@ -101,14 +128,16 @@ func _on_button_pressed():
 			tube.set_type("SOC")
 		elif round(n) == 2:
 			tube.set_type("BLUE")
-		else:
+		else: #random type
 			tube.set_type(tube.type_list[randi() % tube.type_list.size()])
 
 			
-		
+		#scale dep on current screen size !
 		tube.scale.x = get_viewport().size.x*0.6/1152
 		tube.scale.y = tube.scale.x
 		
+		#add random out of the central square
+		#it is a horrible way to do it but it's working, godot destroyed my brain
 		randomize()
 		var test = rng.randi_range(0,1)
 		if test == 1:
@@ -132,12 +161,12 @@ func _on_button_pressed():
 	
 		
 		
-	
+	#set timer
 	$TEXT/time.text = str(round($Timer.time_left))
-	
 	$Timer.start()
 
-
+#called if restart pressed
 func _on_button_2_pressed():
+	if not lose :
+		nb_tube += 1
 	get_tree().reload_current_scene()
-	nb_tube += 1
