@@ -1,7 +1,7 @@
 
 extends Node
 
-static var nb_tube = 10
+static var nb_tube = 3
 
 #timer
 var time = 10
@@ -109,34 +109,27 @@ func _on_button_pressed():
 		tube.scale.x = get_viewport().size.x*0.6/1152
 		tube.scale.y = tube.scale.x
 		
+		randomize()
 		var test = rng.randi_range(0,1)
 		if test == 1:
-			tube.position.x = rng.randi_range(25,get_viewport().size.x/2-get_viewport().size.x/1152*350)
-		else :
-			tube.position.x = rng.randi_range(get_viewport().size.x/2+get_viewport().size.x/1152*350,get_viewport().size.x-25)
-		
-		test = rng.randi_range(0,1)
-		if test == 1:
-			tube.position.y = rng.randi_range(100,get_viewport().size.x/2-get_viewport().size.x/1152*250)
-		else :
-			tube.position.y = rng.randi_range(get_viewport().size.y/2+get_viewport().size.y/1152*250,get_viewport().size.y-100)
-		
-		
-		#tube.position.x = get_viewport().size.x/2
-		#print(get_viewport().size.x/2)
-		#print(get_viewport().size.x/1152*350)
-		#print(get_viewport().size.x/2-get_viewport().size.x/1152*350)
-		#print(get_viewport().size.x/2+get_viewport().size.x/1152*350)
-		#while tube.position.x in rangef(get_viewport().size.x/2-get_viewport().size.x/1152*350,get_viewport().size.x/2+get_viewport().size.x/1152*350):
-		#	print("hello")
-		#	tube.position.x = rng.randi_range(25,get_viewport().size.x-25)
-		
-		
-		#tube.position.y = get_viewport().size.y/2
-		#while tube.position.y in range(get_viewport().size.y/2-get_viewport().size.y/1152*250,get_viewport().size.y/2+get_viewport().size.y/1152*250):
-		#	print("hello 2")
-		#	tube.position.y = rng.randi_range(100,get_viewport().size.y-100)
-		
+			randomize()
+			test = rng.randi_range(0,1)
+			if test ==1:
+				tube.position.x = rng.randi_range(25,get_viewport().size.x/2-get_viewport().size.x/1152*500)
+				tube.position.y = rng.randi_range(100,get_viewport().size.y-100)
+			else :
+				tube.position.x = rng.randi_range(get_viewport().size.x/2+get_viewport().size.x/1152*500,get_viewport().size.x-25)
+				tube.position.y = rng.randi_range(100,get_viewport().size.y-100)
+		else:
+			randomize()
+			test = rng.randi_range(0,1)
+			if test==1:
+				tube.position.x = rng.randi_range(25,get_viewport().size.x-25)
+				tube.position.y = rng.randi_range(100,get_viewport().size.y/2-get_viewport().size.y/1152*400)
+			else:
+				tube.position.x = rng.randi_range(25,get_viewport().size.x-25)
+				tube.position.y = rng.randi_range(get_viewport().size.y/2+get_viewport().size.y/1152*400,get_viewport().size.y-100)
+	
 		
 		
 	
