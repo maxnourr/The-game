@@ -1,4 +1,6 @@
 extends Area2D
+
+#all the different type
 var type_list = ["AMPI","SOC","BLUE"] 
 var type = "BLUE"
 var textureAMPI = preload("res://AMPI.png")
@@ -11,6 +13,8 @@ func _ready():
 	set_type(type)
 
 func set_type(T):
+	
+	#change texture according to type
 	type = T
 	if type == "AMPI":
 		$Sprite2D.set_texture(textureAMPI)
@@ -19,6 +23,7 @@ func set_type(T):
 	else: 
 		$Sprite2D.set_texture(textureSOC)
 	
+#call when mouse move
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseMotion:
 		if Input.is_action_pressed("ui_up"):
