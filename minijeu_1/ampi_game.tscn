@@ -30,12 +30,14 @@ one_shot = true
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
+offset_left = -355.0
+offset_top = -1.0
+offset_right = -37.0
+offset_bottom = 139.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "HELLO"
+theme_override_font_sizes/font_size = 200
+horizontal_alignment = 2
 
 [node name="win_state" type="Label" parent="TEXT"]
 anchors_preset = 8
@@ -64,7 +66,7 @@ grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
 theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="."]
@@ -84,28 +86,28 @@ text = "Start"
 
 [node name="Label" type="Label" parent="Button"]
 layout_mode = 0
-offset_left = -181.0
-offset_top = -148.0
-offset_right = 327.0
-offset_bottom = -79.0
+offset_left = -383.5
+offset_top = -206.5
+offset_right = 539.5
+offset_bottom = -62.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
 theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 50
 text = "careful ! bacterias attack your culture. 
 Find the good tube and give them"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Button"]
 layout_mode = 0
-offset_left = -180.5
-offset_top = 146.5
-offset_right = 327.5
-offset_bottom = 222.5
+offset_left = -202.5
+offset_top = 120.5
+offset_right = 358.5
+offset_bottom = 264.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
 theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 50
 text = "select and move a tube 
 with the \"up\" touch"
 horizontal_alignment = 1

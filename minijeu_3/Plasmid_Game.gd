@@ -1,14 +1,21 @@
 extends Node
 
 #timer
-var time = 5
+var time = 10
 
 # screen
 var width = 0 #will be initialised in ready() 
 var height = 0
 
 #temperature
+var temp = 0
 var rng = RandomNumberGenerator.new()
+var goal = 0
+var timelapse = 0
+var to_wait = 250
+var is_reatched = false
+var min = -15
+var max = 70
 
 #game
 var lose = false 
@@ -17,6 +24,8 @@ var lose = false
 func _ready():
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
+	
+	goal = rng.randi_range(min,max)
 	
 	#set screen data
 	width = get_viewport().size.x
@@ -41,29 +50,48 @@ func _process(delta):
 		height = get_viewport().size.y
 		resize()
 		
+	var T = max(0,round($Timer.time_left))
+		#update time
+		
 	#if timer running we update
 	if not $Timer.is_stopped():
 		
-		if $Timer.time_left <=3:
-			$plate/bacterias.texture("fire")
-		#if malus we remove some time
-		#do not successed to remove time from timer
-		var T = max(0,round($Timer.time_left))
-		
-		#update time
 		$TEXT/time.text = str(max(0,T))
-		
 		#if time runs out (do not use signal because of malus
 		if T == 0:
 			if lose == false:
 				$TEXT/win_state.text = "haha looser"
 				restart()
 			lose = true 
+		
+		$TEXT/number.text = str(temp)
+		
+		
+		if temp < goal:
+			$plate.texture("ice")
+			if is_reatched:
+				is_reatched = false
+				timelapse = 0
+		elif temp > goal:
+			$plate.texture("fire")
+			if is_reatched:
+				is_reatched = false
+				timelapse = 0
+		if temp==goal:
+			$plate.texture("normal")
+			
+			if !is_reatched:
+				is_reatched = true
+			else: 
+				timelapse += 1
+				if timelapse == to_wait :
+					$TEXT/win_state.text = "you win"
+					$Timer.stop()
+					restart()
 
 func restart(): 
 	$Button2.show() # show restart
-	$TEXT/explanation.text = "Ampicillin is an antibiotic\nmodified bacterias have antibiotic resistance\n adding AMPI will avoid contamination"
-	
+	$TEXT/explanation.text = "You need a specific temperature to grow bacteria"
 
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
@@ -77,3 +105,13 @@ func _on_button_2_pressed():
 	if not lose :
 		$Timer.wait_time -= 1
 	get_tree().reload_current_scene()
+
+
+func _on_up_pressed():
+	if temp < max:
+		temp += 1
+
+
+func _on_down_pressed():
+	if temp > min:
+		temp -= 1
