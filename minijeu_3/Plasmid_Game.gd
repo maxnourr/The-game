@@ -1,7 +1,7 @@
 extends Node
 
 #timer
-var time = 10
+var time = 20
 
 # screen
 var width = 0 #will be initialised in ready() 
@@ -15,7 +15,7 @@ var timelapse = 0
 var to_wait = 250
 var is_reatched = false
 var min = -15
-var max = 70
+var max = 60
 
 #game
 var lose = false 
@@ -37,9 +37,31 @@ func _ready():
 func resize():
 	width = get_viewport().size.x
 	height = get_viewport().size.y
-	#at the center
-	#$bacterias.position.x = get_viewport().size.x/2
-	#$bacterias.position.y = get_viewport().size.y/2
+	
+	$plate.position.x = 285*get_viewport().size.x/1152
+	$plate.position.y = 313*get_viewport().size.y/648
+	$plate.scale.x = get_viewport().size.x/1152
+	$plate.scale.y = $plate.scale.x
+	
+	$up.position.x = 901*get_viewport().size.x/1152
+	$up.position.y = 251*get_viewport().size.y/648
+	$up.scale.x = get_viewport().size.x/1152
+	$up.scale.y = $plate.scale.x
+	
+	$down.position.x = 901*get_viewport().size.x/1152
+	$down.position.y = 374*get_viewport().size.y/648
+	$down.scale.x = get_viewport().size.x/1152
+	$down.scale.y = $plate.scale.x
+	
+	$TEXT/temperature.position.x = 791*get_viewport().size.x/1152
+	$TEXT/temperature.position.y = 100*get_viewport().size.y/648
+	$TEXT/temperature.scale.x = get_viewport().size.x/1152
+	$TEXT/temperature.scale.y = $plate.scale.x
+	
+	$TEXT/number.position.x = 872*get_viewport().size.x/1152 - (get_viewport().size.x/1152-1)*300
+	$TEXT/number.position.y = 184*get_viewport().size.y/648
+	$TEXT/number.scale.x = get_viewport().size.x/1152
+	$TEXT/number.scale.y = $plate.scale.x
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
