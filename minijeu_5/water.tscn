@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvvwb8jvynklc"]
+
+[ext_resource type="Script" path="res://water.gd" id="1_l8ltf"]
+[ext_resource type="Texture2D" uid="uid://c6apm4iiqeuku" path="res://plate.png" id="2_xml6a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3vj07"]
+radius = 106.48
+
+[node name="water" type="Area2D"]
+script = ExtResource("1_l8ltf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xml6a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_3vj07")
