@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlm80ve2kiihc"]
+
+[ext_resource type="Script" path="res://clothe.gd" id="1_p0rxb"]
+[ext_resource type="Texture2D" uid="uid://dbl5ved5lfs43" path="res://sunglass.png" id="2_yhig0"]
+
+[node name="clothe" type="Area2D"]
+script = ExtResource("1_p0rxb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_yhig0")
+
+[node name="Button" type="Button" parent="."]
+offset_left = -69.0
+offset_top = -114.0
+offset_right = 71.0
+offset_bottom = -36.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

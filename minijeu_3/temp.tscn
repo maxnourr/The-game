@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://doi0p1dam1o3r"]
+
+[node name="temp" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
