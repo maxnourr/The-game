@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch8g8b303ccss"]
+
+[ext_resource type="Script" path="res://minijeu_5/eye.gd" id="1_e2moi"]
+[ext_resource type="Texture2D" uid="uid://6ac7wla5v2oy" path="res://minijeu_5/figures/icon.svg" id="1_qp6qy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abyvs"]
+size = Vector2(632, 634)
+
+[node name="eye" type="Area2D"]
+script = ExtResource("1_e2moi")
+metadata/type = "eye"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_qp6qy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_abyvs")

@@ -1,0 +1,162 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm7w3i5qr5sw0"]
+
+[ext_resource type="Script" path="res://minijeu_3/Plasmid_Game.gd" id="1_ts5mb"]
+[ext_resource type="PackedScene" uid="uid://cbxrintehgosj" path="res://minijeu_3/plate.tscn" id="2_44yqt"]
+[ext_resource type="Texture2D" uid="uid://tnqksvvlghf8" path="res://minijeu_3/figures/up.jpg" id="3_k3hlh"]
+[ext_resource type="Texture2D" uid="uid://dvjga2360ichd" path="res://minijeu_3/figures/down.jpg" id="4_owbfw"]
+
+[node name="Plasmid_Game" type="Node"]
+script = ExtResource("1_ts5mb")
+
+[node name="BackGround" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -15.5
+offset_right = 23.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Start
+"
+
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.5
+offset_top = -31.0
+offset_right = 32.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Restart
+"
+
+[node name="TEXT" type="CanvasLayer" parent="."]
+
+[node name="win_state" type="Label" parent="TEXT"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="time" type="Label" parent="TEXT"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "HELLO"
+
+[node name="explanation" type="Label" parent="TEXT"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.45098, 0.00392157, 0.745098, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 30
+
+[node name="temperature" type="Label" parent="TEXT"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 215.0
+offset_top = -224.0
+offset_right = 534.0
+offset_bottom = -136.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.717647, 0, 0.67451, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 50
+text = "Temperature"
+
+[node name="number" type="Label" parent="TEXT"]
+anchors_preset = -1
+anchor_left = 0.847
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -103.744
+offset_top = -140.0
+offset_right = -116.0
+offset_bottom = -68.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+
+[node name="plate" parent="." instance=ExtResource("2_44yqt")]
+position = Vector2(285, 313)
+
+[node name="up" type="Button" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -73.0
+offset_right = -143.0
+offset_bottom = 35.0
+grow_horizontal = 0
+grow_vertical = 2
+icon = ExtResource("3_k3hlh")
+
+[node name="down" type="Button" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = 50.0
+offset_right = -143.0
+offset_bottom = 158.0
+grow_horizontal = 0
+grow_vertical = 2
+icon = ExtResource("4_owbfw")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="up" to="." method="_on_up_pressed"]
+[connection signal="pressed" from="down" to="." method="_on_down_pressed"]
