@@ -3,9 +3,9 @@ extends Area2D
 #all the different type
 var type_list = ["AMPI","SOC","BLUE"] 
 var type = "BLUE"
-var textureAMPI = preload("res://AMPI.png")
-var textureBLUE = preload("res://BLUE.png")
-var textureSOC = preload("res://SOC.png")
+var textureAMPI = preload("res://figures/AMPI.png")
+var textureBLUE = preload("res://figures/BLUE.png")
+var textureSOC = preload("res://figures/SOC.png")
 var CanDrag = false
 
 # Called when the node enters the scene tree for the first time.

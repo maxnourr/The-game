@@ -43,7 +43,7 @@ func resize():
 	$body.position.x = get_viewport().size.x/2
 	$body.position.y = get_viewport().size.y/2
 	
-	#scale bacterias
+	#scale
 	$body.scale.x = get_viewport().size.x*0.5/1152
 	$body.scale.y = $body.scale.x
 	
@@ -64,21 +64,10 @@ func _process(delta):
 		#update time
 		$TEXT/time.text = str(max(0,T))
 		
-		#if time runs out (do not use signal because of malus
+		#if time runs out
 		if T == 0:
 			if lose == false:
 				$TEXT/win_state.text = "haha looser"
-				print(sunglasses)
-				print(protectglass)
-				print(blouse)
-				print(teeshirt)
-				print(pant)
-				print(short)
-				print(shoes)
-				print(openshoes)
-				print(mask)
-				print(carnaval)
-				
 				restart()
 			lose = true 
 
@@ -87,7 +76,7 @@ func restart():
 	
 func verify():
 	var value = -5
-	
+	#calculated score
 	if sunglasses == false:
 		value +=1
 	if protectglass == true:
@@ -109,8 +98,10 @@ func verify():
 	if carnaval == false:
 		value +=1
 	
+	#update progress bar
 	$ProgressBar.value = value
 	
+	#if you have the max -> you win
 	if value == 5:
 		$ProgressBar.visible = false
 		$Timer.stop()
@@ -132,52 +123,62 @@ func _on_button_2_pressed():
 
 
 func _on_sunglass_pressed():
-	sunglasses = !sunglasses
-	$body/sunglasses.visible = !$body/sunglasses.visible
-	verify()
+	if !$Timer.is_stopped():
+		sunglasses = !sunglasses
+		$body/sunglasses.visible = !$body/sunglasses.visible
+		verify()
 
 
 func _on_pglass_pressed():
-	protectglass = !protectglass
-	$body/protectglass.visible = !$body/protectglass.visible
-	verify()
+	if !$Timer.is_stopped():
+		protectglass = !protectglass
+		$body/protectglass.visible = !$body/protectglass.visible
+		verify()
 
 func _on_b_pressed():
-	blouse = !blouse
-	$body/blouse.visible = !$body/blouse.visible
-	verify()
+	if !$Timer.is_stopped():
+		blouse = !blouse
+		$body/blouse.visible = !$body/blouse.visible
+		verify()
 
 func _on_t_pressed():
-	teeshirt = !teeshirt
-	$body/teeshirt.visible = !$body/teeshirt.visible
-	verify()
+	if !$Timer.is_stopped():
+		teeshirt = !teeshirt
+		$body/teeshirt.visible = !$body/teeshirt.visible
+		verify()
 
 func _on_p_pressed():
-	pant = !pant
-	$body/pant.visible = !$body/pant.visible
-	verify()
+	if !$Timer.is_stopped():
+		pant = !pant
+		$body/pant.visible = !$body/pant.visible
+		verify()
 
 func _on_s_pressed():
-	short = !short
-	$body/short.visible = !$body/short.visible
-	verify()
+	if !$Timer.is_stopped():
+		short = !short
+		$body/short.visible = !$body/short.visible
+		verify()
 
 func _on_sho_pressed():
-	shoes = !shoes
-	$body/shoes.visible = !$body/shoes.visible
-	verify()
+	if !$Timer.is_stopped():
+		shoes = !shoes
+		$body/shoes.visible = !$body/shoes.visible
+		verify()
 
 func _on_pensho_pressed():
-	openshoes = !openshoes
-	$body/openshoes.visible = !$body/openshoes.visible
-	verify()
+	if !$Timer.is_stopped():
+		openshoes = !openshoes
+		$body/openshoes.visible = !$body/openshoes.visible
+		verify()
 
 func _on_m_pressed():
-	mask = !mask
-	$body/mask.visible = !$body/mask.visible
-	verify()
+	if !$Timer.is_stopped():
+		mask = !mask
+		$body/mask.visible = !$body/mask.visible
+		verify()
 
 func _on_c_pressed():
-	carnaval = !carnaval
-	$body/carnaval.visible = !$body/carnaval.visible
-	verify()
+	if !$Timer.is_stopped():
+		carnaval = !carnaval
+		$body/carnaval.visible = !$body/carnaval.visible
+		verify()

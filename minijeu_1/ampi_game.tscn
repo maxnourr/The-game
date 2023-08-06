@@ -94,22 +94,21 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
 theme_override_constants/outline_size = 30
 theme_override_font_sizes/font_size = 50
-text = "careful ! bacterias attack your culture. 
+text = "careful ! bacterias are attacking your culture. 
 Find the good tube and give them"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Button"]
 layout_mode = 0
-offset_left = -202.5
-offset_top = 120.5
-offset_right = 358.5
-offset_bottom = 264.5
+offset_left = -368.5
+offset_top = 122.5
+offset_right = 518.5
+offset_bottom = 266.5
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
 theme_override_constants/outline_size = 30
 theme_override_font_sizes/font_size = 50
-text = "select and move a tube 
-with the \"up\" touch"
+text = " \"up\" touch : select and move a tube "
 horizontal_alignment = 1
 
 [node name="Button2" type="Button" parent="."]

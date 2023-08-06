@@ -95,9 +95,9 @@ func restart():
 	if nb_tube == 1:
 		$TEXT/explanation.text = "Ampicillin is an antibiotic\nmodified bacterias have antibiotic resistance\n adding AMPI will avoid contamination"
 	elif nb_tube == 2:
-		$TEXT/explanation.text = "SOC is a nutrition buffer\n it help bacterias grow, even unwanted bacterias\n if you had without AMPI, you risk contamination"
+		$TEXT/explanation.text = "SOC is a nutrition buffer\n it help bacterias grow, even unwanted bacterias !\n if you SOC without AMPI, you risk contamination"
 	elif nb_tube == 3:
-		$TEXT/explanation.text = "Blue dye is just blue dye... it does nothing in that case"
+		$TEXT/explanation.text = "Blue dye is just blue dye..."
 
 #called when a tube enter the bacterias
 func _on_bacterias_area_entered(area):
@@ -109,7 +109,7 @@ func _on_bacterias_area_entered(area):
 	elif area.type == "BLUE": #do nothing
 		$TEXT/win_state.text = "I'm blue didadudidaduda"
 	elif area.type == "SOC": #good medium grow even unwanted bacterias
-		$TEXT/win_state.text = "Bacteria's happy ! malus time"   
+		$TEXT/win_state.text = "Bacterias are happy ! malus :("   
 		malus = true 
 		step = max(0,(max_size/2)/(max(0,time-malus_time))) #change step if malus !
 

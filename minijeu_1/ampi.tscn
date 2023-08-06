@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwt0hbwb3vqyh"]
 
 [ext_resource type="Script" path="res://tube.gd" id="1_xpcar"]
-[ext_resource type="Texture2D" uid="uid://dcmgabmrshyd6" path="res://SOC.png" id="2_bmrjx"]
+[ext_resource type="Texture2D" uid="uid://dcmgabmrshyd6" path="res://figures/SOC.png" id="2_0b5ew"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c8ogc"]
 radius = 28.0
@@ -15,7 +15,7 @@ script = ExtResource("1_xpcar")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(2.277, 2)
-texture = ExtResource("2_bmrjx")
+texture = ExtResource("2_0b5ew")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)

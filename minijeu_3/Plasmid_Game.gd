@@ -10,21 +10,22 @@ var height = 0
 #temperature
 var temp = 0
 var rng = RandomNumberGenerator.new()
-var goal = 0
-var timelapse = 0
-var to_wait = 250
-var is_reatched = false
-var min = -15
-var max = 60
 
 #game
 var lose = false 
+var goal = 0 #temperature goal
+var timelapse = 0 #time at the good temp
+var to_wait = 250 #goal time at the good temp
+var is_reatched = false #are you at the good temp ? 
+var min = -15 #min temp
+var max = 60 #max temp
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
 	
+	#random temp goal
 	goal = rng.randi_range(min,max)
 	
 	#set screen data
@@ -88,7 +89,7 @@ func _process(delta):
 		
 		$TEXT/number.text = str(temp)
 		
-		
+		#verif temp and play the right texture
 		if temp < goal:
 			$plate.texture("ice")
 			if is_reatched:
@@ -102,10 +103,10 @@ func _process(delta):
 		if temp==goal:
 			$plate.texture("normal")
 			
-			if !is_reatched:
+			if !is_reatched: 
 				is_reatched = true
 			else: 
-				timelapse += 1
+				timelapse += 1 #wait at the good time
 				if timelapse == to_wait :
 					$TEXT/win_state.text = "you win"
 					$Timer.stop()
@@ -128,12 +129,12 @@ func _on_button_2_pressed():
 		$Timer.wait_time -= 1
 	get_tree().reload_current_scene()
 
-
+#increase temp
 func _on_up_pressed():
 	if temp < max:
 		temp += 1
 
-
+#decrease temp
 func _on_down_pressed():
 	if temp > min:
 		temp -= 1

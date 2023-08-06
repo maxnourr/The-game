@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" path="res://clothe_game.gd" id="1_f3607"]
 [ext_resource type="PackedScene" uid="uid://cvgk6uh1iitqp" path="res://body.tscn" id="2_ercqi"]
-[ext_resource type="Texture2D" uid="uid://dbl5ved5lfs43" path="res://sunglass.png" id="3_0ng5b"]
-[ext_resource type="Texture2D" uid="uid://616s10c3y13" path="res://protectglass.png" id="4_luquy"]
-[ext_resource type="Texture2D" uid="uid://cabfsjcu53tnc" path="res://blouse.png" id="5_g5a83"]
-[ext_resource type="Texture2D" uid="uid://t8majx4k8rot" path="res://tee-shirt.png" id="6_asxgt"]
-[ext_resource type="Texture2D" uid="uid://dw1jusfve4qs4" path="res://pant.png" id="7_vk4ep"]
-[ext_resource type="Texture2D" uid="uid://blls7iw0ckhx0" path="res://short.png" id="8_sstld"]
-[ext_resource type="Texture2D" uid="uid://dtedajirremra" path="res://shoes.png" id="9_6a4wp"]
-[ext_resource type="Texture2D" uid="uid://crfm1dnmt2ndt" path="res://open_shoes.png" id="10_gd0di"]
-[ext_resource type="Texture2D" uid="uid://dxnieh5byuujx" path="res://mask.png" id="11_585q0"]
-[ext_resource type="Texture2D" uid="uid://cypnaiy1v6rdn" path="res://carnaval.png" id="12_idhiw"]
+[ext_resource type="Texture2D" uid="uid://blls7iw0ckhx0" path="res://figures/short.png" id="3_hxc67"]
+[ext_resource type="Texture2D" uid="uid://dw1jusfve4qs4" path="res://figures/pant.png" id="4_gk1vg"]
+[ext_resource type="Texture2D" uid="uid://dbl5ved5lfs43" path="res://figures/sunglass.png" id="5_i2utt"]
+[ext_resource type="Texture2D" uid="uid://616s10c3y13" path="res://figures/protectglass.png" id="6_jsthp"]
+[ext_resource type="Texture2D" uid="uid://cabfsjcu53tnc" path="res://figures/blouse.png" id="7_opqof"]
+[ext_resource type="Texture2D" uid="uid://t8majx4k8rot" path="res://figures/tee-shirt.png" id="8_jxnck"]
+[ext_resource type="Texture2D" uid="uid://dtedajirremra" path="res://figures/shoes.png" id="9_q8fy6"]
+[ext_resource type="Texture2D" uid="uid://crfm1dnmt2ndt" path="res://figures/open_shoes.png" id="10_jii2g"]
+[ext_resource type="Texture2D" uid="uid://dxnieh5byuujx" path="res://figures/mask.png" id="11_ao0ka"]
+[ext_resource type="Texture2D" uid="uid://cypnaiy1v6rdn" path="res://figures/carnaval.png" id="12_sgrsq"]
 
 [node name="clothe_Game" type="Node"]
 script = ExtResource("1_f3607")
@@ -39,7 +39,7 @@ offset_bottom = 180.0
 
 [node name="short" type="Sprite2D" parent="body"]
 visible = false
-texture = ExtResource("8_sstld")
+texture = ExtResource("3_hxc67")
 
 [node name="sho" type="Button" parent="body"]
 show_behind_parent = true
@@ -50,7 +50,7 @@ offset_bottom = 456.0
 
 [node name="pant" type="Sprite2D" parent="body"]
 visible = false
-texture = ExtResource("7_vk4ep")
+texture = ExtResource("4_gk1vg")
 
 [node name="sunglass" type="Button" parent="body"]
 show_behind_parent = true
@@ -61,7 +61,7 @@ offset_bottom = -266.0
 
 [node name="sunglasses" type="Sprite2D" parent="body"]
 visible = false
-texture = ExtResource("3_0ng5b")
+texture = ExtResource("5_i2utt")
 
 [node name="pglass" type="Button" parent="body"]
 show_behind_parent = true
@@ -72,7 +72,7 @@ offset_bottom = -260.0
 
 [node name="protectglass" type="Sprite2D" parent="body"]
 visible = false
-texture = ExtResource("4_luquy")
+texture = ExtResource("6_jsthp")
 
 [node name="b" type="Button" parent="body"]
 show_behind_parent = true
@@ -83,7 +83,7 @@ offset_bottom = 452.0
 
 [node name="blouse" type="Sprite2D" parent="body"]
 visible = false
-texture = ExtResource("5_g5a83")
+texture = ExtResource("7_opqof")
 
 [node name="t" type="Button" parent="body"]
 show_behind_parent = true
@@ -94,7 +94,7 @@ offset_bottom = 276.0
 
 [node name="teeshirt" type="Sprite2D" parent="body"]
 visible = false
-texture = ExtResource("6_asxgt")
+texture = ExtResource("8_jxnck")
 
 [node name="s" type="Button" parent="body"]
 show_behind_parent = true
@@ -105,7 +105,7 @@ offset_bottom = -116.0
 
 [node name="shoes" type="Sprite2D" parent="body"]
 visible = false
-texture = ExtResource("9_6a4wp")
+texture = ExtResource("9_q8fy6")
 
 [node name="pensho" type="Button" parent="body"]
 show_behind_parent = true
@@ -116,7 +116,7 @@ offset_bottom = 486.0
 
 [node name="openshoes" type="Sprite2D" parent="body"]
 visible = false
-texture = ExtResource("10_gd0di")
+texture = ExtResource("10_jii2g")
 
 [node name="m" type="Button" parent="body"]
 show_behind_parent = true
@@ -127,7 +127,7 @@ offset_bottom = 258.0
 
 [node name="mask" type="Sprite2D" parent="body"]
 visible = false
-texture = ExtResource("11_585q0")
+texture = ExtResource("11_ao0ka")
 
 [node name="c" type="Button" parent="body"]
 show_behind_parent = true
@@ -138,7 +138,7 @@ offset_bottom = 84.0
 
 [node name="carnaval" type="Sprite2D" parent="body"]
 visible = false
-texture = ExtResource("12_idhiw")
+texture = ExtResource("12_sgrsq")
 
 [node name="Node" type="Node" parent="body"]
 

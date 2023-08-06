@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Plasmid_Game.gd" id="1_ts5mb"]
 [ext_resource type="PackedScene" uid="uid://cbxrintehgosj" path="res://plate.tscn" id="2_44yqt"]
-[ext_resource type="Texture2D" uid="uid://tnqksvvlghf8" path="res://up.jpg" id="3_0obnn"]
-[ext_resource type="Texture2D" uid="uid://dvjga2360ichd" path="res://down.jpg" id="4_xn07v"]
+[ext_resource type="Texture2D" uid="uid://tnqksvvlghf8" path="res://figures/up.jpg" id="3_k3hlh"]
+[ext_resource type="Texture2D" uid="uid://dvjga2360ichd" path="res://figures/down.jpg" id="4_owbfw"]
 
 [node name="Plasmid_Game" type="Node"]
 script = ExtResource("1_ts5mb")
@@ -140,7 +140,7 @@ offset_right = -143.0
 offset_bottom = 35.0
 grow_horizontal = 0
 grow_vertical = 2
-icon = ExtResource("3_0obnn")
+icon = ExtResource("3_k3hlh")
 
 [node name="down" type="Button" parent="."]
 anchors_preset = 6
@@ -154,7 +154,7 @@ offset_right = -143.0
 offset_bottom = 158.0
 grow_horizontal = 0
 grow_vertical = 2
-icon = ExtResource("4_xn07v")
+icon = ExtResource("4_owbfw")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
