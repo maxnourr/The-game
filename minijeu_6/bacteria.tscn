@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://orwfo6t55vja"]
+
+[ext_resource type="Script" path="res://bacteria.gd" id="1_i3vmw"]
+[ext_resource type="Texture2D" uid="uid://bfvydgb6xdq0d" path="res://icon.svg" id="2_3ma5t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nuaf2"]
+size = Vector2(91, 86)
+
+[node name="bacteria" type="Area2D"]
+script = ExtResource("1_i3vmw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(271, 50.5)
+scale = Vector2(0.765625, 0.742188)
+texture = ExtResource("2_3ma5t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(272.5, 52)
+shape = SubResource("RectangleShape2D_nuaf2")

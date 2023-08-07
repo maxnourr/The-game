@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://bm7w3i5qr5sw0"]
+
+[ext_resource type="Script" path="res://GFP_game.gd" id="1_yrnpy"]
+[ext_resource type="PackedScene" uid="uid://mahfyml3kfeo" path="res://GFP.tscn" id="2_hv0p5"]
+[ext_resource type="PackedScene" uid="uid://orwfo6t55vja" path="res://bacteria.tscn" id="3_fwux5"]
+[ext_resource type="PackedScene" uid="uid://bg5kij2gvdk8d" path="res://obstacle.tscn" id="4_vyiwr"]
+
+[sub_resource type="Curve2D" id="Curve2D_2glkt"]
+
+[node name="GFP_game" type="Node"]
+script = ExtResource("1_yrnpy")
+
+[node name="BackGround" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ObstaclePath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_2glkt")
+
+[node name="ObstacleSpawnLoc" type="PathFollow2D" parent="ObstaclePath"]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -15.5
+offset_right = 23.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Start
+"
+
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.5
+offset_top = -31.0
+offset_right = 32.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Restart
+"
+
+[node name="GFP" parent="." instance=ExtResource("2_hv0p5")]
+position = Vector2(1065, 376)
+
+[node name="bacteria" parent="." instance=ExtResource("3_fwux5")]
+
+[node name="Obstacle" parent="." instance=ExtResource("4_vyiwr")]
+
+[node name="TEXT" type="CanvasLayer" parent="."]
+
+[node name="win_state" type="Label" parent="TEXT"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="time" type="Label" parent="TEXT"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "catch the GFP"
+
+[node name="explanation" type="Label" parent="TEXT"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
