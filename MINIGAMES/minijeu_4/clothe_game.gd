@@ -39,7 +39,6 @@ func _ready():
 
 #resize and position each element depending of the screen dimensions
 func resize():
-	
 	#at the center
 	$body.position.x = get_viewport().size.x/2
 	$body.position.y = get_viewport().size.y/2

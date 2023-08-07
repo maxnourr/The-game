@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b0tv17ivqoc1f"]
 
 [ext_resource type="Script" path="res://minijeu_1/ampi_game.gd" id="1_p2ery"]
-[ext_resource type="PackedScene" uid="uid://cvgk6uh1iitqp" path="res://minijeu_1/bacterias.tscn" id="2_8apun"]
+[ext_resource type="PackedScene" uid="uid://cvgk6uh1iitqp" path="res://minijeu_1/bacterias.tscn" id="2_61gea"]
 [ext_resource type="PackedScene" uid="uid://dgyxn155ejql7" path="res://minijeu_1/circle.tscn" id="3_trp5a"]
 
 [node name="AMPI_Game" type="Node"]
@@ -14,8 +14,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="bacterias" parent="." instance=ExtResource("2_8apun")]
-position = Vector2(566, 303)
+[node name="bacterias" parent="." instance=ExtResource("2_61gea")]
+position = Vector2(567, 330)
 
 [node name="circle" parent="." instance=ExtResource("3_trp5a")]
 position = Vector2(553, 324)
