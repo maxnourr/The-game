@@ -19,6 +19,7 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
 	
@@ -62,13 +63,20 @@ func _process(delta):
 			lose = true 
 
 func restart(): 
+	if lose == true:
+		$Button2.set_text("Restart")
+	else:
+		$Button2.set_text("Continue")
 	$Button2.show() # show restart
+	$Button3.show()
+	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
 			
 				
 
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
 	$Button.hide() #hide start
+	$Button3.hide()
 	#instantiate tubes
 	for n in nb_trash:
 		var trash = linktube.instantiate()
@@ -94,7 +102,11 @@ func _on_button_pressed():
 func _on_button_2_pressed():
 	$trash.started = false
 	$trash.nb_trash = 0
-	get_tree().reload_current_scene()
+	
+	if GlobalVar.on_randon == true and lose == false:
+		GlobalVar.pass_game()
+	else:
+		get_tree().reload_current_scene()
 
 #if exit area, we remove from list
 func _on_eye_area_exited(area):
@@ -105,6 +117,7 @@ func _on_eye_area_exited(area):
 			$Timer.stop()
 			$trash.started = false
 			$TEXT/win_state.text = "you win"
+			GlobalVar.coins +=1
 			restart()
 	
 #move trash if touch by water
@@ -112,3 +125,7 @@ func _on_water_area_entered(area):
 	if area.type == "trash" and !$Timer.is_stopped():
 		area.position.x += (area.position.x-$water.position.x)*0.5
 		area.position.y += (area.position.y-$water.position.y)*0.5
+
+
+func _on_button_3_pressed():
+	GlobalVar.to_menu()

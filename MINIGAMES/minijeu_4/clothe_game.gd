@@ -27,6 +27,7 @@ var carnaval = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
 	
@@ -72,7 +73,13 @@ func _process(delta):
 			lose = true 
 
 func restart(): 
+	if lose == true:
+		$Button2.set_text("Restart")
+	else:
+		$Button2.set_text("Continue")
 	$Button2.show() # show restart
+	$Button3.show()
+	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
 	
 func verify():
 	var value = -5
@@ -106,6 +113,7 @@ func verify():
 		$ProgressBar.visible = false
 		$Timer.stop()
 		$TEXT/win_state.text = "you win"
+		GlobalVar.coins +=1
 		restart()
 			
 				
@@ -113,13 +121,18 @@ func verify():
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
 	$Button.hide() #hide start
+	$Button3.hide()
 	#set timer
 	$TEXT/time.text = str(round($Timer.time_left))
 	$Timer.start()
 
 #called if restart pressed
 func _on_button_2_pressed():
-	get_tree().reload_current_scene()
+	
+	if GlobalVar.on_randon == true and lose == false:
+		GlobalVar.pass_game()
+	else:
+		get_tree().reload_current_scene()
 
 
 func _on_sunglass_pressed():
@@ -182,3 +195,7 @@ func _on_c_pressed():
 		carnaval = !carnaval
 		$body/carnaval.visible = !$body/carnaval.visible
 		verify()
+
+
+func _on_button_3_pressed():
+	GlobalVar.to_menu()

@@ -1,29 +1,33 @@
 extends Node
 
-static var coin = 0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
+#@onready var global_var = get_node("/root/GlobalVar")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	$Label.set_text("coins : " + str(GlobalVar.coins))
 
 
 func _on_minigame_1_pressed():
-	get_tree().change_scene_to_file("res://minijeu_1/ampi_game.tscn")
-
+	GlobalVar.to_load(GlobalVar.game[0])
 
 func _on_minigame_3_pressed():
-	get_tree().change_scene_to_file("res://minijeu_3/plasmid_game.tscn")
+	GlobalVar.to_load(GlobalVar.game[1])
 
 
 func _on_minigame_4_pressed():
-	get_tree().change_scene_to_file("res://minijeu_4/clothe_game.tscn")
+	GlobalVar.to_load(GlobalVar.game[2])
 
 
 func _on_minigame_5_pressed():
-	get_tree().change_scene_to_file("res://minijeu_5/wash_game.tscn")
+	GlobalVar.to_load(GlobalVar.game[3])
+
+
+func _on_on_random_pressed():
+	GlobalVar.on_randon = true
+	GlobalVar.pass_game()

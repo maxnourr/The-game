@@ -79,8 +79,33 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 50
 text = "Restart"
 
+[node name="Button3" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_bottom = 77.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "to menu"
+
+[node name="Label" type="Label" parent="Button3"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "coins :"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_exited" from="eye" to="." method="_on_eye_area_exited"]
 [connection signal="area_entered" from="water" to="." method="_on_water_area_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

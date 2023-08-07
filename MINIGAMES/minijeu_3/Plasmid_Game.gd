@@ -22,6 +22,7 @@ var max = 60 #max temp
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
 	
@@ -109,25 +110,37 @@ func _process(delta):
 				timelapse += 1 #wait at the good time
 				if timelapse == to_wait :
 					$TEXT/win_state.text = "you win"
+					GlobalVar.coins +=1
 					$Timer.stop()
 					restart()
 
 func restart(): 
+	if lose == true:
+		$Button2.set_text("Restart")
+	else:
+		$Button2.set_text("Continue")
 	$Button2.show() # show restart
+	$Button3.show()
+	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
 	$TEXT/explanation.text = "You need a specific temperature to grow bacteria"
 
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
 	$Button.hide() #hide start	
+	$Button3.hide()
 	#set timer
 	$TEXT/time.text = str(round($Timer.time_left))
 	$Timer.start()
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if not lose :
-		$Timer.wait_time -= 1
-	get_tree().reload_current_scene()
+	
+	if GlobalVar.on_randon == true and lose == false:
+		GlobalVar.pass_game()
+	else:
+		if not lose :
+			$Timer.wait_time -= 1
+		get_tree().reload_current_scene()
 
 #increase temp
 func _on_up_pressed():
@@ -138,3 +151,7 @@ func _on_up_pressed():
 func _on_down_pressed():
 	if temp > min:
 		temp -= 1
+
+
+func _on_button_3_pressed():
+	GlobalVar.to_menu()

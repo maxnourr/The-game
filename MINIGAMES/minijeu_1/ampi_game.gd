@@ -3,6 +3,7 @@ extends Node
 
 #static because we want to increase the number with the difficulty (each turn)
 static var nb_tube = 1
+var goal = 3
 
 #timer
 var time = 5
@@ -26,6 +27,7 @@ var lose = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
 	
@@ -87,11 +89,18 @@ func _process(delta):
 		if T == 0:
 			if lose == false:
 				$TEXT/win_state.text = "haha looser"
+				lose = true 
 				restart()
-			lose = true 
 
 func restart(): 
+	
+	if lose == true:
+		$Button2.set_text("Restart")
+	else:
+		$Button2.set_text("Continue")
 	$Button2.show() # show restart
+	$Button3.show()
+	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
 	if nb_tube == 1:
 		$TEXT/explanation.text = "Ampicillin is an antibiotic\nmodified bacterias have antibiotic resistance\n adding AMPI will avoid contamination"
 	elif nb_tube == 2:
@@ -105,6 +114,7 @@ func _on_bacterias_area_entered(area):
 	if area.type == "AMPI": # we want ampicillin
 		$Timer.stop()
 		$TEXT/win_state.text = "you win"
+		GlobalVar.coins +=1
 		restart()
 	elif area.type == "BLUE": #do nothing
 		$TEXT/win_state.text = "I'm blue didadudidaduda"
@@ -116,6 +126,7 @@ func _on_bacterias_area_entered(area):
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
 	$Button.hide() #hide start
+	$Button3.hide()
 	
 	#instantiate tubes
 	for n in nb_tube:
@@ -167,6 +178,14 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if not lose :
-		nb_tube += 1
-	get_tree().reload_current_scene()
+	
+	if GlobalVar.on_randon == true and nb_tube == goal and lose == false:
+		GlobalVar.pass_game()
+	else:
+		if not lose :
+			nb_tube += 1
+		get_tree().reload_current_scene()
+
+
+func _on_button_3_pressed():
+	GlobalVar.to_menu()

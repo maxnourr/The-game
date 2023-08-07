@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://b0tv17ivqoc1f"]
 
 [ext_resource type="Script" path="res://minijeu_4/clothe_game.gd" id="1_f3607"]
-[ext_resource type="PackedScene" uid="uid://cvgk6uh1iitqp" path="res://minijeu_4/body.tscn" id="2_ercqi"]
+[ext_resource type="PackedScene" uid="uid://cvgk6uh1iitqp" path="res://minijeu_1/bacterias.tscn" id="2_dx1qi"]
 [ext_resource type="Texture2D" uid="uid://blls7iw0ckhx0" path="res://minijeu_4/figures/short.png" id="3_hxc67"]
 [ext_resource type="Texture2D" uid="uid://dw1jusfve4qs4" path="res://minijeu_4/figures/pant.png" id="4_gk1vg"]
 [ext_resource type="Texture2D" uid="uid://dbl5ved5lfs43" path="res://minijeu_4/figures/sunglass.png" id="5_i2utt"]
@@ -27,8 +27,8 @@ grow_vertical = 2
 wait_time = 10.0
 one_shot = true
 
-[node name="body" parent="." instance=ExtResource("2_ercqi")]
-position = Vector2(574, 316)
+[node name="body" parent="." instance=ExtResource("2_dx1qi")]
+position = Vector2(483.6, 299.4)
 
 [node name="p" type="Button" parent="body"]
 show_behind_parent = true
@@ -210,8 +210,31 @@ min_value = -5.0
 max_value = 5.0
 step = 1.0
 
+[node name="Button3" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_bottom = 77.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "to menu"
+
+[node name="Label" type="Label" parent="Button3"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "coins :"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="area_entered" from="body" to="." method="_on_body_area_entered"]
 [connection signal="pressed" from="body/p" to="." method="_on_p_pressed"]
 [connection signal="pressed" from="body/sho" to="." method="_on_sho_pressed"]
 [connection signal="pressed" from="body/sunglass" to="." method="_on_sunglass_pressed"]
@@ -224,3 +247,4 @@ step = 1.0
 [connection signal="pressed" from="body/c" to="." method="_on_c_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
