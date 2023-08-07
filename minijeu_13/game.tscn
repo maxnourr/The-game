@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6sqxs7h44x5x"]
+
+[ext_resource type="PackedScene" uid="uid://cle4um2lspktn" path="res://player.tscn" id="1_7huq0"]
+[ext_resource type="Script" path="res://game.gd" id="1_mdapt"]
+[ext_resource type="PackedScene" uid="uid://cyf6h5cd6vc0s" path="res://food.tscn" id="2_5cvuk"]
+[ext_resource type="PackedScene" uid="uid://o4vnvm74xj3c" path="res://score text.tscn" id="3_l18mm"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_mdapt")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.968627, 0.894118, 0.721569, 1)
+
+[node name="player" parent="." instance=ExtResource("1_7huq0")]
+position = Vector2(177, 153)
+scale = Vector2(0.3, 0.3)
+
+[node name="food" parent="." instance=ExtResource("2_5cvuk")]
+position = Vector2(329, 195)
+scale = Vector2(0.2, 0.2)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_l18mm")]
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.061
+anchor_top = 0.057
+anchor_right = 0.061
+anchor_bottom = 0.057
+offset_left = 913.728
+offset_top = 504.064
+offset_right = 1063.73
+offset_bottom = 578.064
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = 7.0
+offset_right = 141.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 50
+text = "Reset"
+
+[connection signal="area_entered" from="food" to="food" method="_on_area_entered"]
+[connection signal="area_shape_entered" from="food" to="food" method="_on_area_shape_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
