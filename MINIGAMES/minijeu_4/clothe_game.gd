@@ -4,10 +4,6 @@ extends Node
 #timer
 var time = 20
 
-# screen
-var width = 0 #will be initialised in ready() 
-var height = 0
-
 
 #game
 var lose = false 
@@ -31,30 +27,8 @@ func _ready():
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
 	
-	#set screen data
-	width = get_viewport().size.x
-	height = get_viewport().size.y
-	resize() #resize the elements
-		
-
-#resize and position each element depending of the screen dimensions
-func resize():
-	#at the center
-	$body.position.x = get_viewport().size.x/2
-	$body.position.y = get_viewport().size.y/2
-	
-	#scale
-	$body.scale.x = get_viewport().size.x*0.5/1152
-	$body.scale.y = $body.scale.x
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	#resize if size change !
-	if width != get_viewport().size.x or height != get_viewport().size.y:
-		width = get_viewport().size.x
-		height = get_viewport().size.y
-		resize()
 		
 	#if timer running we update
 	if not $Timer.is_stopped():

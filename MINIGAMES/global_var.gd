@@ -1,7 +1,7 @@
 extends Node
 
-var game = ["res://minijeu_1/ampi_game.tscn","res://minijeu_3/Plasmid_Game.tscn","res://minijeu_4/clothe_game.tscn","res://minijeu_5/wash_game.tscn"]
-var do_game = ["res://minijeu_1/ampi_game.tscn","res://minijeu_3/Plasmid_Game.tscn","res://minijeu_4/clothe_game.tscn","res://minijeu_5/wash_game.tscn"]
+var game = ["res://minijeu_1/ampi_game.tscn","res://minijeu_2/node.tscn","res://minijeu_3/Plasmid_Game.tscn","res://minijeu_4/clothe_game.tscn","res://minijeu_5/wash_game.tscn"]
+var do_game = game 
 var coins = 0
 var on_randon = false
 var rng = RandomNumberGenerator

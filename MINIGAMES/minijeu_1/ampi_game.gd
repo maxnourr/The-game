@@ -6,13 +6,9 @@ static var nb_tube = 1
 var goal = 3
 
 #timer
-var time = 500
+var time = 5
 var malus = false #change the time if activated
 var malus_time = 3
-
-# screen
-var width = 0 #will be initialised in ready() 
-var height = 0
 
 #tubes
 var linktube = preload("ampi.tscn") #to create new tube
@@ -31,43 +27,8 @@ func _ready():
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
 	
-	#set screen data
-	width = get_viewport().size.x
-	height = get_viewport().size.y
-	resize() #resize the elements
-		
-
-#resize and position each element depending of the screen dimensions
-func resize():
-	
-	#at the center
-	$bacterias.position.x = get_viewport().size.x/2
-	$bacterias.position.y = get_viewport().size.y/2
-	
-	#at the center
-	$circle.position.x = get_viewport().size.x/2
-	$circle.position.y = get_viewport().size.y/2
-	
-	#scale bacterias
-	$bacterias.scale.x = get_viewport().size.x*0.5/1152
-	$bacterias.scale.y = $bacterias.scale.x
-	
-	#size circle dep on bacterias + step dep on screen dimensions
-	max_size = $bacterias.scale.x*1.5
-	$circle.scale.x = max(0,max_size)
-	$circle.scale.y = $circle.scale.x
-	step = max(0,(max_size/2)/time)
-	
-	#we do not resize tube because... because
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
-	#resize if size change !
-	if width != get_viewport().size.x or height != get_viewport().size.y:
-		width = get_viewport().size.x
-		height = get_viewport().size.y
-		resize()
 		
 	#if timer running we update
 	if not $Timer.is_stopped():
