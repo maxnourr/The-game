@@ -6,7 +6,7 @@ static var nb_tube = 1
 var goal = 3
 
 #timer
-var time = 500
+var time = 5
 var malus = false #change the time if activated
 var malus_time = 3
 
@@ -16,7 +16,7 @@ var rng = RandomNumberGenerator.new()
 
 #circle
 var step = 0 #will be initialisate in ready(), change in diameter at each delta
-var max_size = 1 
+var max_size = 0
 
 #game
 var lose = false 
@@ -27,10 +27,7 @@ func _ready():
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
 	
-	#size circle dep on bacterias + step dep on screen dimensions
-	max_size = $bacterias.scale.x*1.5
-	$circle.scale.x = max(0,max_size)
-	$circle.scale.y = $circle.scale.x
+	max_size = $circle.scale.x
 	step = max(0,(max_size/2)/time)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -84,14 +81,16 @@ func _on_bacterias_area_entered(area):
 		$bacterias.texture("happy")
 		GlobalVar.coins +=1
 		restart()
+		area.queue_free()
 	elif area.type == "BLUE": #do nothing
 		$TEXT/win_state.text = "I'm blue didadudidaduda"
 		$bacterias.blue_medium()
+		area.queue_free()
 	elif area.type == "SOC": #good medium grow even unwanted bacterias
 		$TEXT/win_state.text = "Bacterias are happy ! malus :("   
 		malus = true 
 		step = max(0,(max_size/2)/(max(0,time-malus_time))) #change step if malus !
-
+		area.queue_free()
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
 	$Button.hide() #hide start
@@ -145,7 +144,7 @@ func _on_button_pressed():
 func _on_button_2_pressed():
 	if not lose :
 		nb_tube += 1
-	if GlobalVar.on_randon == true and nb_tube-1 == goal and lose == false:
+	if GlobalVar.on_randon == true and nb_tube-1 >= goal and lose == false:
 		GlobalVar.pass_game()
 	else :
 		get_tree().reload_current_scene()
