@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdr3phtu0v08u"
-path="res://.godot/imported/fire_bact.png-80f84a22c23a0478bfa291ae0024c2ca.ctex"
+path="res://.godot/imported/fire_bact.png-36359e994603a14307d0e58abc6d9ce7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://figures/fire_bact.png"
-dest_files=["res://.godot/imported/fire_bact.png-80f84a22c23a0478bfa291ae0024c2ca.ctex"]
+source_file="res://minijeu_3/figures/fire_bact.png"
+dest_files=["res://.godot/imported/fire_bact.png-36359e994603a14307d0e58abc6d9ce7.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwhmu6ot6s86g"
-path="res://.godot/imported/bact.png-016a0f865329d74ea1496b5c64ed9fc2.ctex"
+path="res://.godot/imported/bact.png-6e27f2ba17c8da84ca427bea213d921c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://figures/bact.png"
-dest_files=["res://.godot/imported/bact.png-016a0f865329d74ea1496b5c64ed9fc2.ctex"]
+source_file="res://minijeu_3/figures/bact.png"
+dest_files=["res://.godot/imported/bact.png-6e27f2ba17c8da84ca427bea213d921c.ctex"]
 
 [params]
 

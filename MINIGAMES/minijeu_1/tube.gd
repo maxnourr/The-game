@@ -23,15 +23,16 @@ func set_type(T):
 	else: 
 		$Sprite2D.set_texture(textureSOC)
 	
-#call when mouse move
-func _input_event(viewport, event, shape_idx):
-	if event is InputEventMouseMotion:
-		if Input.is_action_pressed("ui_up"):
-			CanDrag = true
-		else:
-			CanDrag = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if CanDrag:
 		$".".global_position =  get_global_mouse_position()
+
+
+func _on_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseMotion:
+		if Input.is_action_pressed("ui_up"):
+			CanDrag = true
+		else:
+			CanDrag = false

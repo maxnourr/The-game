@@ -6,7 +6,7 @@ static var nb_tube = 1
 var goal = 3
 
 #timer
-var time = 5
+var time = 500
 var malus = false #change the time if activated
 var malus_time = 3
 
@@ -114,10 +114,12 @@ func _on_bacterias_area_entered(area):
 	if area.type == "AMPI": # we want ampicillin
 		$Timer.stop()
 		$TEXT/win_state.text = "you win"
+		$bacterias.texture("happy")
 		GlobalVar.coins +=1
 		restart()
 	elif area.type == "BLUE": #do nothing
 		$TEXT/win_state.text = "I'm blue didadudidaduda"
+		$bacterias.blue_medium()
 	elif area.type == "SOC": #good medium grow even unwanted bacterias
 		$TEXT/win_state.text = "Bacterias are happy ! malus :("   
 		malus = true 

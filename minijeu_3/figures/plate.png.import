@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://csf7p6cu04ydw"
-path="res://.godot/imported/plate.png-ba7c79de5b0698296efe446316651bb0.ctex"
+path="res://.godot/imported/plate.png-1604d534e9d3c15b9c3ca7dceed9df31.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://figures/plate.png"
-dest_files=["res://.godot/imported/plate.png-ba7c79de5b0698296efe446316651bb0.ctex"]
+source_file="res://minijeu_3/figures/plate.png"
+dest_files=["res://.godot/imported/plate.png-1604d534e9d3c15b9c3ca7dceed9df31.ctex"]
 
 [params]
 

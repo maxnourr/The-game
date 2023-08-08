@@ -8,19 +8,20 @@
 script = ExtResource("2_v3383")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_r08jn")
 
 [node name="bacteria" type="Sprite2D" parent="."]
 position = Vector2(-113, -9)
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.04, 0.04)
 texture = ExtResource("3_vivqa")
 
 [node name="bacteria3" type="Sprite2D" parent="."]
 position = Vector2(51, 81)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_vivqa")
 
 [node name="bacteria2" type="Sprite2D" parent="."]
 position = Vector2(28, -97)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("3_vivqa")
