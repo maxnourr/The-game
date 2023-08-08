@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7vtfbey6so5v"]
 
 [ext_resource type="Script" path="res://minijeu_8/dirt.gd" id="1_apbj5"]
-[ext_resource type="Texture2D" uid="uid://p7ir3i3tuoau" path="res://minijeu_8/36-360969_blue-paint-stain-png-transparent-png-1659591305.jpg" id="2_555fk"]
+[ext_resource type="Texture2D" uid="uid://qxf670u5abdg" path="res://minijeu_8/dirt.png" id="2_7vsiw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7kfy"]
-size = Vector2(103.25, 58.25)
+size = Vector2(116, 63.3729)
 
 [node name="dirt" type="Area2D"]
 position = Vector2(-676, -357)
@@ -12,10 +12,10 @@ script = ExtResource("1_apbj5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(665.516, 347.069)
-scale = Vector2(0.171215, 0.217061)
-texture = ExtResource("2_555fk")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_7vsiw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(672, 355)
+position = Vector2(671, 333)
 scale = Vector2(1, -0.725862)
 shape = SubResource("RectangleShape2D_y7kfy")

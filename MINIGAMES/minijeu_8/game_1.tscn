@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://dnyxwwl2qb7c0"]
 
-[ext_resource type="Script" path="res://game1.gd" id="1_rhiq0"]
-[ext_resource type="Texture2D" uid="uid://ck4a7vbsyr40x" path="res://minijeu_8/clipart-desk-testing-13-1000086389.png" id="2_6btk6"]
-[ext_resource type="PackedScene" uid="uid://rc8tsreyb7q1" path="res://minijeu_8/mouse.tscn" id="2_rrw68"]
-[ext_resource type="PackedScene" uid="uid://c7vtfbey6so5v" path="res://minijeu_8/dirt.tscn" id="3_gepf4"]
+[ext_resource type="Script" path="res://minijeu_8/Game1.gd" id="1_me0hd"]
+[ext_resource type="Texture2D" uid="uid://j6eo74hlhl5v" path="res://minijeu_8/bench.png" id="2_ynpfq"]
+[ext_resource type="PackedScene" uid="uid://c7vtfbey6so5v" path="res://minijeu_8/dirt.tscn" id="3_g2nhc"]
+[ext_resource type="PackedScene" uid="uid://rc8tsreyb7q1" path="res://minijeu_8/mouse.tscn" id="4_fsxno"]
 
 [node name="game1" type="Node"]
-script = ExtResource("1_rhiq0")
+script = ExtResource("1_me0hd")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 8
@@ -27,6 +27,11 @@ size_flags_vertical = 4
 layout_mode = 2
 mouse_default_cursor_shape = 2
 
+[node name="Clipart-desk-testing-13-1000086389" type="Sprite2D" parent="MarginContainer"]
+position = Vector2(550.5, 315)
+scale = Vector2(0.241227, 0.241404)
+texture = ExtResource("2_ynpfq")
+
 [node name="Scorelabel" type="Label" parent="MarginContainer"]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 2
@@ -37,70 +42,147 @@ text = "Clean the lab with the sponge/Nettoie le labeau avec l'eponge"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Clipart-desk-testing-13-1000086389" type="Sprite2D" parent="MarginContainer"]
-position = Vector2(639, 387)
-scale = Vector2(0.483965, 0.434549)
-texture = ExtResource("2_6btk6")
-
-[node name="dirt" parent="MarginContainer" instance=ExtResource("3_gepf4")]
+[node name="dirt" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
 position = Vector2(916, 495)
 scale = Vector2(0.285295, 0.336839)
 
-[node name="dirt2" parent="MarginContainer" instance=ExtResource("3_gepf4")]
+[node name="dirt2" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
 position = Vector2(832.588, 36.5857)
 scale = Vector2(0.285295, 0.336839)
 
-[node name="dirt3" parent="MarginContainer" instance=ExtResource("3_gepf4")]
+[node name="dirt3" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
 position = Vector2(-20.9999, 9)
 scale = Vector2(0.275948, 0.370683)
 
-[node name="dirt4" parent="MarginContainer" instance=ExtResource("3_gepf4")]
+[node name="dirt4" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
 position = Vector2(698, 309)
 scale = Vector2(0.531633, 0.38843)
 
-[node name="dirt5" parent="MarginContainer" instance=ExtResource("3_gepf4")]
+[node name="dirt5" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
 position = Vector2(489, -52)
 scale = Vector2(0.463239, 0.429949)
 
-[node name="dirt6" parent="MarginContainer" instance=ExtResource("3_gepf4")]
+[node name="dirt6" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
 position = Vector2(35.9999, 90)
 scale = Vector2(0.512762, 0.461105)
 
-[node name="dirt7" parent="MarginContainer" instance=ExtResource("3_gepf4")]
+[node name="dirt7" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
 position = Vector2(-196, 423)
 scale = Vector2(0.576755, 0.478148)
 
-[node name="dirt8" parent="MarginContainer" instance=ExtResource("3_gepf4")]
+[node name="dirt8" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
 position = Vector2(706, 143)
 scale = Vector2(0.435277, 0.541278)
 
-[node name="dirt9" parent="MarginContainer" instance=ExtResource("3_gepf4")]
+[node name="dirt9" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
 position = Vector2(-302, 143)
 scale = Vector2(0.550746, 0.527173)
 
-[node name="dirt10" parent="MarginContainer" instance=ExtResource("3_gepf4")]
+[node name="dirt10" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
 position = Vector2(218, 318)
 scale = Vector2(0.55701, 0.533201)
 
-[node name="mouse" parent="MarginContainer" instance=ExtResource("2_rrw68")]
+[node name="mouse" parent="MarginContainer" instance=ExtResource("4_fsxno")]
 position = Vector2(0, 2)
-scale = Vector2(0.522818, 0.457322)
 
-[node name="return" type="Button" parent="."]
-modulate = Color(0.94902, 0, 0.760784, 1)
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = -59.0
-offset_right = 1491.0
-offset_bottom = 597.0
-grow_vertical = 0
-scale = Vector2(0.0532023, 0.0804242)
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 200
-text = "RETURN 
+[node name="TEXT" type="CanvasLayer" parent="."]
 
+[node name="win_state" type="Label" parent="TEXT"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="time" type="Label" parent="TEXT"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+
+[node name="explanation" type="Label" parent="TEXT"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.45098, 0.00392157, 0.745098, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 30
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -38.5
+offset_right = 63.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Start
 "
 
-[connection signal="pressed" from="return" to="." method="_on_return_pressed"]
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -77.0
+offset_right = 92.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Restart
+"
+
+[node name="Button3" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_bottom = 77.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "to menu"
+
+[node name="Label" type="Label" parent="Button3"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "coins :"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
