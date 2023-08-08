@@ -2,7 +2,7 @@
 extends Node
 
 #timer
-var time = 20
+static var time = 20
 
 
 #game
@@ -19,6 +19,10 @@ var shoes = false
 var openshoes = false
 var mask = false
 var carnaval = false
+var gant = false
+var banana = false
+var hair_c = false
+var hair_l = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -55,7 +59,7 @@ func restart():
 	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
 	
 func verify():
-	var value = -5
+	var value = -7
 	#calculated score
 	if sunglasses == false:
 		value +=1
@@ -77,12 +81,20 @@ func verify():
 		value +=1
 	if carnaval == false:
 		value +=1
+	if gant == true:
+		value +=1
+	if banana == false:
+		value +=1
+	if hair_c == true:
+		value +=1
+	if hair_l == false:
+		value +=1
 	
 	#update progress bar
 	$ProgressBar.value = value
 	
 	#if you have the max -> you win
-	if value == 5:
+	if value == 7:
 		$ProgressBar.visible = false
 		$Timer.stop()
 		$TEXT/win_state.text = "you win"
@@ -101,7 +113,8 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	
+	if not lose:
+		time = max(5,time-3)
 	if GlobalVar.on_randon == true and lose == false:
 		GlobalVar.pass_game()
 	else:
@@ -141,14 +154,14 @@ func _on_p_pressed():
 
 func _on_s_pressed():
 	if !$Timer.is_stopped():
-		short = !short
-		$body/short.visible = !$body/short.visible
+		shoes = !shoes
+		$body/shoes.visible = !$body/shoes.visible
 		verify()
 
 func _on_sho_pressed():
 	if !$Timer.is_stopped():
-		shoes = !shoes
-		$body/shoes.visible = !$body/shoes.visible
+		short = !short
+		$body/short.visible = !$body/short.visible
 		verify()
 
 func _on_pensho_pressed():
@@ -169,6 +182,36 @@ func _on_c_pressed():
 		$body/carnaval.visible = !$body/carnaval.visible
 		verify()
 
+func _on_g_pressed():
+	if !$Timer.is_stopped():
+		gant = !gant
+		$body/gant.visible = !$body/gant.visible
+		verify()
+
+
+func _on_bana_pressed():
+	if !$Timer.is_stopped():
+		banana = !banana
+		$body/banana.visible = !$body/banana.visible
+		verify()
+	
+
+func _on_h_c_pressed():
+	if !$Timer.is_stopped():
+		hair_c = !hair_c
+		$body/hair_c.visible = !$body/hair_c.visible
+		verify()
+
+func _on_h_l_pressed():
+	if !$Timer.is_stopped():
+		hair_l = !hair_l
+		$body/hair_l.visible = !$body/hair_l.visible
+		verify()
 
 func _on_button_3_pressed():
 	GlobalVar.to_menu()
+
+
+
+
+

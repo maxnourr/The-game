@@ -14,10 +14,13 @@ scale = Vector2(0.186016, 0.167268)
 texture = ExtResource("2_igfpe")
 
 [node name="bloc3" parent="." instance=ExtResource("1_he15d")]
+position = Vector2(-54, -18)
 
 [node name="bloc" parent="." instance=ExtResource("1_he15d")]
+position = Vector2(-54, -18)
 
 [node name="bloc2" parent="." instance=ExtResource("1_he15d")]
+position = Vector2(-54, -18)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("3_rnkir")]
 

@@ -7,7 +7,7 @@ var move = false
 var win = false
 
 #timer
-var time = 5
+static var time = 5
 
 # deux valeurs randoms différentes, une qui est le goal et une qui est la valeur de départ
 # move est là pour immobiliser le rectangle une fois la partie gagnée.
@@ -46,10 +46,11 @@ func _process(delta):
 			restart()
 	
 func restart(): 
-	if win:
+	if not win:
 		$Button2.set_text("Restart")
 	else:
 		$Button2.set_text("Continue")
+	$Button2.show()
 	$Button3.show()
 	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
 	$TEXT/explanation.text = "congrats you tricked igem"
@@ -79,11 +80,11 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
+	if win :
+		time = max(1,time-1) 
 	if GlobalVar.on_randon == true and win == true:
 		GlobalVar.pass_game()
 	else:
-		if win :
-			pass
 		get_tree().reload_current_scene()
 
 

@@ -8,7 +8,7 @@ size = Vector2(24, 72)
 [node name="bloc" type="Area2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.08165e-12, 2.08165e-12)
+position = Vector2(-52, 1)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_4ivqo")
 

@@ -7,6 +7,7 @@ var textureAMPI = preload("figures/AMPI.png")
 var textureBLUE = preload("figures/BLUE.png")
 var textureSOC = preload("figures/SOC.png")
 var CanDrag = false
+static var on_game = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,7 +27,7 @@ func set_type(T):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if CanDrag:
+	if CanDrag and on_game:
 		$".".global_position =  get_global_mouse_position()
 
 

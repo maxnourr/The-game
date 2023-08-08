@@ -27,6 +27,12 @@ func _ready():
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
 	
+	#size circle dep on bacterias + step dep on screen dimensions
+	max_size = $bacterias.scale.x*1.5
+	$circle.scale.x = max(0,max_size)
+	$circle.scale.y = $circle.scale.x
+	step = max(0,(max_size/2)/time)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 		
@@ -54,7 +60,7 @@ func _process(delta):
 				restart()
 
 func restart(): 
-	
+	$Tube.on_game = false
 	if lose == true:
 		$Button2.set_text("Restart")
 	else:
@@ -95,6 +101,7 @@ func _on_button_pressed():
 	for n in nb_tube:
 		var tube = linktube.instantiate()
 		add_child(tube)
+		tube.on_game = true
 		
 		if round(n) <= 0:
 			tube.set_type("AMPI") #need at least 1
@@ -104,11 +111,6 @@ func _on_button_pressed():
 			tube.set_type("BLUE")
 		else: #random type
 			tube.set_type(tube.type_list[randi() % tube.type_list.size()])
-
-			
-		#scale dep on current screen size !
-		tube.scale.x = get_viewport().size.x*0.6/1152
-		tube.scale.y = tube.scale.x
 		
 		#add random out of the central square
 		#it is a horrible way to do it but it's working, godot destroyed my brain
@@ -118,20 +120,20 @@ func _on_button_pressed():
 			randomize()
 			test = rng.randi_range(0,1)
 			if test ==1:
-				tube.position.x = rng.randi_range(25,get_viewport().size.x/2-get_viewport().size.x/1152*500)
-				tube.position.y = rng.randi_range(100,get_viewport().size.y-100)
+				tube.position.x = rng.randi_range(25,1152/2-500)
+				tube.position.y = rng.randi_range(200,648-200)
 			else :
-				tube.position.x = rng.randi_range(get_viewport().size.x/2+get_viewport().size.x/1152*500,get_viewport().size.x-25)
-				tube.position.y = rng.randi_range(100,get_viewport().size.y-100)
+				tube.position.x = rng.randi_range(1152/2+500,1152-25)
+				tube.position.y = rng.randi_range(200,648-200)
 		else:
 			randomize()
 			test = rng.randi_range(0,1)
 			if test==1:
-				tube.position.x = rng.randi_range(25,get_viewport().size.x-25)
-				tube.position.y = rng.randi_range(100,get_viewport().size.y/2-get_viewport().size.y/1152*400)
+				tube.position.x = rng.randi_range(25,1152-25)
+				tube.position.y = rng.randi_range(200,648/2-400)
 			else:
-				tube.position.x = rng.randi_range(25,get_viewport().size.x-25)
-				tube.position.y = rng.randi_range(get_viewport().size.y/2+get_viewport().size.y/1152*400,get_viewport().size.y-100)
+				tube.position.x = rng.randi_range(25,1152-25)
+				tube.position.y = rng.randi_range(648/2+400,648-200)
 	
 		
 		
@@ -141,12 +143,11 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	
-	if GlobalVar.on_randon == true and nb_tube == goal and lose == false:
+	if not lose :
+		nb_tube += 1
+	if GlobalVar.on_randon == true and nb_tube-1 == goal and lose == false:
 		GlobalVar.pass_game()
-	else:
-		if not lose :
-			nb_tube += 1
+	else :
 		get_tree().reload_current_scene()
 
 

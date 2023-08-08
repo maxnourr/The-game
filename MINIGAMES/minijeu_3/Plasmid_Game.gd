@@ -1,7 +1,7 @@
 extends Node
 
 #timer
-var time = 20
+static var time = 20
 
 #temperature
 var temp = 0
@@ -13,7 +13,7 @@ var goal = 0 #temperature goal
 var timelapse = 0 #time at the good temp
 var to_wait = 250 #goal time at the good temp
 var is_reatched = false #are you at the good temp ? 
-var min = -15 #min temp
+var min = -20 #min temp
 var max = 60 #max temp
 
 # Called when the node enters the scene tree for the first time.
@@ -89,12 +89,11 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	
+	if not lose :
+		time = max(8,time-4)
 	if GlobalVar.on_randon == true and lose == false:
 		GlobalVar.pass_game()
 	else:
-		if not lose :
-			$Timer.wait_time -= 1
 		get_tree().reload_current_scene()
 
 #increase temp

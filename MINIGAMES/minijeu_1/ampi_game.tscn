@@ -18,7 +18,7 @@ grow_vertical = 2
 position = Vector2(567, 330)
 
 [node name="circle" parent="." instance=ExtResource("3_trp5a")]
-position = Vector2(553, 324)
+position = Vector2(576, 324)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
