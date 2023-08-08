@@ -1,0 +1,13 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1691505964
+36-360969_blue-paint-stain-png-transparent-png-1659591305.jpg::CompressedTexture2D::1119410321449537436::1690556134::1691505964::1::::<><>::
+1464f5cbd3244c9d684c1e5c923cebea-2539491587(1).jpg::CompressedTexture2D::3468870848620139856::1691069674::1691505964::1::::<><>::
+clipart-desk-testing-13-1000086389.png::CompressedTexture2D::5534655009424985829::1690555844::1691505964::1::::<><>::
+dirt.gd::GDScript::-1::1691504880::0::1::::<>Area2D<>::
+dirt.tscn::PackedScene::7063398908305750089::1691505002::0::1::::<><>::res://dirt.gd<>uid://p7ir3i3tuoau::::res://36-360969_blue-paint-stain-png-transparent-png-1659591305.jpg
+Game1.gd::GDScript::-1::1691504829::0::1::::<>Node<>::
+game_1.gd::GDScript::-1::1690554936::0::1::::<>Node2D<>::
+game_1.tscn::PackedScene::8122699036525461125::1691505002::0::1::::<><>::res://game1.gd<>uid://ck4a7vbsyr40x::::res://clipart-desk-testing-13-1000086389.png<>uid://rc8tsreyb7q1::::res://mouse.tscn<>uid://c7vtfbey6so5v::::res://dirt.tscn
+icon.svg::CompressedTexture2D::6561128378554581825::1690549979::1691505964::1::::<><>::
+Mouse.gd::GDScript::-1::1691504380::0::1::::<>Area2D<>::
+mouse.tscn::PackedScene::1199377660096024706::1691505002::0::1::::<><>::res://mouse.gd<>uid://bpol2ciw4j1l1::::res://1464f5cbd3244c9d684c1e5c923cebea-2539491587(1).jpg
