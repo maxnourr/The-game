@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://rc8tsreyb7q1"]
+
+[ext_resource type="Script" path="res://mouse.gd" id="1_i3xcv"]
+[ext_resource type="Texture2D" uid="uid://bpol2ciw4j1l1" path="res://minijeu_8/1464f5cbd3244c9d684c1e5c923cebea-2539491587(1).jpg" id="2_du2d1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohqn8"]
+size = Vector2(45, 60)
+
+[node name="mouse" type="Area2D"]
+script = ExtResource("1_i3xcv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_du2d1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_ohqn8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
