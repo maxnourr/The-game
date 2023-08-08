@@ -1,17 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://dvvwb8jvynklc"]
 
 [ext_resource type="Script" path="res://minijeu_5/water.gd" id="1_l8ltf"]
-[ext_resource type="Texture2D" uid="uid://c6apm4iiqeuku" path="res://minijeu_5/figures/plate.png" id="2_xml6a"]
+[ext_resource type="Texture2D" uid="uid://bkli0dgafrwhv" path="res://minijeu_5/figures/jet.png" id="2_28sg6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3vj07"]
-radius = 106.48
+radius = 56.0803
 
 [node name="water" type="Area2D"]
 script = ExtResource("1_l8ltf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xml6a")
+position = Vector2(133, 120)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_28sg6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -7)
 shape = SubResource("CircleShape2D_3vj07")

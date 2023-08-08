@@ -8,7 +8,8 @@ var time = 20
 var lose = false 
 
 #trash
-var nb_trash = 10
+static var nb_trash = 10
+var removed = 0
 var linktube = preload("trash.tscn") #to create new tube
 var rng = RandomNumberGenerator.new()
 
@@ -57,28 +58,24 @@ func _on_button_pressed():
 	for n in nb_trash:
 		var trash = linktube.instantiate()
 		add_child(trash)
-			
-		#scale dep on current screen size !
-		trash.scale.x = get_viewport().size.x/1152
-		trash.scale.y = trash.scale.x
 		
-		#add random
-		#it is a horrible way to do it but it's working, godot destroyed my brain
-		randomize()
-		trash.position.x = rng.randi_range(get_viewport().size.x/2-270*get_viewport().size.x/1152,get_viewport().size.x/2+270*get_viewport().size.x/1152)
-		trash.position.y = rng.randi_range(get_viewport().size.y/2-270*get_viewport().size.y/1152,get_viewport().size.y/2+270*get_viewport().size.y/1152)
-		
-		
+		if n in range(0,nb_trash/2):
+			randomize()
+			trash.position.x = rng.randi_range(575-350-450/2,575-350+450/2)
+			trash.position.y = rng.randi_range(325-250/2,325+250/2)
+		else:
+			randomize()
+			trash.position.x = rng.randi_range(575+350-450/2,575+350+450/2)
+			trash.position.y = rng.randi_range(325-250/2,325+250/2)
+	
 	#set timer
 	$TEXT/time.text = str(round($Timer.time_left))
 	$Timer.start()
-	$trash.started = true
 
 #called if restart pressed
 func _on_button_2_pressed():
-	$trash.started = false
-	$trash.nb_trash = 0
-	
+	if not lose:
+		nb_trash += 10
 	if GlobalVar.on_randon == true and lose == false:
 		GlobalVar.pass_game()
 	else:
@@ -87,12 +84,12 @@ func _on_button_2_pressed():
 #if exit area, we remove from list
 func _on_eye_area_exited(area):
 	if area.type == "trash":
-		area.nb_trash -= 1
-		area.visible = false
-		if area.nb_trash <= 0:
+		area.queue_free()
+		removed +=1
+		if removed == nb_trash:
 			$Timer.stop()
-			$trash.started = false
 			$TEXT/win_state.text = "you win"
+			$eye.set_type("good")
 			GlobalVar.coins +=1
 			restart()
 	

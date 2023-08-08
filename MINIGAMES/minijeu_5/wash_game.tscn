@@ -19,7 +19,7 @@ wait_time = 10.0
 one_shot = true
 
 [node name="eye" parent="." instance=ExtResource("2_r1ykp")]
-position = Vector2(572, 326)
+position = Vector2(575, 325)
 
 [node name="water" parent="." instance=ExtResource("4_pn8gj")]
 position = Vector2(125, 327)

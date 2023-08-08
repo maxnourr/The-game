@@ -6,7 +6,7 @@ static var nb_tube = 1
 var goal = 3
 
 #timer
-var time = 5
+var time = 500
 var malus = false #change the time if activated
 var malus_time = 3
 
