@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6sqxs7h44x5x"]
 
 [ext_resource type="PackedScene" uid="uid://cle4um2lspktn" path="res://minijeu_13/player.tscn" id="1_7huq0"]
-[ext_resource type="Script" path="res://game.gd" id="1_mdapt"]
+[ext_resource type="Script" path="res://minijeu_13/game.gd" id="1_ddvvm"]
 [ext_resource type="PackedScene" uid="uid://cyf6h5cd6vc0s" path="res://minijeu_13/food.tscn" id="2_5cvuk"]
 
 [node name="Node" type="Node"]
-script = ExtResource("1_mdapt")
+script = ExtResource("1_ddvvm")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -20,12 +20,8 @@ position = Vector2(177, 153)
 scale = Vector2(0.3, 0.3)
 
 [node name="food" parent="." instance=ExtResource("2_5cvuk")]
+visible = false
 position = Vector2(329, 195)
-scale = Vector2(0.2, 0.2)
-
-[node name="food2" parent="." instance=ExtResource("2_5cvuk")]
-position = Vector2(727, 421)
-scale = Vector2(0.2, 0.2)
 
 [node name="TEXT" type="CanvasLayer" parent="."]
 
@@ -125,10 +121,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "coins :"
 
-[connection signal="area_entered" from="food" to="food" method="_on_area_entered"]
 [connection signal="area_shape_entered" from="food" to="food" method="_on_area_shape_entered"]
-[connection signal="area_entered" from="food2" to="food2" method="_on_area_entered"]
-[connection signal="area_shape_entered" from="food2" to="food2" method="_on_area_shape_entered"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
