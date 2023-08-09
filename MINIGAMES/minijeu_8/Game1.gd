@@ -72,12 +72,14 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
+	$food.destroy()
 	if win :
 		time = max(4,time-2)
 	if GlobalVar.on_randon == true and win:
 		GlobalVar.pass_game()
 	else:
 		get_tree().reload_current_scene()
+		
 
 func _on_button_3_pressed():
 	GlobalVar.to_menu()

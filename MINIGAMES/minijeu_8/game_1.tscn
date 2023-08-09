@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dnyxwwl2qb7c0"]
 
 [ext_resource type="Script" path="res://minijeu_8/Game1.gd" id="1_me0hd"]
-[ext_resource type="Texture2D" uid="uid://j6eo74hlhl5v" path="res://minijeu_8/bench.png" id="2_ynpfq"]
+[ext_resource type="Texture2D" uid="uid://j6eo74hlhl5v" path="res://minijeu_8/figures/bench.png" id="2_ynpfq"]
 [ext_resource type="PackedScene" uid="uid://c7vtfbey6so5v" path="res://minijeu_8/dirt.tscn" id="3_g2nhc"]
 [ext_resource type="PackedScene" uid="uid://rc8tsreyb7q1" path="res://minijeu_8/mouse.tscn" id="4_fsxno"]
 

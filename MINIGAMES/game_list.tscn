@@ -126,7 +126,6 @@ layout_mode = 2
 text = "Game 12"
 
 [node name="game13" type="Button" parent="VBoxContainer3"]
-modulate = Color(0.415686, 0, 0, 1)
 layout_mode = 2
 text = "Game 13"
 

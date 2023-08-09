@@ -1,9 +1,9 @@
 extends Node
 
-var game = ["res://minijeu_1/ampi_game.tscn","res://minijeu_2/node.tscn","res://minijeu_3/Plasmid_Game.tscn","","","","res://minijeu_5/wash_game.tscn","res://minijeu_8/game_1.tscn","","","","","","","res://minijeu_4/clothe_game.tscn"]
+var game = ["res://minijeu_1/ampi_game.tscn","res://minijeu_2/node.tscn","res://minijeu_3/Plasmid_Game.tscn","","","","res://minijeu_5/wash_game.tscn","res://minijeu_8/game_1.tscn","","","","","res://minijeu_13/game.tscn","","res://minijeu_4/clothe_game.tscn"]
 
 #en attendant tout les jeux
-var for_random_mode = ["res://minijeu_1/ampi_game.tscn","res://minijeu_2/node.tscn","res://minijeu_3/Plasmid_Game.tscn","res://minijeu_5/wash_game.tscn","res://minijeu_8/game_1.tscn","res://minijeu_4/clothe_game.tscn"]
+var for_random_mode = ["res://minijeu_1/ampi_game.tscn","res://minijeu_2/node.tscn","res://minijeu_3/Plasmid_Game.tscn","res://minijeu_5/wash_game.tscn","res://minijeu_8/game_1.tscn","res://minijeu_13/game.tscn","res://minijeu_4/clothe_game.tscn"]
 
 var do_game = for_random_mode.duplicate()
 var coins = 0
