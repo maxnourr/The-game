@@ -1,10 +1,12 @@
 extends Node
 
 var sco = 0
-var nb_dirt = 10
+var nb_dirt = 20
+var linktube = preload("dirt.tscn") #to create new tube
+var rng = RandomNumberGenerator.new()
 var win = false
 
-static var time = 10
+static var time = 5
 
 func _ready():
 	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
@@ -68,11 +70,19 @@ func _on_button_pressed():
 	#set timer
 	$TEXT/time.text = str(round($Timer.time_left))
 	$MarginContainer/mouse.running = true
+	
+	for n in nb_dirt:
+		var dirt = linktube.instantiate()
+		randomize()
+		dirt.position.x = rng.randi_range(220,get_viewport().size.x-50)
+		dirt.position.y = rng.randi_range(120,get_viewport().size.y-50)
+		add_child(dirt)
+	
+		
 	$Timer.start()
 
 #called if restart pressed
 func _on_button_2_pressed():
-	$food.destroy()
 	if win :
 		time = max(4,time-2)
 	if GlobalVar.on_randon == true and win:

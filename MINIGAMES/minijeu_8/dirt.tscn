@@ -7,15 +7,19 @@
 size = Vector2(116, 63.3729)
 
 [node name="dirt" type="Area2D"]
-position = Vector2(-676, -357)
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_apbj5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(665.516, 347.069)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_7vsiw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(671, 333)
+position = Vector2(0, -14)
+scale = Vector2(1, -0.725862)
+shape = SubResource("RectangleShape2D_y7kfy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -14)
 scale = Vector2(1, -0.725862)
 shape = SubResource("RectangleShape2D_y7kfy")

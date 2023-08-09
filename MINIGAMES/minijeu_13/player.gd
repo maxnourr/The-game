@@ -2,6 +2,17 @@ extends Area2D
 @export var speed = 400.0
 var running = false
 
+var happy = preload("figures/happy.png")
+var angry = preload("figures/angry.png")
+
+func _ready():
+	set_state("angry")
+	
+func set_state(state):
+	if state == "happy":
+		$Sprite2D.set_texture(happy)
+	elif state == "angry":
+		$Sprite2D.set_texture(angry)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if running:

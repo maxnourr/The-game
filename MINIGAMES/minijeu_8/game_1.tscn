@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnyxwwl2qb7c0"]
+[gd_scene load_steps=4 format=3 uid="uid://dnyxwwl2qb7c0"]
 
 [ext_resource type="Script" path="res://minijeu_8/Game1.gd" id="1_me0hd"]
 [ext_resource type="Texture2D" uid="uid://j6eo74hlhl5v" path="res://minijeu_8/figures/bench.png" id="2_ynpfq"]
-[ext_resource type="PackedScene" uid="uid://c7vtfbey6so5v" path="res://minijeu_8/dirt.tscn" id="3_g2nhc"]
 [ext_resource type="PackedScene" uid="uid://rc8tsreyb7q1" path="res://minijeu_8/mouse.tscn" id="4_fsxno"]
 
 [node name="game1" type="Node"]
@@ -42,48 +41,8 @@ text = "Clean the lab with the sponge/Nettoie le labeau avec l'eponge"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="dirt" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
-position = Vector2(916, 495)
-scale = Vector2(0.285295, 0.336839)
-
-[node name="dirt2" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
-position = Vector2(832.588, 36.5857)
-scale = Vector2(0.285295, 0.336839)
-
-[node name="dirt3" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
-position = Vector2(-20.9999, 9)
-scale = Vector2(0.275948, 0.370683)
-
-[node name="dirt4" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
-position = Vector2(698, 309)
-scale = Vector2(0.531633, 0.38843)
-
-[node name="dirt5" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
-position = Vector2(489, -52)
-scale = Vector2(0.463239, 0.429949)
-
-[node name="dirt6" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
-position = Vector2(35.9999, 90)
-scale = Vector2(0.512762, 0.461105)
-
-[node name="dirt7" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
-position = Vector2(-196, 423)
-scale = Vector2(0.576755, 0.478148)
-
-[node name="dirt8" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
-position = Vector2(706, 143)
-scale = Vector2(0.435277, 0.541278)
-
-[node name="dirt9" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
-position = Vector2(-302, 143)
-scale = Vector2(0.550746, 0.527173)
-
-[node name="dirt10" parent="MarginContainer" instance=ExtResource("3_g2nhc")]
-position = Vector2(218, 318)
-scale = Vector2(0.55701, 0.533201)
-
 [node name="mouse" parent="MarginContainer" instance=ExtResource("4_fsxno")]
-position = Vector2(0, 2)
+position = Vector2(2.08165e-12, 2.08165e-12)
 
 [node name="TEXT" type="CanvasLayer" parent="."]
 

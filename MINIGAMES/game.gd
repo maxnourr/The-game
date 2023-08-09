@@ -18,8 +18,12 @@ func _process(delta):
 	#if timer running we update
 	if not $Timer.is_stopped():
 		
-		$food.run($player,delta)
-		$food2.run($player,delta)
+		if $food.score == $food.max and lose == false:
+			$TEXT/win_state.text = "You win"
+			$player.set_state("happy")
+			GlobalVar.coins +=1
+			$Timer.stop()
+			restart()
 	
 		$TEXT/time.text = str(max(0,T))
 		#if time runs out (do not use signal because of malus
@@ -28,12 +32,9 @@ func _process(delta):
 			$TEXT/win_state.text = "haha looser"
 			$Timer.stop()
 			restart()
-	
-		if $food.score == $food.max and lose == false:
-			$TEXT/win_state.text = "You win"
-			GlobalVar.coins +=1
-			$Timer.stop()
-			restart()
+			
+		$food.run($player,delta)
+		$food2.run($player,delta)
 
 func restart(): 
 	$player.running = false
@@ -57,6 +58,7 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
+	$food.destroy()
 	if not lose :
 		count_down_time = max(4,count_down_time-2)
 	if GlobalVar.on_randon == true and not lose:
