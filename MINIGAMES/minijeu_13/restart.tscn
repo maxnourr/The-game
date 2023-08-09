@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv4a75njj07lx"]
+
+[ext_resource type="Script" path="res://minijeu_13/Button.gd" id="1_2k7hm"]
+
+[node name="Button" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_2k7hm")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 40
+text = "Restart
+"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

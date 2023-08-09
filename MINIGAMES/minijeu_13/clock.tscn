@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bmvepwba0k2lf"]
+
+[ext_resource type="Script" path="res://minijeu_13/clock.gd" id="1_f7o60"]
+[ext_resource type="Texture2D" path="res://clock-131982518664520262.png" id="1_nht7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibyre"]
+size = Vector2(512, 515)
+
+[node name="clock" type="Area2D"]
+script = ExtResource("1_f7o60")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3, 2)
+texture = ExtResource("1_nht7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, -0.5)
+shape = SubResource("RectangleShape2D_ibyre")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
