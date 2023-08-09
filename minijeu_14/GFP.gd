@@ -2,7 +2,6 @@ extends Area2D
 
 var taken= false
 var destroyed = false
-var type = "gfp"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

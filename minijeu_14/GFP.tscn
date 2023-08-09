@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://mahfyml3kfeo"]
+
+[ext_resource type="Script" path="res://minijeu_14/GFP.gd" id="1_1mvdm"]
+[ext_resource type="Texture2D" uid="uid://bmepfmqte3g73" path="res://minijeu_14/figures/GFP.png" id="2_m1i1i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qw5fg"]
+radius = 54.0
+
+[node name="GFP" type="Area2D"]
+script = ExtResource("1_1mvdm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.0196078, 1, 0.0313726, 1)
+position = Vector2(2.08165e-12, 2.08165e-12)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_m1i1i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("CircleShape2D_qw5fg")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -14,8 +14,8 @@ func _ready():
 	$bacteria.position.x = get_viewport().size.x/2
 	$bacteria.position.y = get_viewport().size.y/1.2
 		
-	$GFP.position.x = randf_range(get_viewport().size.x/6,5*get_viewport().size.x/6)
-	$GFP.position.y = randf_range(0,get_viewport().size.y/2)
+	$GFP.position.x = randf_range(0,get_viewport().size.x)
+	$GFP.position.y = randf_range(0,get_viewport().size.y)
 	
 	
 	
@@ -24,7 +24,6 @@ func _process(delta):
 		
 	#if timer running we update
 	if not $Timer.is_stopped():
-		$bacteria.running = true
 		$Obstacle.run($bacteria,delta)
 		#do not successed to remove time from timer
 		var T = max(0,round($Timer.time_left))
@@ -36,7 +35,6 @@ func _process(delta):
 		
 		if $Obstacle.touched == true:
 			win = false
-			$bacteria.running = false
 			$TEXT/win_state.text = "haha looser"
 			restart()
 		

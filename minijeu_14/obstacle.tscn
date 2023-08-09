@@ -19,5 +19,3 @@ shape = SubResource("CircleShape2D_8u2tt")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(2.875, 6.125)
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -1,7 +1,7 @@
 extends Area2D 
 @export var speed= 400.0
 var type = "bacteria"
-var running = false
+var running = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,4 +33,6 @@ func _process(delta):
 			position.y = 0
 	
 	
+
+
 
