@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm7w3i5qr5sw0"]
+[gd_scene load_steps=5 format=3 uid="uid://bm7w3i5qr5sw0"]
 
 [ext_resource type="Script" path="res://GFP_game.gd" id="1_yrnpy"]
 [ext_resource type="PackedScene" uid="uid://mahfyml3kfeo" path="res://GFP.tscn" id="2_hv0p5"]
 [ext_resource type="PackedScene" uid="uid://orwfo6t55vja" path="res://bacteria.tscn" id="3_fwux5"]
 [ext_resource type="PackedScene" uid="uid://bg5kij2gvdk8d" path="res://obstacle.tscn" id="4_vyiwr"]
-
-[sub_resource type="Curve2D" id="Curve2D_2glkt"]
 
 [node name="GFP_game" type="Node"]
 script = ExtResource("1_yrnpy")
@@ -16,11 +14,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="ObstaclePath" type="Path2D" parent="."]
-curve = SubResource("Curve2D_2glkt")
-
-[node name="ObstacleSpawnLoc" type="PathFollow2D" parent="ObstaclePath"]
 
 [node name="Timer" type="Timer" parent="."]
 

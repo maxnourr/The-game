@@ -1,6 +1,7 @@
 extends Area2D
 
 var taken= false
+var destroyed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,5 +14,10 @@ func _process(delta):
 
 
 func _on_area_entered(area):
+	if area.type == "bacteria":
+		taken = true
+	if area.type == "obstacle":
+		destroyed = true
 	hide()
-	taken = true
+	
+	

@@ -1,0 +1,12 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1691585213
+bacteria.gd::GDScript::-1::1691585154::0::1::::<>Area2D<>::
+bacteria.tscn::PackedScene::1019083719682262006::1691585154::0::1::::<><>::res://bacteria.gd<>uid://bfvydgb6xdq0d::::res://icon.svg
+fire_bact.png::CompressedTexture2D::3834515597402561162::1691585154::1691585217::1::::<><>::
+GFP.gd::GDScript::-1::1691585154::0::1::::<>Area2D<>::
+GFP.tscn::PackedScene::842701351210940826::1691585154::0::1::::<><>::res://GFP.gd
+GFP_game.gd::GDScript::-1::1691585154::0::1::::<>Node<>::
+GFP_game.tscn::PackedScene::3296133138831420621::1691585154::0::1::::<><>::res://GFP_game.gd<>uid://mahfyml3kfeo::::res://GFP.tscn<>uid://orwfo6t55vja::::res://bacteria.tscn<>uid://bg5kij2gvdk8d::::res://obstacle.tscn
+icon.svg::CompressedTexture2D::2782179718050904509::1691585154::1691585217::1::::<><>::
+obstacle.gd::GDScript::-1::1691585154::0::1::::<>RigidBody2D<>::
+obstacle.tscn::PackedScene::2870107049142669173::1691585154::0::1::::<><>::res://obstacle.gd<>uid://buvp5844na1wg::::res://fire_bact.png

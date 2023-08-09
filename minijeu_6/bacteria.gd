@@ -1,6 +1,7 @@
 extends Area2D 
 @export var speed= 400.0
 var screen_size = Vector2.ZERO
+var type = "bacteria"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
