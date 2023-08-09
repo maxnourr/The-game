@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch8g8b303ccss"]
+
+[ext_resource type="Script" path="res://minijeu_7/eye.gd" id="1_e2moi"]
+[ext_resource type="Texture2D" uid="uid://ce1hgj0jxgaxy" path="res://minijeu_7/figures/Yeuxrouges.png" id="2_ixss2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfcq0"]
+size = Vector2(450, 250)
+
+[node name="eye" type="Area2D"]
+script = ExtResource("1_e2moi")
+metadata/type = "eye"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_ixss2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(350, 2.08165e-12)
+shape = SubResource("RectangleShape2D_gfcq0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-350, 2.08165e-12)
+shape = SubResource("RectangleShape2D_gfcq0")

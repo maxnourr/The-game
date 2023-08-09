@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dv0b71cudbf3r"]
+
+[ext_resource type="Script" path="res://minijeu_7/trash.gd" id="1_714dr"]
+[ext_resource type="Texture2D" uid="uid://w047n3i5w6f" path="res://minijeu_7/figures/trash.png" id="2_hxgjr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdbjv"]
+radius = 42.45
+
+[node name="trash" type="Area2D"]
+script = ExtResource("1_714dr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_hxgjr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tdbjv")

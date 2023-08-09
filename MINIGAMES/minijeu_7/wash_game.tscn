@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0tv17ivqoc1f"]
+
+[ext_resource type="Script" path="res://minijeu_7/wash_game.gd" id="1_acj6v"]
+[ext_resource type="PackedScene" uid="uid://ch8g8b303ccss" path="res://minijeu_7/eye.tscn" id="2_r1ykp"]
+[ext_resource type="PackedScene" uid="uid://dvvwb8jvynklc" path="res://minijeu_7/water.tscn" id="4_pn8gj"]
+
+[node name="wash_Game" type="Node"]
+script = ExtResource("1_acj6v")
+
+[node name="BackGround" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.870607, 0.998954, 0.983926, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="eye" parent="." instance=ExtResource("2_r1ykp")]
+position = Vector2(575, 325)
+
+[node name="water" parent="." instance=ExtResource("4_pn8gj")]
+position = Vector2(125, 327)
+
+[node name="TEXT" type="CanvasLayer" parent="."]
+
+[node name="time" type="Label" parent="TEXT"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -355.0
+offset_top = -1.0
+offset_right = -37.0
+offset_bottom = 139.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 200
+horizontal_alignment = 2
+
+[node name="win_state" type="Label" parent="TEXT"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -35.5
+offset_right = 75.5
+offset_bottom = 35.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.5
+offset_top = -65.0
+offset_right = 61.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+
+[node name="Button3" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_bottom = 77.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "to menu"
+
+[node name="Label" type="Label" parent="Button3"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "coins :"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_exited" from="eye" to="." method="_on_eye_area_exited"]
+[connection signal="area_entered" from="water" to="." method="_on_water_area_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
