@@ -1,23 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://bg5kij2gvdk8d"]
 
 [ext_resource type="Script" path="res://minijeu_14/obstacle.gd" id="1_0afx6"]
-[ext_resource type="Texture2D" uid="uid://buvp5844na1wg" path="res://minijeu_14/fire_bact.png" id="1_peaqn"]
+[ext_resource type="Texture2D" uid="uid://vywyrjaqcp0m" path="res://minijeu_14/figures/Mechant@4x.png" id="2_dwkgh"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_8u2tt"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1kdu"]
+radius = 11.2549
 
 [node name="Obstacle" type="Area2D" groups=["obstacles"]]
 script = ExtResource("1_0afx6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.245968, 0.233871)
-texture = ExtResource("1_peaqn")
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("2_dwkgh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -3.14159
-scale = Vector2(2.66667, -6)
-shape = SubResource("CircleShape2D_8u2tt")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-scale = Vector2(2.875, 6.125)
+position = Vector2(2.08165e-12, 2.08165e-12)
+rotation = 1.55334
+scale = Vector2(3, -3)
+shape = SubResource("CircleShape2D_s1kdu")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

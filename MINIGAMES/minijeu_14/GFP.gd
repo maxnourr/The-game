@@ -20,5 +20,5 @@ func _on_area_entered(area):
 	if area.type == "obstacle":
 		destroyed = true
 	hide()
-	
+	area.change("gfp")
 	

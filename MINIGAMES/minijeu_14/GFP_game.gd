@@ -2,6 +2,9 @@ extends Node
 
 #timer
 var time = 10
+static var nb_obstacle = 1
+var rng = RandomNumberGenerator.new()
+var linktube = preload("res://minijeu_14/obstacle.tscn") #to create new tube
 
 #game
 var win = false 
@@ -10,22 +13,16 @@ var win = false
 func _ready():
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
-	#at the center
-	$bacteria.position.x = get_viewport().size.x/2
-	$bacteria.position.y = get_viewport().size.y/1.2
-		
-	$GFP.position.x = randf_range(get_viewport().size.x/6,5*get_viewport().size.x/6)
-	$GFP.position.y = randf_range(0,get_viewport().size.y/2)
 	
+	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
 	
+	$Obstacle.set_player($bacteria)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 		
 	#if timer running we update
 	if not $Timer.is_stopped():
-		$bacteria.running = true
-		$Obstacle.run($bacteria,delta)
 		#do not successed to remove time from timer
 		var T = max(0,round($Timer.time_left))
 		
@@ -36,7 +33,6 @@ func _process(delta):
 		
 		if $Obstacle.touched == true:
 			win = false
-			$bacteria.running = false
 			$TEXT/win_state.text = "haha looser"
 			restart()
 		
@@ -62,6 +58,9 @@ func _process(delta):
 
 
 func restart(): 
+	$Obstacle.running = false
+	$bacteria.running = false
+	$Obstacle.touched = false
 	$Button2.show() # show restart
 	$TEXT/explanation.text = "The bacteria is now with GFP"
 	
@@ -71,11 +70,43 @@ func _on_button_pressed():
 	$Button.hide() #hide start	
 	#set timer
 	$TEXT/time.text = str(round($Timer.time_left))
+	$bacteria.running = true
+	$Obstacle.running = true
+	
+	$Obstacle.visible = true
+	#$Obstacle.position.x = rng.randi_range(0,get_viewport().size.x)
+	#$Obstacle.position.y = rng.randi_range(0,get_viewport().size.y)
+	
+	
+	$GFP.position.x = randf_range(get_viewport().size.x/6,5*get_viewport().size.x/6)
+	$GFP.position.y = randf_range(0,get_viewport().size.y/2)
+	
+	if nb_obstacle >1:
+		for n in nb_obstacle-1:
+			var obstacle = linktube.instantiate()
+			randomize()
+			
+			if n in range(0,nb_obstacle/2):
+				obstacle.position.x = rng.randi_range(0,get_viewport().size.x/6-100)
+				obstacle.position.y = rng.randi_range(0,get_viewport().size.y)
+			else:
+				obstacle.position.x = rng.randi_range(5*get_viewport().size.x/6+100,get_viewport().size.x)
+				obstacle.position.y = rng.randi_range(0,get_viewport().size.y)
+			
+			obstacle.set_player($bacteria)
+			add_child(obstacle)
+			
 	$Timer.start()
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if win :
-		$Timer.wait_time -= 1
-		#less time  and more obstacles so it's more difficult
-	get_tree().reload_current_scene()
+	if win:
+		nb_obstacle += 1
+	if GlobalVar.on_randon == true and win:
+		GlobalVar.pass_game()
+	else:
+		get_tree().reload_current_scene()
+
+
+func _on_button_3_pressed():
+	GlobalVar.to_menu()

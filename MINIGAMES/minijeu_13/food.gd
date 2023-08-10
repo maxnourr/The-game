@@ -3,12 +3,15 @@ static var score = 0
 static var speed = 300.0
 var fuite = Vector2.ZERO
 static var player = null
+static var running = false
 
 func set_player(P):
 	player = P
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if player !=null:
+	if player !=null and running:
+		if not visible:
+			visible = true
 		var f1x = position.x - player.position.x
 		var f2x = position.x - player.position.x + get_viewport().size.x
 		var f3x = position.x - player.position.x - get_viewport().size.x

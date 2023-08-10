@@ -39,6 +39,7 @@ func _process(delta):
 func restart(): 
 	$food.destroy()
 	$player.running = false
+	$food.running = false
 	if lose:
 		$Button2.set_text("Restart")
 	else:
@@ -65,7 +66,7 @@ func _on_button_pressed():
 			food.position.y = rng.randi_range(0,get_viewport().size.y)
 			food.set_player($player)
 			add_child(food)
-	
+	$food.running = true
 	$player.running = true
 	$TEXT/time.text = str(round($Timer.time_left))
 	$Timer.start()
