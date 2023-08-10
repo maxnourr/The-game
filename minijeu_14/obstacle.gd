@@ -1,5 +1,5 @@
 extends Area2D
-static var speed = 450.0
+static var speed = 300.0
 var fuite = Vector2.ZERO
 var touched = false
 var type = "obstacle"
@@ -46,7 +46,7 @@ func _process(delta):
 	
 
 func _on_area_entered(area):
-	if area.type =="bacteria":
-		touched = true
-		
+	hide()
+	$CollisionShape2D.set_deferred("disabled", true)
+	touched = true
 
