@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://doy6x75la3hjs"]
+
+[ext_resource type="Script" path="res://FeedBacteria_game.gd" id="1_jxmc4"]
+[ext_resource type="PackedScene" uid="uid://dyrncwcqsmvov" path="res://LB.tscn" id="2_ekxwv"]
+[ext_resource type="PackedScene" uid="uid://dp8sbnhp671qj" path="res://pizza.tscn" id="3_oohpg"]
+[ext_resource type="PackedScene" uid="uid://cimyhd3s4vcmy" path="res://plate.tscn" id="4_4xy7p"]
+[ext_resource type="PackedScene" uid="uid://c101m0mabbm7c" path="res://text.tscn" id="5_283q3"]
+
+[node name="FeedBacteria_game" type="Node"]
+script = ExtResource("1_jxmc4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Plate" parent="." instance=ExtResource("4_4xy7p")]
+
+[node name="LB" parent="." instance=ExtResource("2_ekxwv")]
+position = Vector2(1066, 535)
+
+[node name="Pizza" parent="." instance=ExtResource("3_oohpg")]
+position = Vector2(1076, 195)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("5_283q3")]
+
+[connection signal="area_entered" from="Plate" to="." method="_on_plate_area_entered"]
