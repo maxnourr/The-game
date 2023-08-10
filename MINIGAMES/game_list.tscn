@@ -52,12 +52,12 @@ layout_mode = 2
 text = "Game 3"
 
 [node name="game4" type="Button" parent="VBoxContainer"]
-modulate = Color(1, 0.215686, 0, 1)
+modulate = Color(0.558142, 0.594336, 0.0787805, 1)
 layout_mode = 2
 text = "Game 4"
 
 [node name="game5" type="Button" parent="VBoxContainer"]
-modulate = Color(1, 0.215686, 0, 1)
+modulate = Color(0.41354, 1.70824e-07, 8.1603e-08, 1)
 layout_mode = 2
 text = "Game 5"
 
@@ -81,7 +81,7 @@ text = "Select Game"
 horizontal_alignment = 1
 
 [node name="game6" type="Button" parent="VBoxContainer2"]
-modulate = Color(0.41354, 1.70824e-07, 8.1603e-08, 1)
+modulate = Color(1, 0.215686, 0, 1)
 layout_mode = 2
 text = "Game 6"
 
@@ -94,12 +94,11 @@ layout_mode = 2
 text = "Game 8"
 
 [node name="game9" type="Button" parent="VBoxContainer2"]
-modulate = Color(1, 0.215686, 0, 1)
+modulate = Color(0.556863, 0.596078, 0.0784314, 1)
 layout_mode = 2
 text = "Game 9"
 
 [node name="game10" type="Button" parent="VBoxContainer2"]
-modulate = Color(0.411765, 0, 0, 1)
 layout_mode = 2
 text = "Game 10"
 
@@ -116,12 +115,11 @@ text = "   "
 horizontal_alignment = 1
 
 [node name="game11" type="Button" parent="VBoxContainer3"]
-modulate = Color(0.415686, 0, 0, 1)
+modulate = Color(1, 0.215686, 0, 1)
 layout_mode = 2
 text = "Game 11"
 
 [node name="game12" type="Button" parent="VBoxContainer3"]
-self_modulate = Color(1, 0.215686, 0, 1)
 layout_mode = 2
 text = "Game 12"
 

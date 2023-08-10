@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhro02jqh1yfm"]
+
+[ext_resource type="Script" path="res://minijeu_10/tube.gd" id="1_d7sxj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cwjnx"]
+size = Vector2(64, 164)
+
+[node name="tube" type="Area2D"]
+script = ExtResource("1_d7sxj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 67.0
+offset_bottom = 171.0
+color = Color(1, 1, 0.592157, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_top = 52.0
+offset_right = 66.0
+offset_bottom = 126.0
+theme_override_colors/font_color = Color(0.258824, 0.47451, 0.54902, 1)
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(34, 80)
+shape = SubResource("RectangleShape2D_cwjnx")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
