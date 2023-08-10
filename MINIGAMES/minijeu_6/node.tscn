@@ -20,13 +20,12 @@ wait_time = 10.0
 one_shot = true
 
 [node name="tube" parent="." instance=ExtResource("1_ueo3d")]
-position = Vector2(582, 607)
+position = Vector2(576, 652)
 rotation = -0.000525944
 scale = Vector2(1.185, 1.185)
 
 [node name="salt" parent="." instance=ExtResource("2_jooox")]
-position = Vector2(697, 290)
-scale = Vector2(0.495, 0.495)
+position = Vector2(576, 204)
 
 [node name="TEXT" type="CanvasLayer" parent="."]
 

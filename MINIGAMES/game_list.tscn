@@ -81,7 +81,6 @@ text = "Select Game"
 horizontal_alignment = 1
 
 [node name="game6" type="Button" parent="VBoxContainer2"]
-modulate = Color(1, 0.215686, 0, 1)
 layout_mode = 2
 text = "Game 6"
 

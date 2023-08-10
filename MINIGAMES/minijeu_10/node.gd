@@ -64,6 +64,7 @@ func _on_button_pressed():
 	$tube/ColorRect/Label.visible = true
 	$tube2/ColorRect/Label.visible = true
 	$tube3/ColorRect/Label.visible = true
+	
 	$Timer.start()
 
 #called if restart pressed

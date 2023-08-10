@@ -18,6 +18,8 @@ func _process(delta):
 		#if time runs out (do not use signal because of malus
 		if T == 0:
 			$Timer.stop()
+			$tube.moving = false
+			$salt.moving = false
 			$TEXT/win_state.text = "haha looser"
 			restart()
 			
@@ -25,6 +27,8 @@ func _process(delta):
 		if $tube.filled >= $tube.required:
 			win = true
 			$Timer.stop()
+			$tube.moving = false
+			$salt.moving = false
 			$TEXT/win_state.text = "you win"
 			GlobalVar.coins +=1
 			restart()
@@ -46,12 +50,15 @@ func _on_button_pressed():
 	#instantiate tubes	
 	#set timer
 	$TEXT/time.text = str(round($Timer.time_left))
+	$tube.moving = true
+	$salt.moving = true
+	$salt.rotation = PI
 	$Timer.start()
 
 #called if restart pressed
 func _on_button_2_pressed():
 	if win:
-		pass
+		$salt.amplitude +=10
 	if GlobalVar.on_randon == true and win:
 		GlobalVar.pass_game()
 	else:
