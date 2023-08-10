@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://kbb52e0k1e5h"]
+
+[ext_resource type="Texture2D" uid="uid://cs0m775xnr4iy" path="res://icon.svg" id="1_f0q8n"]
+[ext_resource type="Script" path="res://minijeu_6/tube.gd" id="1_nmvgp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu1fl"]
+size = Vector2(121, 461)
+
+[node name="tube" type="Area2D"]
+script = ExtResource("1_nmvgp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -289)
+shape = SubResource("RectangleShape2D_wu1fl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_f0q8n")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -54.0
+offset_top = -48.0
+offset_right = 63.0
+offset_bottom = 46.0
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
