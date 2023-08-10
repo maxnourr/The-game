@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b08kbf1ta0kxh"]
+
+[ext_resource type="Script" path="res://node.gd" id="1_fy4b0"]
+[ext_resource type="PackedScene" uid="uid://kbb52e0k1e5h" path="res://tube.tscn" id="1_ueo3d"]
+[ext_resource type="PackedScene" uid="uid://dnvwdtjexgemj" path="res://area_2d.tscn" id="2_jooox"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_fy4b0")
+
+[node name="Area2D" parent="." instance=ExtResource("1_ueo3d")]
+position = Vector2(582, 607)
+rotation = -0.000525944
+scale = Vector2(1.185, 1.185)
+
+[node name="salt" parent="." instance=ExtResource("2_jooox")]
+position = Vector2(697, 290)
+scale = Vector2(0.495, 0.495)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
