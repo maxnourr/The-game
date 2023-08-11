@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bm7w3i5qr5sw0"]
 
 [ext_resource type="Script" path="res://minijeu_3/Plasmid_Game.gd" id="1_ts5mb"]
-[ext_resource type="PackedScene" uid="uid://cbxrintehgosj" path="res://minijeu_4/plate 2.tscn" id="2_44yqt"]
+[ext_resource type="PackedScene" uid="uid://dtxnuadi5aafl" path="res://minijeu_3/plate.tscn" id="2_fp7k7"]
 [ext_resource type="Texture2D" uid="uid://tnqksvvlghf8" path="res://minijeu_3/figures/up.jpg" id="3_k3hlh"]
 [ext_resource type="Texture2D" uid="uid://dvjga2360ichd" path="res://minijeu_3/figures/down.jpg" id="4_owbfw"]
 
@@ -18,6 +18,9 @@ color = Color(0.870607, 0.998954, 0.983926, 1)
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="plate" parent="." instance=ExtResource("2_fp7k7")]
+position = Vector2(300, 324)
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 8
@@ -124,9 +127,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "0"
 horizontal_alignment = 1
-
-[node name="plate" parent="." instance=ExtResource("2_44yqt")]
-position = Vector2(285, 313)
 
 [node name="up" type="Button" parent="."]
 anchors_preset = 6

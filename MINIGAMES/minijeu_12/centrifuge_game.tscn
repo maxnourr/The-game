@@ -83,6 +83,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
+metadata/_edit_use_anchors_ = true
 
 [node name="time" type="Label" parent="TEXT"]
 anchors_preset = 1
@@ -93,6 +94,7 @@ offset_bottom = 23.0
 grow_horizontal = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
+metadata/_edit_use_anchors_ = true
 
 [node name="explanation" type="Label" parent="TEXT"]
 anchors_preset = 5
@@ -106,6 +108,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.45098, 0.00392157, 0.745098, 1)
 theme_override_constants/outline_size = 30
 theme_override_font_sizes/font_size = 30
+metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

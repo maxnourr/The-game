@@ -1,6 +1,7 @@
 extends Area2D
 @export var speed = 400.0
 var running = false
+var type = "player"
 
 var happy = preload("figures/happy.png")
 var angry = preload("figures/angry.png")

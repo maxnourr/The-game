@@ -36,7 +36,9 @@ func _process(delta):
 			move = false
 			$tube.position.x 
 			$RigidBody2D.setter = true	
-			if ($RigidBody2D.currentVelocity >= 50) :
+			if ($RigidBody2D.currentVelocity > 50) :
+				$ColorRect.color=Color(0.643, 1, 0.486)
+		
 				$TEXT/win_state.text = "you win!"
 				win = true
 				GlobalVar.coins +=1
@@ -46,12 +48,14 @@ func _process(delta):
 		$TEXT/time.text = str(max(0,T))
 		#if time runs out (do not use signal because of malus
 		if T == 0:
+			$ColorRect.color=Color(1, 0.231, 0.231)
 			$TEXT/win_state.text = "haha looser"
 			move = false
 			$Timer.stop()
 			restart()
 
 func restart(): 
+	$RigidBody2D.setter = false
 	if not win:
 		$Button2.set_text("Restart")
 		$TEXT/explanation.text = "Too slow"
@@ -68,18 +72,12 @@ func _on_button_pressed():
 	
 	# les valeurs randoms et les positions sont des nombres fixes de pixel, à changer
 	#Si on veut une taille d'écran variable.
-	firstrandom = rng.randf_range(100, 500.0)
-	secondrandom = rng.randf_range(0, 500.0)
-	#$MarginContainer/vortex.position.y = 100
-	#$MarginContainer/tube.position.y = 300
-	#$MarginContainer/vortex.position.x = firstrandom
-	#$MarginContainer/tube.position.x = secondrandom
+	firstrandom = rng.randf_range(100, 1052)
+	secondrandom = rng.randf_range(100, 1052)
 	$vortex.position.y = 350
 	$tube.position.y = 300
 	$vortex.position.x = firstrandom
 	$tube.position.x = secondrandom
-	
-	
 	move = true
 	$Button.hide() #hide start	
 	$Button3.hide()
@@ -92,7 +90,7 @@ func _on_button_pressed():
 #called if restart pressed
 func _on_button_2_pressed():
 	if win :
-		time = max(1,time-1) 
+		time = max(2,time-1) 
 	if GlobalVar.on_randon == true and win == true:
 		GlobalVar.pass_game()
 	else:

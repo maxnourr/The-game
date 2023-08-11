@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cbxrintehgosj" path="res://minijeu_4/plate 2.tscn" id="2_5o0kw"]
 [ext_resource type="PackedScene" uid="uid://dyrncwcqsmvov" path="res://minijeu_4/LB.tscn" id="3_67x71"]
 [ext_resource type="PackedScene" uid="uid://dp8sbnhp671qj" path="res://minijeu_4/pizza.tscn" id="4_qiwm8"]
-[ext_resource type="PackedScene" uid="uid://b8rdy17ycar0m" path="res://minijeu_4/text.tscn" id="5_188ix"]
+[ext_resource type="PackedScene" uid="uid://b8rdy17ycar0m" path="res://minijeu_4/TEXT.tscn" id="5_188ix"]
 
 [node name="FeedBacteria_game" type="Node"]
 script = ExtResource("1_jxmc4")

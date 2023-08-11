@@ -56,7 +56,6 @@ layout_mode = 2
 text = "Game 4"
 
 [node name="game5" type="Button" parent="VBoxContainer"]
-modulate = Color(0.411765, 1, 0, 1)
 layout_mode = 2
 text = "Game 5"
 
@@ -112,7 +111,6 @@ text = "   "
 horizontal_alignment = 1
 
 [node name="game11" type="Button" parent="VBoxContainer3"]
-modulate = Color(1, 0.215686, 0, 1)
 layout_mode = 2
 text = "Game 11"
 

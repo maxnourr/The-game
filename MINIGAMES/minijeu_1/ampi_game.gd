@@ -52,6 +52,7 @@ func _process(delta):
 		#if time runs out (do not use signal because of malus
 		if T == 0:
 			if lose == false:
+				$BackGround.color=Color(1, 0.231, 0.231)
 				$TEXT/win_state.text = "haha looser"
 				lose = true 
 				restart()
@@ -77,6 +78,7 @@ func _on_bacterias_area_entered(area):
 
 	if area.type == "AMPI": # we want ampicillin
 		$Timer.stop()
+		$BackGround.color=Color(0.643, 1, 0.486)
 		$TEXT/win_state.text = "you win"
 		$bacterias.texture("happy")
 		GlobalVar.coins +=1

@@ -1,18 +1,22 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbhy5ultx1d0p"]
 
-[ext_resource type="PackedScene" uid="uid://b8csmsxvpjobq" path="res://minijeu_10/seringue.tscn" id="1_33bbs"]
 [ext_resource type="Script" path="res://minijeu_10/seringue_true.gd" id="1_yvute"]
+[ext_resource type="Texture2D" uid="uid://cik3sjw1b06ee" path="res://minijeu_10/figures/Pipette@4x.png" id="2_asp5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b5ixg"]
-size = Vector2(8, 54)
+size = Vector2(25, 75)
 
 [node name="seringue true" type="Area2D"]
 script = ExtResource("1_yvute")
 
-[node name="ColorRect" parent="." instance=ExtResource("1_33bbs")]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5, 1)
+rotation = -2.00189
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_asp5c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 119)
+position = Vector2(0.5, 137.5)
 shape = SubResource("RectangleShape2D_b5ixg")
 
 [node name="Label" type="Label" parent="."]

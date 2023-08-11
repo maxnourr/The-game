@@ -66,6 +66,8 @@ func sens_fleche():
 		
 func verify():
 	if (red_number == goal1  and green_number == goal2) or (red_number == goal2 and green_number == goal1):
+		
+		$ColorRect.color=Color(0.643, 1, 0.486)
 		$TEXT/win_state.text = "you win!"
 		move = false
 		win = true
@@ -84,6 +86,7 @@ func _process(delta):
 		#if time runs out (do not use signal because of malus
 		if T == 0:
 			if win == false:
+				$ColorRect.color=Color(1, 0.231, 0.231)
 				$TEXT/win_state.text = "haha looser"
 				restart()
 	

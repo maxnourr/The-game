@@ -33,6 +33,7 @@ func _process(delta):
 		
 		if $Obstacle.touched == true:
 			win = false
+			$BackGround.color=Color(1, 0.231, 0.231)
 			$TEXT/win_state.text = "haha looser"
 			restart()
 		
@@ -40,12 +41,15 @@ func _process(delta):
 		
 		if $GFP.taken == true:
 			win = true
+			$BackGround.color=Color(0.643, 1, 0.486)
 			$TEXT/win_state.text = "yes you won!!"
 			$Timer.stop()
 			restart()
 			
 		if $GFP.destroyed ==true :
 			win = false
+			
+			$BackGround.color=Color(1, 0.231, 0.231)
 			$TEXT/win_state.text = "haha looser"
 			restart()
 			
@@ -53,6 +57,8 @@ func _process(delta):
 		#if time runs out (do not use signal because of malus
 		if T == 0:
 			if  win == false:
+				
+				$BackGround.color=Color(1, 0.231, 0.231)
 				$TEXT/win_state.text = "haha looser"
 				restart()
 

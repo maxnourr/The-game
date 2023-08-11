@@ -1,17 +1,16 @@
 extends Area2D
 static var score = 0
-static var speed = 300.0
+static var speed = 100.0
 var fuite = Vector2.ZERO
 static var player = null
 static var running = false
-
+var type = "food"
+	
 func set_player(P):
 	player = P
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if player !=null and running:
-		if not visible:
-			visible = true
 		var f1x = position.x - player.position.x
 		var f2x = position.x - player.position.x + get_viewport().size.x
 		var f3x = position.x - player.position.x - get_viewport().size.x
@@ -50,12 +49,13 @@ func _process(delta):
 	
 
 func _on_area_entered(area):
-	score +=1
-	if name != "food":
-		queue_free()
-	else:
-		visible = false
-		$CollisionShape2D.set_deferred("disabled", true)
+	if area.type == "player":
+		score +=1
+		if name != "food":
+			queue_free()
+		else:
+			visible = false
+			$CollisionShape2D.set_deferred("disabled", true)
 
 func destroy():
 	score = 0

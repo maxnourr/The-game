@@ -39,6 +39,7 @@ func _process(delta):
 		#if time runs out (do not use signal because of malus
 		if T == 0:
 			if lose == false:
+				$BackGround.color=Color(1, 0.231, 0.231)
 				$TEXT/win_state.text = "haha looser"
 				restart()
 			lose = true 
@@ -64,6 +65,7 @@ func _process(delta):
 			else: 
 				timelapse += 1 #wait at the good time
 				if timelapse == to_wait :
+					$BackGround.color=Color(0.643, 1, 0.486)
 					$TEXT/win_state.text = "you win"
 					GlobalVar.coins +=1
 					$Timer.stop()

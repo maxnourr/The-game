@@ -35,6 +35,7 @@ func _process(delta):
 		#if time runs out (do not use signal because of malus
 		if T == 0:
 			if lose == false:
+				$BackGround.color=Color(1, 0.231, 0.231)
 				$TEXT/win_state.text = "haha looser"
 				restart()
 			lose = true 
@@ -88,6 +89,7 @@ func _on_eye_area_exited(area):
 		removed +=1
 		if removed == nb_trash:
 			$Timer.stop()
+			$BackGround.color=Color(0.643, 1, 0.486)
 			$TEXT/win_state.text = "you win"
 			$eye.set_type("good")
 			GlobalVar.coins +=1

@@ -24,7 +24,7 @@ one_shot = true
 position = Vector2(-114, -148)
 
 [node name="chaudron" parent="." instance=ExtResource("3_7omsv")]
-position = Vector2(-9, 314)
+position = Vector2(181, 448)
 scale = Vector2(2, 2)
 
 [node name="tube" parent="." instance=ExtResource("1_cj86y")]

@@ -8,23 +8,38 @@ var win = false
 var inside = false
 static var max = 2.1
 
+var empty = preload("res://minijeu_10/figures/Emptytube@4x.png")
+var half = preload("res://minijeu_10/figures/Halftube@4x.png")
+var full = preload("res://minijeu_10/figures/Filledtube@4x.png")
+
+func texture(T):
+	if T == "empty":
+		$Sprite2D.set_texture(empty)
+	elif T == "half":
+		$Sprite2D.set_texture(half)
+	elif T == "full":
+		$Sprite2D.set_texture(full)
 
 func _ready():
+	texture("empty")
 	required_score += 1 
 	var firstrandom = rng.randf_range(1,max)
 	size = floor(firstrandom) * 10
-	$ColorRect/Label.visible = false
+	$Label.visible = false
 	#on donne une valeur de 10 ou de 20 au tube
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$ColorRect/Label.text = str(filled)
-	$ColorRect/Label.text += "/"
-	$ColorRect/Label.text += str(size)
+	$Label.text = str(filled)
+	$Label.text += "/"
+	$Label.text += str(size)
 	#pour écrire le score sur les tubes
 	
-		
+	if filled >= round(size/2) and $Sprite2D.texture == empty:
+		texture("half")
+	elif filled >= size and $Sprite2D.texture == half:
+		texture("full")
 	
 		
 	if size == filled and win == false:

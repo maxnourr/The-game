@@ -20,6 +20,7 @@ func _process(delta):
 			$Timer.stop()
 			$tube.moving = false
 			$salt.moving = false
+			$BackGround.color=Color(1, 0.231, 0.231)
 			$TEXT/win_state.text = "haha looser"
 			restart()
 			
@@ -29,6 +30,7 @@ func _process(delta):
 			$Timer.stop()
 			$tube.moving = false
 			$salt.moving = false
+			$BackGround.color=Color(0.643, 1, 0.486)
 			$TEXT/win_state.text = "you win"
 			GlobalVar.coins +=1
 			restart()

@@ -1,6 +1,6 @@
 extends Node
-static var nb_food = 1
-var count_down_time = 10
+static var nb_food = 10
+var count_down_time = 100
 var lose = false
 var linktube = preload("res://minijeu_13/food.tscn") #to create new tube
 var rng = RandomNumberGenerator.new()
@@ -21,6 +21,7 @@ func _process(delta):
 	if not $Timer.is_stopped():
 		
 		if $food.score == nb_food and lose == false:
+			$ColorRect.color=Color(0.643, 1, 0.486)
 			$TEXT/win_state.text = "You win"
 			$player.set_state("happy")
 			GlobalVar.coins +=1
@@ -31,6 +32,7 @@ func _process(delta):
 		#if time runs out (do not use signal because of malus
 		if T == 0:
 			lose = true
+			$ColorRect.color=Color(1, 0.231, 0.231)
 			$TEXT/win_state.text = "haha looser"
 			$Timer.stop()
 			restart()
@@ -47,7 +49,7 @@ func restart():
 	$Button2.show() # show restart
 	$Button3.show()
 	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
-	$TEXT/explanation.text = "cleaning is the key !"
+	$TEXT/explanation.text = "go protect the body !"
 
 
 func _on_button_pressed():
@@ -74,7 +76,7 @@ func _on_button_pressed():
 #called if restart pressed
 func _on_button_2_pressed():
 	if not lose :
-		$food.speed = max(100, $food.speed - 20)
+		$food.speed = max(100,$food.speed-20)
 		nb_food += 1
 	if GlobalVar.on_randon == true and not lose:
 		GlobalVar.pass_game()
@@ -83,3 +85,5 @@ func _on_button_2_pressed():
 
 func _on_button_3_pressed():
 	GlobalVar.to_game_list()
+
+

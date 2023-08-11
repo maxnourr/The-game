@@ -20,6 +20,7 @@ func _process(delta):
 		#if time runs out (do not use signal because of malus
 		if T == 0:
 			$Timer.stop()
+			$BackGround.color=Color(1, 0.231, 0.231)
 			$TEXT/win_state.text = "haha looser"
 			$seringue_true.running = false
 			restart()
@@ -31,6 +32,7 @@ func _process(delta):
 		if $tube.score == $tube.required_score:
 			win = true
 			$Timer.stop()
+			$BackGround.color=Color(0.643, 1, 0.486)
 			$TEXT/win_state.text = "you win"
 			$seringue_true.running = false
 			GlobalVar.coins +=1
@@ -49,7 +51,7 @@ func restart():
 	
 
 func _on_chaudron_area_entered(area):
-	if !$Timer.is_stopped():
+	if !$Timer.is_stopped() and area.max >= area.fill +5:
 		area.fill += 5 # Replace with function body.
 
 
@@ -61,9 +63,9 @@ func _on_button_pressed():
 	#set timer
 	$TEXT/time.text = str(round($Timer.time_left))
 	$seringue_true.running = true
-	$tube/ColorRect/Label.visible = true
-	$tube2/ColorRect/Label.visible = true
-	$tube3/ColorRect/Label.visible = true
+	$tube/Label.visible = true
+	$tube2/Label.visible = true
+	$tube3/Label.visible = true
 	
 	$Timer.start()
 
