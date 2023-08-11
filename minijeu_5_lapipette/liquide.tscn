@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://beiyk1h0xc1op"]
+
+[ext_resource type="Script" path="res://liquide.gd" id="1_jqe53"]
+
+[node name="liquide" type="Area2D"]
+script = ExtResource("1_jqe53")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 528.026
+offset_top = 475.062
+offset_right = 578.026
+offset_bottom = 515.062
+rotation = -3.14035
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 477.026
+offset_top = 471.062
+offset_right = 528.026
+offset_bottom = 475.062
+rotation = 0.00638306
+color = Color(0, 0, 0, 1)
