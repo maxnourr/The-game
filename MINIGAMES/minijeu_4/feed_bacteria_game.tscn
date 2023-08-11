@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://doy6x75la3hjs"]
 
 [ext_resource type="Script" path="res://minijeu_4/FeedBacteria_game.gd" id="1_jxmc4"]
-[ext_resource type="PackedScene" uid="uid://cimyhd3s4vcmy" path="res://minijeu_4/plate.tscn" id="2_5o0kw"]
+[ext_resource type="PackedScene" uid="uid://cbxrintehgosj" path="res://minijeu_4/plate 2.tscn" id="2_5o0kw"]
 [ext_resource type="PackedScene" uid="uid://dyrncwcqsmvov" path="res://minijeu_4/LB.tscn" id="3_67x71"]
 [ext_resource type="PackedScene" uid="uid://dp8sbnhp671qj" path="res://minijeu_4/pizza.tscn" id="4_qiwm8"]
-[ext_resource type="PackedScene" uid="uid://c101m0mabbm7c" path="res://minijeu_4/text.tscn" id="5_188ix"]
+[ext_resource type="PackedScene" uid="uid://b8rdy17ycar0m" path="res://minijeu_4/text.tscn" id="5_188ix"]
 
 [node name="FeedBacteria_game" type="Node"]
 script = ExtResource("1_jxmc4")
@@ -18,8 +18,11 @@ grow_vertical = 2
 color = Color(0.870588, 1, 0.984314, 1)
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="Plate" parent="." instance=ExtResource("2_5o0kw")]
+position = Vector2(380, 324)
+scale = Vector2(1.2, 1.2)
 
 [node name="LB" parent="." instance=ExtResource("3_67x71")]
 position = Vector2(1066, 535)
@@ -29,4 +32,83 @@ position = Vector2(1076, 195)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_188ix")]
 
+[node name="TEXT" type="CanvasLayer" parent="."]
+
+[node name="time" type="Label" parent="TEXT"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -355.0
+offset_top = -1.0
+offset_right = -37.0
+offset_bottom = 139.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 200
+horizontal_alignment = 2
+
+[node name="win_state" type="Label" parent="TEXT"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -35.5
+offset_right = 75.5
+offset_bottom = 35.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.5
+offset_top = -65.0
+offset_right = 61.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+
+[node name="Button3" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_bottom = 77.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "to menu"
+
+[node name="Label" type="Label" parent="Button3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "coins :"
+
 [connection signal="area_entered" from="Plate" to="." method="_on_plate_area_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

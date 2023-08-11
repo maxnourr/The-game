@@ -101,4 +101,4 @@ func _on_water_area_entered(area):
 
 
 func _on_button_3_pressed():
-	GlobalVar.to_menu()
+	GlobalVar.to_game_list()

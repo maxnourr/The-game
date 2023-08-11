@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqweht41idby7"]
+
+[ext_resource type="Texture2D" uid="uid://ddrk0jgqsxir6" path="res://minijeu_9/figures/kisspng-vortex-mixer-laboratory-shaker-centrifuge-echipame-gallery-frame-5b29135bdb39a9.jpg" id="1_8d4px"]
+[ext_resource type="Script" path="res://minijeu_9/vortex.gd" id="1_nmag4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fvlnk"]
+radius = 101.045
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_nmag4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8d4px")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-18, -200)
+shape = SubResource("CircleShape2D_fvlnk")

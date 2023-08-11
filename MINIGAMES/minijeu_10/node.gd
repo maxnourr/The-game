@@ -78,4 +78,4 @@ func _on_button_2_pressed():
 
 
 func _on_button_3_pressed():
-	GlobalVar.to_menu()
+	GlobalVar.to_game_list()

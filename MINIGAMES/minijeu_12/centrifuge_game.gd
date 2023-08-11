@@ -119,7 +119,7 @@ func _on_button_2_pressed():
 		
 
 func _on_button_3_pressed():
-	GlobalVar.to_menu()
+	GlobalVar.to_game_list()
 
 func _on_up_pressed():
 	if move:

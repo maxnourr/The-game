@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bm7w3i5qr5sw0"]
 
 [ext_resource type="Script" path="res://minijeu_3/Plasmid_Game.gd" id="1_ts5mb"]
-[ext_resource type="PackedScene" uid="uid://cbxrintehgosj" path="res://minijeu_3/plate.tscn" id="2_44yqt"]
+[ext_resource type="PackedScene" uid="uid://cbxrintehgosj" path="res://minijeu_4/plate 2.tscn" id="2_44yqt"]
 [ext_resource type="Texture2D" uid="uid://tnqksvvlghf8" path="res://minijeu_3/figures/up.jpg" id="3_k3hlh"]
 [ext_resource type="Texture2D" uid="uid://dvjga2360ichd" path="res://minijeu_3/figures/down.jpg" id="4_owbfw"]
 

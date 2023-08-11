@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpucer7eyymr5"]
+
+[ext_resource type="Texture2D" uid="uid://qqhydp5wfeb" path="res://minijeu_9/figures/tubo-15-ml-lab-md-3403567317.png" id="1_oktsv"]
+[ext_resource type="Script" path="res://minijeu_9/tube.gd" id="1_vmu1d"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1xy2j"]
+radius = 22.0
+height = 168.0
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(-46, -31)
+script = ExtResource("1_vmu1d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_oktsv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(53, 66)
+shape = SubResource("CapsuleShape2D_1xy2j")

@@ -82,4 +82,4 @@ func _on_button_2_pressed():
 		get_tree().reload_current_scene()
 
 func _on_button_3_pressed():
-	GlobalVar.to_menu()
+	GlobalVar.to_game_list()

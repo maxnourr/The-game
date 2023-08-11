@@ -61,6 +61,6 @@ func _process(delta):
 	$Label.set_text("coins : " + str(GlobalVar.coins))
 
 func _on_return_pressed():
-	get_tree().change_scene_to_file("res://menu.tscn")
+	GlobalVar.to_menu()
 
 

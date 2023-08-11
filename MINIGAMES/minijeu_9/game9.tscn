@@ -1,0 +1,117 @@
+[gd_scene load_steps=5 format=3 uid="uid://dxmipg467pyl6"]
+
+[ext_resource type="PackedScene" path="res://minijeu_9/tube.tscn" id="1_2oel4"]
+[ext_resource type="Script" path="res://minijeu_9/game9.gd" id="1_4068y"]
+[ext_resource type="PackedScene" path="res://minijeu_9/vortex.tscn" id="2_5vgng"]
+[ext_resource type="Script" path="res://minijeu_9/RigidBody2D.gd" id="4_72rjd"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_4068y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 43.0
+offset_bottom = 43.0
+scale = Vector2(28.52, 16.16)
+color = Color(0.478431, 0.368627, 0.964706, 1)
+
+[node name="vortex" parent="." instance=ExtResource("2_5vgng")]
+position = Vector2(613, 534)
+rotation = -3.14159
+scale = Vector2(0.282285, -0.322141)
+
+[node name="tube" parent="." instance=ExtResource("1_2oel4")]
+position = Vector2(424, 398)
+scale = Vector2(0.655095, 0.394132)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 547.0
+offset_top = 276.0
+offset_right = 593.0
+offset_bottom = 307.0
+scale = Vector2(3.2, 2.72)
+text = "Start"
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = -99.6875
+offset_top = -70.5882
+offset_right = 200.312
+offset_bottom = 7.41176
+scale = Vector2(0.828969, 1.04479)
+theme_override_font_sizes/font_size = 10
+text = "Place your tube correctly on the vortex 
+and and the set spin 
+above 50 by pressing A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 518.0
+offset_top = 562.0
+offset_right = 583.0
+offset_bottom = 593.0
+scale = Vector2(3.12, 2.8)
+text = "Restart"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 1015.0
+offset_top = 4.0
+offset_right = 1091.0
+offset_bottom = 35.0
+scale = Vector2(1.64, 1.76)
+text = "To menu"
+
+[node name="Label" type="Label" parent="Button3"]
+layout_mode = 0
+offset_left = -39.0244
+offset_top = 31.8182
+offset_right = 7.97559
+offset_bottom = 57.8182
+scale = Vector2(1.48459, 1.25384)
+text = "Coins: "
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="TEXT" type="CanvasLayer" parent="."]
+
+[node name="time" type="Label" parent="TEXT"]
+offset_left = 896.0
+offset_top = 4.0
+offset_right = 936.0
+offset_bottom = 27.0
+scale = Vector2(2.72, 2.48)
+
+[node name="win_state" type="Label" parent="TEXT"]
+offset_left = 501.0
+offset_top = 11.0
+offset_right = 583.0
+offset_bottom = 37.0
+scale = Vector2(2.64, 2.92)
+
+[node name="explanation" type="Label" parent="TEXT"]
+offset_left = 527.0
+offset_top = 163.0
+offset_right = 593.0
+offset_bottom = 189.0
+scale = Vector2(2.74566, 3.39015)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(-1, 1)
+scale = Vector2(1.2, 1)
+mass = 0.01
+freeze = true
+script = ExtResource("4_72rjd")
+
+[node name="velocity" type="Label" parent="RigidBody2D"]
+modulate = Color(0.952941, 0, 0.211765, 1)
+offset_left = 137.5
+offset_top = 53.0
+offset_right = 177.5
+offset_bottom = 76.0
+scale = Vector2(5.49844, 2.97176)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

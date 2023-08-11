@@ -102,6 +102,7 @@ func _on_button_pressed():
 func _on_button_2_pressed():
 	if win:
 		nb_obstacle += 1
+		GlobalVar.coins += 1
 	if GlobalVar.on_randon == true and win:
 		GlobalVar.pass_game()
 	else:
@@ -109,4 +110,4 @@ func _on_button_2_pressed():
 
 
 func _on_button_3_pressed():
-	GlobalVar.to_menu()
+	GlobalVar.to_game_list()

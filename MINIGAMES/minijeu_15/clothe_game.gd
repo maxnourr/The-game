@@ -209,7 +209,7 @@ func _on_h_l_pressed():
 		verify()
 
 func _on_button_3_pressed():
-	GlobalVar.to_menu()
+	GlobalVar.to_game_list()
 
 
 
