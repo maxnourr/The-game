@@ -74,8 +74,8 @@ func _on_button_pressed():
 	for n in nb_dirt:
 		var dirt = linktube.instantiate()
 		randomize()
-		dirt.position.x = rng.randi_range(220,get_viewport().size.x-50)
-		dirt.position.y = rng.randi_range(120,get_viewport().size.y-50)
+		dirt.position.x = rng.randi_range(220,1152-50)
+		dirt.position.y = rng.randi_range(120,648-50)
 		add_child(dirt)
 	
 		
