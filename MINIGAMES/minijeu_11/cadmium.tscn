@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ykcvnqy7tap6"]
+
+[ext_resource type="Script" path="res://minijeu_11/cadmium.gd" id="1_tqv73"]
+[ext_resource type="Texture2D" uid="uid://da4854ji1jkdi" path="res://minijeu_11/figures/virus.png" id="2_w44cq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbf5o"]
+radius = 19.0
+height = 46.0
+
+[node name="cadmium" type="Area2D"]
+script = ExtResource("1_tqv73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_w44cq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lbf5o")
+one_way_collision_margin = 0.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

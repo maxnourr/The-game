@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl0rbrw1jd5nk"]
+
+[ext_resource type="Script" path="res://minijeu_11/player.gd" id="1_ulygx"]
+[ext_resource type="Texture2D" uid="uid://bi3h1b821cgp" path="res://minijeu_11/figures/angry.png" id="2_1uyjv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_713y3"]
+radius = 133.5
+height = 295.0
+
+[node name="player" type="Area2D"]
+script = ExtResource("1_ulygx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_1uyjv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_713y3")

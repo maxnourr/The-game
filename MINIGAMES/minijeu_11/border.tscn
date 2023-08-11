@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dukity2hk3x2q"]
+
+[ext_resource type="Texture2D" uid="uid://nenpj0125g6b" path="res://minijeu_11/plate.png" id="1_3f65r"]
+[ext_resource type="Script" path="res://minijeu_11/border.gd" id="1_ujvtp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5f7k8"]
+radius = 265.0
+height = 960.0
+
+[node name="border" type="Area2D"]
+script = ExtResource("1_ujvtp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.17)
+texture = ExtResource("1_3f65r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5f7k8")
+one_way_collision_margin = 0.0

@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://beiyk1h0xc1op"]
+
+[ext_resource type="Script" path="res://minijeu_5/liquide.gd" id="1_jqe53"]
+[ext_resource type="Texture2D" uid="uid://bk0t8lxr0i2qi" path="res://minijeu_5/figures/Pipette@4x.png" id="2_bs3xa"]
+
+[node name="liquide" type="Area2D"]
+script = ExtResource("1_jqe53")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(9, 2)
+rotation = 4.27606
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_bs3xa")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 38.0
+offset_top = 78.0
+offset_right = 116.0
+offset_bottom = 118.0
+rotation = -3.14035
+color = Color(0.678431, 0.952941, 0.956863, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -26.0
+offset_top = 77.0
+offset_right = 29.0
+offset_bottom = 81.0
+rotation = 0.00638306
+color = Color(0, 0, 0, 1)
