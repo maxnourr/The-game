@@ -6,9 +6,6 @@ static var nb_obstacle = 1
 var rng = RandomNumberGenerator.new()
 var linktube = preload("res://minijeu_14/obstacle.tscn") #to create new tube
 
-#game
-var win = false 
-#var number_obstacles = 5
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Button2.hide() #no restart
@@ -17,6 +14,10 @@ func _ready():
 	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
 	
 	$Obstacle.set_player($bacteria)
+	
+	if GlobalVar.on_hard_core:
+		_on_button_pressed()
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -32,7 +33,6 @@ func _process(delta):
 
 		
 		if $Obstacle.touched == true:
-			win = false
 			$BackGround.color=Color(1, 0.231, 0.231)
 			$TEXT/win_state.text = "haha looser"
 			restart()
@@ -40,15 +40,14 @@ func _process(delta):
 		#check if won
 		
 		if $GFP.taken == true:
-			win = true
+			GlobalVar.win = true
 			$BackGround.color=Color(0.643, 1, 0.486)
 			$TEXT/win_state.text = "yes you won!!"
+			GlobalVar.coins += 1
 			$Timer.stop()
 			restart()
 			
 		if $GFP.destroyed ==true :
-			win = false
-			
 			$BackGround.color=Color(1, 0.231, 0.231)
 			$TEXT/win_state.text = "haha looser"
 			restart()
@@ -56,24 +55,32 @@ func _process(delta):
 		
 		#if time runs out (do not use signal because of malus
 		if T == 0:
-			if  win == false:
-				
-				$BackGround.color=Color(1, 0.231, 0.231)
-				$TEXT/win_state.text = "haha looser"
-				restart()
+			$BackGround.color=Color(1, 0.231, 0.231)
+			$TEXT/win_state.text = "haha looser"
+			restart()
 
 
 func restart(): 
 	$Obstacle.running = false
 	$bacteria.running = false
 	$Obstacle.touched = false
-	$Button2.show() # show restart
-	$TEXT/explanation.text = "The bacteria is now with GFP"
+	
+	if GlobalVar.on_hard_core:
+		_on_button_2_pressed()
+	else:
+		if not GlobalVar.win:
+			$Button2.set_text("Restart")
+		else:
+			$Button2.set_text("Continue")
+		$Button2.show() # show restart
+		$Button3.show()
+		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
 	
 
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
 	$Button.hide() #hide start	
+	$Button3.hide()
 	#set timer
 	$TEXT/time.text = str(round($Timer.time_left))
 	$bacteria.running = true
@@ -106,10 +113,9 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if win:
+	if GlobalVar.win:
 		nb_obstacle += 1
-		GlobalVar.coins += 1
-	if GlobalVar.on_randon == true and win:
+	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
 		get_tree().reload_current_scene()

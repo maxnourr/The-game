@@ -18,8 +18,10 @@ var rng = RandomNumberGenerator.new()
 var step = 0 #will be initialisate in ready(), change in diameter at each delta
 var max_size = 0
 
-#game
-var lose = false 
+var x = 0
+var y = 0
+var x_tronc = 0
+var y_tronc = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +32,14 @@ func _ready():
 	max_size = $circle.scale.x
 	step = max(0,(max_size/2)/time)
 	
+	x = range(50,1152-50)
+	y = range(100,648-100)
+	x_tronc = range(50,$bacterias.position.x -200) + range($bacterias.position.x +200,1152-50)
+	y_tronc = range(100,$bacterias.position.y -200) + range($bacterias.position.y +200,648-100)
+
+	if GlobalVar.on_hard_core:
+		_on_button_pressed()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 		
@@ -51,37 +61,40 @@ func _process(delta):
 		
 		#if time runs out (do not use signal because of malus
 		if T == 0:
-			if lose == false:
-				$BackGround.color=Color(1, 0.231, 0.231)
-				$TEXT/win_state.text = "haha looser"
-				lose = true 
-				restart()
+			$BackGround.color=Color(1, 0.231, 0.231)
+			$TEXT/win_state.text = "haha looser"
+			restart()
 
 func restart(): 
 	$Tube.on_game = false
-	if lose == true:
-		$Button2.set_text("Restart")
+	if GlobalVar.on_hard_core:
+		_on_button_2_pressed()
 	else:
-		$Button2.set_text("Continue")
-	$Button2.show() # show restart
-	$Button3.show()
-	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
-	if nb_tube == 1:
-		$TEXT/explanation.text = "Ampicillin is an antibiotic\nmodified bacterias have antibiotic resistance\n adding AMPI will avoid contamination"
-	elif nb_tube == 2:
-		$TEXT/explanation.text = "SOC is a nutrition buffer\n it help bacterias grow, even unwanted bacterias !\n if you SOC without AMPI, you risk contamination"
-	elif nb_tube == 3:
-		$TEXT/explanation.text = "Blue dye is just blue dye..."
+		if GlobalVar.win ==false:
+			$Button2.set_text("Restart")
+		else:
+			$Button2.set_text("Continue")
+		$Button2.show() # show restart
+		$Button3.show()
+		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+		if nb_tube == 1:
+			$TEXT/explanation.text = "Ampicillin is an antibiotic\nmodified bacterias have antibiotic resistance\n adding AMPI will avoid contamination"
+		elif nb_tube == 2:
+			$TEXT/explanation.text = "SOC is a nutrition buffer\n it help bacterias grow, even unwanted bacterias !\n if you SOC without AMPI, you risk contamination"
+		elif nb_tube == 3:
+			$TEXT/explanation.text = "Blue dye is just blue dye..."
 
 #called when a tube enter the bacterias
 func _on_bacterias_area_entered(area):
 
 	if area.type == "AMPI": # we want ampicillin
 		$Timer.stop()
+		GlobalVar.win = true
 		$BackGround.color=Color(0.643, 1, 0.486)
 		$TEXT/win_state.text = "you win"
 		$bacterias.texture("happy")
-		GlobalVar.coins +=1
+		if nb_tube >= 3:
+			GlobalVar.coins +=1
 		restart()
 		area.queue_free()
 	elif area.type == "BLUE": #do nothing
@@ -101,7 +114,6 @@ func _on_button_pressed():
 	#instantiate tubes
 	for n in nb_tube:
 		var tube = linktube.instantiate()
-		add_child(tube)
 		tube.on_game = true
 		
 		if round(n) <= 0:
@@ -115,38 +127,24 @@ func _on_button_pressed():
 		
 		#add random out of the central square
 		#it is a horrible way to do it but it's working, godot destroyed my brain
-		randomize()
+		#randomize()
 		var test = rng.randi_range(0,1)
 		if test == 1:
-			randomize()
-			test = rng.randi_range(0,1)
-			if test ==1:
-				tube.position.x = rng.randi_range(25,1152/2-500)
-				tube.position.y = rng.randi_range(200,648-200)
-			else :
-				tube.position.x = rng.randi_range(1152/2+500,1152-25)
-				tube.position.y = rng.randi_range(200,648-200)
+			tube.position.x = x[randi() % x.size()]
+			tube.position.y = y_tronc[randi() % y_tronc.size()]
 		else:
-			randomize()
-			test = rng.randi_range(0,1)
-			if test==1:
-				tube.position.x = rng.randi_range(25,1152-25)
-				tube.position.y = rng.randi_range(200,648/2-400)
-			else:
-				tube.position.x = rng.randi_range(25,1152-25)
-				tube.position.y = rng.randi_range(648/2+400,648-200)
-	
-		
-		
+			tube.position.x = x_tronc[randi() % x_tronc.size()]
+			tube.position.y = y[randi() % y.size()]
+		add_child(tube)
 	#set timer
 	$TEXT/time.text = str(round($Timer.time_left))
 	$Timer.start()
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if not lose :
+	if GlobalVar.win :
 		nb_tube += 1
-	if GlobalVar.on_randon == true and nb_tube-1 >= goal and lose == false:
+	if GlobalVar.on_randon == true and nb_tube-1 >= goal:
 		GlobalVar.pass_game()
 	else :
 		get_tree().reload_current_scene()

@@ -1,6 +1,5 @@
 extends Node
 
-var won: bool=false
 var time = 10
 
 # Called when the node enters the scene tree for the first time.
@@ -8,6 +7,9 @@ func _ready():
 	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
+
+	if GlobalVar.on_hard_core:
+		_on_button_pressed()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -18,7 +20,6 @@ func _process(delta):
 		
 		if T == 0:
 			$Timer.stop()
-			won=false
 			$ColorRect.color=Color(1, 0.231, 0.231)
 			$TEXT/win_state.set_text("haha looser")
 			restart()
@@ -27,14 +28,13 @@ func _on_plate_area_entered(area):
 	if area.type=="bad":
 		$Timer.stop()
 		$Plate.texture("sad")
-		won=false
 		$ColorRect.color=Color(1, 0.231, 0.231)
 		$TEXT/win_state.set_text("haha looser")
 		restart()
 		
 	elif area.type=="good":
 		$Timer.stop()
-		won=true
+		GlobalVar.win = true
 		GlobalVar.coins += 1
 		$ColorRect.color=Color(0.643, 1, 0.486)
 		$TEXT/win_state.set_text("you win")
@@ -52,9 +52,9 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if won:
+	if GlobalVar.win:
 		pass
-	if GlobalVar.on_randon == true and won:
+	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
 		get_tree().reload_current_scene()
@@ -66,10 +66,14 @@ func _on_button_3_pressed():
 func restart(): 
 	$LB.running = false
 	$Pizza.running = false
-	if won == false:
-		$Button2.set_text("Restart")
+	
+	if GlobalVar.on_hard_core:
+		_on_button_2_pressed()
 	else:
-		$Button2.set_text("Continue")
-	$Button2.show() # show restart
-	$Button3.show()
-	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+		if not GlobalVar.win:
+			$Button2.set_text("Restart")
+		else:
+			$Button2.set_text("Continue")
+		$Button2.show() # show restart
+		$Button3.show()
+		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))

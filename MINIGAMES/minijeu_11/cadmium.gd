@@ -47,10 +47,8 @@ func _process(delta):
 		if position.y > get_viewport().size.y:
 			position.y = 0
 	
-
 func _on_area_entered(area):
 	if area.type == "player":
-		print(score)
 		score +=1
 		if name != "cadmium":
 			visible = false

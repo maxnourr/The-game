@@ -4,7 +4,6 @@ var sco = 0
 static var nb_dirt = 20
 var linktube = preload("dirt.tscn") #to create new tube
 var rng = RandomNumberGenerator.new()
-var win = false
 
 var time = 5
 
@@ -14,6 +13,9 @@ func _ready():
 	$Timer.wait_time = time #set timer
 
 	updateScoreLabel()    
+
+	if GlobalVar.on_hard_core:
+		_on_button_pressed()
 
 
 func _process(delta):
@@ -26,10 +28,9 @@ func _process(delta):
 		$TEXT/time.text = str(max(0,T))
 		#if time runs out (do not use signal because of malus
 		if T == 0:
-			if win == false:
-				$MarginContainer/mouse.running = false
-				$TEXT/win_state.text = "haha looser"
-				restart()
+			$MarginContainer/mouse.running = false
+			$TEXT/win_state.text = "haha looser"
+			restart()
 		
 	
 		if sco != $MarginContainer/mouse.score:
@@ -37,14 +38,17 @@ func _process(delta):
 			updateScoreLabel()
 	
 func restart(): 
-	if win == false:
-		$Button2.set_text("Restart")
+	if GlobalVar.on_hard_core:
+		_on_button_2_pressed()
 	else:
-		$Button2.set_text("Continue")
-	$Button2.show() # show restart
-	$Button3.show()
-	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
-	$TEXT/explanation.text = "cleaning is the key !"
+		if not GlobalVar.win:
+			$Button2.set_text("Restart")
+		else:
+			$Button2.set_text("Continue")
+		$Button2.show() # show restart
+		$Button3.show()
+		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+		$TEXT/explanation.text = "cleaning is the key !"
 
 func increaseScore():
 	#score += points
@@ -58,7 +62,7 @@ func updateScoreLabel():
 	if sco >= nb_dirt:
 		$TEXT/win_state.text = "You win"
 		$MarginContainer/mouse.running = false
-		win = true
+		GlobalVar.win = true
 		GlobalVar.coins +=1
 		$Timer.stop()
 		restart()
@@ -83,9 +87,9 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if win :
+	if GlobalVar.win:
 		nb_dirt +=10
-	if GlobalVar.on_randon == true and win:
+	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
 		get_tree().reload_current_scene()

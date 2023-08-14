@@ -1,12 +1,15 @@
 extends Node
-var win = false
 var required = 130
-var time = 15
+var time = 10
 
 func _ready():
 	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
+	
+	if GlobalVar.on_hard_core:
+		_on_button_pressed()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -26,7 +29,7 @@ func _process(delta):
 			
 			
 		if $tube.filled >= $tube.required:
-			win = true
+			GlobalVar.win = true
 			$Timer.stop()
 			$tube.moving = false
 			$salt.moving = false
@@ -37,13 +40,16 @@ func _process(delta):
 
 
 func restart(): 
-	if not win:
-		$Button2.set_text("Restart")
+	if GlobalVar.on_hard_core:
+		_on_button_2_pressed()
 	else:
-		$Button2.set_text("Continue")
-	$Button2.show() # show restart
-	$Button3.show()
-	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+		if not GlobalVar.win:
+			$Button2.set_text("Restart")
+		else:
+			$Button2.set_text("Continue")
+		$Button2.show() # show restart
+		$Button3.show()
+		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
 
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
@@ -59,9 +65,9 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if win:
+	if GlobalVar.win:
 		$salt.amplitude +=10
-	if GlobalVar.on_randon == true and win:
+	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
 		get_tree().reload_current_scene()

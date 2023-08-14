@@ -2,10 +2,7 @@
 extends Node
 
 #timer
-var time = 20
-
-#game
-var lose = false 
+var time = 15
 
 #trash
 static var nb_trash = 10
@@ -19,6 +16,9 @@ func _ready():
 	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
+	
+	if GlobalVar.on_hard_core:
+		_on_button_pressed()
 		
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,20 +34,21 @@ func _process(delta):
 		
 		#if time runs out (do not use signal because of malus
 		if T == 0:
-			if lose == false:
-				$BackGround.color=Color(1, 0.231, 0.231)
-				$TEXT/win_state.text = "haha looser"
-				restart()
-			lose = true 
+			$BackGround.color=Color(1, 0.231, 0.231)
+			$TEXT/win_state.text = "haha looser"
+			restart()
 
 func restart(): 
-	if lose == true:
-		$Button2.set_text("Restart")
+	if GlobalVar.on_hard_core:
+		_on_button_2_pressed()
 	else:
-		$Button2.set_text("Continue")
-	$Button2.show() # show restart
-	$Button3.show()
-	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+		if not GlobalVar.win:
+			$Button2.set_text("Restart")
+		else:
+			$Button2.set_text("Continue")
+		$Button2.show() # show restart
+		$Button3.show()
+		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
 			
 				
 
@@ -75,9 +76,9 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if not lose:
+	if GlobalVar.win:
 		nb_trash += 10
-	if GlobalVar.on_randon == true and lose == false:
+	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
 		get_tree().reload_current_scene()
@@ -92,6 +93,7 @@ func _on_eye_area_exited(area):
 			$BackGround.color=Color(0.643, 1, 0.486)
 			$TEXT/win_state.text = "you win"
 			$eye.set_type("good")
+			GlobalVar.win = true
 			GlobalVar.coins +=1
 			restart()
 	

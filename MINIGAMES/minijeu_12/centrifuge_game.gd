@@ -1,6 +1,5 @@
 extends Node
 
-var win = false
 var move = false
 var rng = RandomNumberGenerator.new()
 
@@ -19,6 +18,10 @@ func _ready():
 	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
+	
+	if GlobalVar.on_hard_core:
+		_on_button_pressed()
+
 
 
 func random():
@@ -70,7 +73,7 @@ func verify():
 		$ColorRect.color=Color(0.643, 1, 0.486)
 		$TEXT/win_state.text = "you win!"
 		move = false
-		win = true
+		GlobalVar.win = true
 		GlobalVar.coins +=1
 		$Timer.stop()
 		restart()
@@ -85,20 +88,23 @@ func _process(delta):
 		$TEXT/time.text = str(max(0,T))
 		#if time runs out (do not use signal because of malus
 		if T == 0:
-			if win == false:
-				$ColorRect.color=Color(1, 0.231, 0.231)
-				$TEXT/win_state.text = "haha looser"
-				restart()
+			$ColorRect.color=Color(1, 0.231, 0.231)
+			$TEXT/win_state.text = "haha looser"
+			restart()
 	
 func restart(): 
-	if win == false:
-		$Button2.set_text("Restart")
+	
+	if GlobalVar.on_hard_core:
+		_on_button_2_pressed()
 	else:
-		$Button2.set_text("Continue")
-	$Button2.show() # show restart
-	$Button3.show()
-	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
-	$TEXT/explanation.text = "cleaning is the key !"
+		if not GlobalVar.win:
+			$Button2.set_text("Restart")
+		else:
+			$Button2.set_text("Continue")
+		$Button2.show() # show restart
+		$Button3.show()
+		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+		$TEXT/explanation.text = "cleaning is the key !"
 		
 
 func _on_button_pressed():
@@ -113,9 +119,9 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if win :
+	if GlobalVar.win:
 		time = max(5,time-5)
-	if GlobalVar.on_randon == true and win:
+	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
 		get_tree().reload_current_scene()

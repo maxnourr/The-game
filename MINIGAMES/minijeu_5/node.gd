@@ -1,5 +1,4 @@
 extends Node
-var win = false
 var time = 5
 
 # Called when the node enters the scene tree for the first time.
@@ -7,16 +6,24 @@ func _ready():
 	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
+	
+	if GlobalVar.on_hard_core:
+		_on_button_pressed()
+
 
 func restart(): 
 	$liquide.running = false
-	if not win:
-		$Button2.set_text("Restart")
+	
+	if GlobalVar.on_hard_core:
+		_on_button_2_pressed()
 	else:
-		$Button2.set_text("Continue")
-	$Button2.show() # show restart
-	$Button3.show()
-	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+		if not GlobalVar.win:
+			$Button2.set_text("Restart")
+		else:
+			$Button2.set_text("Continue")
+		$Button2.show() # show restart
+		$Button3.show()
+		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,7 +42,7 @@ func _process(delta):
 		
 
 		if $liquide.waiting >= 30:
-			win = true
+			GlobalVar.win = true
 			$BackGround.color=Color(0.643, 1, 0.486)
 			$TEXT/win_state.text = "you win"
 			GlobalVar.coins +=1
@@ -52,9 +59,9 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if win :
+	if GlobalVar.win :
 		$liquide.speed = min(10, $liquide.speed+1)
-	if GlobalVar.on_randon == true and win:
+	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
 		get_tree().reload_current_scene()

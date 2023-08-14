@@ -8,7 +8,6 @@ var temp = 0
 var rng = RandomNumberGenerator.new()
 
 #game
-var lose = false 
 var goal = 0 #temperature goal
 var timelapse = 0 #time at the good temp
 var to_wait = 250 #goal time at the good temp
@@ -24,7 +23,10 @@ func _ready():
 	
 	#random temp goal
 	goal = rng.randi_range(min,max)
-		
+	
+	if GlobalVar.on_hard_core:
+		_on_button_pressed()
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -38,11 +40,9 @@ func _process(delta):
 		$TEXT/time.text = str(max(0,T))
 		#if time runs out (do not use signal because of malus
 		if T == 0:
-			if lose == false:
-				$BackGround.color=Color(1, 0.231, 0.231)
-				$TEXT/win_state.text = "haha looser"
-				restart()
-			lose = true 
+			$BackGround.color=Color(1, 0.231, 0.231)
+			$TEXT/win_state.text = "haha looser"
+			restart()
 		
 		$TEXT/number.text = str(temp)
 		
@@ -65,6 +65,7 @@ func _process(delta):
 			else: 
 				timelapse += 1 #wait at the good time
 				if timelapse == to_wait :
+					GlobalVar.win = true
 					$BackGround.color=Color(0.643, 1, 0.486)
 					$TEXT/win_state.text = "you win"
 					GlobalVar.coins +=1
@@ -72,14 +73,17 @@ func _process(delta):
 					restart()
 
 func restart(): 
-	if lose == true:
-		$Button2.set_text("Restart")
+	if GlobalVar.on_hard_core:
+		_on_button_2_pressed()
 	else:
-		$Button2.set_text("Continue")
-	$Button2.show() # show restart
-	$Button3.show()
-	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
-	$TEXT/explanation.text = "You need a specific temperature to grow bacteria"
+		if not GlobalVar.win:
+			$Button2.set_text("Restart")
+		else:
+			$Button2.set_text("Continue")
+		$Button2.show() # show restart
+		$Button3.show()
+		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+		$TEXT/explanation.text = "You need a specific temperature to grow bacteria"
 
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
@@ -91,9 +95,9 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if not lose :
+	if GlobalVar.win:
 		time = max(8,time-4)
-	if GlobalVar.on_randon == true and lose == false:
+	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
 		get_tree().reload_current_scene()

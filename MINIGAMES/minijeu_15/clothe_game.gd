@@ -4,10 +4,6 @@ extends Node
 #timer
 static var time = 20
 
-
-#game
-var lose = false 
-
 #object
 var sunglasses = false
 var protectglass = false
@@ -31,6 +27,10 @@ func _ready():
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
 	
+	if GlobalVar.on_hard_core:
+		_on_button_pressed()
+
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 		
@@ -44,21 +44,21 @@ func _process(delta):
 		
 		#if time runs out
 		if T == 0:
-			if lose == false:
-				
-				$BackGround.color=Color(1, 0.231, 0.231)
-				$TEXT/win_state.text = "haha looser"
-				restart()
-			lose = true 
+			$BackGround.color=Color(1, 0.231, 0.231)
+			$TEXT/win_state.text = "haha looser"
+			restart()
 
 func restart(): 
-	if lose == true:
-		$Button2.set_text("Restart")
+	if GlobalVar.on_hard_core:
+		_on_button_2_pressed()
 	else:
-		$Button2.set_text("Continue")
-	$Button2.show() # show restart
-	$Button3.show()
-	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+		if not GlobalVar.win:
+			$Button2.set_text("Restart")
+		else:
+			$Button2.set_text("Continue")
+		$Button2.show() # show restart
+		$Button3.show()
+		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
 	
 func verify():
 	var value = -7
@@ -102,6 +102,7 @@ func verify():
 		
 		$BackGround.color=Color(0.643, 1, 0.486)
 		$TEXT/win_state.text = "you win"
+		GlobalVar.win = true
 		GlobalVar.coins +=1
 		restart()
 			
@@ -117,9 +118,9 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if not lose:
+	if GlobalVar.win:
 		time = max(5,time-3)
-	if GlobalVar.on_randon == true and lose == false:
+	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
 		get_tree().reload_current_scene()

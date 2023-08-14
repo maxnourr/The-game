@@ -4,7 +4,6 @@ var rng = RandomNumberGenerator.new()
 var firstrandom
 var secondrandom
 var move = false
-var win = false
 
 #timer
 static var time = 5
@@ -16,6 +15,8 @@ func _ready():
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
 	
+	if GlobalVar.on_hard_core:
+		_on_button_pressed()
 
 func _process(delta):
 	
@@ -32,7 +33,7 @@ func _process(delta):
 		if($bloc2.position.x >= (firstrandom - 5) and $bloc2.position.x <= (firstrandom + 5)):
 			$TEXT/win_state.text = "you win!"
 			move = false
-			win = true
+			GlobalVar.win = true
 			GlobalVar.coins +=1
 			$Timer.stop()
 			restart()
@@ -46,14 +47,17 @@ func _process(delta):
 			restart()
 	
 func restart(): 
-	if not win:
-		$Button2.set_text("Restart")
+	if GlobalVar.on_hard_core:
+		_on_button_2_pressed()
 	else:
-		$Button2.set_text("Continue")
-	$Button2.show()
-	$Button3.show()
-	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
-	$TEXT/explanation.text = "congrats you tricked igem"
+		if GlobalVar.win == false:
+			$Button2.set_text("Restart")
+		else:
+			$Button2.set_text("Continue")
+		$Button2.show()
+		$Button3.show()
+		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+		$TEXT/explanation.text = "congrats you tricked igem"
 
 
 func _on_button_pressed():
@@ -80,9 +84,9 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if win :
+	if GlobalVar.win:
 		time = max(1,time-1) 
-	if GlobalVar.on_randon == true and win == true:
+	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
 		get_tree().reload_current_scene()

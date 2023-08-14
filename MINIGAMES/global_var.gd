@@ -4,19 +4,33 @@ var game = ["res://minijeu_1/ampi_game.tscn","res://minijeu_2/node.tscn","res://
 
 var do_game = game.duplicate()
 var coins = 0
+var score = 0
+var max_score = 0
+
+var win = false
 var on_randon = false
+var on_hard_core = false
+var first = true
 var rng = RandomNumberGenerator
 
 func pass_game():
-	randomize()
-	if do_game.is_empty():
-		do_game = game.duplicate()
-	var game_to_load = do_game[randi() % do_game.size()]
-	var i = do_game.find(game_to_load)
-	do_game.erase(game_to_load)
-	to_load(game_to_load)
+	if win or first: 
+		if not first:
+			score +=1
+		else:
+			first = false
+		randomize()
+		if do_game.is_empty():
+			do_game = game.duplicate()
+		var game_to_load = do_game[randi() % do_game.size()]
+		var i = do_game.find(game_to_load)
+		do_game.erase(game_to_load)
+		to_load(game_to_load)
+	else: 
+		to_game_list()
 
 func to_load(to_load):
+	win = false
 	if to_load != "":
 		get_tree().change_scene_to_file(to_load)
 	

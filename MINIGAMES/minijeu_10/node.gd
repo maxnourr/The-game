@@ -2,12 +2,15 @@ extends Node
 
 #timer
 var time = 15
-var win = false
 
 func _ready():
 	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
 	$Button2.hide() #no restart
 	$Timer.wait_time = time #set timer
+	
+	if GlobalVar.on_hard_core:
+		_on_button_pressed()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,7 +33,7 @@ func _process(delta):
 		$tube3.check($seringue_true.fill)
 		
 		if $tube.score == $tube.required_score:
-			win = true
+			GlobalVar.win = true
 			$Timer.stop()
 			$BackGround.color=Color(0.643, 1, 0.486)
 			$TEXT/win_state.text = "you win"
@@ -41,13 +44,16 @@ func _process(delta):
 			
 	
 func restart(): 
-	if not win:
-		$Button2.set_text("Restart")
+	if GlobalVar.on_hard_core:
+		_on_button_2_pressed()
 	else:
-		$Button2.set_text("Continue")
-	$Button2.show() # show restart
-	$Button3.show()
-	$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+		if not GlobalVar.win:
+			$Button2.set_text("Restart")
+		else:
+			$Button2.set_text("Continue")
+		$Button2.show() # show restart
+		$Button3.show()
+		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
 	
 
 func _on_chaudron_area_entered(area):
@@ -71,9 +77,9 @@ func _on_button_pressed():
 
 #called if restart pressed
 func _on_button_2_pressed():
-	if win:
+	if GlobalVar.win:
 		$tube.max = min(5.1,$tube.max+1)
-	if GlobalVar.on_randon == true and win:
+	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
 		get_tree().reload_current_scene()

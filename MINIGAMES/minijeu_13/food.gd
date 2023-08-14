@@ -1,6 +1,6 @@
 extends Area2D
 static var score = 0
-static var speed = 100.0
+static var speed = 300.0
 var fuite = Vector2.ZERO
 static var player = null
 static var running = false
