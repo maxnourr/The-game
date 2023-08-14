@@ -27,6 +27,9 @@ func _process(delta):
 	#if timer running we update
 	if not $Timer.is_stopped():
 		
+		
+		$TEXT/time.text = str(max(0,T))
+		
 		if $cadmium.score == nb_food:
 			$ColorRect.color=Color(0.643, 1, 0.486)
 			$TEXT/win_state.text = "You win"
@@ -36,7 +39,6 @@ func _process(delta):
 			$Timer.stop()
 			restart()
 	
-		$TEXT/time.text = str(max(0,T))
 		#if time runs out (do not use signal because of malus
 		if T == 0:
 			$ColorRect.color=Color(1, 0.231, 0.231)

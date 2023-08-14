@@ -77,9 +77,6 @@ func _on_return_pressed():
 
 
 func _on_return_game_pressed():
-	if GlobalVar.score > GlobalVar.max_score:
-		GlobalVar.max_score = GlobalVar.score
-	GlobalVar.score = 0
 	$VBoxContainer.visible=true
 	$VBoxContainer2.visible=true
 	$VBoxContainer3.visible=true
@@ -89,6 +86,8 @@ func _on_return_game_pressed():
 	
 func final_speed_run():
 	$speed_run_end.set_text("Congrats, your score is " + str(GlobalVar.score))
+	if GlobalVar.score > GlobalVar.max_score:
+		GlobalVar.max_score = GlobalVar.score
 	$VBoxContainer.visible=false
 	$VBoxContainer2.visible=false
 	$VBoxContainer3.visible=false

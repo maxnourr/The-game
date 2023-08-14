@@ -18,21 +18,21 @@ func pass_game():
 		if not first:
 			score +=1
 		else:
+			GlobalVar.score = 0
 			first = false
 		randomize()
 		if do_game.is_empty():
 			do_game = game.duplicate()
 		var game_to_load = do_game[randi() % do_game.size()]
-		var i = do_game.find(game_to_load)
 		do_game.erase(game_to_load)
 		to_load(game_to_load)
 	else: 
 		to_game_list()
 
-func to_load(to_load):
+func to_load(G):
 	win = false
-	if to_load != "":
-		get_tree().change_scene_to_file(to_load)
+	if G in game:
+		get_tree().change_scene_to_file(G)
 	
 func to_menu():
 	get_tree().change_scene_to_file("res://menu.tscn")
