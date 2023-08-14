@@ -86,7 +86,7 @@ func _on_button_2_pressed():
 
 #if exit area, we remove from list
 func _on_eye_area_exited(area):
-	if area.type == "trash":
+	if area.type == "trash" and !$Timer.is_stopped():
 		area.queue_free()
 		removed +=1
 		if removed == nb_trash:

@@ -37,7 +37,7 @@ func _ready():
 	x_tronc = range(50,$bacterias.position.x -200) + range($bacterias.position.x +200,1152-50)
 	y_tronc = range(100,$bacterias.position.y -200) + range($bacterias.position.y +200,648-100)
 	
-	if GlobalVar.on_hard_core:
+	if GlobalVar.on_randon:
 		if nb_tube <3:
 			nb_tube = 3
 		_on_button_pressed()
@@ -147,7 +147,7 @@ func _on_button_pressed():
 func _on_button_2_pressed():
 	if GlobalVar.win :
 		nb_tube += 1
-	if GlobalVar.on_randon == true and nb_tube-1 >= goal:
+	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else :
 		get_tree().reload_current_scene()

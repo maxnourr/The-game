@@ -4,7 +4,7 @@ var game = ["res://minijeu_1/ampi_game.tscn","res://minijeu_2/node.tscn","res://
 
 var do_game = game.duplicate()
 var coins = 0
-var score = 0
+var start_score = 0
 var max_score = 0
 
 var win = false
@@ -15,10 +15,8 @@ var rng = RandomNumberGenerator
 
 func pass_game():
 	if win or first: 
-		if not first:
-			score +=1
-		else:
-			GlobalVar.score = 0
+		if first:
+			start_score = coins
 			first = false
 		randomize()
 		if do_game.is_empty():
@@ -57,10 +55,10 @@ func save_game():
 	
 func load_game():
 	var file = FileAccess.open("savegame.save",FileAccess.READ)
-	
-	var save_dict = file.get_var()
-	max_score = save_dict.max_score
-	coins = save_dict.coins
+	if file !=null:
+		var save_dict = file.get_var()
+		max_score = save_dict.max_score
+		coins = save_dict.coins
 	
 func blanck():
 	max_score = 0

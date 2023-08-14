@@ -4,10 +4,7 @@ var width = 0
 var height =0
 
 func _ready():
-	
 	if GlobalVar.on_randon == true:
-		if not GlobalVar.first and GlobalVar.win:
-			GlobalVar.score +=1
 		GlobalVar.win = false
 		GlobalVar.first = true
 		GlobalVar.on_randon = false
@@ -86,9 +83,10 @@ func _on_return_game_pressed():
 	$speed_run_end.visible=false
 	
 func final_speed_run():
-	$speed_run_end.set_text("Congrats, your score is " + str(GlobalVar.score))
-	if GlobalVar.score > GlobalVar.max_score:
-		GlobalVar.max_score = GlobalVar.score
+	var score = GlobalVar.coins - GlobalVar.start_score
+	$speed_run_end.set_text("Congrats, your score is " + str(score))
+	if score > GlobalVar.max_score:
+		GlobalVar.max_score = score
 	$VBoxContainer.visible=false
 	$VBoxContainer2.visible=false
 	$VBoxContainer3.visible=false
