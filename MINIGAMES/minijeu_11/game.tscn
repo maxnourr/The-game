@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cicnblkqvbcmt"]
+[gd_scene load_steps=6 format=3 uid="uid://cicnblkqvbcmt"]
 
 [ext_resource type="Script" path="res://minijeu_11/game.gd" id="1_pd8c2"]
 [ext_resource type="PackedScene" uid="uid://dukity2hk3x2q" path="res://minijeu_11/border.tscn" id="2_mivat"]
 [ext_resource type="PackedScene" uid="uid://bl0rbrw1jd5nk" path="res://minijeu_11/player.tscn" id="3_6egrj"]
 [ext_resource type="PackedScene" uid="uid://ykcvnqy7tap6" path="res://minijeu_11/cadmium.tscn" id="4_mn8lq"]
+[ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="5_a0ujs"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_pd8c2")
@@ -26,6 +27,9 @@ scale = Vector2(0.3, 0.3)
 [node name="cadmium" parent="." instance=ExtResource("4_mn8lq")]
 position = Vector2(578, 235)
 
+[node name="clock" parent="." instance=ExtResource("5_a0ujs")]
+visible = false
+
 [node name="TEXT" type="CanvasLayer" parent="."]
 
 [node name="win_state" type="Label" parent="TEXT"]
@@ -42,16 +46,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-
-[node name="time" type="Label" parent="TEXT"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
 
 [node name="explanation" type="Label" parent="TEXT"]
 anchors_preset = 5

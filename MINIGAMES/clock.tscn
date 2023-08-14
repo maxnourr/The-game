@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://coasydelfxf46"]
+
+[ext_resource type="Texture2D" uid="uid://ddkhp8u6302c1" path="res://timer.png" id="1_n2j2a"]
+
+[node name="clock" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(80, 80)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_n2j2a")
+
+[node name="time" type="Label" parent="."]
+offset_left = 51.0
+offset_top = 42.0
+offset_right = 109.0
+offset_bottom = 114.0
+theme_override_font_sizes/font_size = 50
+text = "12"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

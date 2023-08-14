@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://doy6x75la3hjs"]
+[gd_scene load_steps=7 format=3 uid="uid://doy6x75la3hjs"]
 
 [ext_resource type="Script" path="res://minijeu_4/FeedBacteria_game.gd" id="1_jxmc4"]
 [ext_resource type="PackedScene" uid="uid://cbxrintehgosj" path="res://minijeu_4/plate 2.tscn" id="2_5o0kw"]
 [ext_resource type="PackedScene" uid="uid://dyrncwcqsmvov" path="res://minijeu_4/LB.tscn" id="3_67x71"]
 [ext_resource type="PackedScene" uid="uid://dp8sbnhp671qj" path="res://minijeu_4/pizza.tscn" id="4_qiwm8"]
 [ext_resource type="PackedScene" uid="uid://b8rdy17ycar0m" path="res://minijeu_4/TEXT.tscn" id="5_188ix"]
+[ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="6_1cbpb"]
 
 [node name="FeedBacteria_game" type="Node"]
 script = ExtResource("1_jxmc4")
@@ -32,20 +33,10 @@ position = Vector2(1076, 195)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_188ix")]
 
-[node name="TEXT" type="CanvasLayer" parent="."]
+[node name="clock" parent="." instance=ExtResource("6_1cbpb")]
+visible = false
 
-[node name="time" type="Label" parent="TEXT"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -355.0
-offset_top = -1.0
-offset_right = -37.0
-offset_bottom = 139.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 200
-horizontal_alignment = 2
+[node name="TEXT" type="CanvasLayer" parent="."]
 
 [node name="win_state" type="Label" parent="TEXT"]
 anchors_preset = 5

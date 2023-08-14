@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxmipg467pyl6"]
+[gd_scene load_steps=6 format=3 uid="uid://dxmipg467pyl6"]
 
 [ext_resource type="PackedScene" uid="uid://cwgnc0omkn73v" path="res://minijeu_9/tube.tscn" id="1_2oel4"]
 [ext_resource type="Script" path="res://minijeu_9/game9.gd" id="1_4068y"]
 [ext_resource type="PackedScene" path="res://minijeu_9/vortex.tscn" id="2_5vgng"]
 [ext_resource type="Script" path="res://minijeu_9/RigidBody2D.gd" id="4_72rjd"]
+[ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="5_pij6m"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_4068y")
@@ -34,12 +35,18 @@ script = ExtResource("4_72rjd")
 
 [node name="velocity" type="Label" parent="RigidBody2D"]
 modulate = Color(0.952941, 0, 0.211765, 1)
-offset_right = 185.0
-offset_bottom = 140.0
+offset_left = 2.0
+offset_top = 506.0
+offset_right = 187.0
+offset_bottom = 646.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 75
 text = "test"
+vertical_alignment = 2
 justification_flags = 0
+
+[node name="clock" parent="." instance=ExtResource("5_pij6m")]
+visible = false
 
 [node name="TEXT" type="CanvasLayer" parent="."]
 
@@ -57,17 +64,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-metadata/_edit_use_anchors_ = true
-
-[node name="time" type="Label" parent="TEXT"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
 metadata/_edit_use_anchors_ = true
 
 [node name="explanation" type="Label" parent="TEXT"]

@@ -34,14 +34,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 		
+		
 	#if timer running we update
 	if not $Timer.is_stopped():
 		#if malus we remove some time
 		#do not successed to remove time from timer
 		var T = max(0,round($Timer.time_left))
 		#update time
-		$TEXT/time.text = str(max(0,T))
-		
+		$clock/time.text = str(max(0,T))
 		#if time runs out
 		if T == 0:
 			$BackGround.color=Color(1, 0.231, 0.231)
@@ -113,7 +113,8 @@ func _on_button_pressed():
 	$Button.hide() #hide start
 	$Button3.hide()
 	#set timer
-	$TEXT/time.text = str(round($Timer.time_left))
+	$clock.visible = true
+	$clock/time.text = str(round($Timer.time_left))
 	$Timer.start()
 
 #called if restart pressed

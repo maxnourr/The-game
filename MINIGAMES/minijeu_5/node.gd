@@ -33,7 +33,7 @@ func _process(delta):
 		#update time
 	#if timer running we update
 	if not $Timer.is_stopped():
-		$TEXT/time.text = str(max(0,T))
+		$clock/time.text = str(max(0,T))
 		#if time runs out (do not use signal because of malus
 		if T == 0:
 			$BackGround.color=Color(1, 0.231, 0.231)
@@ -53,7 +53,8 @@ func _on_button_pressed():
 	$Button.hide() #hide start	
 	$Button3.hide()
 	#set timer
-	$TEXT/time.text = str(round($Timer.time_left))
+	$clock.visible = true
+	$clock/time.text = str(round($Timer.time_left))
 	$liquide.running = true
 	$Timer.start()
 

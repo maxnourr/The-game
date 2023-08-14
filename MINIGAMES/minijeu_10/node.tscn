@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d16x3vr7ws0km"]
+[gd_scene load_steps=6 format=3 uid="uid://d16x3vr7ws0km"]
 
 [ext_resource type="PackedScene" uid="uid://dbhy5ultx1d0p" path="res://minijeu_10/seringue_true.tscn" id="1_biety"]
 [ext_resource type="PackedScene" uid="uid://dhro02jqh1yfm" path="res://minijeu_10/tube.tscn" id="1_cj86y"]
 [ext_resource type="Script" path="res://minijeu_10/node.gd" id="1_q75m3"]
 [ext_resource type="PackedScene" uid="uid://rptyr3uc1k4q" path="res://minijeu_10/chaudron.tscn" id="3_7omsv"]
+[ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="5_n2cw3"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_q75m3")
@@ -36,20 +37,10 @@ position = Vector2(1021, 475)
 [node name="tube3" parent="." instance=ExtResource("1_cj86y")]
 position = Vector2(836, 481)
 
-[node name="TEXT" type="CanvasLayer" parent="."]
+[node name="clock" parent="." instance=ExtResource("5_n2cw3")]
+visible = false
 
-[node name="time" type="Label" parent="TEXT"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -355.0
-offset_top = -1.0
-offset_right = -37.0
-offset_bottom = 139.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 200
-horizontal_alignment = 2
+[node name="TEXT" type="CanvasLayer" parent="."]
 
 [node name="win_state" type="Label" parent="TEXT"]
 anchors_preset = 5

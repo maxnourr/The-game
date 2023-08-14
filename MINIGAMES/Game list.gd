@@ -4,6 +4,7 @@ var width = 0
 var height =0
 
 func _ready():
+	
 	if GlobalVar.on_randon == true:
 		if not GlobalVar.first and GlobalVar.win:
 			GlobalVar.score +=1

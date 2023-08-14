@@ -30,7 +30,7 @@ func _process(delta):
 		#do not successed to remove time from timer
 		var T = max(0,round($Timer.time_left))
 		#update time
-		$TEXT/time.text = str(max(0,T))
+		$clock/time.text = str(max(0,T))
 		
 		#if time runs out (do not use signal because of malus
 		if T == 0:
@@ -71,7 +71,8 @@ func _on_button_pressed():
 			trash.position.y = rng.randi_range(325-250/2,325+250/2)
 	
 	#set timer
-	$TEXT/time.text = str(round($Timer.time_left))
+	$clock.visible = true
+	$clock/time.text = str(round($Timer.time_left))
 	$Timer.start()
 
 #called if restart pressed

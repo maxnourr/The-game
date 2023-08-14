@@ -36,13 +36,15 @@ func _ready():
 	y = range(100,648-100)
 	x_tronc = range(50,$bacterias.position.x -200) + range($bacterias.position.x +200,1152-50)
 	y_tronc = range(100,$bacterias.position.y -200) + range($bacterias.position.y +200,648-100)
-
+	
 	if GlobalVar.on_hard_core:
+		if nb_tube <3:
+			nb_tube = 3
 		_on_button_pressed()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-		
+	
 	#if timer running we update
 	if not $Timer.is_stopped():
 		
@@ -53,7 +55,8 @@ func _process(delta):
 			T = max(0,T-3) 
 		
 		#update time
-		$TEXT/time.text = str(max(0,T))
+		$clock.visible = true
+		$clock/time.text = str(max(0,T))
 			
 		#update circle size
 		$circle.scale.x = max(max_size/2,$circle.scale.x - step*delta)
@@ -137,7 +140,7 @@ func _on_button_pressed():
 			tube.position.y = y[randi() % y.size()]
 		add_child(tube)
 	#set timer
-	$TEXT/time.text = str(round($Timer.time_left))
+	$clock/time.text = str(round($Timer.time_left))
 	$Timer.start()
 
 #called if restart pressed

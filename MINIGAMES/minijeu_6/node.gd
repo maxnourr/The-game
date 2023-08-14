@@ -16,7 +16,7 @@ func _process(delta):
 	if !$Timer.is_stopped():
 		var T = max(0,round($Timer.time_left))
 		#update time
-		$TEXT/time.text = str(max(0,T))
+		$clock/time.text = str(max(0,T))
 		
 		#if time runs out (do not use signal because of malus
 		if T == 0:
@@ -57,7 +57,8 @@ func _on_button_pressed():
 	$Button3.hide()
 	#instantiate tubes	
 	#set timer
-	$TEXT/time.text = str(round($Timer.time_left))
+	$clock.visible = true
+	$clock/time.text = str(round($Timer.time_left))
 	$tube.moving = true
 	$salt.moving = true
 	$salt.rotation = PI

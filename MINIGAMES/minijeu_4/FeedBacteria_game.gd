@@ -16,7 +16,7 @@ func _process(delta):
 	if not $Timer.is_stopped():
 		var T = max(0,round($Timer.time_left))
 		
-		$TEXT/time.text = str(max(0,T))
+		$clock/time.text = str(max(0,T))
 		
 		if T == 0:
 			$Timer.stop()
@@ -48,6 +48,9 @@ func _on_button_pressed():
 	#set timer
 	$LB.running = true
 	$Pizza.running = true
+	
+	$clock.visible = true
+	$clock/time.text = str(round($Timer.time_left))
 	$Timer.start()
 
 #called if restart pressed

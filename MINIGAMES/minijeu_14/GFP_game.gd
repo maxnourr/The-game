@@ -28,7 +28,7 @@ func _process(delta):
 		var T = max(0,round($Timer.time_left))
 		
 		#update time
-		$TEXT/time.text = str(max(0,T))
+		$clock/time.text = str(max(0,T))
 		
 
 		
@@ -82,7 +82,7 @@ func _on_button_pressed():
 	$Button.hide() #hide start	
 	$Button3.hide()
 	#set timer
-	$TEXT/time.text = str(round($Timer.time_left))
+	$clock/time.text = str(round($Timer.time_left))
 	$bacteria.running = true
 	$Obstacle.running = true
 	
@@ -108,7 +108,8 @@ func _on_button_pressed():
 			
 			obstacle.set_player($bacteria)
 			add_child(obstacle)
-			
+	
+	$clock.visible = true		
 	$Timer.start()
 
 #called if restart pressed

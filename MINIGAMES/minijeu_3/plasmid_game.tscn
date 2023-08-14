@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm7w3i5qr5sw0"]
+[gd_scene load_steps=6 format=3 uid="uid://bm7w3i5qr5sw0"]
 
 [ext_resource type="Script" path="res://minijeu_3/Plasmid_Game.gd" id="1_ts5mb"]
 [ext_resource type="PackedScene" uid="uid://dtxnuadi5aafl" path="res://minijeu_3/plate.tscn" id="2_fp7k7"]
 [ext_resource type="Texture2D" uid="uid://tnqksvvlghf8" path="res://minijeu_3/figures/up.jpg" id="3_k3hlh"]
+[ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="3_m10lt"]
 [ext_resource type="Texture2D" uid="uid://dvjga2360ichd" path="res://minijeu_3/figures/down.jpg" id="4_owbfw"]
 
 [node name="Plasmid_Game" type="Node"]
@@ -53,6 +54,9 @@ theme_override_font_sizes/font_size = 50
 text = "Restart
 "
 
+[node name="clock" parent="." instance=ExtResource("3_m10lt")]
+visible = false
+
 [node name="TEXT" type="CanvasLayer" parent="."]
 
 [node name="win_state" type="Label" parent="TEXT"]
@@ -69,16 +73,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-
-[node name="time" type="Label" parent="TEXT"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
 
 [node name="explanation" type="Label" parent="TEXT"]
 anchors_preset = 5

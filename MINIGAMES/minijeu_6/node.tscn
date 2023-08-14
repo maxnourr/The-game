@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b08kbf1ta0kxh"]
+[gd_scene load_steps=5 format=3 uid="uid://b08kbf1ta0kxh"]
 
 [ext_resource type="Script" path="res://minijeu_6/node.gd" id="1_fy4b0"]
 [ext_resource type="PackedScene" uid="uid://kbb52e0k1e5h" path="res://minijeu_6/tube.tscn" id="1_ueo3d"]
 [ext_resource type="PackedScene" uid="uid://dnvwdtjexgemj" path="res://minijeu_6/salt.tscn" id="2_jooox"]
+[ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="4_u0ttj"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_fy4b0")
@@ -27,20 +28,10 @@ scale = Vector2(1.185, 1.185)
 [node name="salt" parent="." instance=ExtResource("2_jooox")]
 position = Vector2(576, 204)
 
-[node name="TEXT" type="CanvasLayer" parent="."]
+[node name="clock" parent="." instance=ExtResource("4_u0ttj")]
+visible = false
 
-[node name="time" type="Label" parent="TEXT"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -355.0
-offset_top = -1.0
-offset_right = -37.0
-offset_bottom = 139.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 200
-horizontal_alignment = 2
+[node name="TEXT" type="CanvasLayer" parent="."]
 
 [node name="win_state" type="Label" parent="TEXT"]
 anchors_preset = 5

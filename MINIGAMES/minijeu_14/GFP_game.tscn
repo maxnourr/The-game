@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm7w3i5qr5sw0"]
+[gd_scene load_steps=6 format=3 uid="uid://bm7w3i5qr5sw0"]
 
 [ext_resource type="Script" path="res://minijeu_14/GFP_game.gd" id="1_pvlhh"]
 [ext_resource type="PackedScene" uid="uid://mahfyml3kfeo" path="res://minijeu_14/GFP.tscn" id="2_hv0p5"]
 [ext_resource type="PackedScene" uid="uid://orwfo6t55vja" path="res://minijeu_14/bacteria.tscn" id="3_fwux5"]
 [ext_resource type="PackedScene" uid="uid://bg5kij2gvdk8d" path="res://minijeu_14/obstacle.tscn" id="4_vyiwr"]
+[ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="5_ja8lf"]
 
 [node name="GFP_game" type="Node"]
 script = ExtResource("1_pvlhh")
@@ -28,6 +29,9 @@ position = Vector2(576, 540)
 visible = false
 position = Vector2(63, 84)
 
+[node name="clock" parent="." instance=ExtResource("5_ja8lf")]
+visible = false
+
 [node name="TEXT" type="CanvasLayer" parent="."]
 
 [node name="win_state" type="Label" parent="TEXT"]
@@ -44,16 +48,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-
-[node name="time" type="Label" parent="TEXT"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
 
 [node name="explanation" type="Label" parent="TEXT"]
 anchors_preset = 5

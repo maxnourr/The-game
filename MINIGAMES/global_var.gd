@@ -39,3 +39,31 @@ func to_menu():
 	
 func to_game_list():
 	get_tree().change_scene_to_file("res://game_list.tscn")
+	
+# Note: This can be called from anywhere inside the tree. This function is
+# path independent.
+# Go through everything in the persist category and ask them to return a
+# dict of relevant variables.
+func save_game():
+	
+	var save_dict = {
+		"max_score" : max_score,
+		"coins" : coins
+	}
+	
+	var file = FileAccess.open("savegame.save",FileAccess.WRITE)
+	file.store_var(save_dict)
+	file.close()
+	
+func load_game():
+	var file = FileAccess.open("savegame.save",FileAccess.READ)
+	
+	var save_dict = file.get_var()
+	max_score = save_dict.max_score
+	coins = save_dict.coins
+	
+func blanck():
+	max_score = 0
+	coins = 0
+	
+

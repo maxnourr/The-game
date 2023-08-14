@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnyxwwl2qb7c0"]
+[gd_scene load_steps=5 format=3 uid="uid://dnyxwwl2qb7c0"]
 
 [ext_resource type="Script" path="res://minijeu_8/Game1.gd" id="1_me0hd"]
 [ext_resource type="Texture2D" uid="uid://j6eo74hlhl5v" path="res://minijeu_8/figures/bench.png" id="2_ynpfq"]
 [ext_resource type="PackedScene" uid="uid://rc8tsreyb7q1" path="res://minijeu_8/mouse.tscn" id="4_fsxno"]
+[ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="4_opjil"]
 
 [node name="game1" type="Node"]
 script = ExtResource("1_me0hd")
@@ -44,6 +45,9 @@ vertical_alignment = 1
 [node name="mouse" parent="MarginContainer" instance=ExtResource("4_fsxno")]
 position = Vector2(2.08165e-12, 2.08165e-12)
 
+[node name="clock" parent="." instance=ExtResource("4_opjil")]
+visible = false
+
 [node name="TEXT" type="CanvasLayer" parent="."]
 
 [node name="win_state" type="Label" parent="TEXT"]
@@ -60,16 +64,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-
-[node name="time" type="Label" parent="TEXT"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
 
 [node name="explanation" type="Label" parent="TEXT"]
 anchors_preset = 5

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6sqxs7h44x5x"]
+[gd_scene load_steps=5 format=3 uid="uid://b6sqxs7h44x5x"]
 
 [ext_resource type="PackedScene" uid="uid://cle4um2lspktn" path="res://minijeu_13/player.tscn" id="1_7huq0"]
 [ext_resource type="Script" path="res://minijeu_13/game.gd" id="1_ddvvm"]
 [ext_resource type="PackedScene" uid="uid://cyf6h5cd6vc0s" path="res://minijeu_13/food.tscn" id="2_5cvuk"]
+[ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="4_7b3q2"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_ddvvm")
@@ -23,6 +24,9 @@ scale = Vector2(0.3, 0.3)
 visible = false
 position = Vector2(329, 195)
 
+[node name="clock" parent="." instance=ExtResource("4_7b3q2")]
+visible = false
+
 [node name="TEXT" type="CanvasLayer" parent="."]
 
 [node name="win_state" type="Label" parent="TEXT"]
@@ -39,16 +43,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-
-[node name="time" type="Label" parent="TEXT"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
 
 [node name="explanation" type="Label" parent="TEXT"]
 anchors_preset = 5

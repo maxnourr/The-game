@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw8phc65geig"]
+[gd_scene load_steps=6 format=3 uid="uid://bw8phc65geig"]
 
 [ext_resource type="PackedScene" uid="uid://dhk51yg2eceg" path="res://minijeu_2/bloc.tscn" id="1_he15d"]
 [ext_resource type="Script" path="res://minijeu_2/node.gd" id="1_njfe6"]
 [ext_resource type="Texture2D" uid="uid://bpoy1i2ukhvn0" path="res://minijeu_2/figures/Western blot.png" id="2_igfpe"]
 [ext_resource type="PackedScene" uid="uid://cc1nwopj6y71d" path="res://minijeu_2/canvas_layer.tscn" id="3_rnkir"]
+[ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="5_kigif"]
 
 [node name="Node" type="Node"]
 script = ExtResource("1_njfe6")
@@ -28,20 +29,10 @@ position = Vector2(-54, -18)
 wait_time = 10.0
 one_shot = true
 
-[node name="TEXT" type="CanvasLayer" parent="."]
+[node name="clock" parent="." instance=ExtResource("5_kigif")]
+visible = false
 
-[node name="time" type="Label" parent="TEXT"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -355.0
-offset_top = -1.0
-offset_right = -37.0
-offset_bottom = 139.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 200
-horizontal_alignment = 2
+[node name="TEXT" type="CanvasLayer" parent="."]
 
 [node name="win_state" type="Label" parent="TEXT"]
 anchors_preset = 5
