@@ -24,6 +24,7 @@ func _process(delta):
 	if wait >=to_wait and nb_turn != 0:
 		wait = 0
 		if nb_turn == 1:
+			to_wait =50
 			if current == 3:
 				clock = false
 				current = 2
