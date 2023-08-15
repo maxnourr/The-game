@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfgjb4e770rse"]
+
+[ext_resource type="Script" path="res://build.gd" id="1_dgc0j"]
+
+[node name="build" type="Node"]
+script = ExtResource("1_dgc0j")
+
+[node name="Container" type="Container" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="othergene" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 141.0
+offset_right = 107.0
+offset_bottom = 211.0
+text = "othergene
+"
+
+[node name="gfp" type="Button" parent="."]
+offset_left = 8.0
+offset_top = 37.0
+offset_right = 105.0
+offset_bottom = 108.0
+text = "GFP"
+
+[node name="Pop" type="Button" parent="."]
+offset_right = 18.0
+offset_bottom = 31.0
+text = "X"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.018
+offset_left = 531.0
+offset_top = 40.0
+offset_right = 621.68
+offset_bottom = 180.336
+
+[connection signal="button_down" from="othergene" to="." method="_on_othergene_button_down"]
+[connection signal="button_down" from="gfp" to="." method="_on_gfp_button_down"]
+[connection signal="button_down" from="Pop" to="." method="_on_pop_button_down"]
