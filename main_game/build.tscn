@@ -38,6 +38,23 @@ offset_top = 40.0
 offset_right = 621.68
 offset_bottom = 180.336
 
+[node name="save" type="Button" parent="."]
+offset_left = 975.0
+offset_top = 19.0
+offset_right = 1027.0
+offset_bottom = 65.0
+text = "save"
+
+[node name="exit" type="Button" parent="."]
+offset_left = 1060.0
+offset_top = 21.0
+offset_right = 1112.0
+offset_bottom = 67.0
+text = "exit
+"
+
 [connection signal="button_down" from="othergene" to="." method="_on_othergene_button_down"]
 [connection signal="button_down" from="gfp" to="." method="_on_gfp_button_down"]
 [connection signal="button_down" from="Pop" to="." method="_on_pop_button_down"]
+[connection signal="button_down" from="save" to="." method="_on_save_button_down"]
+[connection signal="button_down" from="exit" to="." method="_on_exit_button_down"]

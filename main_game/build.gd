@@ -1,33 +1,14 @@
 extends Node
 var rectangles = [] # le tableau qui keep track des rectangles, giga important pour pop
 var plasmid = [] #le tableau qui contiendra tout les genes
+
 #la taille des rectangles qui apparaissent dans le menu plasmid
 var size_x = 80
 var size_y = 50
 
-#la classe gene, nommée Genome car "gene" semble déjà être quelque chose pour godot
-#--------------------------------------------------------------
-class Genome:
-	var ID: int
-	var Price: int
-	var State: bool
-	var Col: Color
-	func _init(id: int, price: int, state: bool, color: Color):
-		ID = id
-		Price = price
-		State = state
-		Col = color
-#-----------------------------------------------------------
-
-#tout les genes seront ici
-#----------------------------------
-var GFP = Genome.new(1, 100, true,Color(0.49, 1, 0.467))
-var othergene = Genome.new(2, 100, true,Color(1, 0.45, 0.467))
-
-
-#---------------------------------
-
 func _ready():
+	plasmid = []
+	rectangles = []
 	$Pop.position.y = 400
 
 
@@ -63,10 +44,21 @@ func _on_pop_button_down():
 
 #les boutons de genes
 func _on_gfp_button_down():
-	plasmid.push_back(GFP)
-	new_rect(plasmid.size(),GFP.Col)
+	plasmid.push_back(Genome.GFP)
+	new_rect(plasmid.size(),Genome.GFP.Col)
 	
 
 func _on_othergene_button_down():
-	plasmid.push_back(othergene)
-	new_rect(plasmid.size(),othergene.Col)
+	plasmid.push_back(Genome.othergene)
+	new_rect(plasmid.size(),Genome.othergene.Col)
+
+
+func _on_save_button_down():
+	if (plasmid.size() > 0):
+		Genome.plasmids.push_back(plasmid) #rajoute le plasmid créé à la liste des plasmids dans l'e-coli
+	get_tree().change_scene_to_file("res://main.tscn")
+
+func _on_exit_button_down():
+	get_tree().change_scene_to_file("res://main.tscn")
+	
+

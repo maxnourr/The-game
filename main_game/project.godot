@@ -14,6 +14,12 @@ config/name="main_game"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Genome="*res://genome.gd"
+PlayerVar="*res://player_var.gd"
+Express="*res://express.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

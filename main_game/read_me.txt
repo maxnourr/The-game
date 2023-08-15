@@ -1,13 +1,35 @@
-Pour l'instant ce n'est que la fonction Build 
-(en gros le menu qui permet de construire les plasmids)
+Yo! bienvenue au main game, vous allez voir c'est plutôt trkl
 
-pour faire simple le plasmid est un array de class "Genome"
-"genome" car malheuresement il semblerait que "gene" soit déjà reconnu par godot comme quelque chose.
+le jeu est pour l'instant composé de trois dossiers globaux et de deux scènes
 
-chaque genome a 4 variables
+Genome
+	genome contient la définition de la classe genome ainsi que la liste de tout les gènes existants
+	
+PlayerVar
+	inclu toute les variables du joeur, vie,couleur, resistance,gènes exprimés
 
-ID = un int qui permet de l'identifier
-Price = un int qui determine son prix
-State = un boolen qui permettra d'arrêter de lire la séquence d'un plasmid
-Color = la couleur du rectangle dans le créateur de plasmid
-
+Express
+	inclu toute les fonctions associés  aux gènes (changer la couleur, produire une mollécule, tout ces trucs)
+	
+	
+la classe genome:
+	comme mentionné plutôt, on a une classe génome. ELle est composé de 4 choses.
+	
+	Son ID
+		c'est un nombre, c'est celui qui est lu dans express pour exprimer les bons genes
+	Son Prix
+		permettra d'inclure une notion de gestion dans le jeu
+	Sa couleur
+		la couleur du petit rectangle dans l'edition des plasmids, purement esthetique et là pour éviter qu'on s'y perde
+	Son etat
+		un bool très souvent à true mais dans certains cas à false. Il permet l'arrêt de l'expression des gènes d'un plasmid
+		utile pour permettre aux joueurs de créer des conditions dans leur gène
+		
+		
+Les deux scènes sont: 
+	
+	main
+		là où on va pouvoir jouer.
+	
+	build
+		là où on fabrique nos plasmids.
