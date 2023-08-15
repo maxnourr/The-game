@@ -1,6 +1,6 @@
 extends Node
 #le singleton responsable des fonctions associés à chaque gene
-
+#cela inclu changement de couleur, création de mollécule mais aussi la détection des dites mollécules
 func express(genome):
 	match genome.ID:
 		1:

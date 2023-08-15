@@ -1,12 +1,12 @@
 Yo! bienvenue au main game, vous allez voir c'est plutôt trkl
 
-le jeu est pour l'instant composé de trois dossiers globaux et de deux scènes
+le jeu est pour l'instant composé de trois dossiers globaux et de trois scènes
 
 Genome
 	genome contient la définition de la classe genome ainsi que la liste de tout les gènes existants
 	
 PlayerVar
-	inclu toute les variables du joeur, vie,couleur, resistance,gènes exprimés
+	inclu toute les variables du joueur, vie,couleur, resistance,gènes exprimés
 
 Express
 	inclu toute les fonctions associés  aux gènes (changer la couleur, produire une mollécule, tout ces trucs)
@@ -26,10 +26,13 @@ la classe genome:
 		utile pour permettre aux joueurs de créer des conditions dans leur gène
 		
 		
-Les deux scènes sont: 
+Les trois scènes sont: 
 	
 	main
 		là où on va pouvoir jouer.
 	
 	build
 		là où on fabrique nos plasmids.
+		
+	edit_plasmid
+		permet de delete les plasmids dans la bactérie
