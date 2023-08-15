@@ -33,7 +33,6 @@ func _process(delta):
 		if $cadmium.score == nb_food:
 			$ColorRect.color=Color(0.643, 1, 0.486)
 			$TEXT/win_state.text = "You win"
-			$player.set_state("happy")
 			GlobalVar.win = true
 			GlobalVar.coins +=1
 			$Timer.stop()
@@ -43,6 +42,7 @@ func _process(delta):
 		if T == 0:
 			$ColorRect.color=Color(1, 0.231, 0.231)
 			$TEXT/win_state.text = "haha looser"
+			$player.set_state("angry")
 			$Timer.stop()
 			restart()
 			
@@ -101,8 +101,9 @@ func _on_button_3_pressed():
 
 func _on_border_area_exited(area):
 	if area.type == "cadmium" and area.visible and !$Timer.is_stopped():
-		$border/CollisionShape2D.set_deferred("disabled", true)
+		$border/CollisionPolygon2D.set_deferred("disabled", true)
 		$ColorRect.color=Color(1, 0.231, 0.231)
 		$TEXT/win_state.text = "haha looser"
+		$player.set_state("angry")
 		$Timer.stop()
 		restart()

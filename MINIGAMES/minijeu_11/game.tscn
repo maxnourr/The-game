@@ -18,14 +18,15 @@ grow_vertical = 2
 color = Color(0.870588, 1, 0.984314, 1)
 
 [node name="border" parent="." instance=ExtResource("2_mivat")]
-position = Vector2(576, 324)
+position = Vector2(607, 345)
+scale = Vector2(0.9, 0.9)
 
 [node name="player" parent="." instance=ExtResource("3_6egrj")]
-position = Vector2(576, 324)
+position = Vector2(751, 355)
 scale = Vector2(0.3, 0.3)
 
 [node name="cadmium" parent="." instance=ExtResource("4_mn8lq")]
-position = Vector2(578, 235)
+position = Vector2(759, 247)
 
 [node name="clock" parent="." instance=ExtResource("5_a0ujs")]
 visible = false

@@ -12,16 +12,16 @@ func _physics_process(delta):
 	
 	
 	if setter != false :
-		$velocity.text = "Velocity: " + str(currentVelocity)
 	# Accelerate the object's velocity when the space button is pressed
 		if Input.is_action_pressed("ui_up"):
-			if currentVelocity < 0:
-				currentVelocity = 0
 			notroundedVelocity = currentVelocity + (acceleration * delta) 
 			currentVelocity =  round(notroundedVelocity) 
 		else:
-			if currentVelocity < 0:
-				currentVelocity = 0
 			notroundedVelocity = currentVelocity + (deceleration * delta) 
 			currentVelocity =  round(notroundedVelocity)
+		if currentVelocity < 0:
+			currentVelocity = 0
+		elif currentVelocity > 100:
+			currentVelocity = 100
 			
+		$velocity.text = str(round(currentVelocity))

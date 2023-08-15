@@ -7,7 +7,7 @@ func _ready():
 func _on_select_game_pressed():
 	$AudioStreamPlayer2D.play()
 	await get_tree().create_timer(0.8).timeout
-	get_tree().change_scene_to_file("res://game_list.tscn")
+	GlobalVar.to_game_list()
 
 
 func _on_music_pressed():

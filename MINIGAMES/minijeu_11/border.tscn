@@ -1,20 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://dukity2hk3x2q"]
+[gd_scene load_steps=3 format=3 uid="uid://dukity2hk3x2q"]
 
-[ext_resource type="Texture2D" uid="uid://nenpj0125g6b" path="res://minijeu_11/plate.png" id="1_3f65r"]
 [ext_resource type="Script" path="res://minijeu_11/border.gd" id="1_ujvtp"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5f7k8"]
-radius = 265.0
-height = 960.0
+[ext_resource type="Texture2D" uid="uid://dtvmc5teokhqu" path="res://minijeu_11/figures/Stomach@4x.png" id="2_472he"]
 
 [node name="border" type="Area2D"]
 script = ExtResource("1_ujvtp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.17)
-texture = ExtResource("1_3f65r")
+position = Vector2(-185, -87)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_472he")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_5f7k8")
-one_way_collision_margin = 0.0
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-146, -1)
+polygon = PackedVector2Array(535, -306, 596, -177, 579, -14, 468, 129, 343, 230, 206, 282, 37, 295, -132, 250, -304, 148, -373, 21, -461, -14, -514, -158, -403, -189, -228, -175, -106, -133, 28, -122, 118, -165, 172, -238, 248, -334, 332, -359, 414, -378, 474, -350)

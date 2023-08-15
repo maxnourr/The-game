@@ -4,8 +4,11 @@ var rng = RandomNumberGenerator.new()
 var firstrandom
 var secondrandom
 var move = false
+var velo = false
 var intermediate = 0
-static var time = 5
+static var time = 15
+var waiting_time = 0
+var to_wait = 300
 
 
 func _ready():
@@ -27,21 +30,26 @@ func _process(delta):
 			#update time
 	#if timer running we update
 	if not $Timer.is_stopped():
-	
+		
 		#permet de bouger le rectangle, c'est là que la variable move prend son sens
 		if move :
 			$tube.position.x = mouse_x
-			intermediate = $tube.position.x
-		else:
-			$tube.position.x = intermediate
-			
-		if($tube.position.x >= (firstrandom - 5) and $tube.position.x <= (firstrandom + 5)) :
-			move = false
-			$tube.position.x 
-			$RigidBody2D.setter = true	
-			if ($RigidBody2D.currentVelocity > 50) :
-				$ColorRect.color=Color(0.643, 1, 0.486)
+			if $tube.position.x >= (firstrandom - 5) and $tube.position.x <= (firstrandom + 5) and move:
+				$velocity.visible = true
+				move = false
+				velo = true
+				$velocity/RigidBody2D.setter = true	
 		
+		if velo:
+			$tube.swing($velocity/RigidBody2D.currentVelocity)
+			if $velocity/RigidBody2D.currentVelocity >40 and $velocity/RigidBody2D.currentVelocity <60 :
+				waiting_time += 1
+				$velocity/RigidBody2D/text.visible = true
+			else:
+				$velocity/RigidBody2D/text.visible = true
+				waiting_time = 0
+			if waiting_time >= to_wait:
+				$ColorRect.color=Color(0.643, 1, 0.486)
 				$TEXT/win_state.text = "you win!"
 				GlobalVar.win = true
 				GlobalVar.coins +=1
@@ -58,7 +66,7 @@ func _process(delta):
 			restart()
 
 func restart(): 
-	$RigidBody2D.setter = false
+	$velocity/RigidBody2D.setter = false
 	
 	if GlobalVar.on_hard_core:
 		_on_button_2_pressed()
@@ -79,10 +87,9 @@ func _on_button_pressed():
 	
 	# les valeurs randoms et les positions sont des nombres fixes de pixel, à changer
 	#Si on veut une taille d'écran variable.
-	firstrandom = rng.randf_range(100, 1052)
+	firstrandom = rng.randf_range(100, 800)
 	secondrandom = rng.randf_range(100, 1052)
-	$vortex.position.y = 350
-	$tube.position.y = 300
+	$tube.position.y = 280
 	$vortex.position.x = firstrandom
 	$tube.position.x = secondrandom
 	move = true
@@ -99,6 +106,7 @@ func _on_button_pressed():
 func _on_button_2_pressed():
 	if GlobalVar.win:
 		time = max(2,time-1) 
+		to_wait = min(500,to_wait+50) 
 	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:

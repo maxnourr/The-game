@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cwgnc0omkn73v" path="res://minijeu_9/tube.tscn" id="1_2oel4"]
 [ext_resource type="Script" path="res://minijeu_9/game9.gd" id="1_4068y"]
-[ext_resource type="PackedScene" path="res://minijeu_9/vortex.tscn" id="2_5vgng"]
-[ext_resource type="Script" path="res://minijeu_9/RigidBody2D.gd" id="4_72rjd"]
+[ext_resource type="PackedScene" uid="uid://dce3tv4ku5nfp" path="res://minijeu_9/vortex.tscn" id="2_5vgng"]
+[ext_resource type="PackedScene" uid="uid://75513csir2ck" path="res://minijeu_9/velocity.tscn" id="4_101im"]
 [ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="5_pij6m"]
 
 [node name="Node" type="Node"]
@@ -18,32 +18,17 @@ grow_vertical = 2
 color = Color(0.870607, 0.998954, 0.983926, 1)
 
 [node name="vortex" parent="." instance=ExtResource("2_5vgng")]
-position = Vector2(576, 534)
-rotation = -3.14159
-scale = Vector2(0.282285, -0.322141)
+position = Vector2(576, 450)
+scale = Vector2(0.5, 0.5)
 
 [node name="tube" parent="." instance=ExtResource("1_2oel4")]
-position = Vector2(576, 200)
+position = Vector2(575, 200)
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(-1, 1)
-mass = 0.01
-freeze = true
-script = ExtResource("4_72rjd")
-
-[node name="velocity" type="Label" parent="RigidBody2D"]
-modulate = Color(0.952941, 0, 0.211765, 1)
-offset_left = 2.0
-offset_top = 506.0
-offset_right = 187.0
-offset_bottom = 646.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 75
-text = "test"
-vertical_alignment = 2
-justification_flags = 0
+[node name="velocity" parent="." instance=ExtResource("4_101im")]
+visible = false
+position = Vector2(378, -9)
 
 [node name="clock" parent="." instance=ExtResource("5_pij6m")]
 visible = false

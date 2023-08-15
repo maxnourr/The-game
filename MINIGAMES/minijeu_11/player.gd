@@ -7,7 +7,7 @@ var happy = preload("figures/happy.png")
 var angry = preload("figures/angry.png")
 
 func _ready():
-	set_state("angry")
+	set_state("happy")
 	
 func set_state(state):
 	if state == "happy":
