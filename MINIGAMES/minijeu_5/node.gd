@@ -65,7 +65,7 @@ func _on_button_2_pressed():
 	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
-		get_tree().reload_current_scene()
+		GlobalVar.to_load(GlobalVar.game[4])
 
 
 func _on_button_3_pressed():

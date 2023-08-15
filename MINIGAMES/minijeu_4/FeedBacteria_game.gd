@@ -1,6 +1,6 @@
 extends Node
 
-var time = 10
+static var time = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,14 +25,14 @@ func _process(delta):
 			restart()
 			
 func _on_plate_area_entered(area):
-	if area.type=="bad":
+	if area.type=="bad" and !$Timer.is_stopped():
 		$Timer.stop()
 		$Plate.texture("sad")
 		$ColorRect.color=Color(1, 0.231, 0.231)
 		$TEXT/win_state.set_text("haha looser")
 		restart()
 		
-	elif area.type=="good":
+	elif area.type=="good" and !$Timer.is_stopped():
 		$Timer.stop()
 		GlobalVar.win = true
 		GlobalVar.coins += 1
@@ -56,11 +56,11 @@ func _on_button_pressed():
 #called if restart pressed
 func _on_button_2_pressed():
 	if GlobalVar.win:
-		pass
+		time = max(2,time-1)
 	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
-		get_tree().reload_current_scene()
+		GlobalVar.to_load(GlobalVar.game[3])
 
 
 func _on_button_3_pressed():

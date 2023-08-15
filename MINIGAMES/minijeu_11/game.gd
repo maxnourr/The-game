@@ -94,13 +94,13 @@ func _on_button_2_pressed():
 	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
-		get_tree().reload_current_scene()
+		GlobalVar.to_load(GlobalVar.game[10])
 
 func _on_button_3_pressed():
 	GlobalVar.to_game_list()
 
 func _on_border_area_exited(area):
-	if area.type == "cadmium" and area.visible :
+	if area.type == "cadmium" and area.visible and !$Timer.is_stopped():
 		$border/CollisionShape2D.set_deferred("disabled", true)
 		$ColorRect.color=Color(1, 0.231, 0.231)
 		$TEXT/win_state.text = "haha looser"
