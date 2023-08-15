@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://75513csir2ck"]
+
+[ext_resource type="Script" path="res://velocity.gd" id="1_py1ew"]
+[ext_resource type="Texture2D" uid="uid://mvu72riijxv7" path="res://minijeu_9/figures/Jauge@4x.png" id="2_1daa0"]
+[ext_resource type="Texture2D" uid="uid://ccrpubuqwaqrf" path="res://minijeu_9/figures/Aiguille@4x.png" id="3_k4mp4"]
+[ext_resource type="Script" path="res://minijeu_9/RigidBody2D.gd" id="4_i6pu2"]
+
+[node name="velocity" type="Area2D"]
+script = ExtResource("1_py1ew")
+
+[node name="button" type="Sprite2D" parent="."]
+position = Vector2(582, 260.45)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_1daa0")
+
+[node name="val" type="Sprite2D" parent="."]
+position = Vector2(582, 290.45)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_k4mp4")
+offset = Vector2(2.08165e-12, -300)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(581, 261.45)
+mass = 0.01
+freeze = true
+script = ExtResource("4_i6pu2")
+
+[node name="velocity" type="Label" parent="RigidBody2D"]
+modulate = Color(0.952941, 0, 0.211765, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -42.0
+offset_right = 94.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "000"
+horizontal_alignment = 1
+vertical_alignment = 2
+justification_flags = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="text" type="Label" parent="RigidBody2D"]
+visible = false
+modulate = Color(0.952941, 0, 0.211765, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = 1.54996
+offset_right = 109.0
+offset_bottom = 141.55
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "hold on !"
+horizontal_alignment = 1
+vertical_alignment = 2
+justification_flags = 0
+metadata/_edit_use_anchors_ = true
