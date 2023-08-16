@@ -6,4 +6,10 @@ func express(genome):
 		1:
 			PlayerVar.player_color = Color(0.118, 1, 0.102) #change couleur gfp
 			PlayerVar.gfp = true
-		
+		2:
+			if PlayerVar.lactose:
+				genome.State = true
+			else:
+				genome.State = false
+		3:
+			PlayerVar.ampr = true

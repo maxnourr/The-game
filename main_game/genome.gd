@@ -18,7 +18,8 @@ class genome:
 #tout les genes seront ici
 #----------------------------------
 var GFP = genome.new(1, 100, true,Color(0.49, 1, 0.467))
-var othergene = genome.new(2, 100, false,Color(1, 0.45, 0.467))
+var Lacl = genome.new(2, 100, false,Color(0.9, 0.9, 0.9))
+var ampr = genome.new(3,100,true,Color(1,0.5,0.5))
 
 
 #---------------------------------

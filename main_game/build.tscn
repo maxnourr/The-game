@@ -14,7 +14,7 @@ offset_left = 8.0
 offset_top = 141.0
 offset_right = 107.0
 offset_bottom = 211.0
-text = "othergene
+text = "Lacl
 "
 
 [node name="gfp" type="Button" parent="."]
@@ -53,8 +53,16 @@ offset_bottom = 67.0
 text = "exit
 "
 
+[node name="Button" type="Button" parent="."]
+offset_left = 17.0
+offset_top = 244.0
+offset_right = 97.0
+offset_bottom = 296.0
+text = "AMPr"
+
 [connection signal="button_down" from="othergene" to="." method="_on_othergene_button_down"]
 [connection signal="button_down" from="gfp" to="." method="_on_gfp_button_down"]
 [connection signal="button_down" from="Pop" to="." method="_on_pop_button_down"]
 [connection signal="button_down" from="save" to="." method="_on_save_button_down"]
 [connection signal="button_down" from="exit" to="." method="_on_exit_button_down"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

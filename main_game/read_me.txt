@@ -36,3 +36,9 @@ Les trois scènes sont:
 		
 	edit_plasmid
 		permet de delete les plasmids dans la bactérie
+		
+		
+
+Problèmes actuels. 
+Je n'arrive pas à reload les singletons (autrement dit si gfp passe à oui par exemple,
+je n'arrive pas à le repasser à non sans écrire manuellement dans le code principal)

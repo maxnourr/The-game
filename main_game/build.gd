@@ -49,8 +49,8 @@ func _on_gfp_button_down():
 	
 
 func _on_othergene_button_down():
-	plasmid.push_back(Genome.othergene)
-	new_rect(plasmid.size(),Genome.othergene.Col)
+	plasmid.push_back(Genome.Lacl)
+	new_rect(plasmid.size(),Genome.Lacl.Col)
 
 
 func _on_save_button_down():
@@ -62,3 +62,6 @@ func _on_exit_button_down():
 	get_tree().change_scene_to_file("res://main.tscn")
 	
 
+func _on_button_button_down():
+	plasmid.push_back(Genome.ampr)
+	new_rect(plasmid.size(),Genome.ampr.Col)
