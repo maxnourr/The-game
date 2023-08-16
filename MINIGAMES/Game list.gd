@@ -1,8 +1,5 @@
 extends Control
 
-var width = 0
-var height =0
-
 func _ready():
 	if GlobalVar.on_randon == true:
 		GlobalVar.win = false
@@ -107,28 +104,32 @@ func _process(delta):
 func _on_return_pressed():
 	$AudioStreamPlayer2D.play()
 	await get_tree().create_timer(0.8).timeout
+	GlobalVar.save_game()
 	GlobalVar.to_menu()
 
 
 func _on_return_game_pressed():
 	$AudioStreamPlayer2D.play()
 	await get_tree().create_timer(0.8).timeout
+	
+	name = $VBoxContainer5/TextEdit.get_text()
+	if name != "":
+		GlobalVar.best_list(name)
+	
 	$VBoxContainer.visible=true
 	$VBoxContainer2.visible=true
 	$VBoxContainer3.visible=true
 	$VBoxContainer4.visible=true
-	$Return_game.visible=false
-	$speed_run_end.visible=false
+	$VBoxContainer5.visible = false
 	
 func final_speed_run():
-	var score = GlobalVar.coins - GlobalVar.start_score
-	$speed_run_end.set_text("Congrats, your score is " + str(score))
-	if score > GlobalVar.max_score:
-		GlobalVar.max_score = score
+	GlobalVar.current_score = GlobalVar.coins - GlobalVar.start_score
+	$VBoxContainer5/speed_run_end.set_text("Congrats, your score is " + str(GlobalVar.current_score))
+	if GlobalVar.current_score > GlobalVar.max_score:
+		GlobalVar.max_score = GlobalVar.current_score
 	$VBoxContainer.visible=false
 	$VBoxContainer2.visible=false
 	$VBoxContainer3.visible=false
 	$VBoxContainer4.visible=false
-	$Return_game.visible=true
-	$speed_run_end.visible=true
+	$VBoxContainer5.visible = true
 	

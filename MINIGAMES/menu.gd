@@ -25,3 +25,11 @@ func _on_button_pressed():
 	$AudioStreamPlayer2D.play()
 	await get_tree().create_timer(0.8).timeout
 	GlobalVar.blanck()
+
+
+func _on_select_game_2_pressed():
+	$AudioStreamPlayer2D.play()
+	await get_tree().create_timer(0.8).timeout
+	print(GlobalVar.best_player)
+	print(GlobalVar.best_score)
+	GlobalVar.to_best_list()

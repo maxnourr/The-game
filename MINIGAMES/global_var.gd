@@ -5,6 +5,7 @@ var game = ["res://minijeu_1/ampi_game.tscn","res://minijeu_2/node.tscn","res://
 var do_game = game.duplicate()
 var coins = 0
 var start_score = 0
+var current_score = 0
 var max_score = 0
 
 var win = false
@@ -12,6 +13,9 @@ var on_randon = false
 var on_hard_core = false
 var first = true
 var rng = RandomNumberGenerator
+
+var best_score = []
+var best_player = []
 
 func pass_game():
 	if win or first: 
@@ -37,6 +41,9 @@ func to_menu():
 	
 func to_game_list():
 	get_tree().change_scene_to_file("res://game_list.tscn")
+
+func to_best_list():
+	get_tree().change_scene_to_file("res://best list.tscn")
 	
 # Note: This can be called from anywhere inside the tree. This function is
 # path independent.
@@ -46,9 +53,11 @@ func save_game():
 	
 	var save_dict = {
 		"max_score" : max_score,
-		"coins" : coins
+		"coins" : coins,
+		"best_score" : best_score,
+		"best_player" : best_player
 	}
-	
+	print(save_dict)
 	var file = FileAccess.open("savegame.save",FileAccess.WRITE)
 	file.store_var(save_dict)
 	file.close()
@@ -59,9 +68,33 @@ func load_game():
 		var save_dict = file.get_var()
 		max_score = save_dict.max_score
 		coins = save_dict.coins
+		best_score = save_dict.best_score
+		best_player = save_dict.best_player
 	
 func blanck():
 	max_score = 0
 	coins = 0
-	
+	best_player = []
+	best_score = []
 
+func best_list(name):
+	var placed = false
+	if best_score.is_empty():
+		placed = true
+		best_score.append(current_score)
+		best_player.append(name)
+	else:
+		for i in best_score.size():
+			if current_score > best_score[i] and placed == false:
+				best_score.insert(i,current_score)
+				best_player.insert(i,name)
+				placed = true
+		if best_score.size() > 5:
+			best_player.pop_back()
+			best_score.pop_back()
+		if best_score.size() <5 and placed == false:
+			best_score.append(current_score)
+			best_player.append(name)
+	print(best_score)
+	print(best_player)
+		

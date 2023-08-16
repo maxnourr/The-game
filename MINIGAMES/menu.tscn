@@ -49,7 +49,7 @@ pivot_offset = Vector2(172, 73.5)
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
-position = Vector2(170.613, 325.004)
+position = Vector2(170.69, 353.004)
 rotation = -0.00256082
 scale = Vector2(0.825503, 0.747456)
 skew = 0.000133872
@@ -65,13 +65,17 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Select Game "
 
-[node name="music" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="select game2" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "music "
+text = "best player"
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "restart (erase save)"
+text = "restart"
+
+[node name="music" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "music "
 
 [node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -91,7 +95,8 @@ text = "hello"
 stream = ExtResource("3_r17eb")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/select game" to="." method="_on_select_game_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_music_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/select game2" to="." method="_on_select_game_2_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_music_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
