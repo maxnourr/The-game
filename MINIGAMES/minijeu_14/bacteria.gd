@@ -31,12 +31,12 @@ func _process(delta):
 		position += direction * speed * delta
 		
 		if position.x < 0:
-			position.x = get_viewport().size.x
-		if position.x > get_viewport().size.x:
+			position.x = 1152
+		if position.x > 1152:
 			position.x = 0
 		if position.y < 0:
-			position.y = get_viewport().size.y
-		if position.y > get_viewport().size.y:
+			position.y = 648
+		if position.y > 648:
 			position.y = 0
 	
 	

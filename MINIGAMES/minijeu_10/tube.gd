@@ -7,6 +7,7 @@ var filled = 0
 var win = false
 var inside = false
 static var max = 2.1
+var lose = false
 
 var empty = preload("res://minijeu_10/figures/Emptytube@4x.png")
 var half = preload("res://minijeu_10/figures/Halftube@4x.png")
@@ -45,12 +46,14 @@ func _process(delta):
 	if size == filled and win == false:
 		score+=1
 		win = true
-	if filled > size and win == true:
-		score += -1
-		win = false
+	if filled > size:
+		lose = true
 		
 	#check que c'est rempli ou si ça a dépassé
-
+	
+func destroy():
+	score = 0
+	required_score = 0
 
 
 func _on_area_entered(area):

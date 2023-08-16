@@ -12,12 +12,12 @@ func set_player(P):
 func _process(delta):
 	if player !=null and running:
 		var f1x = position.x - player.position.x
-		var f2x = position.x - player.position.x + get_viewport().size.x
-		var f3x = position.x - player.position.x - get_viewport().size.x
+		var f2x = position.x - player.position.x + 1152
+		var f3x = position.x - player.position.x - 1152
 	
 		var f1y = position.y - player.position.y
-		var f2y = position.y - player.position.y + get_viewport().size.y
-		var f3y = position.y - player.position.y - get_viewport().size.y
+		var f2y = position.y - player.position.y + 648
+		var f3y = position.y - player.position.y - 648
 	
 		if pow(min(abs(f1x),abs(f2x),abs(f3x)),2)+pow(min(abs(f1y),abs(f2y),abs(f3y)),2) < pow(150,2)*2:
 			fuite.x = min(abs(f1x),abs(f2x),abs(f3x))
@@ -39,12 +39,12 @@ func _process(delta):
 		position += fuite * speed * delta
 		
 		if position.x < 0:
-			position.x = get_viewport().size.x
-		if position.x > get_viewport().size.x:
+			position.x = 1152
+		if position.x > 1152:
 			position.x = 0
 		if position.y < 0:
-			position.y = get_viewport().size.y
-		if position.y > get_viewport().size.y:
+			position.y = 648
+		if position.y > 648:
 			position.y = 0
 	
 func _on_area_entered(area):

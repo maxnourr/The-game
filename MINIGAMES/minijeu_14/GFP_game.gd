@@ -91,8 +91,8 @@ func _on_button_pressed():
 	#$Obstacle.position.y = rng.randi_range(0,get_viewport().size.y)
 	
 	
-	$GFP.position.x = randf_range(get_viewport().size.x/6,5*get_viewport().size.x/6)
-	$GFP.position.y = randf_range(0,get_viewport().size.y/2)
+	$GFP.position.x = randf_range(1152/6,5*1152/6)
+	$GFP.position.y = randf_range(0,648/2)
 	
 	if nb_obstacle >1:
 		for n in nb_obstacle-1:
@@ -100,11 +100,11 @@ func _on_button_pressed():
 			randomize()
 			
 			if n in range(0,nb_obstacle/2):
-				obstacle.position.x = rng.randi_range(0,get_viewport().size.x/6-100)
-				obstacle.position.y = rng.randi_range(0,get_viewport().size.y)
+				obstacle.position.x = rng.randi_range(0,1152/6-100)
+				obstacle.position.y = rng.randi_range(0,648)
 			else:
-				obstacle.position.x = rng.randi_range(5*get_viewport().size.x/6+100,get_viewport().size.x)
-				obstacle.position.y = rng.randi_range(0,get_viewport().size.y)
+				obstacle.position.x = rng.randi_range(5*1152/6+100,1152)
+				obstacle.position.y = rng.randi_range(0,648)
 			
 			obstacle.set_player($bacteria)
 			add_child(obstacle)

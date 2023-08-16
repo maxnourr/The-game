@@ -40,10 +40,18 @@ func _process(delta):
 			$seringue_true.running = false
 			GlobalVar.coins +=1
 			restart()
+			
+		if $tube.lose == true or $tube2.lose == true or $tube3.lose == true:
+			$Timer.stop()
+			$BackGround.color=Color(1, 0.231, 0.231)
+			$TEXT/win_state.text = "haha looser"
+			$seringue_true.running = false
+			restart()
 	
 			
 	
 func restart(): 
+	$tube.destroy()
 	if GlobalVar.on_hard_core:
 		_on_button_2_pressed()
 	else:
@@ -87,4 +95,5 @@ func _on_button_2_pressed():
 
 
 func _on_button_3_pressed():
+	$tube.destroy()
 	GlobalVar.to_game_list()

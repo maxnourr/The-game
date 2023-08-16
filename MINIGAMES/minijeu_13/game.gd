@@ -64,15 +64,15 @@ func _on_button_pressed():
 	$Button3.hide()
 	#set timer
 	$food.visible = true
-	$food.position.x = rng.randi_range(0,get_viewport().size.x)
-	$food.position.y = rng.randi_range(0,get_viewport().size.y)
+	$food.position.x = rng.randi_range(0,1152)
+	$food.position.y = rng.randi_range(0,648)
 		
 	if nb_food >1:
 		for n in nb_food-1:
 			var food = linktube.instantiate()
 			randomize()
-			food.position.x = rng.randi_range(0,get_viewport().size.x)
-			food.position.y = rng.randi_range(0,get_viewport().size.y)
+			food.position.x = rng.randi_range(0,1152)
+			food.position.y = rng.randi_range(0,648)
 			food.set_player($player)
 			add_child(food)
 	$food.running = true
