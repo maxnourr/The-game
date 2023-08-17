@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bi4gelx5xhmki"]
+[gd_scene load_steps=3 format=3 uid="uid://bi4gelx5xhmki"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_hb2ff"]
 [ext_resource type="Texture2D" uid="uid://bb6rx712hg54k" path="res://48C logo@1x.png" id="2_ie6em"]
-[ext_resource type="AudioStream" uid="uid://d1etf8ukbb6nh" path="res://click.mp3" id="3_r17eb"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -22,8 +21,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -14.0
 offset_right = -171.0
-offset_bottom = -157.0
+offset_bottom = -160.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.17356, 1.28402)
@@ -49,7 +49,7 @@ pivot_offset = Vector2(172, 73.5)
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
-position = Vector2(170.69, 353.004)
+position = Vector2(170.758, 380.004)
 rotation = -0.00256082
 scale = Vector2(0.825503, 0.747456)
 skew = 0.000133872
@@ -65,17 +65,22 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Select Game "
 
-[node name="select game2" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="best_player" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "best player"
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "restart"
 
 [node name="music" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "music "
+
+[node name="credit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credit
+"
+
+[node name="restart" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "restart"
 
 [node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -91,12 +96,10 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "hello"
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_r17eb")
-
 [connection signal="pressed" from="MarginContainer/VBoxContainer/select game" to="." method="_on_select_game_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/select game2" to="." method="_on_select_game_2_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/best_player" to="." method="_on_select_game_2_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_music_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/credit" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/restart" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

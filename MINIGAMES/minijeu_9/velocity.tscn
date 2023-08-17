@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://75513csir2ck"]
 
-[ext_resource type="Script" path="res://velocity.gd" id="1_py1ew"]
+[ext_resource type="Script" path="res://minijeu_9/velocity.gd" id="1_sk3x0"]
 [ext_resource type="Texture2D" uid="uid://mvu72riijxv7" path="res://minijeu_9/figures/Jauge@4x.png" id="2_1daa0"]
 [ext_resource type="Texture2D" uid="uid://ccrpubuqwaqrf" path="res://minijeu_9/figures/Aiguille@4x.png" id="3_k4mp4"]
 [ext_resource type="Script" path="res://minijeu_9/RigidBody2D.gd" id="4_i6pu2"]
 
 [node name="velocity" type="Area2D"]
-script = ExtResource("1_py1ew")
+script = ExtResource("1_sk3x0")
 
 [node name="button" type="Sprite2D" parent="."]
 position = Vector2(582, 260.45)

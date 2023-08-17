@@ -1,6 +1,6 @@
 extends Area2D
 static var score = 0
-static var required_score = 0
+static var required_score = 3
 var rng = RandomNumberGenerator.new()
 var size = 0
 var filled = 0
@@ -23,7 +23,6 @@ func texture(T):
 
 func _ready():
 	texture("empty")
-	required_score += 1 
 	var firstrandom = rng.randf_range(1,max)
 	size = floor(firstrandom) * 10
 	$Label.visible = false
@@ -53,7 +52,6 @@ func _process(delta):
 	
 func destroy():
 	score = 0
-	required_score = 0
 
 
 func _on_area_entered(area):

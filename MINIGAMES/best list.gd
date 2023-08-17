@@ -4,7 +4,7 @@ var label = preload("res://best_player.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("enter")
+	
 	for i in GlobalVar.best_player.size():
 		var Person = label.instantiate()
 		Person.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -13,4 +13,5 @@ func _ready():
 		$VBoxContainer.move_child($VBoxContainer/Return_game,i+1)
 
 func _on_return_game_pressed():
+	Global.button_sound()
 	GlobalVar.to_menu()
