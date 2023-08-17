@@ -40,6 +40,7 @@ func _process(delta):
 
 
 func restart(): 
+	$TEXT/explanation.text = "you can use a hood while working with\n dangerous powder\n you have to follow special protocols\n work safe !"
 	if GlobalVar.on_hard_core:
 		_on_button_2_pressed()
 	else:
@@ -53,6 +54,7 @@ func restart():
 
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
+	$screen.hide()
 	$Button.hide() #hide start
 	$Button3.hide()
 	#instantiate tubes	

@@ -39,6 +39,7 @@ func _process(delta):
 			restart()
 
 func restart(): 
+	$TEXT/explanation.text = "we really have some special water jets\n in the lab in case of projections"
 	if GlobalVar.on_hard_core:
 		_on_button_2_pressed()
 	else:
@@ -54,6 +55,7 @@ func restart():
 
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
+	$screen.hide()
 	$Button.hide() #hide start
 	$Button3.hide()
 	#instantiate tubes

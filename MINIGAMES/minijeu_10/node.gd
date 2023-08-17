@@ -51,6 +51,7 @@ func _process(delta):
 			
 	
 func restart(): 
+	$TEXT/explanation.text = "when you add a liquid in a tube with bacterias\n you can't take it back\n you can't use the same tip two times\n you can't put it back in the becher"
 	$tube.destroy()
 	if GlobalVar.on_hard_core:
 		_on_button_2_pressed()
@@ -71,6 +72,7 @@ func _on_chaudron_area_entered(area):
 
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
+	$screen.hide()
 	$Button.hide() #hide start
 	$Button3.hide()
 	#instantiate tubes	

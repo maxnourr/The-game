@@ -12,6 +12,8 @@ func _ready():
 
 
 func restart(): 
+	$TEXT/explanation.text = "technically you have several pipettes\n for different amount\n and you can fix the amount you need\n for more precision"
+	
 	$liquide.running = false
 	
 	if GlobalVar.on_hard_core:
@@ -50,6 +52,7 @@ func _process(delta):
 			restart()
 
 func _on_button_pressed():
+	$screen.hide()
 	$Button.hide() #hide start	
 	$Button3.hide()
 	#set timer

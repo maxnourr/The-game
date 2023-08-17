@@ -42,6 +42,7 @@ func _on_plate_area_entered(area):
 
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
+	$screen.hide()
 	$Button.hide() #hide start
 	$Button3.hide()
 	#instantiate tubes
@@ -67,6 +68,7 @@ func _on_button_3_pressed():
 	GlobalVar.to_game_list()
 	
 func restart(): 
+	$TEXT/explanation.text = "depending of the strain\n high salt concentration can be dangerous for bacterias\n LB medium is full of good nutriments\n to make them grow !"
 	$LB.running = false
 	$Pizza.running = false
 	

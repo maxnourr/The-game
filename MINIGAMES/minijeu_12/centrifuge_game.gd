@@ -93,7 +93,7 @@ func _process(delta):
 			restart()
 	
 func restart(): 
-	
+	$TEXT/explanation.text = "the centrifuge goes very fast\n whithout being equilibrated, it can break"
 	if GlobalVar.on_hard_core:
 		_on_button_2_pressed()
 	else:
@@ -104,10 +104,10 @@ func restart():
 		$Button2.show() # show restart
 		$Button3.show()
 		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
-		$TEXT/explanation.text = "cleaning is the key !"
 		
 
 func _on_button_pressed():
+	$screen.hide()
 	$Button.hide() #hide start	
 	$Button3.hide()
 	#set timer

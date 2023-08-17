@@ -25,6 +25,14 @@ scale = Vector2(0.9, 0.9)
 [node name="clock" parent="." instance=ExtResource("3_c0cq0")]
 visible = false
 
+[node name="screen" type="ColorRect" parent="."]
+self_modulate = Color(0.00392157, 0, 0.313726, 0.666667)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="TEXT" type="CanvasLayer" parent="."]
 
 [node name="win_state" type="Label" parent="TEXT"]
@@ -35,8 +43,31 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 69.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.603922, 1, 1)
+theme_override_constants/outline_size = 30
 theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="explanation" type="Label" parent="TEXT"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -38.0
+offset_right = 254.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.603922, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 8
@@ -52,6 +83,38 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "Start"
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -550.0
+offset_top = -228.5
+offset_right = 540.0
+offset_bottom = -84.5
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 50
+text = "pipeting is a important skill
+you need to be precise !"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = -368.5
+offset_top = 122.5
+offset_right = 518.5
+offset_bottom = 266.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 50
+text = "UP/DOWN : increase/decrease
+the level in the pipette"
+horizontal_alignment = 1
 
 [node name="Button2" type="Button" parent="."]
 anchors_preset = 7
@@ -79,12 +142,13 @@ text = "to menu"
 
 [node name="Label" type="Label" parent="Button3"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = -61.0
+offset_bottom = 31.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 20
 text = "coins :"
 

@@ -42,6 +42,7 @@ func _process(delta):
 			
 
 func restart(): 
+	
 	$food.destroy()
 	$player.running = false
 	$food.running = false
@@ -56,10 +57,11 @@ func restart():
 		$Button2.show() # show restart
 		$Button3.show()
 		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
-		$TEXT/explanation.text = "go protect the body !"
+	$TEXT/explanation.text = "In some case your body can \nprotect yourselve from infection"
 
 
 func _on_button_pressed():
+	$screen.hide()
 	$Button.hide() #hide start	
 	$Button3.hide()
 	#set timer

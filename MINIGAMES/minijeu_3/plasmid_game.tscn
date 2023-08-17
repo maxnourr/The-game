@@ -23,69 +23,39 @@ one_shot = true
 [node name="plate" parent="." instance=ExtResource("2_fp7k7")]
 position = Vector2(300, 324)
 
-[node name="Button" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -15.5
-offset_right = 23.0
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "Start
-"
-
-[node name="Button2" type="Button" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -32.5
-offset_top = -31.0
-offset_right = 32.5
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 50
-text = "Restart
-"
-
 [node name="clock" parent="." instance=ExtResource("3_m10lt")]
 visible = false
 
-[node name="TEXT" type="CanvasLayer" parent="."]
-
-[node name="win_state" type="Label" parent="TEXT"]
-anchors_preset = 8
-anchor_left = 0.5
+[node name="up" type="Button" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
-grow_horizontal = 2
+offset_left = -251.0
+offset_top = -73.0
+offset_right = -143.0
+offset_bottom = 35.0
+grow_horizontal = 0
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
+icon = ExtResource("3_k3hlh")
 
-[node name="explanation" type="Label" parent="TEXT"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 42.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.45098, 0.00392157, 0.745098, 1)
-theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 30
+[node name="down" type="Button" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = 50.0
+offset_right = -143.0
+offset_bottom = 158.0
+grow_horizontal = 0
+grow_vertical = 2
+icon = ExtResource("4_owbfw")
+
+[node name="TEXT" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="temperature" type="Label" parent="TEXT"]
 anchors_preset = 8
@@ -122,33 +92,78 @@ theme_override_font_sizes/font_size = 50
 text = "0"
 horizontal_alignment = 1
 
-[node name="up" type="Button" parent="."]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -251.0
-offset_top = -73.0
-offset_right = -143.0
-offset_bottom = 35.0
-grow_horizontal = 0
-grow_vertical = 2
-icon = ExtResource("3_k3hlh")
+[node name="win_state" type="Label" parent="TEXT"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.603922, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="down" type="Button" parent="."]
-anchors_preset = 6
-anchor_left = 1.0
+[node name="explanation" type="Label" parent="TEXT"]
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -251.0
-offset_top = 50.0
-offset_right = -143.0
-offset_bottom = 158.0
-grow_horizontal = 0
+offset_left = -254.0
+offset_top = -38.0
+offset_right = 254.0
+offset_bottom = 38.0
+grow_horizontal = 2
 grow_vertical = 2
-icon = ExtResource("4_owbfw")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.603922, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="screen" type="ColorRect" parent="."]
+self_modulate = Color(0.00392157, 0, 0.313726, 0.666667)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -63.0
+offset_top = -38.5
+offset_right = 63.0
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Start
+"
+
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -77.0
+offset_right = 92.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Restart
+"
 
 [node name="Button3" type="Button" parent="."]
 anchors_preset = 1
@@ -162,20 +177,18 @@ text = "to menu"
 
 [node name="Label" type="Label" parent="Button3"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 1.0
-offset_bottom = 36.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = -61.0
+offset_bottom = 35.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 20
 text = "coins :"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="up" to="." method="_on_up_pressed"]
 [connection signal="pressed" from="down" to="." method="_on_down_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

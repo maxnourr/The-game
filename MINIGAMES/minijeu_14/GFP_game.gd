@@ -61,6 +61,7 @@ func _process(delta):
 
 
 func restart(): 
+	$TEXT/explanation.text = "You can modify bacteria so they express GFP\nwhen they do they appear fluorescent and green\n it is use for verification of expression"
 	$Obstacle.running = false
 	$bacteria.running = false
 	$Obstacle.touched = false
@@ -79,6 +80,7 @@ func restart():
 
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
+	$screen.hide()
 	$Button.hide() #hide start	
 	$Button3.hide()
 	#set timer

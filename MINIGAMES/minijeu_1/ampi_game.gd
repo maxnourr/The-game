@@ -64,7 +64,8 @@ func _process(delta):
 		
 		#if time runs out (do not use signal because of malus
 		if T == 0:
-			$BackGround.color=Color(1, 0.231, 0.231)
+			$BackGround.color = Color(1, 0.231, 0.231,0.7)
+			#$screen.self_modulate=Color(1, 0.231, 0.231,0.7)
 			$TEXT/win_state.text = "haha looser"
 			restart()
 
@@ -83,7 +84,7 @@ func restart():
 		if nb_tube == 1:
 			$TEXT/explanation.text = "Ampicillin is an antibiotic\nmodified bacterias have antibiotic resistance\n adding AMPI will avoid contamination"
 		elif nb_tube == 2:
-			$TEXT/explanation.text = "SOC is a nutrition buffer\n it help bacterias grow, even unwanted bacterias !\n if you SOC without AMPI, you risk contamination"
+			$TEXT/explanation.text = "SOC is a nutrition buffer\n it help bacterias grow, even unwanted bacterias !\n if you givz SOC without AMPI, you risk contamination"
 		elif nb_tube == 3:
 			$TEXT/explanation.text = "Blue dye is just blue dye..."
 
@@ -111,6 +112,7 @@ func _on_bacterias_area_entered(area):
 		area.queue_free()
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
+	$screen.hide()
 	$Button.hide() #hide start
 	$Button3.hide()
 	

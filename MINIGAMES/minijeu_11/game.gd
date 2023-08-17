@@ -52,6 +52,7 @@ func restart():
 	$player.running = false
 	$cadmium.running = false
 	
+	$TEXT/explanation.text = "Cadmium in a bioaccumulative toxic metal.\n When it enter the body it is difficult to take it back.\n A bacteria to remove the cadmium in the intestine ?\n\n Here is 48C'mission !"
 	if GlobalVar.on_hard_core:
 		_on_button_2_pressed()
 	else:
@@ -62,10 +63,10 @@ func restart():
 		$Button2.show() # show restart
 		$Button3.show()
 		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
-		$TEXT/explanation.text = "go protect the body !"
 
 
 func _on_button_pressed():
+	$screen.hide()
 	$Button.hide() #hide start	
 	$Button3.hide()
 	#set timer

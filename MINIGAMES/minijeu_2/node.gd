@@ -57,11 +57,11 @@ func restart():
 		$Button2.show()
 		$Button3.show()
 		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
-		$TEXT/explanation.text = "congrats you tricked igem"
+		$TEXT/explanation.text = "the distance traveled by the material \n(RNA,DNA,protein, here RNA)\n is proportionnal to their size and weight.\n the ladder contains known size and is use\n to determine the size by comparaison"
 
 
 func _on_button_pressed():
-	
+	$screen.hide()
 	# les valeurs randoms et les positions sont des nombres fixes de pixel, à changer
 	#Si on veut une taille d'écran variable.
 	firstrandom = rng.randf_range(200, 1000.0)

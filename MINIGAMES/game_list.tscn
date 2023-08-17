@@ -147,11 +147,11 @@ grow_vertical = 2
 
 [node name="Random" type="Button" parent="VBoxContainer4"]
 layout_mode = 2
-text = "Speed Run mode !"
+text = "Survival mode !"
 
 [node name="Randomhard" type="Button" parent="VBoxContainer4"]
 layout_mode = 2
-text = "Speed Run hardcore mode ! (no rest)"
+text = "Survival hardcore mode ! (no rest)"
 
 [node name="Return" type="Button" parent="VBoxContainer4"]
 layout_mode = 2

@@ -110,10 +110,13 @@ func _on_return_pressed():
 
 func _on_return_game_pressed():
 	Global.button_sound()
+	GlobalVar.save_game()
 	
-	name = $VBoxContainer5/TextEdit.get_text()
-	if name != "":
-		GlobalVar.best_list(name)
+	var P = $VBoxContainer5/TextEdit.get_text()
+	if P == "":
+		P = "A mysterious guy"
+	
+	GlobalVar.best_list(P)
 	
 	$VBoxContainer.visible=true
 	$VBoxContainer2.visible=true

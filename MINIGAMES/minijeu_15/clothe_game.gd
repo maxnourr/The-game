@@ -2,7 +2,7 @@
 extends Node
 
 #timer
-static var time = 20
+static var time = 15
 
 #object
 var sunglasses = false
@@ -49,6 +49,7 @@ func _process(delta):
 			restart()
 
 func restart(): 
+	$TEXT/explanation.text = "you have to wear glasses, glove, blouse,\n shoes, mask in some case\n and please no eating in the lab !"
 	if GlobalVar.on_hard_core:
 		_on_button_2_pressed()
 	else:
@@ -110,6 +111,7 @@ func verify():
 
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
+	$screen.hide()
 	$Button.hide() #hide start
 	$Button3.hide()
 	#set timer

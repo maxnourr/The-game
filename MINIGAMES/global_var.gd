@@ -87,7 +87,6 @@ func to_credit():
 # Go through everything in the persist category and ask them to return a
 # dict of relevant variables.
 func save_game():
-	
 	var save_dict = {
 		"max_score" : max_score,
 		"coins" : coins,

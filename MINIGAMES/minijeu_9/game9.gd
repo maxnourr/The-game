@@ -67,16 +67,14 @@ func _process(delta):
 
 func restart(): 
 	$velocity/RigidBody2D.setter = false
-	
+	$TEXT/explanation.text = "Vortex are commonly used in the lab\n speed and waiting time are important\n depending of your goal"
 	if GlobalVar.on_hard_core:
 		_on_button_2_pressed()
 	else:
 		if not GlobalVar.win:
 			$Button2.set_text("Restart")
-			$TEXT/explanation.text = "Too slow"
 		else:
 			$Button2.set_text("Continue")
-			$TEXT/explanation.text = "Good job"
 		$Button2.show()
 		$Button3.show()
 		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
@@ -84,7 +82,7 @@ func restart():
 
 
 func _on_button_pressed():
-	
+	$screen.hide()
 	# les valeurs randoms et les positions sont des nombres fixes de pixel, à changer
 	#Si on veut une taille d'écran variable.
 	firstrandom = rng.randf_range(100, 800)

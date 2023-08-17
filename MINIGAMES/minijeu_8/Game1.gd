@@ -48,7 +48,7 @@ func restart():
 		$Button2.show() # show restart
 		$Button3.show()
 		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
-		$TEXT/explanation.text = "cleaning is the key !"
+		$TEXT/explanation.text = "cleaning is super important !\n not fun, we know"
 
 func increaseScore():
 	#score += points
@@ -69,6 +69,7 @@ func updateScoreLabel():
 		
 
 func _on_button_pressed():
+	$screen.hide()
 	$Button.hide() #hide start	
 	$Button3.hide()
 	#set timer

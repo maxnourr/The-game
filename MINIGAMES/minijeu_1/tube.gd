@@ -33,7 +33,7 @@ func _process(delta):
 
 func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseMotion:
-		if Input.is_action_pressed("ui_up"):
+		if Input.is_action_pressed("click"):
 			CanDrag = true
 		else:
 			CanDrag = false

@@ -32,34 +32,49 @@ position = Vector2(63, 84)
 [node name="clock" parent="." instance=ExtResource("5_ja8lf")]
 visible = false
 
+[node name="screen" type="ColorRect" parent="."]
+self_modulate = Color(0.00392157, 0, 0.313726, 0.666667)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="TEXT" type="CanvasLayer" parent="."]
 
 [node name="win_state" type="Label" parent="TEXT"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.603922, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="explanation" type="Label" parent="TEXT"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -254.0
+offset_top = -38.0
+offset_right = 254.0
+offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-
-[node name="explanation" type="Label" parent="TEXT"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -110.0
-offset_right = 108.0
-offset_bottom = 45.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "Catch the GFP !"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.603922, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Button" type="Button" parent="."]
 anchors_preset = 8
@@ -76,6 +91,36 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "Start
 "
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -550.0
+offset_top = -209.0
+offset_right = 540.0
+offset_bottom = -65.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 50
+text = "Your bacteria need to catch the GFP (green)
+Be careful, not to be catch before"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Button"]
+offset_left = -442.0
+offset_top = 123.0
+offset_right = 613.0
+offset_bottom = 267.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 50
+text = "directional arrows : move the bacteria"
+horizontal_alignment = 1
 
 [node name="Button2" type="Button" parent="."]
 anchors_preset = 7
@@ -104,15 +149,13 @@ text = "to menu"
 
 [node name="Label" type="Label" parent="Button3"]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 1
+anchor_left = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 1.0
-offset_bottom = 36.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+offset_left = -61.0
+offset_bottom = 35.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 20
 text = "coins :"
 

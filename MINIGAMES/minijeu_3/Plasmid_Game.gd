@@ -83,10 +83,12 @@ func restart():
 		$Button2.show() # show restart
 		$Button3.show()
 		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
-		$TEXT/explanation.text = "You need a specific temperature to grow bacteria"
+		$TEXT/explanation.text = "Each bacteria strain have a prefered temperature to grow\n when working with bacterias\n you have to be careful to use the right temperature\n fun fact: bacterias also like to be shaked !"
 
 #called if start is pressed, set timer and instanciate tubes
 func _on_button_pressed():
+	$TEXT.show()
+	$screen.hide()
 	$Button.hide() #hide start	
 	$Button3.hide()
 	#set timer
