@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhnfj1hgdyn4q"]
+
+[ext_resource type="Script" path="res://credit.gd" id="1_djfj1"]
+[ext_resource type="Texture2D" uid="uid://bb6rx712hg54k" path="res://48C logo@1x.png" id="2_gam6l"]
+[ext_resource type="AudioStream" uid="uid://d1etf8ukbb6nh" path="res://click.mp3" id="3_6tkhd"]
+
+[node name="Game list" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_djfj1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.603922, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 540)
+scale = Vector2(0.3, 0.321)
+texture = ExtResource("2_gam6l")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -526.0
+offset_top = -106.0
+offset_right = 526.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "Credit"
+horizontal_alignment = 1
+
+[node name="space" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="credit" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "- FT5 records (music)
+- Pixabay (sound)
+
+- 48C IGEM EPFL TEAM"
+horizontal_alignment = 1
+
+[node name="space2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="return" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Return"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6tkhd")
+
+[connection signal="pressed" from="VBoxContainer/return" to="." method="_on_return_pressed"]
