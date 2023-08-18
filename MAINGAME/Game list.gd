@@ -1,5 +1,13 @@
 extends Control
 
+var level_link = ["start","level 1","level 2","level 3","level 4","end"]
+
+var transfer_time = 200
+var waited = 200
+var step_x = 0
+var step_y = 0
+var load = false
+
 func _ready():
 	if GlobalVar.first_open:
 		GlobalVar.load_game()
@@ -8,101 +16,99 @@ func _ready():
 		GlobalVar.save_game()
 	
 	Global.music_menu()
-
-			
-func _on_game_1_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[0])
-
-func _on_game_2_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[1])
-
-func _on_game_3_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[2])
 	
-func _on_game_4_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[3])
+	place_bacteria()
 	
-func _on_game_5_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[4])
-	
-func _on_game_6_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[5])
-
-func _on_game_7_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[6])
-
-func _on_game_8_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[7])
-
-func _on_game_9_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[8])
-
-func _on_game_10_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[9])
-
-func _on_game_11_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[10])
-
-func _on_game_12_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[11])
-
-func _on_game_13_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[12])
-
-func _on_game_14_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[13])
-	
-func _on_game_15_pressed():
-	Global.button_sound()
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[14])	
-
-func _on_random_pressed():
-	Global.button_sound()
-	Global.music_game2()
-	GlobalVar.on_randon = true
-	GlobalVar.pass_game()
-	
-func _on_randomhard_pressed():
-	Global.button_sound()
-	Global.music_game2()
-	GlobalVar.on_hard_core = true
-	_on_random_pressed()
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Label.set_text("coins : " + str(GlobalVar.coins))
+	if waited < transfer_time:
+		waited +=1
+		$bacteria.position.x += step_x
+		$bacteria.position.y += step_y
+	if waited == transfer_time and load == true:
+		load = false
+		Global.music_game1()
+		await get_tree().create_timer(1).timeout
+		GlobalVar.to_load(GlobalVar.game[GlobalVar.current_level])
+
+	
+func place_bacteria():
+	if GlobalVar.current_level==0:
+		$bacteria.position.x = get_node(level_link[GlobalVar.current_level]).position.x
+		$bacteria.position.y = get_node(level_link[GlobalVar.current_level]).position.y
+	else:
+		waited = 0
+		step_x = (get_node(level_link[GlobalVar.current_level]).position.x-$bacteria.position.x)/transfer_time
+		step_y = (get_node(level_link[GlobalVar.current_level]).position.y-$bacteria.position.y)/transfer_time
+	
 
 func _on_return_pressed():
 	Global.button_sound()
 	GlobalVar.save_game()
 	GlobalVar.to_menu()
+
+
+func _on_start_pressed():
+	Global.button_sound()
 	
+	place_bacteria()
+	await get_tree().create_timer(1).timeout
+	
+	Global.music_game1()
+	GlobalVar.to_load(GlobalVar.game[0])
+
+func _on_level_1_pressed():
+	Global.button_sound()
+	
+	if GlobalVar.max_level >= 1:
+		GlobalVar.current_level = 1
+		place_bacteria()
+		load = true
+
+
+func _on_level_2_pressed():
+	Global.button_sound()
+	
+	if GlobalVar.max_level >= 2:
+		GlobalVar.current_level = 2
+		place_bacteria()
+		load = true
+
+
+func _on_level_3_pressed():
+	Global.button_sound()
+	
+	if GlobalVar.max_level >= 3:
+		GlobalVar.current_level = 3
+		place_bacteria()
+		load = true
+
+
+func _on_level_4_pressed():
+	Global.button_sound()
+	
+	if GlobalVar.max_level >= 4:
+		GlobalVar.current_level = 4
+		place_bacteria()
+		load = true
+
+
+func _on_end_pressed():
+	Global.button_sound()
+	
+	if GlobalVar.max_level >= GlobalVar.game.size()-1:
+		GlobalVar.current_level = GlobalVar.game.size()-1
+		place_bacteria()
+		load = true
+
+
+func _on_button_pressed():
+	if GlobalVar.current_level == level_link.size()-1:
+		GlobalVar.current_level = 0
+	else :
+		GlobalVar.current_level += 1
+		GlobalVar.max_level += 1
+		get_node(level_link[GlobalVar.current_level]+"/cadena").hide()
+	place_bacteria()
