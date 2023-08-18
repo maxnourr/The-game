@@ -18,11 +18,13 @@ func _ready():
 	Global.music_menu()
 	
 	place_bacteria()
+	for i in range(0,GlobalVar.max_level+1):
+		get_node(level_link[i]+"/cadena").hide()
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Label.set_text("coins : " + str(GlobalVar.coins))
+	$Label.set_text("coins : " + str(GlobalVar.coins)+"\nlevel : " + str(GlobalVar.max_level))
 	if waited < transfer_time:
 		waited +=1
 		$bacteria.position.x += step_x
@@ -31,6 +33,7 @@ func _process(delta):
 		load = false
 		Global.music_game1()
 		await get_tree().create_timer(1).timeout
+		print("load "+str(GlobalVar.current_level))
 		GlobalVar.to_load(GlobalVar.game[GlobalVar.current_level])
 
 	
@@ -53,11 +56,16 @@ func _on_return_pressed():
 func _on_start_pressed():
 	Global.button_sound()
 	
-	place_bacteria()
-	await get_tree().create_timer(1).timeout
 	
-	Global.music_game1()
-	GlobalVar.to_load(GlobalVar.game[0])
+	if GlobalVar.max_level > 0:
+		GlobalVar.current_level = 0
+		place_bacteria()
+		load = true
+	else:	
+		place_bacteria()
+		await get_tree().create_timer(1).timeout
+		Global.music_game1()
+		GlobalVar.to_load(GlobalVar.game[0])
 
 func _on_level_1_pressed():
 	Global.button_sound()
@@ -109,6 +117,6 @@ func _on_button_pressed():
 		GlobalVar.current_level = 0
 	else :
 		GlobalVar.current_level += 1
-		GlobalVar.max_level += 1
+		GlobalVar.max_level = min(GlobalVar.max_level+1,GlobalVar.game.size()-1)
 		get_node(level_link[GlobalVar.current_level]+"/cadena").hide()
 	place_bacteria()

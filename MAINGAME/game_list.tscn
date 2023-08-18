@@ -44,10 +44,17 @@ texture = ExtResource("4_blr6l")
 
 [node name="start" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 86.0
 offset_top = 333.0
 offset_right = 288.0
 offset_bottom = 395.0
+
+[node name="cadena" type="Sprite2D" parent="start"]
+visible = false
+position = Vector2(95, 64)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_cosjs")
 
 [node name="level 1" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -64,6 +71,7 @@ texture = ExtResource("5_cosjs")
 
 [node name="level 2" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 460.0
 offset_top = 463.0
 offset_right = 583.0
@@ -76,6 +84,7 @@ texture = ExtResource("5_cosjs")
 
 [node name="level 3" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 678.0
 offset_top = 255.0
 offset_right = 801.0
@@ -88,6 +97,7 @@ texture = ExtResource("5_cosjs")
 
 [node name="level 4" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 890.0
 offset_top = 402.0
 offset_right = 1013.0
@@ -100,6 +110,7 @@ texture = ExtResource("5_cosjs")
 
 [node name="end" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 969.0
 offset_top = 51.0
 offset_right = 1092.0
