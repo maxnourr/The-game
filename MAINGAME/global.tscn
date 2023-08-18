@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk1qw2uwrsj38"]
+
+[ext_resource type="Script" path="res://global_var.gd" id="1_e4h1u"]
+[ext_resource type="AudioStream" uid="uid://d1etf8ukbb6nh" path="res://click.mp3" id="2_bianx"]
+[ext_resource type="AudioStream" uid="uid://dp5rpspyewebu" path="res://FT5records game hard.mp3" id="3_cdfhu"]
+[ext_resource type="AudioStream" uid="uid://d0pllcstk3nmn" path="res://FT5records game random.mp3" id="4_takoi"]
+[ext_resource type="AudioStream" uid="uid://cnmrvwkigebsc" path="res://FT5records menu.mp3" id="6_4l5g6"]
+
+[node name="global" type="Node"]
+script = ExtResource("1_e4h1u")
+
+[node name="button_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_bianx")
+
+[node name="game_musicrandom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_takoi")
+
+[node name="game_musichard" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_cdfhu")
+
+[node name="menu_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_4l5g6")

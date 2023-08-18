@@ -1,0 +1,100 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi4gelx5xhmki"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_hb2ff"]
+[ext_resource type="Texture2D" uid="uid://bb6rx712hg54k" path="res://48C logo@1x.png" id="2_ie6em"]
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 16.0
+offset_right = 2.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hb2ff")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -14.0
+offset_right = -171.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.17356, 1.28402)
+color = Color(0.67451, 0.847059, 1, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -271.0
+offset_right = 172.0
+offset_bottom = 202.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.00249294
+pivot_offset = Vector2(172, 73.5)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(170.758, 380.004)
+rotation = -0.00256082
+scale = Vector2(0.825503, 0.747456)
+skew = 0.000133872
+texture = ExtResource("2_ie6em")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "WELCOME TO 48C GAMES"
+horizontal_alignment = 1
+
+[node name="select game" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play !"
+
+[node name="music" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "music "
+
+[node name="credit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credit
+"
+
+[node name="restart" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "restart"
+
+[node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 45.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "hello"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/select game" to="." method="_on_select_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_music_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/credit" to="." method="_on_credit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/restart" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

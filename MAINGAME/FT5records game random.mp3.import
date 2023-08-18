@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d0pllcstk3nmn"
+path="res://.godot/imported/FT5records game random.mp3-616a3ba9eeda0a0027a9ae63b3d97ba7.mp3str"
+
+[deps]
+
+source_file="res://FT5records game random.mp3"
+dest_files=["res://.godot/imported/FT5records game random.mp3-616a3ba9eeda0a0027a9ae63b3d97ba7.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
