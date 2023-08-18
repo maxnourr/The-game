@@ -119,5 +119,5 @@ func _on_button_pressed():
 	else :
 		GlobalVar.current_level += 1
 		GlobalVar.max_level = min(GlobalVar.max_level+1,GlobalVar.game.size()-1)
-		get_node(level_link[GlobalVar.current_level]+"/cadena").texture = load("res://figures/cadena ouvert.png")
+		get_node(level_link[GlobalVar.current_level]+"/cadena").texture = load("res://sprites/cadena ouvert.png")
 	place_bacteria()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1saxxgiormhn"
-path="res://.godot/imported/cadena ouvert.png-b3ae8c037eb2470f8be10406cb952194.ctex"
+uid="uid://d3w4r47t4lfge"
+path="res://.godot/imported/nage 1.png-8064cab1ce6a9916f96a808a395b41b2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://figures/cadena ouvert.png"
-dest_files=["res://.godot/imported/cadena ouvert.png-b3ae8c037eb2470f8be10406cb952194.ctex"]
+source_file="res://sprites/nage 1.png"
+dest_files=["res://.godot/imported/nage 1.png-8064cab1ce6a9916f96a808a395b41b2.ctex"]
 
 [params]
 

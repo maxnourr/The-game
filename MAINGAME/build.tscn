@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfgjb4e770rse"]
+
+[ext_resource type="Script" path="res://build.gd" id="1_dgc0j"]
+
+[node name="build" type="Node"]
+script = ExtResource("1_dgc0j")
+
+[node name="Container" type="Container" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Pop" type="Button" parent="."]
+offset_right = 18.0
+offset_bottom = 31.0
+text = "X"
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_right = 0.035
+anchor_bottom = 0.018
+offset_left = 531.0
+offset_top = 40.0
+offset_right = 621.68
+offset_bottom = 180.336
+
+[node name="save" type="Button" parent="."]
+offset_left = 975.0
+offset_top = 19.0
+offset_right = 1027.0
+offset_bottom = 65.0
+text = "save"
+
+[node name="exit" type="Button" parent="."]
+offset_left = 1060.0
+offset_top = 21.0
+offset_right = 1112.0
+offset_bottom = 67.0
+text = "exit
+"
+
+[connection signal="button_down" from="Pop" to="." method="_on_pop_button_down"]
+[connection signal="button_down" from="save" to="." method="_on_save_button_down"]
+[connection signal="button_down" from="exit" to="." method="_on_exit_button_down"]

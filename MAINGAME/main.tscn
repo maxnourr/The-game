@@ -1,0 +1,127 @@
+[gd_scene load_steps=7 format=3 uid="uid://daahuqr7gjojm"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_4f6yy"]
+[ext_resource type="PackedScene" uid="uid://baxcljd4pi2y5" path="res://assets/background.tscn" id="2_p0xyc"]
+[ext_resource type="PackedScene" uid="uid://sruafabg1gs5" path="res://assets/end.tscn" id="2_xd4s8"]
+[ext_resource type="Texture2D" uid="uid://vw8827cqnnrp" path="res://sprites/bacterie menu.png" id="4_a40w7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sv2fn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ut88h"]
+size = Vector2(68, 248)
+
+[node name="main" type="Node"]
+script = ExtResource("1_4f6yy")
+
+[node name="background" parent="." instance=ExtResource("2_p0xyc")]
+
+[node name="end" parent="." instance=ExtResource("2_xd4s8")]
+position = Vector2(1018, 326)
+
+[node name="player" type="Area2D" parent="."]
+position = Vector2(234, 406)
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+position = Vector2(5, -5)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_a40w7")
+
+[node name="Button" type="Button" parent="player"]
+offset_left = 26.0
+offset_top = -124.0
+offset_right = 44.0
+offset_bottom = -93.0
+text = "?"
+icon = SubResource("ViewportTexture_sv2fn")
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(6, -4)
+shape = SubResource("RectangleShape2D_ut88h")
+
+[node name="editor" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 22.0
+offset_right = 78.0
+offset_bottom = 55.0
+text = "editor
+"
+
+[node name="stop" type="Button" parent="."]
+offset_left = 977.0
+offset_top = 87.0
+offset_right = 1133.0
+offset_bottom = 124.0
+text = "stop"
+
+[node name="play" type="Button" parent="."]
+offset_left = 977.0
+offset_top = 14.0
+offset_right = 1133.0
+offset_bottom = 51.0
+text = "play"
+
+[node name="Price" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 40
+
+[node name="help" type="Button" parent="."]
+offset_left = 840.0
+offset_top = 12.0
+offset_right = 944.0
+offset_bottom = 58.0
+text = "help"
+
+[node name="menu" type="Button" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -55.0
+offset_right = 111.0
+offset_bottom = -13.0
+grow_vertical = 0
+text = "To menu"
+
+[node name="explanation" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="explanation"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.188235, 0.188235, 0.188235, 0.764706)
+
+[node name="Label" type="Label" parent="explanation"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "les explications du niveau en gros
+"
+horizontal_alignment = 1
+
+[node name="out" type="Button" parent="explanation"]
+offset_left = 1054.0
+offset_top = 18.0
+offset_right = 1132.0
+offset_bottom = 64.0
+text = "X"
+
+[connection signal="button_down" from="player/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="editor" to="." method="_on_editor_button_down"]
+[connection signal="button_down" from="stop" to="." method="_on_stop_button_down"]
+[connection signal="button_down" from="play" to="." method="_on_play_button_down"]
+[connection signal="button_down" from="help" to="." method="_on_help_button_down"]
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
+[connection signal="button_down" from="explanation/out" to="." method="_on_out_button_down"]

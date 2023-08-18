@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bi4gelx5xhmki"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_hb2ff"]
-[ext_resource type="Texture2D" uid="uid://dmf2bj1h8a2te" path="res://figures/logo pixel.png" id="2_t608q"]
+[ext_resource type="Texture2D" uid="uid://dmf2bj1h8a2te" path="res://sprites/logo pixel.png" id="2_csrq7"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -53,7 +53,7 @@ position = Vector2(170.758, 380.004)
 rotation = -0.00256082
 scale = Vector2(0.825503, 0.747456)
 skew = 0.000133872
-texture = ExtResource("2_t608q")
+texture = ExtResource("2_csrq7")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

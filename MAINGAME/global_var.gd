@@ -1,7 +1,7 @@
 extends Node
 
 var first_open = true
-var game = ["res://tuto/tuto.tscn","res://level1/level1.tscn","res://level2/level2.tscn","res://level3/level3.tscn","res://level4/level4.tscn","res://end/end.tscn"]
+var game = ["res://main.tscn","n","","","",""]
 var do_game = game.duplicate()
 var coins = 0
 var current_level = 0

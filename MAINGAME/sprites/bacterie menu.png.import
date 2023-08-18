@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgbgbmr6afqet"
-path="res://.godot/imported/cadena ferme.png-bbf8d30dbc7e01f7e60c176c2e6790f4.ctex"
+uid="uid://vw8827cqnnrp"
+path="res://.godot/imported/bacterie menu.png-3c418c242f9d84e5e8fa01b38c11a06d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://figures/cadena ferme.png"
-dest_files=["res://.godot/imported/cadena ferme.png-bbf8d30dbc7e01f7e60c176c2e6790f4.ctex"]
+source_file="res://sprites/bacterie menu.png"
+dest_files=["res://.godot/imported/bacterie menu.png-3c418c242f9d84e5e8fa01b38c11a06d.ctex"]
 
 [params]
 
