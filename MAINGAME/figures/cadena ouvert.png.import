@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://coens2jhc3f7f"
-path="res://.godot/imported/Bananefermee.png-d16751cc27962f23446f16a241bdecea.ctex"
+uid="uid://d1saxxgiormhn"
+path="res://.godot/imported/cadena ouvert.png-b3ae8c037eb2470f8be10406cb952194.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Bananefermee.png"
-dest_files=["res://.godot/imported/Bananefermee.png-d16751cc27962f23446f16a241bdecea.ctex"]
+source_file="res://figures/cadena ouvert.png"
+dest_files=["res://.godot/imported/cadena ouvert.png-b3ae8c037eb2470f8be10406cb952194.ctex"]
 
 [params]
 

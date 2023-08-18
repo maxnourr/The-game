@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbond1ljwe0b8"
-path="res://.godot/imported/carte.png-cca2fb5376498dcd32ca9d9d76ec9a34.ctex"
+uid="uid://cgbgbmr6afqet"
+path="res://.godot/imported/cadena ferme.png-bbf8d30dbc7e01f7e60c176c2e6790f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://carte.png"
-dest_files=["res://.godot/imported/carte.png-cca2fb5376498dcd32ca9d9d76ec9a34.ctex"]
+source_file="res://figures/cadena ferme.png"
+dest_files=["res://.godot/imported/cadena ferme.png-bbf8d30dbc7e01f7e60c176c2e6790f4.ctex"]
 
 [params]
 

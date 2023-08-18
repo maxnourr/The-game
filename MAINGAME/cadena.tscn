@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://x2d4fgi5i0g0"]
+
+[ext_resource type="Texture2D" uid="uid://cgbgbmr6afqet" path="res://figures/cadena ferme.png" id="1_idqm7"]
+
+[node name="cadena" type="Sprite2D"]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_idqm7")

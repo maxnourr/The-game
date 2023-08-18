@@ -1,6 +1,6 @@
 extends Node
 var required = 130
-var time = 10
+var time = 15
 
 func _ready():
 	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))

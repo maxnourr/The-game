@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bi4gelx5xhmki"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_hb2ff"]
-[ext_resource type="Texture2D" uid="uid://bb6rx712hg54k" path="res://48C logo@1x.png" id="2_ie6em"]
+[ext_resource type="Texture2D" uid="uid://dmf2bj1h8a2te" path="res://figures/logo pixel.png" id="2_t608q"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -53,7 +53,7 @@ position = Vector2(170.758, 380.004)
 rotation = -0.00256082
 scale = Vector2(0.825503, 0.747456)
 skew = 0.000133872
-texture = ExtResource("2_ie6em")
+texture = ExtResource("2_t608q")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -93,8 +93,8 @@ theme_override_font_sizes/font_size = 30
 text = "hello"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/select game" to="." method="_on_select_game_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_music_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_music_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/credit" to="." method="_on_credit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/restart" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

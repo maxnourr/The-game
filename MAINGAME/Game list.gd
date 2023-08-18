@@ -29,12 +29,13 @@ func _process(delta):
 		waited +=1
 		$bacteria.position.x += step_x
 		$bacteria.position.y += step_y
-	if waited == transfer_time and load == true:
-		load = false
-		Global.music_game1()
-		await get_tree().create_timer(1).timeout
-		print("load "+str(GlobalVar.current_level))
-		GlobalVar.to_load(GlobalVar.game[GlobalVar.current_level])
+	if waited == transfer_time :
+		get_node(level_link[GlobalVar.current_level]+"/cadena").hide()
+		if load == true:
+			load = false
+			Global.music_game1()
+			await get_tree().create_timer(1).timeout
+			GlobalVar.to_load(GlobalVar.game[GlobalVar.current_level])
 
 	
 func place_bacteria():
@@ -118,5 +119,5 @@ func _on_button_pressed():
 	else :
 		GlobalVar.current_level += 1
 		GlobalVar.max_level = min(GlobalVar.max_level+1,GlobalVar.game.size()-1)
-		get_node(level_link[GlobalVar.current_level]+"/cadena").hide()
+		get_node(level_link[GlobalVar.current_level]+"/cadena").texture = load("res://figures/cadena ouvert.png")
 	place_bacteria()
