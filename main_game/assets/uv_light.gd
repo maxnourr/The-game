@@ -12,8 +12,8 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	PlayerVar.lactose = true
+	PlayerVar.UV = true
 
 
 func _on_area_exited(area):
-	PlayerVar.lactose = false
+	PlayerVar.UV = false

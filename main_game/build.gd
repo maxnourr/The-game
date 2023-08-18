@@ -10,6 +10,15 @@ func _ready():
 	plasmid = []
 	rectangles = []
 	$Pop.position.y = 400
+	for n in Genome.genomes.size():
+		var button = Button.new()
+		button.size.x = 80
+		button.size.y = 40
+		button.text = Genome.genomes[n].Name
+		button.position.x = 10
+		button.position.y = (size_y)*n 
+		add_child(button)
+		button.pressed.connect(_button_pressed.bind(Genome.genomes[n]))
 
 
 func _process(delta):
@@ -42,15 +51,6 @@ func _on_pop_button_down():
 	var last_rectangle = rectangles.pop_back()
 	last_rectangle.queue_free()
 
-#les boutons de genes
-func _on_gfp_button_down():
-	plasmid.push_back(Genome.GFP)
-	new_rect(plasmid.size(),Genome.GFP.Col)
-	
-
-func _on_othergene_button_down():
-	plasmid.push_back(Genome.Lacl)
-	new_rect(plasmid.size(),Genome.Lacl.Col)
 
 
 func _on_save_button_down():
@@ -61,7 +61,9 @@ func _on_save_button_down():
 func _on_exit_button_down():
 	get_tree().change_scene_to_file("res://main.tscn")
 	
+func _button_pressed(genome):
+	plasmid.push_back(genome)
+	new_rect(plasmid.size(),genome.Col)
+	
+	
 
-func _on_button_button_down():
-	plasmid.push_back(Genome.ampr)
-	new_rect(plasmid.size(),Genome.ampr.Col)
