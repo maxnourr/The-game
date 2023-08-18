@@ -2,8 +2,10 @@ extends Control
 
 
 func _ready():
+	if GlobalVar.first_open:
+		GlobalVar.load_game()
+		GlobalVar.first_open = false
 	Global.music_menu()
-	GlobalVar.load_game()
 
 func _on_select_game_pressed():
 	Global.button_sound()
@@ -25,8 +27,11 @@ func _on_quit_pressed():
 
 func _on_button_pressed():
 	Global.button_sound()
-	GlobalVar.blanck()
-
+	if $MarginContainer/VBoxContainer/restart.text == "restart":
+		$MarginContainer/VBoxContainer/restart.text = "you are sure ? click if yes"
+	elif $MarginContainer/VBoxContainer/restart.text == "you are sure ? click if yes":
+		$MarginContainer/VBoxContainer/restart.text = "restart"
+		GlobalVar.blanck()
 
 func _on_select_game_2_pressed():
 	Global.button_sound()

@@ -1,6 +1,11 @@
 extends Control
 
 func _ready():
+	if GlobalVar.first_open:
+		GlobalVar.load_game()
+		GlobalVar.first_open = false
+	else:
+		GlobalVar.save_game()
 	Global.music_menu()
 	if GlobalVar.on_randon == true:
 		GlobalVar.win = false
