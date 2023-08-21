@@ -22,6 +22,10 @@ Express="*res://express.gd"
 GlobalVar="*res://global_var.gd"
 Global="*res://global.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

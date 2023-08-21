@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bgqlonx2reo62"]
+[gd_scene load_steps=10 format=3 uid="uid://bgqlonx2reo62"]
 
-[ext_resource type="Texture2D" uid="uid://bg2jodhfxekd" path="res://sprites/bac_body-removebg-preview.png" id="1_n3vxu"]
-[ext_resource type="Texture2D" uid="uid://drwgsocixr4bp" path="res://sprites/normal-removebg-preview.png" id="2_tmcu8"]
-[ext_resource type="Texture2D" uid="uid://bl3c5k3yctue5" path="res://sprites/bad-removebg-preview.png" id="3_8214d"]
-[ext_resource type="Texture2D" uid="uid://6rwkoqdmh0c1" path="res://sprites/happy-fotor-bg-remover-2023082015142.png" id="4_5i775"]
+[ext_resource type="Texture2D" uid="uid://ceyl7jq1dpeoa" path="res://sprites/flagel 1.png" id="1_4iybn"]
+[ext_resource type="Texture2D" uid="uid://chr627yqmycvu" path="res://sprites/body.png" id="1_7yc02"]
+[ext_resource type="Texture2D" uid="uid://boqwb75sq6aae" path="res://sprites/normal eyes.png" id="2_brhrt"]
+[ext_resource type="Texture2D" uid="uid://ca12afndtt3ex" path="res://sprites/flagel 2.png" id="2_ljr6f"]
+[ext_resource type="Texture2D" uid="uid://jut6qyunqru0" path="res://sprites/sad eyes.png" id="3_0a2dr"]
+[ext_resource type="Texture2D" uid="uid://c2j1kgenmv1iq" path="res://sprites/happy eyes.png" id="4_d07oo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hybv"]
-size = Vector2(460, 266)
+size = Vector2(460, 216)
 
 [sub_resource type="Gradient" id="Gradient_q3hes"]
 offsets = PackedFloat32Array(0, 0.743802)
@@ -34,30 +36,39 @@ scale_amount_min = 0.0
 scale_amount_max = 145.74
 color = Color(1, 0.305882, 0.0235294, 1)
 
+[node name="flagel" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.623529)
+position = Vector2(-423, 2.08165e-12)
+texture = ExtResource("1_4iybn")
+
+[node name="flagel2" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.623529)
+position = Vector2(-423, 2.08165e-12)
+texture = ExtResource("2_ljr6f")
+
 [node name="body" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.623529)
 position = Vector2(-3, 0)
-texture = ExtResource("1_n3vxu")
+texture = ExtResource("1_7yc02")
 
 [node name="normal" type="Sprite2D" parent="."]
-position = Vector2(84.5625, -13.25)
-scale = Vector2(0.587477, 0.684783)
-texture = ExtResource("2_tmcu8")
+position = Vector2(150, -20)
+texture = ExtResource("2_brhrt")
 
 [node name="angry" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(86.125, -12.5)
-scale = Vector2(0.613839, 0.727545)
-texture = ExtResource("3_8214d")
+position = Vector2(148, -20)
+texture = ExtResource("3_0a2dr")
 
 [node name="happy" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(100.5, -18)
-scale = Vector2(0.614, 0.662338)
-texture = ExtResource("4_5i775")
+position = Vector2(153, -42)
+texture = ExtResource("4_d07oo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 1)
+visible = false
+position = Vector2(-4, 5)
 shape = SubResource("RectangleShape2D_2hybv")
 
 [node name="light" type="PointLight2D" parent="."]

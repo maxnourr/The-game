@@ -26,10 +26,18 @@ func _process(delta):
 	$background/ColorRect.color = Color(0.424, 0.235, 0.275)
 	check_win()
 	if play:
-		
+		waiting +=1
+		if waiting >=30:
+			waiting = 0
+			if $bacteria/flagel.visible == true:
+				$bacteria/flagel.visible = false
+				$bacteria/flagel2.visible = true
+			else:
+				$bacteria/flagel.visible = true
+				$bacteria/flagel2.visible = false
 		if PlayerVar.moving:
-			$bacteria.position.x += 2 #ce qui le fait avancer
-			$bacteria/light.enabled = PlayerVar.gfp
+			$bacteria.position.x += 1 #ce qui le fait avancer
+			$bacteria/light.visible = PlayerVar.gfp
 			$bacteria/particles.visible = PlayerVar.Interlekin
 			$bacteria/body.modulate = PlayerVar.player_color #pour l'instant pas fou que ce soit là
 		#faudra trouver un moyen de réaliser ce changement local dans express ou playervar
