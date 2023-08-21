@@ -81,6 +81,9 @@ func _button_pressed(genome):
 func _mouse_on(genome):
 	$explications.visible = true
 	$explications.text = genome.description
+	$explications.text += "\n"
+	$explications.text += "Price: "
+	$explications.text += str(genome.Price)
 	
 	
 func _mouse_out(genome):

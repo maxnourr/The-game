@@ -7,7 +7,7 @@
 radius = 175.011
 
 [sub_resource type="Gradient" id="Gradient_417if"]
-offsets = PackedFloat32Array(0, 0.247934, 0.644628, 0.785124)
+offsets = PackedFloat32Array(0, 0.239669, 0.702479, 0.92562)
 colors = PackedColorArray(1, 1, 1, 1, 0.768595, 0.768595, 0.768595, 1, 0.0709472, 0.0709472, 0.0709472, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_wklad"]
@@ -19,7 +19,7 @@ fill_from = Vector2(0.5, 0.502976)
 script = ExtResource("1_nwsar")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.780392)
+modulate = Color(0.490196, 0.588235, 1, 0.447059)
 position = Vector2(47.25, 57)
 scale = Vector2(1.2662, 1.30319)
 texture = ExtResource("2_totg6")
@@ -31,7 +31,8 @@ shape = SubResource("CircleShape2D_hg5fv")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(64.5, 63.5)
 scale = Vector2(8.54688, 8.42187)
-color = Color(0.462745, 0.0352941, 0.486275, 1)
+color = Color(0.0784314, 0, 0.286275, 1)
+energy = 8.9
 texture = SubResource("GradientTexture2D_wklad")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

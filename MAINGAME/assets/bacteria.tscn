@@ -11,8 +11,8 @@
 size = Vector2(460, 216)
 
 [sub_resource type="Gradient" id="Gradient_q3hes"]
-offsets = PackedFloat32Array(0, 0.743802)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.165289, 0.809917, 0.826446, 0.900826, 0.917355)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_14ft1"]
 gradient = SubResource("Gradient_q3hes")
@@ -67,13 +67,13 @@ position = Vector2(153, -42)
 texture = ExtResource("4_d07oo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-4, 5)
 shape = SubResource("RectangleShape2D_2hybv")
 
 [node name="light" type="PointLight2D" parent="."]
 visible = false
-position = Vector2(-7, -1)
-scale = Vector2(13.3594, 10.4375)
-color = Color(0, 0.803922, 0.0784314, 1)
+position = Vector2(-4.49991, 1.50001)
+scale = Vector2(29.5156, 26.1094)
+color = Color(0, 0.85098, 0.109804, 1)
+energy = 1.22
 texture = SubResource("GradientTexture2D_14ft1")

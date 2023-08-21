@@ -9,6 +9,7 @@ func _ready():
 	#calcul le prix total actuel et l'écrit en haut-----------------------
 	PlayerVar.cost = 0
 	for n in Genome.plasmids.size():
+			PlayerVar.cost += 100
 			for i in Genome.plasmids[n].size():
 				PlayerVar.cost += Genome.plasmids[n][i].Price
 				

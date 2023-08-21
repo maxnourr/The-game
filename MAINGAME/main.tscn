@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://daahuqr7gjojm"]
+[gd_scene load_steps=16 format=3 uid="uid://daahuqr7gjojm"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4f6yy"]
 [ext_resource type="PackedScene" uid="uid://baxcljd4pi2y5" path="res://assets/background.tscn" id="2_p0xyc"]
@@ -7,9 +7,7 @@
 [ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="5_4r2xc"]
 [ext_resource type="PackedScene" uid="uid://ba6vkbb4vj8xq" path="res://assets/uv_light.tscn" id="6_skfuh"]
 [ext_resource type="PackedScene" uid="uid://6pmc27wiuura" path="res://assets/amp.tscn" id="8_8f1w0"]
-[ext_resource type="PackedScene" uid="uid://yvbpwom0naf0" path="res://assets/cadmium.tscn" id="9_jnnr2"]
-[ext_resource type="PackedScene" uid="uid://csv2opykxguuf" path="res://assets/lactose.tscn" id="10_01wni"]
-[ext_resource type="PackedScene" uid="uid://bc6kefpd2jmyr" path="res://assets/mucus.tscn" id="11_558l5"]
+[ext_resource type="PackedScene" uid="uid://c3ua2wu7fgyl" path="res://assets/t_cells.tscn" id="8_soq65"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5skq"]
 bg_color = Color(0.411765, 0.682353, 0.313726, 1)
@@ -64,7 +62,7 @@ script = ExtResource("1_4f6yy")
 position = Vector2(1018, 326)
 
 [node name="UV_light" parent="." instance=ExtResource("6_skfuh")]
-position = Vector2(616, 286)
+position = Vector2(802, 286)
 scale = Vector2(0.83, 0.83)
 
 [node name="bacteria" parent="." instance=ExtResource("4_ub1lf")]
@@ -162,8 +160,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("5_4r2xc")
 theme_override_font_sizes/font_size = 30
-text = "les explications du niveau en gros
-"
+text = "the explanations
+for the level"
 horizontal_alignment = 1
 
 [node name="out" type="Button" parent="explanation"]
@@ -175,16 +173,10 @@ theme_override_fonts/font = ExtResource("5_4r2xc")
 text = "X"
 
 [node name="AMP" parent="." instance=ExtResource("8_8f1w0")]
-position = Vector2(274, 159)
+position = Vector2(523, 379)
 
-[node name="cadmium" parent="." instance=ExtResource("9_jnnr2")]
-position = Vector2(270, 108)
-
-[node name="Lactose" parent="." instance=ExtResource("10_01wni")]
-position = Vector2(406, 130)
-
-[node name="mucus" parent="." instance=ExtResource("11_558l5")]
-position = Vector2(739, 124)
+[node name="T_cells" parent="." instance=ExtResource("8_soq65")]
+position = Vector2(493, 567)
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="editor" to="." method="_on_editor_button_down"]
