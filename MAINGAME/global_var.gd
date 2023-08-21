@@ -6,6 +6,7 @@ var do_game = game.duplicate()
 var coins = 0
 var current_level = 0
 var max_level = 0
+var level
 
 var win = false
 var rng = RandomNumberGenerator

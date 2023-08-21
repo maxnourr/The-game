@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpo3la1vl40xv"]
+
+[ext_resource type="Script" path="res://level1/level_1.gd" id="1_amyrd"]
+[ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="1_molkc"]
+[ext_resource type="PackedScene" uid="uid://c3ua2wu7fgyl" path="res://assets/t_cells.tscn" id="2_8dey3"]
+
+[node name="level1" type="Node"]
+script = ExtResource("1_amyrd")
+
+[node name="main" parent="." instance=ExtResource("1_molkc")]
+
+[node name="T_cells" parent="." instance=ExtResource("2_8dey3")]
+position = Vector2(610, 191)

@@ -1,13 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://daahuqr7gjojm"]
+[gd_scene load_steps=13 format=3 uid="uid://daahuqr7gjojm"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4f6yy"]
 [ext_resource type="PackedScene" uid="uid://baxcljd4pi2y5" path="res://assets/background.tscn" id="2_p0xyc"]
 [ext_resource type="PackedScene" uid="uid://sruafabg1gs5" path="res://assets/end.tscn" id="2_xd4s8"]
 [ext_resource type="PackedScene" uid="uid://bgqlonx2reo62" path="res://assets/bacteria.tscn" id="4_ub1lf"]
 [ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="5_4r2xc"]
-[ext_resource type="PackedScene" uid="uid://ba6vkbb4vj8xq" path="res://assets/uv_light.tscn" id="6_skfuh"]
-[ext_resource type="PackedScene" uid="uid://6pmc27wiuura" path="res://assets/amp.tscn" id="8_8f1w0"]
-[ext_resource type="PackedScene" uid="uid://c3ua2wu7fgyl" path="res://assets/t_cells.tscn" id="8_soq65"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w5skq"]
 bg_color = Color(0.411765, 0.682353, 0.313726, 1)
@@ -60,10 +57,6 @@ script = ExtResource("1_4f6yy")
 
 [node name="end" parent="." instance=ExtResource("2_xd4s8")]
 position = Vector2(1018, 326)
-
-[node name="UV_light" parent="." instance=ExtResource("6_skfuh")]
-position = Vector2(802, 286)
-scale = Vector2(0.83, 0.83)
 
 [node name="bacteria" parent="." instance=ExtResource("4_ub1lf")]
 position = Vector2(285, 379)
@@ -171,12 +164,6 @@ offset_right = 1132.0
 offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("5_4r2xc")
 text = "X"
-
-[node name="AMP" parent="." instance=ExtResource("8_8f1w0")]
-position = Vector2(523, 379)
-
-[node name="T_cells" parent="." instance=ExtResource("8_soq65")]
-position = Vector2(493, 567)
 
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="editor" to="." method="_on_editor_button_down"]

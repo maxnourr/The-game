@@ -24,7 +24,6 @@ func _process(delta):
 	PlayerVar.Play = play
 	PlayerVar.PlayerX = $bacteria.position.x
 	PlayerVar.PlayerY= $bacteria.position.y
-	$background/ColorRect.color = Color(0.424, 0.235, 0.275)
 	check_win()
 	if play:
 		waiting +=1
@@ -42,15 +41,14 @@ func _process(delta):
 			$bacteria/particles.visible = PlayerVar.Interlekin
 			$bacteria/body.modulate = PlayerVar.player_color #pour l'instant pas fou que ce soit là
 		#faudra trouver un moyen de réaliser ce changement local dans express ou playervar
-		if timer == 1:
+	
 			for n in Genome.plasmids.size(): #check tout les plasmids
 				for i in Genome.plasmids[n].size(): #check tout les genes du plasmid n
 					Express.express(Genome.plasmids[n][i])
-					if(Genome.plasmids[n][i].State == false): #arrête la lecture du plasmid
+					if(Genome.plasmids[n][i].State == false):
+						#arrête la lecture du plasmid
 						break
-		timer += 1
-		if timer >= 36:
-			timer = 0				
+						
 		
 
 func _on_editor_button_down(): #le builder de genes

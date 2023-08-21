@@ -43,7 +43,7 @@ func _process(delta):
 
 
 func _on_back_button_down():
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_file(Global.level)
 	
 func _button_pressed(number):
 	Genome.plasmids.pop_at(number) #delete le plasmid associé au boutton :)

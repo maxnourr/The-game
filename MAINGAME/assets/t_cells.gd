@@ -33,5 +33,6 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	PlayerVar.alive = false
-	PlayerVar.win = 2
+	if area.name == "bacteria":
+		PlayerVar.alive = false
+		PlayerVar.win = 2

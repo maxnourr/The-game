@@ -12,8 +12,10 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	PlayerVar.UV = true
+	if area.name == "bacteria":
+		PlayerVar.UV = true
 
 
 func _on_area_exited(area):
-	PlayerVar.UV = false
+	if area.name == "bacteria":
+		PlayerVar.UV = false

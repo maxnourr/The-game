@@ -67,11 +67,11 @@ func _on_save_button_down():
 	Global.click()
 	if (plasmid.size() > 0):
 		Genome.plasmids.push_back(plasmid) #rajoute le plasmid créé à la liste des plasmids dans l'e-coli
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_file(Global.level)
 
 func _on_exit_button_down():
 	Global.click()
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_file(Global.level)
 	
 func _button_pressed(genome):
 	plasmid.push_back(genome)

@@ -14,7 +14,8 @@ func _process(delta):
 
 
 func _on_area_entered(area):
-	if PlayerVar.EC20:
-		follow = true
+	if area.name == "bacteria":
+		if PlayerVar.EC20:
+			follow = true
 		
 		
