@@ -10,10 +10,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if PlayerVar.Play:
-	
+		$neutral.visible = false
 		if PlayerVar.Interlekin:
-		
+			$angry.visible = false
+			$happy.visible = true
 			position.x += direction
+			
 	
 			if position.x >= get_viewport().size.x:
 				direction = -10
@@ -21,10 +23,13 @@ func _process(delta):
 				direction = 10
 		
 		if PlayerVar.Interlekin == false:
+			$happy.visible = false
+			$angry.visible = true
 			aim.x = (PlayerVar.PlayerX - position.x)
 			aim.y = (PlayerVar.PlayerY - position.y)
 			aim = aim.normalized()
 			position += aim * delta * 360
+			
 
 
 func _on_area_entered(area):

@@ -3,17 +3,20 @@ extends Node
 var y = 0
 var size_x = 80
 var size_y = 50
+var font = preload("res://font/joystix monospace.otf")
+var brick = preload("res://sprites/brick.PNG")
 
 func _ready():
-	
+	var style = $cross_model.get_theme_stylebox("normal")
 	for n in Genome.plasmids.size():
 		for i in Genome.plasmids[n].size():
 			#le baille des rectangles-----------------------------------
 			
-			var rectangle = ColorRect.new()
-			rectangle.size = Vector2(size_x, size_y)
-			rectangle.position = Vector2(i*size_x, (size_y + 30)*n)
-			rectangle.color = Genome.plasmids[n][i].Col  
+			var rectangle = Sprite2D.new()
+			rectangle.texture = brick
+			rectangle.scale = Vector2(0.158, 0.172)
+			rectangle.position = Vector2(i*size_x + 60, (size_y + 30)*n + 40)
+			rectangle.modulate = Genome.plasmids[n][i].Col  
 			add_child(rectangle)  
 			#----------------------
 		#rajoute les boutons x au bout de chaque plasmids -----------------------	
@@ -24,6 +27,8 @@ func _ready():
 		button.position.x = (Genome.plasmids[n].size())*size_x
 		button.position.y = (size_y + 30)*n 
 		add_child(button)
+		button.add_theme_font_override("font",font)
+		button.add_theme_stylebox_override("normal",style)
 		button.pressed.connect(_button_pressed.bind(n)) 
 		#connecte chaque button à la fonction pressed avec une coordonnée précise n
 		#permet de delete le bon plasmid

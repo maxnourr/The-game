@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://csfs01nv8po51"]
+
+[ext_resource type="Texture2D" uid="uid://d2whas78oft5c" path="res://sprites/background_office.PNG" id="1_f0jyt"]
+
+[node name="background2" type="Node"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.560784, 0.560784, 0.560784, 0.843137)
+position = Vector2(574.5, 323)
+scale = Vector2(1.82643, 1.85673)
+texture = ExtResource("1_f0jyt")

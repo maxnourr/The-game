@@ -33,7 +33,6 @@ func _process(delta):
 		get_node(level_link[GlobalVar.current_level]+"/cadena").hide()
 		if load == true:
 			load = false
-			Global.music_game1()
 			await get_tree().create_timer(1).timeout
 			GlobalVar.to_load(GlobalVar.game[GlobalVar.current_level])
 
@@ -65,7 +64,6 @@ func _on_start_pressed():
 	else:	
 		place_bacteria()
 		await get_tree().create_timer(1).timeout
-		Global.music_game1()
 		GlobalVar.to_load(GlobalVar.game[0])
 
 func _on_level_1_pressed():

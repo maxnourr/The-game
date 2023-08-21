@@ -1,8 +1,8 @@
 extends Node
 #le singleton responsable des variables de la bactérie (couleurs, resistances etc...)
-var default_player_color = Color(1,1,1)
+var default_player_color = Color(1, 1, 1, 0.624)
 var player_color = default_player_color #couleur du joueur
-var gfp #bool à oui si gfp présent
+var gfp = false #bool à oui si gfp présent
 var cost = 0
 
 var PlayerX
@@ -26,7 +26,7 @@ var EC20 = false
 #------------------------------
 #met les valeurs à defaut, giga usefull
 func default():
-	player_color =  Color(1,1,1)
+	player_color =  default_player_color
 	gfp = false
 	lactose = false
 	ampr = false

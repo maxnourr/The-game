@@ -1,15 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh2y5din14xfu"]
+[gd_scene load_steps=6 format=3 uid="uid://dh2y5din14xfu"]
 
 [ext_resource type="Script" path="res://edit_plasmid.gd" id="1_bfktr"]
+[ext_resource type="PackedScene" uid="uid://csfs01nv8po51" path="res://assets/background_2.tscn" id="2_b0sun"]
+[ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="3_ai0t8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o5fi6"]
+bg_color = Color(0.623529, 0.407843, 0.627451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xgtfl"]
+bg_color = Color(0.811765, 0, 0.0392157, 1)
+corner_radius_top_left = 55
+corner_radius_top_right = 55
+corner_radius_bottom_right = 55
+corner_radius_bottom_left = 55
 
 [node name="edit_plasmid" type="Node"]
 script = ExtResource("1_bfktr")
 
+[node name="background2" parent="." instance=ExtResource("2_b0sun")]
+
 [node name="back" type="Button" parent="."]
-offset_left = 1016.0
+offset_left = 1010.0
 offset_top = 12.0
-offset_right = 1138.0
+offset_right = 1132.0
 offset_bottom = 74.0
+theme_override_fonts/font = ExtResource("3_ai0t8")
+theme_override_styles/normal = SubResource("StyleBoxFlat_o5fi6")
 text = "back"
+
+[node name="cross_model" type="Button" parent="."]
+offset_left = 60.0
+offset_top = -83.0
+offset_right = 68.0
+offset_bottom = -75.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_xgtfl")
 
 [connection signal="button_down" from="back" to="." method="_on_back_button_down"]

@@ -9,7 +9,7 @@ func express(genome):
 				PlayerVar.gfp = true
 			else:
 				PlayerVar.gfp = false
-				PlayerVar.player_color = Color(1, 1, 1)
+				PlayerVar.player_color = PlayerVar.default_player_color
 		2:
 			if PlayerVar.lactose:
 				genome.State = true

@@ -1,20 +1,49 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3ua2wu7fgyl"]
+[gd_scene load_steps=8 format=3 uid="uid://c3ua2wu7fgyl"]
 
 [ext_resource type="Script" path="res://assets/t_cells.gd" id="1_1v7ty"]
-[ext_resource type="Texture2D" uid="uid://cvviaw0gssqfl" path="res://sprites/icon.svg" id="1_speau"]
+[ext_resource type="Texture2D" uid="uid://dj6srokhq0qes" path="res://sprites/t_cellcore-removebg-preview.png" id="2_m3uu8"]
+[ext_resource type="Texture2D" uid="uid://b5i40nxjmfdxi" path="res://sprites/t_cellbod-removebg-preview.png" id="3_51hgc"]
+[ext_resource type="Texture2D" uid="uid://6rwkoqdmh0c1" path="res://sprites/happy-fotor-bg-remover-2023082015142.png" id="3_j1m7j"]
+[ext_resource type="Texture2D" uid="uid://bl3c5k3yctue5" path="res://sprites/bad-removebg-preview.png" id="4_fhiys"]
+[ext_resource type="Texture2D" uid="uid://drwgsocixr4bp" path="res://sprites/normal-removebg-preview.png" id="5_fsx4y"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cprdw"]
-size = Vector2(85, 86)
+[sub_resource type="CircleShape2D" id="CircleShape2D_wfpup"]
+radius = 55.5
 
 [node name="T_cells" type="Area2D"]
 script = ExtResource("1_1v7ty")
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.411765)
+position = Vector2(12.5, -0.500001)
+scale = Vector2(0.745583, 0.638514)
+texture = ExtResource("3_51hgc")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0.172549, 0.227451, 1)
-texture = ExtResource("1_speau")
+modulate = Color(1, 1, 1, 0.811765)
+position = Vector2(-13, -6)
+scale = Vector2(0.23557, 0.225399)
+texture = ExtResource("2_m3uu8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -2)
-shape = SubResource("RectangleShape2D_cprdw")
+position = Vector2(3, 1)
+shape = SubResource("CircleShape2D_wfpup")
+
+[node name="happy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, 1.52588e-05)
+scale = Vector2(0.189, 0.202922)
+texture = ExtResource("3_j1m7j")
+
+[node name="angry" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-2, -2)
+scale = Vector2(0.226786, 0.267964)
+texture = ExtResource("4_fhiys")
+
+[node name="neutral" type="Sprite2D" parent="."]
+position = Vector2(-2, 3)
+scale = Vector2(0.199593, 0.209627)
+texture = ExtResource("5_fsx4y")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
