@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccgth0js842ey"]
+
+[ext_resource type="Texture2D" uid="uid://dkdufdctogh6m" path="res://sprites/acid-removebg-preview.png" id="1_erfru"]
+[ext_resource type="Script" path="res://assets/acid.gd" id="1_qay70"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_imep4"]
+radius = 36.1248
+
+[node name="acid" type="Area2D"]
+script = ExtResource("1_qay70")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -7)
+scale = Vector2(0.649573, 0.623552)
+texture = ExtResource("1_erfru")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 1)
+shape = SubResource("CircleShape2D_imep4")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

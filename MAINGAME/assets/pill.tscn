@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1dig8vs2e5pn"]
+
+[ext_resource type="Script" path="res://assets/pill.gd" id="1_fk6ht"]
+[ext_resource type="Texture2D" uid="uid://cpopgn1sf4ejb" path="res://sprites/pill-removebg-preview.png" id="1_uhyya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sn5hm"]
+size = Vector2(212, 119)
+
+[node name="pill" type="Area2D"]
+rotation = -0.517297
+script = ExtResource("1_fk6ht")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(18.689, 24.3135)
+scale = Vector2(1.14933, 1.26983)
+texture = ExtResource("1_uhyya")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -4.5)
+shape = SubResource("RectangleShape2D_sn5hm")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

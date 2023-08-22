@@ -8,7 +8,7 @@ var cost = 0
 var PlayerX
 var PlayerY
 var Play
-
+var acidr = false
 var ampr= false
 var alive = true
 var win = 0 #win n'est pas un booléen ici, 0 = neutre, 1 = win, 2 = loose
@@ -40,3 +40,4 @@ func default():
 	Interlekin = false
 	Play = false
 	EC20 = false
+	acidr = false
