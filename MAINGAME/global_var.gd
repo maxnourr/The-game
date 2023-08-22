@@ -1,5 +1,4 @@
 extends Node
-
 var first_open = true
 var game = ["res://main.tscn","n","","","",""]
 var do_game = game.duplicate()
@@ -24,12 +23,15 @@ func click():
 	
 
 func body():
-	$body.play()
+	if $body.playing == false:
+		$body.play()
 	$build/office_ambiance.stop()
 	$game_musichard.stop()
 	$menu_music.stop()
 	$game_musicrandom.stop()
 	$build.stop()
+	
+	
 func theme_build():
 	$build/office_ambiance.play()
 	$body.stop()
