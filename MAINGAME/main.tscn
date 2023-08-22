@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://daahuqr7gjojm"]
+[gd_scene load_steps=12 format=3 uid="uid://daahuqr7gjojm"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4f6yy"]
 [ext_resource type="PackedScene" uid="uid://baxcljd4pi2y5" path="res://assets/background.tscn" id="2_p0xyc"]
-[ext_resource type="PackedScene" uid="uid://sruafabg1gs5" path="res://assets/end.tscn" id="2_xd4s8"]
 [ext_resource type="PackedScene" uid="uid://bgqlonx2reo62" path="res://assets/bacteria.tscn" id="4_ub1lf"]
 [ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="5_4r2xc"]
 
@@ -54,9 +53,6 @@ corner_radius_bottom_left = 5
 script = ExtResource("1_4f6yy")
 
 [node name="background" parent="." instance=ExtResource("2_p0xyc")]
-
-[node name="end" parent="." instance=ExtResource("2_xd4s8")]
-position = Vector2(1018, 326)
 
 [node name="bacteria" parent="." instance=ExtResource("4_ub1lf")]
 position = Vector2(285, 379)

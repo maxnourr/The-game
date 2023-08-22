@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfqws2kikx1tu"]
+[gd_scene load_steps=4 format=3 uid="uid://bfqws2kikx1tu"]
 
 [ext_resource type="Script" path="res://level4/level_4.gd" id="1_vpaed"]
 [ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="2_yhmdb"]
 [ext_resource type="PackedScene" uid="uid://bc6kefpd2jmyr" path="res://assets/mucus.tscn" id="3_3jw8s"]
-[ext_resource type="PackedScene" uid="uid://csv2opykxguuf" path="res://assets/lactose.tscn" id="4_d1pm3"]
 
 [node name="level4" type="Node"]
 script = ExtResource("1_vpaed")
@@ -18,6 +17,3 @@ position = Vector2(305, 477)
 
 [node name="mucus4" parent="." instance=ExtResource("3_3jw8s")]
 position = Vector2(500, 532)
-
-[node name="Lactose" parent="." instance=ExtResource("4_d1pm3")]
-position = Vector2(334, 296)
