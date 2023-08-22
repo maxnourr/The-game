@@ -94,6 +94,11 @@ func _on_button_2_pressed():
 		GlobalVar.to_load(GlobalVar.game[12])
 
 func _on_button_3_pressed():
+	reset()
 	GlobalVar.to_game_list()
+	
+func reset():
+	$food.speed = 300.0
+	nb_food = 1
 
 

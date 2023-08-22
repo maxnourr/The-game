@@ -98,7 +98,11 @@ func _on_button_2_pressed():
 		GlobalVar.to_load(GlobalVar.game[10])
 
 func _on_button_3_pressed():
+	reset()
 	GlobalVar.to_game_list()
+	
+func reset():
+	nb_food = 3
 
 func _on_border_area_exited(area):
 	if area.type == "cadmium" and area.visible and !$Timer.is_stopped():

@@ -95,7 +95,10 @@ func _on_button_2_pressed():
 	else:
 		GlobalVar.to_load(GlobalVar.game[9])
 
-
 func _on_button_3_pressed():
+	reset()
 	$tube.destroy()
 	GlobalVar.to_game_list()
+	
+func reset():
+	$tube.max = 2.1

@@ -108,4 +108,8 @@ func _on_water_area_entered(area):
 
 
 func _on_button_3_pressed():
+	reset()
 	GlobalVar.to_game_list()
+	
+func reset():
+	nb_trash = 10

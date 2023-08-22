@@ -11,7 +11,6 @@ func _ready():
 		GlobalVar.win = false
 		GlobalVar.first = true
 		GlobalVar.on_randon = false
-		GlobalVar.on_hard_core = false
 		final_speed_run()
 
 
@@ -105,7 +104,7 @@ func _on_randomhard_pressed():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Label.set_text("coins : " + str(GlobalVar.coins) + "\nmaximum score : " + str(GlobalVar.max_score))
+	$Label.set_text("coins : " + str(GlobalVar.coins) + "\nmaximum survival score : " + str(GlobalVar.max_normal_score)+ "\nmaximum extreme survival score : " + str(GlobalVar.max_score))
 
 func _on_return_pressed():
 	Global.button_sound()
@@ -117,26 +116,36 @@ func _on_return_game_pressed():
 	Global.button_sound()
 	GlobalVar.save_game()
 	
-	var P = $VBoxContainer5/TextEdit.get_text()
-	if P == "":
-		P = "A mysterious guy"
-	
-	GlobalVar.best_list(P)
-	
+	if GlobalVar.on_hard_core :
+		var P = $VBoxContainer5/TextEdit.get_text()
+		if P == "":
+			P = "A mysterious guy"
+		GlobalVar.best_list(P)
+		$VBoxContainer5/TextEdit.visible = false
+		GlobalVar.on_hard_core = false
+		
+	$VBoxContainer5.visible = false
 	$VBoxContainer.visible=true
 	$VBoxContainer2.visible=true
 	$VBoxContainer3.visible=true
 	$VBoxContainer4.visible=true
-	$VBoxContainer5.visible = false
 	
 func final_speed_run():
 	GlobalVar.current_score = GlobalVar.coins - GlobalVar.start_score
-	$VBoxContainer5/speed_run_end.set_text("Congrats, your score is " + str(GlobalVar.current_score))
-	if GlobalVar.current_score > GlobalVar.max_score:
-		GlobalVar.max_score = GlobalVar.current_score
+	$VBoxContainer5/speed_run_end.set_text("Congrats, your score is " + str(GlobalVar.current_score)) 
+	
+	if GlobalVar.on_hard_core :
+		$VBoxContainer5/TextEdit.visible = true
+		if GlobalVar.current_score > GlobalVar.max_score:
+			GlobalVar.max_score = GlobalVar.current_score
+	else:
+		if GlobalVar.current_score > GlobalVar.max_normal_score:
+			GlobalVar.max_normal_score = GlobalVar.current_score
 	$VBoxContainer.visible=false
 	$VBoxContainer2.visible=false
 	$VBoxContainer3.visible=false
 	$VBoxContainer4.visible=false
 	$VBoxContainer5.visible = true
+	
+	
 	

@@ -111,6 +111,7 @@ Be careful, not to be catch before"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Button"]
+layout_mode = 0
 offset_left = -442.0
 offset_top = 123.0
 offset_right = 613.0

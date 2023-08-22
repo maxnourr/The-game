@@ -108,6 +108,7 @@ remove everything"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="Button"]
+layout_mode = 0
 offset_left = -368.5
 offset_top = 122.5
 offset_right = 518.5

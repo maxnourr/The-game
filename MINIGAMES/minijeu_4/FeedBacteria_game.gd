@@ -65,7 +65,11 @@ func _on_button_2_pressed():
 
 
 func _on_button_3_pressed():
+	reset()
 	GlobalVar.to_game_list()
+	
+func reset():
+	time = 10
 	
 func restart(): 
 	$TEXT/explanation.text = "depending of the strain\n high salt concentration can be dangerous for bacterias\n LB medium is full of good nutriments\n to make them grow !"
