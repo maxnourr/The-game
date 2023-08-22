@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3y15d006e4tw"]
+[gd_scene load_steps=6 format=3 uid="uid://c3y15d006e4tw"]
 
 [ext_resource type="Script" path="res://level7/level_7.gd" id="1_bgif1"]
 [ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="2_2rocb"]
+[ext_resource type="PackedScene" uid="uid://yvbpwom0naf0" path="res://assets/cadmium.tscn" id="3_so5ag"]
+[ext_resource type="PackedScene" uid="uid://bc6kefpd2jmyr" path="res://assets/mucus.tscn" id="4_qaiuu"]
+[ext_resource type="PackedScene" uid="uid://csv2opykxguuf" path="res://assets/lactose.tscn" id="5_snwgy"]
 
 [node name="level7" type="Node"]
 script = ExtResource("1_bgif1")
 
 [node name="main" parent="." instance=ExtResource("2_2rocb")]
+
+[node name="cadmium" parent="." instance=ExtResource("3_so5ag")]
+position = Vector2(-2, 123)
+
+[node name="mucus" parent="." instance=ExtResource("4_qaiuu")]
+position = Vector2(682, 264)
+
+[node name="Lactose" parent="." instance=ExtResource("5_snwgy")]
+position = Vector2(345, 327)

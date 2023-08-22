@@ -13,6 +13,7 @@ var ampr= false
 var alive = true
 var win = 0 #win n'est pas un booléen ici, 0 = neutre, 1 = win, 2 = loose
 var moving = true
+var follow = false
 
 #quand un élément précis rentre en contacte avec notre bactérie, son booléen associé passe à true-------
 var lactose = false

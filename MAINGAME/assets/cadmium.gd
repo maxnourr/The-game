@@ -1,5 +1,4 @@
 extends Area2D
-var follow = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,7 +7,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if follow:
+	if PlayerVar.follow:
 		position.x = PlayerVar.PlayerX
 		
 
@@ -16,6 +15,6 @@ func _process(delta):
 func _on_area_entered(area):
 	if area.name == "bacteria":
 		if PlayerVar.EC20:
-			follow = true
+			PlayerVar.follow = true
 		
 		
