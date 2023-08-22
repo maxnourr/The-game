@@ -20,7 +20,7 @@ var UV = false
 var Mucus = false
 var Interlekin = false
 var EC20 = false
-
+var SPAC = false
 
 
 #------------------------------

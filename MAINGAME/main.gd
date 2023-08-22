@@ -35,13 +35,14 @@ func _process(delta):
 			else:
 				$bacteria/flagel.visible = true
 				$bacteria/flagel2.visible = false
-		if PlayerVar.moving:
-			$bacteria.position.x += 1 #ce qui le fait avancer
+		if play:
+			if PlayerVar.moving == true:
+				$bacteria.position.x += 1 #ce qui le fait avancer
 			$bacteria/light.visible = PlayerVar.gfp
 			$bacteria/particles.visible = PlayerVar.Interlekin
 			$bacteria/body.modulate = PlayerVar.player_color #pour l'instant pas fou que ce soit là
 		#faudra trouver un moyen de réaliser ce changement local dans express ou playervar
-	
+			Express.back_to_back()
 			for n in Genome.plasmids.size(): #check tout les plasmids
 				for i in Genome.plasmids[n].size(): #check tout les genes du plasmid n
 					Express.express(Genome.plasmids[n][i])

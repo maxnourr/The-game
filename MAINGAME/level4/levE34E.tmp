@@ -11,7 +11,7 @@ script = ExtResource("1_vpaed")
 [node name="main" parent="." instance=ExtResource("2_yhmdb")]
 
 [node name="mucus" parent="." instance=ExtResource("3_3jw8s")]
-position = Vector2(618, 227)
+position = Vector2(618, 199)
 
 [node name="mucus3" parent="." instance=ExtResource("3_3jw8s")]
 position = Vector2(305, 477)

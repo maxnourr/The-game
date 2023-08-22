@@ -18,8 +18,7 @@ func express(genome):
 		3:
 			PlayerVar.ampr = true
 		4:
-			if PlayerVar.Mucus:
-				PlayerVar.moving = false
+			PlayerVar.Mucus = true
 		5:
 			PlayerVar.Interlekin = true
 		6:
