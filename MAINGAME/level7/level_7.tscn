@@ -18,4 +18,4 @@ position = Vector2(-2, 123)
 position = Vector2(682, 264)
 
 [node name="Lactose" parent="." instance=ExtResource("5_snwgy")]
-position = Vector2(345, 327)
+position = Vector2(366, 325)

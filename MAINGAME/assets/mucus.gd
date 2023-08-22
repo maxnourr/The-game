@@ -8,7 +8,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	PlayerVar.player_color = Color((1 + timer), 1, 1, 0.624)
+	if PlayerVar.SPAC == true:
+		PlayerVar.player_color = Color((1 + timer), 1, 1, 0.624)
 	if PlayerVar.Mucus ==true:
 		PlayerVar.SPAC = true
 		timer = 100.

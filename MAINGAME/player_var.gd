@@ -35,6 +35,7 @@ func default():
 	win = 0
 	UV = false
 	Mucus = false
+	SPAC = false
 	moving = true
 	Interlekin = false
 	Play = false
