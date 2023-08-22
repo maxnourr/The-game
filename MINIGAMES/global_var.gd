@@ -6,6 +6,7 @@ var do_game = game.duplicate()
 var coins = 0
 var start_score = 0
 var current_score = 0
+var max_normal_score = 0
 var max_score = 0
 
 var win = false
@@ -17,40 +18,6 @@ var rng = RandomNumberGenerator
 var best_score = []
 var best_player = []
 
-var button = load("res://click.mp3")
-var game_m = load("res://FT5records.mp3")
-var game_m1 = load("res://FT5records game 1.mp3")
-var game_m2 = load("res://FT5records game 2.mp3")
-var game_me = load("res://FT5records menu.mp3")
-var music = true
-
-func button_sound():
-	$button_sound.play()
-	await get_tree().create_timer(0.8).timeout
-	
-	
-func music_game1():
-	if music and not $game_musicrandom.playing:
-		$game_musichard.stop()
-		$menu_music.stop()
-		$game_musicrandom.play()
-	
-func music_game2():
-	if music and not $game_musichard.playing:
-		$menu_music.stop()
-		$game_musicrandom.stop()
-		$game_musichard.play()
-
-func music_menu():
-	if music and not $menu_music.playing:
-		$game_musichard.stop()
-		$game_musicrandom.stop()
-		$menu_music.play()
-		
-func music_stop():
-	$game_musichard.stop()
-	$game_musicrandom.stop()
-	$menu_music.stop()
 	
 func pass_game():
 	if win or first: 
@@ -64,8 +31,11 @@ func pass_game():
 		do_game.erase(game_to_load)
 		to_load(game_to_load)
 	else: 
+		Global.reset()
 		to_game_list()
 
+		
+	
 func to_load(G):
 	win = false
 	if G in game:
@@ -83,12 +53,16 @@ func to_best_list():
 func to_credit():
 	get_tree().change_scene_to_file("res://credit.tscn")
 	
+func to_rule():
+	get_tree().change_scene_to_file("res://rule.tscn")
+	
 # Note: This can be called from anywhere inside the tree. This function is
 # path independent.
 # Go through everything in the persist category and ask them to return a
 # dict of relevant variables.
 func save_game():
 	var save_dict = {
+		"max_normal_score" : max_normal_score,
 		"max_score" : max_score,
 		"coins" : coins,
 		"best_score" : best_score,
@@ -102,12 +76,14 @@ func load_game():
 	var file = FileAccess.open("savegame.save",FileAccess.READ)
 	if file !=null:
 		var save_dict = file.get_var()
+		max_normal_score = save_dict.max_normal_score
 		max_score = save_dict.max_score
 		coins = save_dict.coins
 		best_score = save_dict.best_score
 		best_player = save_dict.best_player
 	
 func blanck():
+	max_normal_score = 0
 	max_score = 0
 	coins = 0
 	best_player = []
@@ -121,13 +97,22 @@ func best_list(name):
 		best_player.append(name)
 	else:
 		for i in best_score.size():
-			if current_score > best_score[i] and placed == false:
-				best_score.insert(i,current_score)
-				best_player.insert(i,name)
+			if best_player[i] == name and current_score < best_score[i]:
 				placed = true
+			elif current_score > best_score[i]:
+				if placed == false:
+					best_score.insert(i,current_score)
+					best_player.insert(i,name)
+					placed = true
+				elif placed == true and best_player[i] == name:
+					best_score.remove(i)
+					best_player.remove(i)
+					i = i+1
+		
 		if best_score.size() > 5:
 			best_player.pop_back()
 			best_score.pop_back()
+		
 		if best_score.size() <5 and placed == false:
 			best_score.append(current_score)
 			best_player.append(name)

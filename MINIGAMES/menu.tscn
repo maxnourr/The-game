@@ -49,7 +49,7 @@ pivot_offset = Vector2(172, 73.5)
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
-position = Vector2(170.758, 380.004)
+position = Vector2(169.845, 416.007)
 rotation = -0.00256082
 scale = Vector2(0.825503, 0.747456)
 skew = 0.000133872
@@ -65,9 +65,13 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Select Game "
 
+[node name="how" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "How to play ?"
+
 [node name="best_player" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "best player"
+text = "best extreme survival players"
 
 [node name="music" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -97,9 +101,10 @@ theme_override_font_sizes/font_size = 30
 text = "hello"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/select game" to="." method="_on_select_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/how" to="." method="_on_how_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/best_player" to="." method="_on_select_game_2_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_music_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_music_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/credit" to="." method="_on_credit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/restart" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]

@@ -14,8 +14,8 @@ func _on_select_game_pressed():
 
 func _on_music_pressed():
 	Global.button_sound()
-	GlobalVar.music = !GlobalVar.music
-	if GlobalVar.music == false:
+	Global.music = !Global.music
+	if Global.music == false:
 		Global.music_stop()
 	else:
 		Global.music_menu()
@@ -32,6 +32,7 @@ func _on_button_pressed():
 	elif $MarginContainer/VBoxContainer/restart.text == "you are sure ? click if yes":
 		$MarginContainer/VBoxContainer/restart.text = "restart"
 		GlobalVar.blanck()
+		Global.reset()
 
 func _on_select_game_2_pressed():
 	Global.button_sound()
@@ -41,3 +42,8 @@ func _on_select_game_2_pressed():
 func _on_credit_pressed():
 	Global.button_sound()
 	GlobalVar.to_credit()
+
+
+func _on_how_pressed():
+	Global.button_sound()
+	GlobalVar.to_rule()

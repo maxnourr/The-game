@@ -217,7 +217,11 @@ func _on_h_l_pressed():
 		verify()
 
 func _on_button_3_pressed():
+	reset()
 	GlobalVar.to_game_list()
+	
+func reset():
+	time = 15
 
 
 

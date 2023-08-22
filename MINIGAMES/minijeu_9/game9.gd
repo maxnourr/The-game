@@ -112,5 +112,10 @@ func _on_button_2_pressed():
 
 
 func _on_button_3_pressed():
+	reset()
 	GlobalVar.to_game_list()
+	
+func reset():
+	time = 15
+	to_wait = 300
 	
