@@ -47,3 +47,8 @@ func _on_credit_pressed():
 func _on_how_pressed():
 	Global.button_sound()
 	GlobalVar.to_rule()
+
+
+func _on_template_pressed():
+	Global.button_sound()
+	GlobalVar.to_template()

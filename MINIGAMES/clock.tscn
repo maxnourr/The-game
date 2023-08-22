@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://coasydelfxf46"]
 
-[ext_resource type="Texture2D" uid="uid://ddkhp8u6302c1" path="res://timer.png" id="1_n2j2a"]
+[ext_resource type="Texture2D" uid="uid://ddkhp8u6302c1" path="res://global figures/timer.png" id="1_n2j2a"]
 
 [node name="clock" type="Area2D"]
 

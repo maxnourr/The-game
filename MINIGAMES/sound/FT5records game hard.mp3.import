@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dp5rpspyewebu"
+path="res://.godot/imported/FT5records game hard.mp3-34c38c7d19c25900d0d2f3623b351e12.mp3str"
+
+[deps]
+
+source_file="res://sound/FT5records game hard.mp3"
+dest_files=["res://.godot/imported/FT5records game hard.mp3-34c38c7d19c25900d0d2f3623b351e12.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

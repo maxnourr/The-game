@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://by4jutlars40r"]
 
 [ext_resource type="Script" path="res://credit.gd" id="1_dk6jc"]
-[ext_resource type="Texture2D" uid="uid://bb6rx712hg54k" path="res://48C logo@1x.png" id="2_jsnw4"]
+[ext_resource type="Texture2D" uid="uid://bb6rx712hg54k" path="res://global figures/48C logo@1x.png" id="2_jsnw4"]
 [ext_resource type="AudioStream" uid="uid://d1etf8ukbb6nh" path="res://click.mp3" id="3_drubg"]
 
 [node name="Game list" type="Control"]

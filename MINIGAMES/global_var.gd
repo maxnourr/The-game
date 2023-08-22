@@ -56,6 +56,9 @@ func to_credit():
 func to_rule():
 	get_tree().change_scene_to_file("res://rule.tscn")
 	
+func to_template():
+	get_tree().change_scene_to_file("res://minijeu_template/game.tscn")
+	
 # Note: This can be called from anywhere inside the tree. This function is
 # path independent.
 # Go through everything in the persist category and ask them to return a
@@ -89,25 +92,30 @@ func blanck():
 	best_player = []
 	best_score = []
 
-func best_list(name):
+func best_list(N):
 	var placed = false
 	if best_score.is_empty():
 		placed = true
 		best_score.append(current_score)
-		best_player.append(name)
+		best_player.append(N)
 	else:
-		for i in best_score.size():
-			if best_player[i] == name and current_score < best_score[i]:
-				placed = true
-			elif current_score > best_score[i]:
-				if placed == false:
-					best_score.insert(i,current_score)
-					best_player.insert(i,name)
+		var S = best_score.size()
+		for i in range(S):
+			if placed == false:
+				if best_player[i] == N:
+					if current_score > best_score[i]:
+						best_score.insert(i,current_score)
+						best_player.insert(i,N)
+						best_score.remove_at(i+1)
+						best_player.remove_at(i+1)
 					placed = true
-				elif placed == true and best_player[i] == name:
-					best_score.remove(i)
-					best_player.remove(i)
-					i = i+1
+				elif current_score > best_score[i]:
+					best_score.insert(i,current_score)
+					best_player.insert(i,N)
+					placed = true
+			elif best_player[i] == N:
+				best_score.remove_at(i)
+				best_player.remove_at(i)
 		
 		if best_score.size() > 5:
 			best_player.pop_back()
@@ -115,5 +123,5 @@ func best_list(name):
 		
 		if best_score.size() <5 and placed == false:
 			best_score.append(current_score)
-			best_player.append(name)
+			best_player.append(N)
 		
