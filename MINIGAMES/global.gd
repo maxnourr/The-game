@@ -1,10 +1,5 @@
 extends Node
 
-var button = load("res://click.mp3")
-var game_m = load("res://FT5records.mp3")
-var game_m1 = load("res://FT5records game 1.mp3")
-var game_m2 = load("res://FT5records game 2.mp3")
-var game_me = load("res://FT5records menu.mp3")
 var music = true
 
 func reset():

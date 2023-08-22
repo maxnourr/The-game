@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb6rx712hg54k"
-path="res://.godot/imported/48C logo@1x.png-f57bd4453355413817895e1eb530c241.ctex"
+uid="uid://bgw3alckhygx8"
+path="res://.godot/imported/happy.png-320b5fb9945444ac8955463eff8e529e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://48C logo@1x.png"
-dest_files=["res://.godot/imported/48C logo@1x.png-f57bd4453355413817895e1eb530c241.ctex"]
+source_file="res://minijeu_template/figures/happy.png"
+dest_files=["res://.godot/imported/happy.png-320b5fb9945444ac8955463eff8e529e.ctex"]
 
 [params]
 

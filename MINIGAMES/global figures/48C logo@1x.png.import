@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddkhp8u6302c1"
-path="res://.godot/imported/timer.png-2e679a8f4f848b2d30498e1280b7d687.ctex"
+uid="uid://bb6rx712hg54k"
+path="res://.godot/imported/48C logo@1x.png-d173841664632a931952fba5d91a3a07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://timer.png"
-dest_files=["res://.godot/imported/timer.png-2e679a8f4f848b2d30498e1280b7d687.ctex"]
+source_file="res://global figures/48C logo@1x.png"
+dest_files=["res://.godot/imported/48C logo@1x.png-d173841664632a931952fba5d91a3a07.ctex"]
 
 [params]
 
