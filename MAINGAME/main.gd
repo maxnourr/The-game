@@ -37,7 +37,7 @@ func _process(delta):
 				$bacteria/flagel2.visible = false
 		if play:
 			if PlayerVar.moving == true:
-				$bacteria.position.x += 1 #ce qui le fait avancer
+				$bacteria.position.x += 100*delta #ce qui le fait avancer
 			$bacteria/light.visible = PlayerVar.gfp
 			$bacteria/particles.visible = PlayerVar.Interlekin
 			$bacteria/body.modulate = PlayerVar.player_color #pour l'instant pas fou que ce soit là
@@ -60,7 +60,7 @@ func _on_editor_button_down(): #le builder de genes
 
 func _on_play_button_down(): #le play button
 	Global.click()
-	if PlayerVar.cost < max_price:
+	if PlayerVar.cost <= max_price:
 		play = true
 		$Button.visible = false
 

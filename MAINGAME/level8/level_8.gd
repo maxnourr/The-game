@@ -3,6 +3,8 @@ var max_price = 600
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if(Genome.genomes.size() == 6):
+		Genome.genomes.push_back(Genome.FtsZ)
 	for n in Genome.plasmids.size():
 			PlayerVar.cost += 100
 			for i in Genome.plasmids[n].size():
@@ -13,7 +15,7 @@ func _ready():
 	$Price.text += str(max_price)
 	
 	Global.level = "res://level8/level_8.tscn"
-	$main/background/ColorRect.visible = false
+	$background/ColorRect.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

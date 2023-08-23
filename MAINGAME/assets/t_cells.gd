@@ -14,7 +14,7 @@ func _process(delta):
 		if PlayerVar.Interlekin:
 			$angry.visible = false
 			$happy.visible = true
-			position.x += direction
+			position.x += direction*10*delta
 			
 	
 			if position.x >= get_viewport().size.x:

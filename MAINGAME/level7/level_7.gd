@@ -3,19 +3,23 @@ var x
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if(Genome.genomes.size() == 5):
+		Genome.genomes.push_back(Genome.EC20)
 	Global.level = "res://level7/level_7.tscn"
-	$main/background/ColorRect.visible = false
+	$background/ColorRect.visible = false
 	x = 0
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if PlayerVar.Play and !PlayerVar.follow:
+	if PlayerVar.Play:
+		x += 1
+		print(str(x))
+		if !PlayerVar.follow:
 			if $cadmium.position.x < 590:
 				$cadmium.position.x +=1
 			else:
 				$cadmium.position.y +=1
-	x += 1
-	if x > 900 and PlayerVar.SPAC:
+	if x > 800 and PlayerVar.SPAC:
 		PlayerVar.win = 2
 
 

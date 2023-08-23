@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjlwqgmbti6jw"]
+[gd_scene load_steps=7 format=3 uid="uid://bjlwqgmbti6jw"]
 
 [ext_resource type="Script" path="res://level8/level_8.gd" id="1_cmn2u"]
+[ext_resource type="PackedScene" uid="uid://baxcljd4pi2y5" path="res://assets/background.tscn" id="2_2sjxa"]
 [ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="2_vf16x"]
 [ext_resource type="PackedScene" uid="uid://bp3aawqql2scf" path="res://assets/cell_wall.tscn" id="3_qpgyl"]
 [ext_resource type="PackedScene" uid="uid://sruafabg1gs5" path="res://assets/end.tscn" id="4_rte3u"]
@@ -8,6 +9,8 @@
 
 [node name="level8" type="Node"]
 script = ExtResource("1_cmn2u")
+
+[node name="background" parent="." instance=ExtResource("2_2sjxa")]
 
 [node name="main" parent="." instance=ExtResource("2_vf16x")]
 

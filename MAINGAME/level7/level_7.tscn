@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3y15d006e4tw"]
+[gd_scene load_steps=8 format=3 uid="uid://c3y15d006e4tw"]
 
 [ext_resource type="Script" path="res://level7/level_7.gd" id="1_bgif1"]
 [ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="2_2rocb"]
+[ext_resource type="PackedScene" uid="uid://baxcljd4pi2y5" path="res://assets/background.tscn" id="2_rygnk"]
 [ext_resource type="PackedScene" uid="uid://yvbpwom0naf0" path="res://assets/cadmium.tscn" id="3_so5ag"]
 [ext_resource type="PackedScene" uid="uid://bc6kefpd2jmyr" path="res://assets/mucus.tscn" id="4_qaiuu"]
 [ext_resource type="PackedScene" uid="uid://csv2opykxguuf" path="res://assets/lactose.tscn" id="5_snwgy"]
@@ -12,16 +13,18 @@ size = Vector2(141, 328)
 [node name="level7" type="Node"]
 script = ExtResource("1_bgif1")
 
-[node name="main" parent="." instance=ExtResource("2_2rocb")]
+[node name="background" parent="." instance=ExtResource("2_rygnk")]
 
-[node name="cadmium" parent="." instance=ExtResource("3_so5ag")]
-position = Vector2(-2, 123)
+[node name="Lactose" parent="." instance=ExtResource("5_snwgy")]
+position = Vector2(366, 325)
 
 [node name="mucus" parent="." instance=ExtResource("4_qaiuu")]
 position = Vector2(682, 264)
 
-[node name="Lactose" parent="." instance=ExtResource("5_snwgy")]
-position = Vector2(366, 325)
+[node name="main" parent="." instance=ExtResource("2_2rocb")]
+
+[node name="cadmium" parent="." instance=ExtResource("3_so5ag")]
+position = Vector2(-2, 123)
 
 [node name="Area2D" type="Area2D" parent="."]
 

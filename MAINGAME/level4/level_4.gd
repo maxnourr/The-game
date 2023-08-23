@@ -3,8 +3,10 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if(Genome.genomes.size() == 2):
+		Genome.genomes.push_back(Genome.SpaC)
 	Global.level = "res://level4/level_4.tscn"
-	$main/background/ColorRect.visible = false
+	$background/ColorRect.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

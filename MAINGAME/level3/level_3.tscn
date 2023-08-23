@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://df0ot7lsjpd5e"]
+[gd_scene load_steps=7 format=3 uid="uid://df0ot7lsjpd5e"]
 
 [ext_resource type="Script" path="res://level3/level_3.gd" id="1_saf2k"]
 [ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="1_uacoq"]
+[ext_resource type="PackedScene" uid="uid://baxcljd4pi2y5" path="res://assets/background.tscn" id="2_knf7q"]
 [ext_resource type="PackedScene" uid="uid://ba6vkbb4vj8xq" path="res://assets/uv_light.tscn" id="2_skiwu"]
 [ext_resource type="PackedScene" uid="uid://6pmc27wiuura" path="res://assets/amp.tscn" id="3_n3q3w"]
 
@@ -11,6 +12,11 @@ size = Vector2(61, 60.5)
 [node name="level3" type="Node"]
 script = ExtResource("1_saf2k")
 
+[node name="background" parent="." instance=ExtResource("2_knf7q")]
+
+[node name="AMP2" parent="." instance=ExtResource("3_n3q3w")]
+position = Vector2(562, 384)
+
 [node name="main" parent="." instance=ExtResource("1_uacoq")]
 
 [node name="UV_light" parent="." instance=ExtResource("2_skiwu")]
@@ -18,9 +24,6 @@ position = Vector2(735, 301)
 
 [node name="AMP" parent="." instance=ExtResource("3_n3q3w")]
 position = Vector2(463, 386)
-
-[node name="AMP2" parent="." instance=ExtResource("3_n3q3w")]
-position = Vector2(562, 384)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(46, -6)

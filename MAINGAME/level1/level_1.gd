@@ -7,7 +7,7 @@ var base2
 func _ready():
 	Global.level = "res://level1/level_1.tscn"
 	$main/explanation/Label.text = "level1 text"
-	$main/background/ColorRect.visible = true
+	$background/ColorRect.visible = true
 	base1 = $acid.position.y
 	base2 = $acid2.position.y
 	
@@ -18,7 +18,7 @@ func _ready():
 func _process(delta):
 	if x>=314:
 		x = 0
-	x +=1
+	x += 40*delta
 	$acid.position.y = base1 + cos(0.1*x)*100
 	$acid2.position.y = base2 + cos(0.1*x + 3.14)*100
 

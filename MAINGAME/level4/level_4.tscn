@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bfqws2kikx1tu"]
+[gd_scene load_steps=7 format=3 uid="uid://bfqws2kikx1tu"]
 
 [ext_resource type="Script" path="res://level4/level_4.gd" id="1_vpaed"]
+[ext_resource type="PackedScene" uid="uid://baxcljd4pi2y5" path="res://assets/background.tscn" id="2_fq5cg"]
 [ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="2_yhmdb"]
 [ext_resource type="PackedScene" uid="uid://bc6kefpd2jmyr" path="res://assets/mucus.tscn" id="3_3jw8s"]
 
@@ -13,6 +14,11 @@ size = Vector2(106, 221)
 [node name="level4" type="Node"]
 script = ExtResource("1_vpaed")
 
+[node name="background" parent="." instance=ExtResource("2_fq5cg")]
+
+[node name="mucus4" parent="." instance=ExtResource("3_3jw8s")]
+position = Vector2(379, -103)
+
 [node name="main" parent="." instance=ExtResource("2_yhmdb")]
 
 [node name="mucus" parent="." instance=ExtResource("3_3jw8s")]
@@ -20,9 +26,6 @@ position = Vector2(618, 227)
 
 [node name="mucus3" parent="." instance=ExtResource("3_3jw8s")]
 position = Vector2(305, 477)
-
-[node name="mucus4" parent="." instance=ExtResource("3_3jw8s")]
-position = Vector2(500, 532)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-11, 0)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpo3la1vl40xv"]
+[gd_scene load_steps=7 format=3 uid="uid://dpo3la1vl40xv"]
 
 [ext_resource type="Script" path="res://level1/level_1.gd" id="1_amyrd"]
 [ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="1_molkc"]
+[ext_resource type="PackedScene" uid="uid://baxcljd4pi2y5" path="res://assets/background.tscn" id="2_igiry"]
 [ext_resource type="PackedScene" uid="uid://b1dig8vs2e5pn" path="res://assets/pill.tscn" id="3_rqlmg"]
 [ext_resource type="PackedScene" uid="uid://ccgth0js842ey" path="res://assets/acid.tscn" id="4_u2ovn"]
 
@@ -10,6 +11,8 @@ size = Vector2(383, 652)
 
 [node name="level1" type="Node"]
 script = ExtResource("1_amyrd")
+
+[node name="background" parent="." instance=ExtResource("2_igiry")]
 
 [node name="main" parent="." instance=ExtResource("1_molkc")]
 
