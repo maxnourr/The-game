@@ -5,6 +5,8 @@ var timer= 0
 var waiting = 0
 
 func _ready():
+	play = false
+	PlayerVar.default()
 	Global.body()
 	#calcul le prix total actuel et l'écrit en haut-----------------------
 	PlayerVar.cost = 0

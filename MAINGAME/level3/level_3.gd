@@ -18,7 +18,7 @@ func _ready():
 func _process(delta):
 	if x>=314:
 		x = 0
-	x +=1
+	x += 40*delta
 	$AMP.position.y = base1 + cos(0.1*x)*100
 	$AMP2.position.y = base2 + cos(0.1*x + 3.14)*100
 
