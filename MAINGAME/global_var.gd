@@ -1,13 +1,12 @@
 extends Node
 var first_open = true
-var game = ["res://main.tscn","res://level1/level_1.tscn","res://level2/level_2.tscn","res://level3/level_3.tscn","res://level4/level_4.tscn","res://level5/level_5.tscn","res://level6/level_6.tscn","res://level7/level_7.tscn","res://level8/level_8.tscn"]
+var game = ["res://tuto/tuto.tscn","res://level1/level_1.tscn","res://level2/level_2.tscn","res://level3/level_3.tscn","res://level4/level_4.tscn","res://level5/level_5.tscn","res://level6/level_6.tscn","res://level7/level_7.tscn","res://level8/level_8.tscn"]
 var do_game = game.duplicate()
 var coins = 0
 var current_level = 0
 var max_level = 0
 var level
 
-var win = false
 var rng = RandomNumberGenerator
 
 var button = load("res://click.mp3")
@@ -20,6 +19,9 @@ var music = true
 func click():
 	$click.play()
 	await get_tree().create_timer(0.8).timeout
+
+func open():
+	$open.play()
 	
 
 func body():
@@ -81,7 +83,6 @@ func music_stop():
 	$build.stop()
 
 func to_load(G):
-	win = false
 	if G in game:
 		get_tree().change_scene_to_file(G)
 	
@@ -102,7 +103,8 @@ func save_game():
 	var save_dict = {
 		"coins" : coins,
 		"current_level" : current_level,
-		"max_level" : max_level
+		"max_level" : max_level,
+		#"genomes" : Genome.genomes
 	}
 	var file = FileAccess.open("savegame.save",FileAccess.WRITE)
 	file.store_var(save_dict)
@@ -115,9 +117,10 @@ func load_game():
 		coins = save_dict.coins
 		current_level = save_dict.current_level
 		max_level = save_dict.max_level
+		#Genome.genomes = save_dict.genomes
 	
 func blanck():
 	current_level = 0
 	coins = 0
-	max_level = 0
+	max_level = 1
 		

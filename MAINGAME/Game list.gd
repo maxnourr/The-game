@@ -7,7 +7,6 @@ var waited = 200
 var switch = 0
 var step_x = 0
 var step_y = 0
-var load = false
 
 func _ready():
 	if GlobalVar.first_open:
@@ -18,14 +17,20 @@ func _ready():
 	
 	Global.music_menu()
 	
-	place_bacteria()
+	place_bacteria(false)
 	for i in range(0,GlobalVar.max_level+1):
 		get_node(level_link[i]+"/cadena").hide()
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$Label.set_text("coins : " + str(GlobalVar.coins)+"\nlevel : " + str(GlobalVar.max_level))
+	$Label.set_text("coins : " + str(GlobalVar.coins)+"   level : " + str(GlobalVar.max_level))
+	
+	if PlayerVar.win ==1 and GlobalVar.current_level == GlobalVar.max_level:
+		PlayerVar.win =0
+		Global.open()
+		pass_level()
+	
 	if waited < transfer_time:
 		waited +=1
 		switch +=1
@@ -43,15 +48,15 @@ func _process(delta):
 		waited = transfer_time+1
 		get_node(level_link[GlobalVar.current_level]+"/cadena").hide()
 		get_node(level_link[GlobalVar.current_level]+"/open").show()
-	#	if load == true:
-	#		await get_tree().create_timer(1).timeout
-	#		
-	#		GlobalVar.to_load(GlobalVar.game[GlobalVar.current_level])
+	
+	if get_node(level_link[GlobalVar.current_level]).open == true:
+		get_node(level_link[GlobalVar.current_level]).open = false
+		$file/RichTextLabel.text = "Level\n " + str(GlobalVar.current_level)
+		$file.show()
 
 	
-func place_bacteria():
-	if GlobalVar.current_level==0:
-		waited = transfer_time
+func place_bacteria(move):
+	if !move:
 		$bacteria.position.x = get_node(level_link[GlobalVar.current_level]).position.x
 		$bacteria.position.y = get_node(level_link[GlobalVar.current_level]).position.y
 	else:
@@ -72,7 +77,7 @@ func _on_start_pressed():
 		Global.button_sound()
 		get_node(level_link[GlobalVar.current_level]+"/open").hide()
 		GlobalVar.current_level = 0
-		place_bacteria()
+		place_bacteria(true)
 
 func _on_level_1_pressed():
 	
@@ -80,7 +85,7 @@ func _on_level_1_pressed():
 		Global.button_sound()
 		get_node(level_link[GlobalVar.current_level]+"/open").hide()
 		GlobalVar.current_level = 1
-		place_bacteria()
+		place_bacteria(true)
 
 
 func _on_level_2_pressed():
@@ -89,7 +94,7 @@ func _on_level_2_pressed():
 		Global.button_sound()
 		get_node(level_link[GlobalVar.current_level]+"/open").hide()
 		GlobalVar.current_level = 2
-		place_bacteria()
+		place_bacteria(true)
 
 
 func _on_level_3_pressed():
@@ -98,7 +103,7 @@ func _on_level_3_pressed():
 		Global.button_sound()
 		get_node(level_link[GlobalVar.current_level]+"/open").hide()
 		GlobalVar.current_level = 3
-		place_bacteria()
+		place_bacteria(true)
 
 
 func _on_level_4_pressed():
@@ -107,27 +112,55 @@ func _on_level_4_pressed():
 		Global.button_sound()
 		get_node(level_link[GlobalVar.current_level]+"/open").hide()
 		GlobalVar.current_level = 4
-		place_bacteria()
+		place_bacteria(true)
 
 
-func _on_end_pressed():
+func _on_level_5_pressed():
 	
-	if GlobalVar.max_level >= GlobalVar.game.size()-1:
+	if GlobalVar.max_level >= 5:
 		Global.button_sound()
 		get_node(level_link[GlobalVar.current_level]+"/open").hide()
-		GlobalVar.current_level = GlobalVar.game.size()-1
-		place_bacteria()
+		GlobalVar.current_level = 5
+		place_bacteria(true)
 
 
-func _on_button_pressed():
-	get_node(level_link[GlobalVar.current_level]+"/open").hide()
+func _on_level_6_pressed():
+	
+	if GlobalVar.max_level >= 6:
+		Global.button_sound()
+		get_node(level_link[GlobalVar.current_level]+"/open").hide()
+		GlobalVar.current_level = 6
+		place_bacteria(true)
+
+
+func _on_level_7_pressed():
+	
+	if GlobalVar.max_level >= 7:
+		Global.button_sound()
+		get_node(level_link[GlobalVar.current_level]+"/open").hide()
+		GlobalVar.current_level = 7
+		place_bacteria(true)
+
+
+func _on_level_8_pressed():
+	
+	if GlobalVar.max_level >= 8:
+		Global.button_sound()
+		get_node(level_link[GlobalVar.current_level]+"/open").hide()
+		GlobalVar.current_level = 8
+		place_bacteria(true)
+
+
+func pass_level():
 	if GlobalVar.current_level == level_link.size()-1:
 		GlobalVar.current_level = 0
 	else :
-		GlobalVar.current_level += 1
 		GlobalVar.max_level = min(GlobalVar.max_level+1,GlobalVar.game.size()-1)
-		get_node(level_link[GlobalVar.current_level]+"/cadena").texture = load("res://sprites/cadena ouvert.png")
-	place_bacteria()
+		get_node(level_link[GlobalVar.max_level]+"/cadena").show() 
+		
+		Global.click()
+		await get_tree().create_timer(1).timeout
+		get_node(level_link[GlobalVar.max_level]+"/cadena").texture = load("res://sprites/cadena ouvert.png")
 
 
 func _on_go_pressed():
@@ -135,8 +168,4 @@ func _on_go_pressed():
 
 func _on_x_pressed():
 	$file.hide()
-
-func _on_open_pressed():
-	$file/RichTextLabel.text = "Level\n " + str(GlobalVar.current_level)
-	$file.show()
-
+	

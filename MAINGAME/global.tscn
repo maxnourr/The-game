@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dk1qw2uwrsj38"]
+[gd_scene load_steps=11 format=3 uid="uid://dk1qw2uwrsj38"]
 
 [ext_resource type="Script" path="res://global_var.gd" id="1_e4h1u"]
 [ext_resource type="AudioStream" uid="uid://d1etf8ukbb6nh" path="res://click.mp3" id="2_bianx"]
 [ext_resource type="AudioStream" uid="uid://dp5rpspyewebu" path="res://FT5records game hard.mp3" id="3_cdfhu"]
 [ext_resource type="AudioStream" uid="uid://d0pllcstk3nmn" path="res://FT5records game random.mp3" id="4_takoi"]
 [ext_resource type="AudioStream" uid="uid://cnmrvwkigebsc" path="res://FT5records menu.mp3" id="6_4l5g6"]
+[ext_resource type="AudioStream" uid="uid://bec60m8kh5ksr" path="res://audio/sound_effect/open.mp3" id="6_5g2ui"]
 [ext_resource type="AudioStream" uid="uid://b73rq311axupx" path="res://audio/sound_effect/mech-keyboard-02-102918.mp3" id="6_kredx"]
 [ext_resource type="AudioStream" uid="uid://clvhj4cnb2qec" path="res://audio/music/Brittle Rille.mp3" id="7_shgos"]
 [ext_resource type="AudioStream" uid="uid://bsa0ka2vhn70s" path="res://audio/ambiance/office-ambience-6322.mp3" id="8_4r8t4"]
@@ -24,6 +25,9 @@ stream = ExtResource("3_cdfhu")
 
 [node name="menu_music" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_4l5g6")
+
+[node name="open" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_5g2ui")
 
 [node name="click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_kredx")
