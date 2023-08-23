@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bi4gelx5xhmki"]
+[gd_scene load_steps=6 format=3 uid="uid://bi4gelx5xhmki"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_hb2ff"]
 [ext_resource type="Texture2D" uid="uid://dmf2bj1h8a2te" path="res://sprites/logo pixel.png" id="2_csrq7"]
+[ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="3_0w78h"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88kqu"]
+bg_color = Color(0.854902, 0.498039, 0.203922, 1)
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_syr1k"]
 
 [node name="menu" type="Control"]
 layout_mode = 3
@@ -63,7 +75,10 @@ horizontal_alignment = 1
 
 [node name="select game" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0w78h")
+theme_override_styles/normal = SubResource("StyleBoxFlat_88kqu")
 text = "Play !"
+icon = SubResource("ViewportTexture_syr1k")
 
 [node name="music" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

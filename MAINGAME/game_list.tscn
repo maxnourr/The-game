@@ -1,10 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://blaoklvesr4v3"]
+[gd_scene load_steps=10 format=3 uid="uid://blaoklvesr4v3"]
 
 [ext_resource type="Script" path="res://Game list.gd" id="1_akeev"]
 [ext_resource type="Texture2D" uid="uid://cbond1ljwe0b8" path="res://sprites/carte.png" id="2_2atd1"]
 [ext_resource type="Texture2D" uid="uid://dmf2bj1h8a2te" path="res://sprites/logo pixel.png" id="3_15ojg"]
-[ext_resource type="Texture2D" uid="uid://vw8827cqnnrp" path="res://sprites/bacterie menu.png" id="4_da1ox"]
+[ext_resource type="Texture2D" uid="uid://ix4dtxbubfx6" path="res://sprites/background.png" id="3_yww3l"]
+[ext_resource type="PackedScene" uid="uid://bgqlonx2reo62" path="res://assets/bacteria.tscn" id="4_iv1n4"]
 [ext_resource type="PackedScene" uid="uid://x2d4fgi5i0g0" path="res://cadena.tscn" id="6_a3if6"]
+[ext_resource type="Texture2D" uid="uid://ba8h430x300ca" path="res://sprites/file.png" id="6_dvfe0"]
+[ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="7_e1co2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ypb3c"]
+bg_color = Color(0.215686, 0.215686, 0.215686, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.00784314, 0.00784314, 0.00784314, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="Game list" type="Control"]
 layout_mode = 3
@@ -32,15 +45,20 @@ position = Vector2(575.75, 326.25)
 scale = Vector2(0.602344, 0.599537)
 texture = ExtResource("2_2atd1")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(576, 324)
+scale = Vector2(1.35, 1.35)
+texture = ExtResource("3_yww3l")
+
 [node name="48C" type="Sprite2D" parent="."]
 position = Vector2(1107, 608)
 scale = Vector2(0.2, 0.212)
 texture = ExtResource("3_15ojg")
 
-[node name="bacteria" type="Sprite2D" parent="."]
-position = Vector2(48.0002, 361)
-scale = Vector2(0.3, 0.25)
-texture = ExtResource("4_da1ox")
+[node name="bacteria" parent="." instance=ExtResource("4_iv1n4")]
+position = Vector2(193, 312)
+scale = Vector2(0.25, 0.25)
 
 [node name="start" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -55,6 +73,19 @@ visible = false
 position = Vector2(95, 64)
 scale = Vector2(0.2, 0.2)
 
+[node name="open" type="Button" parent="start"]
+visible = false
+layout_mode = 0
+offset_left = 44.0
+offset_top = 58.0
+offset_right = 208.0
+offset_bottom = 111.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("7_e1co2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ypb3c")
+text = "open"
+
 [node name="level 1" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -65,6 +96,19 @@ offset_bottom = 262.0
 
 [node name="cadena" parent="level 1" instance=ExtResource("6_a3if6")]
 position = Vector2(112, 44)
+
+[node name="open" type="Button" parent="level 1"]
+visible = false
+layout_mode = 0
+offset_left = 2.00002
+offset_top = 68.0
+offset_right = 166.0
+offset_bottom = 121.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("7_e1co2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ypb3c")
+text = "open"
 
 [node name="level 2" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -77,6 +121,19 @@ offset_bottom = 549.0
 [node name="cadena" parent="level 2" instance=ExtResource("6_a3if6")]
 position = Vector2(107, 37)
 
+[node name="open" type="Button" parent="level 2"]
+visible = false
+layout_mode = 0
+offset_left = 3.00002
+offset_top = 71.0
+offset_right = 167.0
+offset_bottom = 124.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("7_e1co2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ypb3c")
+text = "open"
+
 [node name="level 3" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -87,6 +144,19 @@ offset_bottom = 341.0
 
 [node name="cadena" parent="level 3" instance=ExtResource("6_a3if6")]
 position = Vector2(110, 48)
+
+[node name="open" type="Button" parent="level 3"]
+visible = false
+layout_mode = 0
+offset_left = 4.00002
+offset_top = 64.0
+offset_right = 168.0
+offset_bottom = 117.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("7_e1co2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ypb3c")
+text = "open"
 
 [node name="level 4" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -99,6 +169,19 @@ offset_bottom = 488.0
 [node name="cadena" parent="level 4" instance=ExtResource("6_a3if6")]
 position = Vector2(111, 10)
 
+[node name="open" type="Button" parent="level 4"]
+visible = false
+layout_mode = 0
+offset_left = 6.0
+offset_top = 73.0
+offset_right = 170.0
+offset_bottom = 126.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("7_e1co2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ypb3c")
+text = "open"
+
 [node name="end" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -109,6 +192,105 @@ offset_bottom = 183.0
 
 [node name="cadena" parent="end" instance=ExtResource("6_a3if6")]
 position = Vector2(81, 93)
+
+[node name="open" type="Button" parent="end"]
+visible = false
+layout_mode = 0
+offset_left = 4.00002
+offset_top = 64.0
+offset_right = 168.0
+offset_bottom = 117.0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("7_e1co2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ypb3c")
+text = "open"
+
+[node name="file" type="Area2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="file"]
+position = Vector2(623, 322)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_dvfe0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="file"]
+offset_left = 297.0
+offset_top = 109.0
+offset_right = 925.0
+offset_bottom = 270.0
+rotation = 0.0506145
+scale = Vector2(1, 3)
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/normal_font = ExtResource("7_e1co2")
+theme_override_font_sizes/normal_font_size = 50
+text = "Level 
+  1"
+fit_content = true
+scroll_active = false
+tab_size = 24
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="file"]
+offset_left = 632.0
+offset_top = 141.0
+offset_right = 1086.0
+offset_bottom = 261.0
+rotation = -0.150098
+scale = Vector2(2, 2)
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/normal_font = ExtResource("7_e1co2")
+theme_override_font_sizes/normal_font_size = 30
+text = "title"
+fit_content = true
+scroll_active = false
+tab_size = 24
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="file"]
+offset_left = 640.0
+offset_top = 243.0
+offset_right = 877.0
+offset_bottom = 470.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 1.1
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/normal_font = ExtResource("7_e1co2")
+theme_override_font_sizes/normal_font_size = 20
+text = "add a little explanation here"
+fit_content = true
+scroll_active = false
+tab_size = 24
+
+[node name="x" type="Button" parent="file"]
+offset_left = 893.0
+offset_top = 26.0
+offset_right = 938.0
+offset_bottom = 79.0
+theme_override_fonts/font = ExtResource("7_e1co2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ypb3c")
+text = "X
+"
+
+[node name="go" type="Button" parent="file"]
+offset_left = 675.0
+offset_top = 436.0
+offset_right = 839.0
+offset_bottom = 489.0
+rotation = 0.150098
+theme_override_fonts/font = ExtResource("7_e1co2")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_ypb3c")
+text = "Start"
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -146,10 +328,18 @@ offset_right = 1149.0
 offset_bottom = 44.0
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="start/open" to="." method="_on_open_pressed"]
 [connection signal="pressed" from="level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="level 1/open" to="." method="_on_open_pressed"]
 [connection signal="pressed" from="level 2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="level 2/open" to="." method="_on_open_pressed"]
 [connection signal="pressed" from="level 3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="level 3/open" to="." method="_on_open_pressed"]
 [connection signal="pressed" from="level 4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="level 4/open" to="." method="_on_open_pressed"]
 [connection signal="pressed" from="end" to="." method="_on_end_pressed"]
+[connection signal="pressed" from="end/open" to="." method="_on_open_pressed"]
+[connection signal="pressed" from="file/x" to="." method="_on_x_pressed"]
+[connection signal="pressed" from="file/go" to="." method="_on_go_pressed"]
 [connection signal="pressed" from="VBoxContainer4/Return" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

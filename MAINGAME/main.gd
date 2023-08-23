@@ -100,4 +100,4 @@ func _on_out_button_down():
 
 func _on_menu_pressed():
 	Global.click()
-	GlobalVar.to_menu()
+	GlobalVar.to_game_list()
