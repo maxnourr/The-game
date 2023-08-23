@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://buxub5pqcl5ra"]
+[gd_scene load_steps=5 format=3 uid="uid://buxub5pqcl5ra"]
 
 [ext_resource type="Script" path="res://level6/level_6.gd" id="1_4erom"]
 [ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="2_pi4rk"]
 [ext_resource type="PackedScene" uid="uid://c3ua2wu7fgyl" path="res://assets/t_cells.tscn" id="3_edso8"]
+[ext_resource type="PackedScene" uid="uid://sruafabg1gs5" path="res://assets/end.tscn" id="4_xk3de"]
 
 [node name="level6" type="Node"]
 script = ExtResource("1_4erom")
@@ -11,3 +12,6 @@ script = ExtResource("1_4erom")
 
 [node name="T_cells" parent="." instance=ExtResource("3_edso8")]
 position = Vector2(620, 127)
+
+[node name="end" parent="." instance=ExtResource("4_xk3de")]
+position = Vector2(1039, 302)

@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3y15d006e4tw"]
+[gd_scene load_steps=7 format=3 uid="uid://c3y15d006e4tw"]
 
 [ext_resource type="Script" path="res://level7/level_7.gd" id="1_bgif1"]
 [ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="2_2rocb"]
 [ext_resource type="PackedScene" uid="uid://yvbpwom0naf0" path="res://assets/cadmium.tscn" id="3_so5ag"]
 [ext_resource type="PackedScene" uid="uid://bc6kefpd2jmyr" path="res://assets/mucus.tscn" id="4_qaiuu"]
 [ext_resource type="PackedScene" uid="uid://csv2opykxguuf" path="res://assets/lactose.tscn" id="5_snwgy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1s676"]
+size = Vector2(141, 328)
 
 [node name="level7" type="Node"]
 script = ExtResource("1_bgif1")
@@ -19,3 +22,11 @@ position = Vector2(682, 264)
 
 [node name="Lactose" parent="." instance=ExtResource("5_snwgy")]
 position = Vector2(366, 325)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1196, 369)
+shape = SubResource("RectangleShape2D_1s676")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

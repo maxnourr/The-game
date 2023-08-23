@@ -10,3 +10,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_area_2d_area_entered(area):
+	if PlayerVar.SPAC:
+		PlayerVar.win = 1
+		
+
+func _on_area_2d_2_area_entered(area):
+	PlayerVar.win = 2
+	PlayerVar.moving = false

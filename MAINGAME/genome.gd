@@ -26,6 +26,7 @@ var ampr = genome.new(3,100,true,Color(1,0.5,0.5),"AMPr")
 var SpaC = genome.new(4,100,true,Color(0.8,0.5,0.5),"SpaC")
 var IL10 = genome.new(5,200,true,Color(0.3,0.3,0.6),"IL-10")
 var EC20 = genome.new(6,100,true,Color(0.4,0.4,0.4),"Ec20")
+var FtsZ = genome.new(7,100,true,Color(0.4,0.7,0.7),"FtsZ")
 
 #---------------------------------
 func _ready():
@@ -35,6 +36,7 @@ func _ready():
 	genomes.push_back(SpaC)
 	genomes.push_back(IL10)
 	genomes.push_back(EC20)
+	genomes.push_back(FtsZ)
 	
 	
 #------ les explications
@@ -44,6 +46,7 @@ func _ready():
 	SpaC.description = "Allow your bacteria to \n bind to mucus"
 	IL10.description = "Produce Interlekin 10 \n prevent T cells for catching you"
 	EC20.description = "Allow your bacteria to \n bind to cadmium"
+	FtsZ.description = "description_to_be_added"
 
 
 

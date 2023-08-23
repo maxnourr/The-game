@@ -23,6 +23,8 @@ func express(genome):
 			PlayerVar.Interlekin = true
 		6:
 			PlayerVar.EC20 = true
+		7:
+			PlayerVar.FtsZ = true
 		
 func back_to_back():
 	PlayerVar.gfp = false
@@ -30,4 +32,5 @@ func back_to_back():
 	PlayerVar.Mucus = false
 	PlayerVar.EC20 = false
 	PlayerVar.Interlekin = false
+	PlayerVar.FtsZ = false
 			

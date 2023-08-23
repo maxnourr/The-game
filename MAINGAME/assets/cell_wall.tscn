@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp3aawqql2scf"]
+
+[ext_resource type="Texture2D" uid="uid://s7sl003iio7j" path="res://sprites/mucus-removebg-preview.png" id="1_cdp6q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50f76"]
+size = Vector2(124, 413)
+
+[node name="cell_wall" type="Area2D"]
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.592157, 1)
+position = Vector2(9, 33)
+rotation = 2.95891
+texture = ExtResource("1_cdp6q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.615686, 1)
+position = Vector2(-20, 212)
+rotation = 1.55627
+texture = ExtResource("1_cdp6q")
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(1, 0.584314, 0.615686, 1)
+position = Vector2(17.3785, -94.7575)
+rotation = 3.09996
+texture = ExtResource("1_cdp6q")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 0.505882, 0.219608, 1)
+position = Vector2(3, 131)
+texture = ExtResource("1_cdp6q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24, 141.5)
+shape = SubResource("RectangleShape2D_50f76")

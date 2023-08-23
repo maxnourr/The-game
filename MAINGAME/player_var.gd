@@ -44,3 +44,4 @@ func default():
 	EC20 = false
 	acidr = false
 	FtsZ = false
+	follow = false

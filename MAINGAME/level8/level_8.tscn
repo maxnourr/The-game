@@ -1,9 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjlwqgmbti6jw"]
+[gd_scene load_steps=6 format=3 uid="uid://bjlwqgmbti6jw"]
 
 [ext_resource type="Script" path="res://level8/level_8.gd" id="1_cmn2u"]
 [ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="2_vf16x"]
+[ext_resource type="PackedScene" uid="uid://bp3aawqql2scf" path="res://assets/cell_wall.tscn" id="3_qpgyl"]
+[ext_resource type="PackedScene" uid="uid://sruafabg1gs5" path="res://assets/end.tscn" id="4_rte3u"]
+[ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="5_770hi"]
 
 [node name="level8" type="Node"]
 script = ExtResource("1_cmn2u")
 
 [node name="main" parent="." instance=ExtResource("2_vf16x")]
+
+[node name="cell_wall" parent="." instance=ExtResource("3_qpgyl")]
+position = Vector2(580, -2)
+
+[node name="cell_wall2" parent="." instance=ExtResource("3_qpgyl")]
+position = Vector2(587, 484)
+
+[node name="end" parent="." instance=ExtResource("4_rte3u")]
+position = Vector2(976, 319)
+
+[node name="Price" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_770hi")
+theme_override_font_sizes/font_size = 40
+
+[connection signal="area_entered" from="cell_wall" to="." method="_on_cell_wall_area_entered"]

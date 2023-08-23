@@ -21,3 +21,8 @@ func _process(delta):
 	x +=1
 	$acid.position.y = base1 + cos(0.1*x)*100
 	$acid2.position.y = base2 + cos(0.1*x + 3.14)*100
+
+
+func _on_area_2d_area_entered(area):
+	PlayerVar.win = 1
+	PlayerVar.moving = false

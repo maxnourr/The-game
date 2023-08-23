@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://p04lxofltlms"]
+[gd_scene load_steps=5 format=3 uid="uid://p04lxofltlms"]
 
 [ext_resource type="Script" path="res://level2/level_2.gd" id="1_s2007"]
 [ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="2_h8ris"]
 [ext_resource type="PackedScene" uid="uid://6pmc27wiuura" path="res://assets/amp.tscn" id="3_8bvsq"]
+[ext_resource type="PackedScene" uid="uid://sruafabg1gs5" path="res://assets/end.tscn" id="4_1agqw"]
 
 [node name="level2" type="Node"]
 script = ExtResource("1_s2007")
@@ -17,3 +18,6 @@ position = Vector2(680, 375)
 
 [node name="AMP3" parent="." instance=ExtResource("3_8bvsq")]
 position = Vector2(817, 376)
+
+[node name="end" parent="." instance=ExtResource("4_1agqw")]
+position = Vector2(1066, 282)

@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfqws2kikx1tu"]
+[gd_scene load_steps=6 format=3 uid="uid://bfqws2kikx1tu"]
 
 [ext_resource type="Script" path="res://level4/level_4.gd" id="1_vpaed"]
 [ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="2_yhmdb"]
 [ext_resource type="PackedScene" uid="uid://bc6kefpd2jmyr" path="res://assets/mucus.tscn" id="3_3jw8s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h7eh0"]
+size = Vector2(4.5, 368)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_duwfb"]
+size = Vector2(106, 221)
 
 [node name="level4" type="Node"]
 script = ExtResource("1_vpaed")
@@ -17,3 +23,19 @@ position = Vector2(305, 477)
 
 [node name="mucus4" parent="." instance=ExtResource("3_3jw8s")]
 position = Vector2(500, 532)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-11, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(711.75, 300)
+shape = SubResource("RectangleShape2D_h7eh0")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(1180, 321)
+shape = SubResource("RectangleShape2D_duwfb")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D2" to="." method="_on_area_2d_2_area_entered"]
