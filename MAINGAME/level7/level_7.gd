@@ -1,6 +1,7 @@
 extends Node
 var x
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if(Genome.genomes.size() == 5):
@@ -11,14 +12,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	if PlayerVar.Play:
 		x += 1
 		print(str(x))
 		if !PlayerVar.follow:
 			if $cadmium.position.x < 590:
-				$cadmium.position.x +=1
+				$cadmium.position.x += delta*100
 			else:
-				$cadmium.position.y +=1
+				$cadmium.position.y += delta*100
 	if x > 800 and PlayerVar.SPAC:
 		PlayerVar.win = 2
 
