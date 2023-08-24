@@ -14,23 +14,25 @@ func _ready():
 	plasmid = []
 	rectangles = []
 	$Pop.position.y = 350
-	for n in Genome.genomes.size():
-		var button = Button.new()
-		button.size.x = 80
-		button.size.y = 40
-		button.text = Genome.genomes[n].Name
-		button.position.x = 10
-		button.position.y = (size_y)*n 
+	if GlobalVar.max_level > 1:
+		for n in (GlobalVar.max_level -1):
+			var button = Button.new()
+			button.size.x = 80
+			button.size.y = 40
+			button.text = Genome.genomes[n].Name
+			button.position.x = 10
+			button.position.y = (size_y)*n 
 		
-		add_child(button)
-		button.add_theme_font_override("font",font)
-		button.add_theme_stylebox_override("normal",style)
-		button.pressed.connect(_button_pressed.bind(Genome.genomes[n]))
-		button.mouse_entered.connect(_mouse_on.bind(Genome.genomes[n]))
-		button.mouse_exited.connect(_mouse_out.bind(Genome.genomes[n]))
+			add_child(button)
+			button.add_theme_font_override("font",font)
+			button.add_theme_stylebox_override("normal",style)
+			button.pressed.connect(_button_pressed.bind(Genome.genomes[n]))
+			button.mouse_entered.connect(_mouse_on.bind(Genome.genomes[n]))
+			button.mouse_exited.connect(_mouse_out.bind(Genome.genomes[n]))
 
 
 func _process(delta):
+	print(str(GlobalVar.max_level))
 #affiche au bon endroit la petite croix
 	$Pop.visible = false
 	if(plasmid.size() > 0):

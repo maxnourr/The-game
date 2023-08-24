@@ -3,8 +3,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if(Genome.genomes.size() == 2):
-		Genome.genomes.push_back(Genome.SpaC)
+
 	Global.level = "res://level4/level_4.tscn"
 	$background/ColorRect.visible = false
 

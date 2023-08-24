@@ -5,8 +5,7 @@ var base2
 var base3
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if(Genome.genomes.size() == 0):
-		Genome.genomes.push_back(Genome.ampr)
+
 	base1 = $AMP.position.y
 	base2 = $AMP2.position.y
 	base3 = $AMP3.position.y

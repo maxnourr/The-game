@@ -30,6 +30,13 @@ var FtsZ = genome.new(7,100,true,Color(0.4,0.7,0.7),"FtsZ")
 
 #---------------------------------
 func _ready():
+	genomes.push_back(ampr)
+	genomes.push_back(GFP)
+	genomes.push_back(SpaC)
+	genomes.push_back(LacI)
+	genomes.push_back(IL10)
+	genomes.push_back(EC20)
+	genomes.push_back(FtsZ)
 	
 	
 #------ les explications

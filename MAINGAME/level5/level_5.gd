@@ -4,8 +4,7 @@ var step = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if(Genome.genomes.size() == 3):
-		Genome.genomes.push_back(Genome.LacI)
+	
 	Global.level = "res://level5/level_5.tscn"
 	$background/ColorRect.visible = false
 	step = false
