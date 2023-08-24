@@ -46,3 +46,7 @@ func _on_button_pressed():
 func _on_credit_pressed():
 	Global.button_sound()
 	GlobalVar.to_credit()
+
+
+func _on_restart_pressed():
+	pass # Replace with function body.

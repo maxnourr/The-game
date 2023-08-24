@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://frtma7ui2h34" path="res://sprites/gauche.png" id="4_npdwu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88kqu"]
-bg_color = Color(0.854902, 0.498039, 0.203922, 1)
+bg_color = Color(0.878431, 0.305882, 0.921569, 1)
 border_width_right = 5
 border_width_bottom = 5
 corner_radius_top_left = 5
@@ -70,6 +70,8 @@ texture = ExtResource("2_cr2c5")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.0941176, 0.215686, 0.313726, 1)
+theme_override_constants/shadow_offset_x = 2
 theme_override_font_sizes/font_size = 28
 text = "WELCOME TO 48C GAMES"
 horizontal_alignment = 1
@@ -83,20 +85,34 @@ icon = SubResource("ViewportTexture_syr1k")
 
 [node name="music" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "music "
+theme_override_fonts/font = ExtResource("3_0w78h")
+theme_override_styles/normal = SubResource("StyleBoxFlat_88kqu")
+text = "music"
+icon = SubResource("ViewportTexture_syr1k")
 
 [node name="credit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Credit
+theme_override_fonts/font = ExtResource("3_0w78h")
+theme_override_styles/normal = SubResource("StyleBoxFlat_88kqu")
+text = "credit
 "
+icon = SubResource("ViewportTexture_syr1k")
 
 [node name="restart" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "restart"
+theme_override_fonts/font = ExtResource("3_0w78h")
+theme_override_styles/normal = SubResource("StyleBoxFlat_88kqu")
+text = "restart
+"
+icon = SubResource("ViewportTexture_syr1k")
 
 [node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Quit"
+theme_override_fonts/font = ExtResource("3_0w78h")
+theme_override_styles/normal = SubResource("StyleBoxFlat_88kqu")
+text = "quit
+"
+icon = SubResource("ViewportTexture_syr1k")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -114,8 +130,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_npdwu")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/select game" to="." method="_on_select_game_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_music_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/credit" to="." method="_on_credit_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/restart" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/quit" to="." method="_on_quit_pressed"]
