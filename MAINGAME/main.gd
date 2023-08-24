@@ -68,9 +68,10 @@ func _on_play_button_down(): #le play button
 
 
 func _on_stop_button_down():# le stop button
-	play = false
-	get_tree().reload_current_scene()
-	PlayerVar.default()
+	if PlayerVar.win == 0 or PlayerVar.win == 2:
+		play = false
+		get_tree().reload_current_scene()
+		PlayerVar.default()
 
 
 func _on_button_button_down():#le  boutton d'edit des plasmids
