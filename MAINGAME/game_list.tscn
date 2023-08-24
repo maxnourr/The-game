@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Game list.gd" id="1_akeev"]
 [ext_resource type="Texture2D" uid="uid://cbond1ljwe0b8" path="res://sprites/carte.png" id="2_2atd1"]
-[ext_resource type="Texture2D" uid="uid://dmf2bj1h8a2te" path="res://sprites/logo pixel.png" id="3_15ojg"]
-[ext_resource type="Texture2D" uid="uid://58ynmvj6skdn" path="res://sprites/computer.png" id="3_l4lan"]
-[ext_resource type="PackedScene" uid="uid://bgqlonx2reo62" path="res://assets/bacteria.tscn" id="4_iv1n4"]
+[ext_resource type="Texture2D" uid="uid://byo8reygpu3yn" path="res://sprites/computer pixel.png" id="3_vxldc"]
+[ext_resource type="Texture2D" uid="uid://ecbidr3rgoek" path="res://sprites/48C logo@1x.png" id="4_jchy5"]
+[ext_resource type="Texture2D" uid="uid://frtma7ui2h34" path="res://sprites/gauche.png" id="6_6bjb0"]
 [ext_resource type="Texture2D" uid="uid://ba8h430x300ca" path="res://sprites/file.png" id="6_dvfe0"]
 [ext_resource type="PackedScene" uid="uid://3ail8uqcrlyf" path="res://level.tscn" id="6_roy2t"]
 [ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="7_e1co2"]
@@ -59,12 +59,12 @@ texture = ExtResource("2_2atd1")
 [node name="fond" type="Sprite2D" parent="."]
 position = Vector2(575, 325.75)
 scale = Vector2(0.988014, 0.990107)
-texture = ExtResource("3_l4lan")
+texture = ExtResource("3_vxldc")
 
 [node name="48C" type="Sprite2D" parent="."]
 position = Vector2(1107, 608)
 scale = Vector2(0.2, 0.212)
-texture = ExtResource("3_15ojg")
+texture = ExtResource("4_jchy5")
 
 [node name="start" parent="." instance=ExtResource("6_roy2t")]
 layout_mode = 0
@@ -129,9 +129,10 @@ offset_top = 319.0
 offset_right = 614.0
 offset_bottom = 387.0
 
-[node name="bacteria" parent="." instance=ExtResource("4_iv1n4")]
+[node name="bacteria" type="Sprite2D" parent="."]
 position = Vector2(230, 487)
 scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_6bjb0")
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="."]
 layout_mode = 1

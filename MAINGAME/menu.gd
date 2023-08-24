@@ -1,11 +1,20 @@
 extends Control
-
+var switch = 0
 
 func _ready():
 	if GlobalVar.first_open:
 		GlobalVar.load_game()
 		GlobalVar.first_open = false
 	Global.music_menu()
+	
+func _process(delta):
+	switch += 1
+	if switch > 50:
+			switch = 0
+			if $bacteria.texture == load("res://sprites/gauche.png"):
+				$bacteria.texture = load("res://sprites/droite.png")
+			else:
+				$bacteria.texture = load("res://sprites/gauche.png")
 
 func _on_select_game_pressed():
 	Global.button_sound()

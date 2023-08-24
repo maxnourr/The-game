@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi4gelx5xhmki"]
+[gd_scene load_steps=7 format=3 uid="uid://bi4gelx5xhmki"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_hb2ff"]
-[ext_resource type="Texture2D" uid="uid://dmf2bj1h8a2te" path="res://sprites/logo pixel.png" id="2_csrq7"]
+[ext_resource type="Texture2D" uid="uid://ecbidr3rgoek" path="res://sprites/48C logo@1x.png" id="2_cr2c5"]
 [ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="3_0w78h"]
+[ext_resource type="Texture2D" uid="uid://frtma7ui2h34" path="res://sprites/gauche.png" id="4_npdwu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_88kqu"]
 bg_color = Color(0.854902, 0.498039, 0.203922, 1)
@@ -65,7 +66,7 @@ position = Vector2(170.758, 380.004)
 rotation = -0.00256082
 scale = Vector2(0.825503, 0.747456)
 skew = 0.000133872
-texture = ExtResource("2_csrq7")
+texture = ExtResource("2_cr2c5")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -105,7 +106,12 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "hello"
+
+[node name="bacteria" type="Sprite2D" parent="."]
+position = Vector2(214, 330)
+rotation = -1.0472
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_npdwu")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/select game" to="." method="_on_select_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_button_2_pressed"]

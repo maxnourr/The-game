@@ -20,6 +20,16 @@ func _ready():
 	place_bacteria(false)
 	for i in range(0,GlobalVar.max_level+1):
 		get_node(level_link[i]+"/cadena").hide()
+		
+	$start/Label.text = "tuto"
+	$"level 1"/Label.text = "level 1"
+	$"level 2"/Label.text = "level 2"
+	$"level 3"/Label.text = "level 3"
+	$"level 4"/Label.text = "level 4"
+	$"level 5"/Label.text = "level 5"
+	$"level 6"/Label.text = "level 6"
+	$"level 7"/Label.text = "level 7"
+	$"level 8"/Label.text = "level 8"
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,14 +46,12 @@ func _process(delta):
 		switch +=1
 		$bacteria.position.x += step_x
 		$bacteria.position.y += step_y
-		if switch > 15:
+		if switch > 30:
 			switch = 0
-			if $bacteria/flagel.visible == true:
-				$bacteria/flagel.visible = false
-				$bacteria/flagel2.visible = true
+			if $bacteria.texture == load("res://sprites/gauche.png"):
+				$bacteria.texture = load("res://sprites/droite.png")
 			else:
-				$bacteria/flagel.visible = true
-				$bacteria/flagel2.visible = false
+				$bacteria.texture = load("res://sprites/gauche.png")
 	if waited == transfer_time :
 		waited = transfer_time+1
 		get_node(level_link[GlobalVar.current_level]+"/cadena").hide()

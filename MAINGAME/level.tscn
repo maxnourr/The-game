@@ -41,4 +41,16 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = SubResource("StyleBoxFlat_ypb3c")
 text = "open"
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 38.75
+offset_right = 80.0
+offset_bottom = 74.75
+theme_override_colors/font_color = Color(0.211765, 0.168627, 0, 1)
+theme_override_fonts/font = ExtResource("1_y05r1")
+theme_override_font_sizes/font_size = 12
+text = "level 1"
+horizontal_alignment = 1
+
 [connection signal="pressed" from="open" to="." method="_on_open_pressed"]
