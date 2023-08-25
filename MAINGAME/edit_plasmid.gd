@@ -7,6 +7,11 @@ var font = preload("res://font/joystix monospace.otf")
 var brick = preload("res://sprites/brick.PNG")
 
 func _ready():
+	if Global.level == "res://tuto/tuto.tscn":
+		$tuto.visible = true
+	else:
+		$tuto.visible = false
+		
 	var style = $cross_model.get_theme_stylebox("normal")
 	for n in Genome.plasmids.size():
 		for i in Genome.plasmids[n].size():

@@ -35,7 +35,7 @@ func _on_quit_pressed():
 	GlobalVar.save_game()
 	get_tree().quit()
 
-func _on_button_pressed():
+func _on_restart_pressed():
 	Global.button_sound()
 	if $MarginContainer/VBoxContainer/restart.text == "restart":
 		$MarginContainer/VBoxContainer/restart.text = "you are sure ? click if yes"
@@ -49,5 +49,4 @@ func _on_credit_pressed():
 	GlobalVar.to_credit()
 
 
-func _on_restart_pressed():
-	pass # Replace with function body.
+

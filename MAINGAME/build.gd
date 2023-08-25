@@ -37,7 +37,6 @@ func _ready():
 
 
 func _process(delta):
-	print(str(GlobalVar.max_level))
 #affiche au bon endroit la petite croix
 	$Pop.visible = false
 	if(plasmid.size() > 0):
