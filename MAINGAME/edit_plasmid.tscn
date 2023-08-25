@@ -39,4 +39,29 @@ offset_right = 68.0
 offset_bottom = -75.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_xgtfl")
 
+[node name="tuto" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -24.0
+offset_right = 20.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("3_ai0t8")
+theme_override_font_sizes/font_size = 40
+text = "Looks a lot like edit right?
+
+This is where you will be able
+to delete plasmids in the bacteria
+
+you can now press
+ play to finish the level"
+horizontal_alignment = 1
+
 [connection signal="button_down" from="back" to="." method="_on_back_button_down"]

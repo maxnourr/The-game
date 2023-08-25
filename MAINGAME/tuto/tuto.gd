@@ -6,7 +6,7 @@ var base2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.level = "res://tuto/tuto.tscn"
-	$main/explanation/Label.text = "level1 text"
+	$main/explanation/Label.text = " \n \n \n \n this place will provide\n explanations regarding each levels \n \n now click on the edit button"
 	$background/ColorRect.visible = true
 
 
@@ -14,3 +14,7 @@ func _ready():
 func _on_area_2d_area_entered(area):
 	PlayerVar.win = 1
 	PlayerVar.moving = false
+
+
+func _on_button_button_down():
+	$CanvasLayer.visible = false

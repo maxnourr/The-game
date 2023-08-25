@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwxex4x88dlf"]
+[gd_scene load_steps=6 format=3 uid="uid://bwxex4x88dlf"]
 
 [ext_resource type="Script" path="res://tuto/tuto.gd" id="1_jp1as"]
 [ext_resource type="PackedScene" uid="uid://baxcljd4pi2y5" path="res://assets/background.tscn" id="2_v8sfr"]
 [ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="3_hu0fc"]
+[ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="4_ujuwa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3ekv"]
 size = Vector2(97, 324)
@@ -21,4 +22,46 @@ position = Vector2(180, 0)
 position = Vector2(925.5, 328)
 shape = SubResource("RectangleShape2D_u3ekv")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.4)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -24.0
+offset_right = 20.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_ujuwa")
+theme_override_font_sizes/font_size = 40
+text = "Welcome to bioQuest
+
+Click on the help button"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -71.0
+offset_bottom = 48.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("4_ujuwa")
+text = "X"
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="button_down" from="CanvasLayer/Button" to="." method="_on_button_button_down"]

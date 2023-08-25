@@ -5,6 +5,7 @@ var timer= 0
 var waiting = 0
 
 func _ready():
+	$Victory.visible = false
 	play = false
 	PlayerVar.default()
 	Global.body()
@@ -26,8 +27,8 @@ func _process(delta):
 	PlayerVar.Play = play
 	PlayerVar.PlayerX = $bacteria.position.x
 	PlayerVar.PlayerY= $bacteria.position.y
-	check_win()
 	if play:
+		check_win()
 		waiting +=1
 		if waiting >=30:
 			waiting = 0
@@ -81,9 +82,12 @@ func _on_button_button_down():#le  boutton d'edit des plasmids
 
 func check_win(): #fonction qui vérifie si on a gagné ou perdu
 	if PlayerVar.win == 1:
+		
+		Global.correct()
 		play = false
 		$bacteria/normal.visible = false
 		$bacteria/happy.visible = true
+		$Victory.visible = true
 	if PlayerVar.win == 2:
 		play = false
 		$bacteria/normal.visible = false
@@ -100,5 +104,10 @@ func _on_out_button_down():
 
 
 func _on_menu_pressed():
+	Global.click()
+	GlobalVar.to_game_list()
+
+
+func _on_next_level_button_down():
 	Global.click()
 	GlobalVar.to_game_list()

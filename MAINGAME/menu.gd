@@ -7,6 +7,7 @@ func _ready():
 		GlobalVar.first_open = false
 	Global.music_menu()
 	
+	
 func _process(delta):
 	switch += 1
 	if switch > 50:

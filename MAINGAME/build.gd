@@ -10,6 +10,11 @@ var brick = preload("res://sprites/brick.PNG")
 
 
 func _ready():
+	if Global.level == "res://tuto/tuto.tscn":
+		$tuto.visible = true
+	else:
+		$tuto.visible = false
+		
 	var style = $gene.get_theme_stylebox("normal")
 	plasmid = []
 	rectangles = []

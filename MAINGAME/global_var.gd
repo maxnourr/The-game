@@ -19,6 +19,9 @@ var music = true
 func click():
 	$click.play()
 	await get_tree().create_timer(0.8).timeout
+	
+func correct():
+	$correct.play()
 
 func open():
 	$open.play()
@@ -68,7 +71,8 @@ func music_game2():
 		
 
 func music_menu():
-	$build/office_ambiance.stop()
+	
+	$build/office_ambiance.play()
 	$body.stop()
 	if music and not $menu_music.playing:
 		$game_musichard.stop()

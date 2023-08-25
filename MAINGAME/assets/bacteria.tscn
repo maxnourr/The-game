@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bgqlonx2reo62"]
+[gd_scene load_steps=13 format=3 uid="uid://bgqlonx2reo62"]
 
 [ext_resource type="Texture2D" uid="uid://ceyl7jq1dpeoa" path="res://sprites/flagel 1.png" id="1_4iybn"]
 [ext_resource type="Texture2D" uid="uid://chr627yqmycvu" path="res://sprites/body.png" id="1_7yc02"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://boqwb75sq6aae" path="res://sprites/normal eyes.png" id="2_brhrt"]
 [ext_resource type="Texture2D" uid="uid://ca12afndtt3ex" path="res://sprites/flagel 2.png" id="2_ljr6f"]
 [ext_resource type="Texture2D" uid="uid://jut6qyunqru0" path="res://sprites/sad eyes.png" id="3_0a2dr"]
+[ext_resource type="Texture2D" uid="uid://c7qepls5tbos8" path="res://sprites/EC20.png" id="4_47mnk"]
 [ext_resource type="Texture2D" uid="uid://c2j1kgenmv1iq" path="res://sprites/happy eyes.png" id="4_d07oo"]
+[ext_resource type="Texture2D" uid="uid://ck7cpl8ymj3xn" path="res://sprites/SPAC.png" id="5_bq3fj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hybv"]
 size = Vector2(460, 216)
@@ -48,6 +50,15 @@ visible = false
 modulate = Color(1, 1, 1, 0.623529)
 position = Vector2(-423, 2.08165e-12)
 texture = ExtResource("2_ljr6f")
+
+[node name="EC20" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(59, -32)
+texture = ExtResource("4_47mnk")
+
+[node name="SPAC" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("5_bq3fj")
 
 [node name="body" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.623529)

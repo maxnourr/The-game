@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bi4gelx5xhmki"]
 
 [ext_resource type="Script" path="res://menu.gd" id="1_hb2ff"]
-[ext_resource type="Texture2D" uid="uid://ecbidr3rgoek" path="res://sprites/48C logo@1x.png" id="2_cr2c5"]
+[ext_resource type="Texture2D" uid="uid://cr7xvjt8cy72h" path="res://sprites/48c-removebg-preview.png" id="2_igull"]
 [ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="3_0w78h"]
 [ext_resource type="Texture2D" uid="uid://frtma7ui2h34" path="res://sprites/gauche.png" id="4_npdwu"]
 
@@ -62,11 +62,12 @@ pivot_offset = Vector2(172, 73.5)
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+modulate = Color(1, 1, 1, 0.843137)
 position = Vector2(170.758, 380.004)
 rotation = -0.00256082
 scale = Vector2(0.825503, 0.747456)
 skew = 0.000133872
-texture = ExtResource("2_cr2c5")
+texture = ExtResource("2_igull")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

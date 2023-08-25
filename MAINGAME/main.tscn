@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://daahuqr7gjojm"]
+[gd_scene load_steps=14 format=3 uid="uid://daahuqr7gjojm"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4f6yy"]
 [ext_resource type="PackedScene" uid="uid://bgqlonx2reo62" path="res://assets/bacteria.tscn" id="4_ub1lf"]
@@ -47,6 +47,24 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qfaoj"]
+bg_color = Color(0.282353, 0.309804, 0.509804, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.407843, 0.447059, 0.603922, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg1eu"]
+bg_color = Color(0.482353, 0.611765, 0.764706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3y17h"]
+bg_color = Color(0.258824, 0.368627, 0.494118, 1)
 
 [node name="main" type="Node"]
 script = ExtResource("1_4f6yy")
@@ -158,6 +176,53 @@ offset_bottom = 64.0
 theme_override_fonts/font = ExtResource("5_4r2xc")
 text = "X"
 
+[node name="Victory" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Victory"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.341176)
+
+[node name="you win" type="Label" parent="Victory"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -179.5
+offset_top = -211.0
+offset_right = 179.5
+offset_bottom = 211.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_4r2xc")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_qfaoj")
+text = "Victory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="next_level" type="Button" parent="Victory"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.914
+offset_left = -87.0
+offset_top = 411.0
+offset_right = 87.0
+offset_bottom = -130.272
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_4r2xc")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_bg1eu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3y17h")
+text = "next level"
+
 [connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="editor" to="." method="_on_editor_button_down"]
 [connection signal="button_down" from="stop" to="." method="_on_stop_button_down"]
@@ -165,3 +230,4 @@ text = "X"
 [connection signal="button_down" from="help" to="." method="_on_help_button_down"]
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
 [connection signal="button_down" from="explanation/out" to="." method="_on_out_button_down"]
+[connection signal="button_down" from="Victory/next_level" to="." method="_on_next_level_button_down"]
