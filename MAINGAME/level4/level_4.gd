@@ -6,6 +6,7 @@ func _ready():
 
 	Global.level = "res://level4/level_4.tscn"
 	$background/ColorRect.visible = false
+	$main/explanation/Label.text = "[center]Welcome in the body! You will need to stay there for a bit, try sticking to the mucus![/center]"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

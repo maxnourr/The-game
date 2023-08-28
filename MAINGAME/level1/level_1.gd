@@ -10,6 +10,7 @@ func _ready():
 	$background/ColorRect.visible = true
 	base1 = $acid.position.y
 	base2 = $acid2.position.y
+	$main/explanation/Label.text = "[center]Welcome little bacteria to your first mission. \n today, we're going to the guts!!!! However first we need to survive the stomach acids. To do so, find a way to hide yourself [/center] "
 	
 	
 

@@ -69,7 +69,6 @@ pivot_offset = Vector2(172, 73.5)
 layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
-modulate = Color(1, 1, 1, 0.843137)
 position = Vector2(170.758, 380.004)
 rotation = -0.00256082
 scale = Vector2(0.825503, 0.747456)

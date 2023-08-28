@@ -8,6 +8,7 @@ func _ready():
 	Global.level = "res://level7/level_7.tscn"
 	$background/ColorRect.visible = false
 	x = 0
+	$main/explanation/Label.text = "[center]Here is your biggest challenge so far. Use what you have learned to catch the toxic cadmium and leave the body with it.[/center]"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

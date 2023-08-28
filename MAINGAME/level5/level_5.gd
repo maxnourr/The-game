@@ -7,6 +7,7 @@ func _ready():
 	
 	Global.level = "res://level5/level_5.tscn"
 	$background/ColorRect.visible = false
+	$main/explanation/Label.text = "[center]It is one thing to stick to the mucus, it is an other to stop. Find a way to only express SpaC for a short period of time[/center]"
 	step = false
 	x = 0
 

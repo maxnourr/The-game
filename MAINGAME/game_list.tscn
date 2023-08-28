@@ -149,23 +149,6 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 30
 
-[node name="how" type="Button" parent="VBoxContainer4"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_e1co2")
-theme_override_font_sizes/font_size = 14
-theme_override_styles/normal = SubResource("StyleBoxFlat_g63ov")
-text = " how to play ? "
-
-[node name="custom" type="Button" parent="VBoxContainer4"]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("7_e1co2")
-theme_override_styles/normal = SubResource("StyleBoxFlat_g63ov")
-text = "Custom"
-
 [node name="Return" type="Button" parent="VBoxContainer4"]
 layout_mode = 2
 size_flags_vertical = 0
@@ -236,8 +219,8 @@ tab_size = 24
 [node name="RichTextLabel2" type="RichTextLabel" parent="file"]
 offset_left = 632.0
 offset_top = 141.0
-offset_right = 1086.0
-offset_bottom = 261.0
+offset_right = 755.0
+offset_bottom = 197.0
 rotation = -0.150098
 scale = Vector2(2, 2)
 size_flags_horizontal = 3
@@ -246,7 +229,7 @@ size_flags_stretch_ratio = 1.1
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 0
 theme_override_fonts/normal_font = ExtResource("7_e1co2")
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 15
 text = "title"
 fit_content = true
 scroll_active = false

@@ -9,7 +9,7 @@ func _ready():
 	base1 = $AMP.position.y
 	base2 = $AMP2.position.y
 	Global.level = "res://level3/level_3.tscn"
-	$main/explanation/Label.text = " \n \n \n \n \n ampiciline resistance mutation can happen \n in order to be sure that our genes \n are the right one, it can be usefull \n to visualy change the bacteria."
+	$main/explanation/Label.text = "[center]In order to be sure that our genes are well expressed, it can be usefull to visualy change the bacteria.[/center]"
 	$background/ColorRect.visible = true
 
 

@@ -6,6 +6,7 @@ func _ready():
 	
 	Global.level = "res://level6/level_6.tscn"
 	$background/ColorRect.visible = false
+	$main/explanation/Label.text = "[center]T cells do not like foreign body, if only there was a mollecule able to calm them...[/center]"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

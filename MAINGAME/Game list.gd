@@ -60,6 +60,8 @@ func _process(delta):
 	if get_node(level_link[GlobalVar.current_level]).open == true:
 		get_node(level_link[GlobalVar.current_level]).open = false
 		$file/RichTextLabel.text = "Level\n " + str(GlobalVar.current_level)
+		$file/RichTextLabel2.text = titles[GlobalVar.current_level]
+		$file/RichTextLabel3.text = explications[GlobalVar.current_level]
 		$file.show()
 
 	
@@ -177,3 +179,22 @@ func _on_go_pressed():
 func _on_x_pressed():
 	$file.hide()
 	
+
+var explications = [
+	"discover how to play the game", "survive the acidic stomach using a pill", "Discover AmpR, a very usefull genes",
+	"make your bacteria glow using gfp",
+	"Bind to Mucus using SpaC","Add conditions to gene expressions",
+	"Learn to tame  an immunitary system","use everything you've learned to catch and evacuate cadmium",
+	"Change your bacteria shape"
+]
+
+var	titles = [
+	"tutorial", "an acidic journey",
+	"survival","a study in green",
+	"stick to it", "a dairy dare",
+	"police control", "the big day",
+	"fashion week"
+]
+
+
+

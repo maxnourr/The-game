@@ -3,6 +3,7 @@ var max_price = 600
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$main/explanation/Label.text = "[center]Some genes can change yourshape, use that to your advantage[/center]"
 	for n in Genome.plasmids.size():
 			PlayerVar.cost += 100
 			for i in Genome.plasmids[n].size():

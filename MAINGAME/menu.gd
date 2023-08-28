@@ -24,8 +24,8 @@ func _on_select_game_pressed():
 
 func _on_music_pressed():
 	Global.button_sound()
-	GlobalVar.music = !GlobalVar.music
-	if GlobalVar.music == false:
+	Global.music = not Global.music
+	if Global.music == false:
 		Global.music_stop()
 	else:
 		Global.music_menu()

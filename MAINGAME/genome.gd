@@ -46,7 +46,7 @@ func _ready():
 	SpaC.description = "Allow your bacteria to \n bind to mucus"
 	IL10.description = "Produce Interlekin 10 \n prevent T cells for catching you"
 	EC20.description = "Allow your bacteria to \n bind to cadmium"
-	FtsZ.description = "description_to_be_added"
+	FtsZ.description = "one of the gene responsible for mitosis \n here selecting it will prevent its expression \n might change bacteria shape"
 
 
 
