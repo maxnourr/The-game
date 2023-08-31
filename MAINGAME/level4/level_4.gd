@@ -4,7 +4,7 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	Global.level = "res://level4/level_4.tscn"
+	GlobalVar.level = "res://level4/level_4.tscn"
 	$background/ColorRect.visible = false
 	$main/explanation/Label.text = "[center]Welcome in the body! You will need to stay there for a bit, try sticking to the mucus![/center]"
 

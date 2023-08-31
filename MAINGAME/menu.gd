@@ -48,5 +48,6 @@ func _on_credit_pressed():
 	Global.button_sound()
 	GlobalVar.to_credit()
 
-
-
+func _on_minigames_pressed():
+	Global.button_sound()
+	GlobalVar.to_minigames()

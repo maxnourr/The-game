@@ -13,7 +13,7 @@ func _ready():
 	$Price.text += "/"
 	$Price.text += str(max_price)
 	
-	Global.level = "res://level8/level_8.tscn"
+	GlobalVar.level = "res://level8/level_8.tscn"
 	$background/ColorRect.visible = false
 
 

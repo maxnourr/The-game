@@ -90,6 +90,13 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_88kqu")
 text = "Play !"
 icon = SubResource("ViewportTexture_syr1k")
 
+[node name="minigames" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0w78h")
+theme_override_styles/normal = SubResource("StyleBoxFlat_88kqu")
+text = "minigames"
+icon = SubResource("ViewportTexture_syr1k")
+
 [node name="music" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_0w78h")
@@ -136,6 +143,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_npdwu")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/select game" to="." method="_on_select_game_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/minigames" to="." method="_on_minigames_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/music" to="." method="_on_music_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/credit" to="." method="_on_credit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/restart" to="." method="_on_restart_pressed"]

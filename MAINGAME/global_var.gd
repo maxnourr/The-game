@@ -1,93 +1,52 @@
 extends Node
+
+#global
 var first_open = true
-var game = ["res://tuto/tuto.tscn","res://level1/level_1.tscn","res://level2/level_2.tscn","res://level3/level_3.tscn","res://level4/level_4.tscn","res://level5/level_5.tscn","res://level6/level_6.tscn","res://level7/level_7.tscn","res://level8/level_8.tscn"]
-var do_game = game.duplicate()
 var coins = 0
+
+#maingame
+var game = ["res://tuto/tuto.tscn","res://level1/level_1.tscn","res://level2/level_2.tscn","res://level3/level_3.tscn","res://level4/level_4.tscn","res://level5/level_5.tscn","res://level6/level_6.tscn","res://level7/level_7.tscn","res://level8/level_8.tscn"]
 var current_level = 0
 var max_level = 0
 var level
 
+#minigames
+var minigame = ["res://MINIGAMES/minijeu_1/ampi_game.tscn","res://MINIGAMES/minijeu_2/node.tscn","res://MINIGAMES/minijeu_3/Plasmid_Game.tscn","res://MINIGAMES/minijeu_4/feed_bacteria_game.tscn","res://MINIGAMES/minijeu_5/node.tscn","res://MINIGAMES/minijeu_6/node.tscn","res://MINIGAMES/minijeu_7/wash_game.tscn","res://MINIGAMES/minijeu_8/game_1.tscn","res://MINIGAMES/minijeu_9/game9.tscn","res://MINIGAMES/minijeu_10/node.tscn","res://MINIGAMES/minijeu_11/game.tscn","res://MINIGAMES/minijeu_12/centrifuge_game.tscn","res://MINIGAMES/minijeu_13/game.tscn","res://MINIGAMES/minijeu_14/GFP_game.tscn","res://MINIGAMES/minijeu_15/clothe_game.tscn"]
+var do_game = minigame.duplicate()
+var start_score = 0
+var current_score = 0
+var max_normal_score = 0
+var max_score = 0
+
+var win = false
+var on_randon = false
+var on_hard_core = false
+var first = true
+
+var best_score = []
+var best_player = []
+
+#rng
 var rng = RandomNumberGenerator
 
-var button = load("res://click.mp3")
-var game_m = load("res://FT5records.mp3")
-var game_m1 = load("res://FT5records game 1.mp3")
-var game_m2 = load("res://FT5records game 2.mp3")
-var game_me = load("res://FT5records menu.mp3")
-var music = true
-
-func click():
-	$click.play()
-	await get_tree().create_timer(0.8).timeout
-	
-func correct():
-	$correct.play()
-
-func open():
-	$open.play()
-	
-
-func body():
-	if $body.playing == false:
-		$body.play()
-	$build/office_ambiance.stop()
-	$game_musichard.stop()
-	$menu_music.stop()
-	$game_musicrandom.stop()
-	$build.stop()
-	
-	
-func theme_build():
-	$build/office_ambiance.play()
-	$body.stop()
-	if music and not $build.playing:
-		$game_musichard.stop()
-		$menu_music.stop()
-		$game_musicrandom.stop()
-		$build.play()
+func pass_game():
+	if win or first: 
+		if first:
+			start_score = coins
+			first = false
+		randomize()
+		if do_game.is_empty():
+			do_game = minigame.duplicate()
+		var game_to_load = do_game[randi() % do_game.size()]
+		do_game.erase(game_to_load)
+		to_load(game_to_load)
+	else: 
+		Global.reset()
+		to_minigame_list()
 		
-func button_sound():
-	$button_sound.play()
-	await get_tree().create_timer(0.8).timeout
-	
-	
-func music_game1():
-	$build/office_ambiance.stop()
-	$body.stop()
-	if music and not $game_musicrandom.playing:
-		$game_musichard.stop()
-		$menu_music.stop()
-		$game_musicrandom.play()
-		$build.stop()
-	
-func music_game2():
-	$build/office_ambiance.stop()
-	$body.stop()
-	if music and not $game_musichard.playing:
-		$menu_music.stop()
-		$game_musicrandom.stop()
-		$game_musichard.play()
-		$build.stop()
-		
-
-func music_menu():
-	
-	$build/office_ambiance.play()
-	$body.stop()
-	if music and not $menu_music.playing:
-		$game_musichard.stop()
-		$game_musicrandom.stop()
-		$menu_music.play()
-		$build.stop()
-		
-func music_stop():
-	$game_musichard.stop()
-	$game_musicrandom.stop()
-	$menu_music.stop()
-	$build.stop()
-
 func to_load(G):
-	if G in game:
+	win = false
+	if G in game or G in minigame :
 		get_tree().change_scene_to_file(G)
 	
 func to_menu():
@@ -99,6 +58,20 @@ func to_game_list():
 func to_credit():
 	get_tree().change_scene_to_file("res://credit.tscn")
 	
+func to_minigames():
+	get_tree().change_scene_to_file("res://MINIGAMES/minimenu.tscn")
+	
+func to_minigame_list():
+	get_tree().change_scene_to_file("res://MINIGAMES/minigame_list.tscn")
+	
+func to_best_list():
+	get_tree().change_scene_to_file("res://MINIGAMES/best list.tscn")
+	
+func to_rule():
+	get_tree().change_scene_to_file("res://MINIGAMES/rule.tscn")
+	
+func to_template():
+	get_tree().change_scene_to_file("res://MINIGAMES/minijeu_template/game.tscn")
 # Note: This can be called from anywhere inside the tree. This function is
 # path independent.
 # Go through everything in the persist category and ask them to return a
@@ -108,7 +81,10 @@ func save_game():
 		"coins" : coins,
 		"current_level" : current_level,
 		"max_level" : max_level,
-		#"genomes" : Genome.genomes
+		"max_normal_score" : max_normal_score,
+		"max_score" : max_score,
+		"best_score" : best_score,
+		"best_player" : best_player
 	}
 	var file = FileAccess.open("savegame.save",FileAccess.WRITE)
 	file.store_var(save_dict)
@@ -121,10 +97,51 @@ func load_game():
 		coins = save_dict.coins
 		current_level = save_dict.current_level
 		max_level = save_dict.max_level
-		#Genome.genomes = save_dict.genomes
+		
+		max_normal_score = save_dict.max_normal_score
+		max_score = save_dict.max_score
+		best_score = save_dict.best_score
+		best_player = save_dict.best_player
 	
 func blanck():
-	current_level = 0
 	coins = 0
+	current_level = 0
 	max_level = 1
+	
+	max_normal_score = 0
+	max_score = 0
+	best_player = []
+	best_score = []
 		
+func best_list(N):
+	var placed = false
+	if best_score.is_empty():
+		placed = true
+		best_score.append(current_score)
+		best_player.append(N)
+	else:
+		var S = best_score.size()
+		for i in range(S):
+			if placed == false:
+				if best_player[i] == N:
+					if current_score > best_score[i]:
+						best_score.insert(i,current_score)
+						best_player.insert(i,N)
+						best_score.remove_at(i+1)
+						best_player.remove_at(i+1)
+					placed = true
+				elif current_score > best_score[i]:
+					best_score.insert(i,current_score)
+					best_player.insert(i,N)
+					placed = true
+			elif best_player[i] == N:
+				best_score.remove_at(i)
+				best_player.remove_at(i)
+		
+		if best_score.size() > 5:
+			best_player.pop_back()
+			best_score.pop_back()
+		
+		if best_score.size() <5 and placed == false:
+			best_score.append(current_score)
+			best_player.append(N)
