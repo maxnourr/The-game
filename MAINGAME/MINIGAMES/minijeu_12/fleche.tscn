@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://chip3scg6k3tt"]
+
+[ext_resource type="Script" path="res://MINIGAMES/minijeu_12/fleche.gd" id="1_hesqw"]
+[ext_resource type="Texture2D" uid="uid://dggel0i4y0wsq" path="res://MINIGAMES/minijeu_12/figures/fleche.png" id="2_la5l1"]
+
+[node name="fleche" type="Area2D"]
+script = ExtResource("1_hesqw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_la5l1")

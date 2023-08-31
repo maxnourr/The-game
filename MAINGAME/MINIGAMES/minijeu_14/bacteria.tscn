@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://orwfo6t55vja"]
+
+[ext_resource type="Script" path="res://MINIGAMES/minijeu_14/bacteria.gd" id="1_i3vmw"]
+[ext_resource type="Texture2D" uid="uid://0bkwx2aaso7d" path="res://MINIGAMES/minijeu_14/figures/Bactfaim@4x.png" id="2_m4wba"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mxhvi"]
+radius = 53.1842
+height = 149.619
+
+[node name="bacteria" type="Area2D"]
+script = ExtResource("1_i3vmw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.1684e-19, 2.1684e-19)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_m4wba")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+rotation = -0.137881
+shape = SubResource("CapsuleShape2D_mxhvi")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

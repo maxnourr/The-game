@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhk51yg2eceg"]
+
+[ext_resource type="Texture2D" uid="uid://sgwm6ct4eqn2" path="res://minijeu_2/figures/bande.png" id="1_4ivqo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rohnu"]
+size = Vector2(24, 72)
+
+[node name="bloc" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-52, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_4ivqo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_rohnu")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://rredq1ahive7"]
+
+[ext_resource type="Texture2D" uid="uid://b60fd33ukdhm3" path="res://minijeu_12/figures/Rougetube@4x.png" id="1_alwvg"]
+
+[node name="tube" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_alwvg")

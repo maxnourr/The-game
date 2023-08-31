@@ -1,0 +1,166 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxmipg467pyl6"]
+
+[ext_resource type="PackedScene" uid="uid://cwgnc0omkn73v" path="res://MINIGAMES/minijeu_9/tube.tscn" id="1_2oel4"]
+[ext_resource type="Script" path="res://MINIGAMES/minijeu_9/game9.gd" id="1_4068y"]
+[ext_resource type="PackedScene" uid="uid://dce3tv4ku5nfp" path="res://MINIGAMES/minijeu_9/vortex.tscn" id="2_5vgng"]
+[ext_resource type="PackedScene" uid="uid://75513csir2ck" path="res://MINIGAMES/minijeu_9/velocity.tscn" id="4_101im"]
+[ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="5_pij6m"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_4068y")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.870607, 0.998954, 0.983926, 1)
+
+[node name="vortex" parent="." instance=ExtResource("2_5vgng")]
+position = Vector2(576, 450)
+scale = Vector2(0.5, 0.5)
+
+[node name="tube" parent="." instance=ExtResource("1_2oel4")]
+position = Vector2(575, 200)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="velocity" parent="." instance=ExtResource("4_101im")]
+visible = false
+position = Vector2(378, -9)
+
+[node name="clock" parent="." instance=ExtResource("5_pij6m")]
+visible = false
+
+[node name="screen" type="ColorRect" parent="."]
+self_modulate = Color(0.00392157, 0, 0.313726, 0.666667)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TEXT" type="CanvasLayer" parent="."]
+
+[node name="win_state" type="Label" parent="TEXT"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 69.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.603922, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="explanation" type="Label" parent="TEXT"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -38.0
+offset_right = 254.0
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.603922, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -38.5
+offset_right = 75.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -550.0
+offset_top = -213.5
+offset_right = 540.0
+offset_bottom = 2.5
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 50
+text = "Use the vortex to mix your bacteria sample
+first, put the tube on the vortex
+second, set the speed and hold on !"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Button"]
+layout_mode = 0
+offset_left = -368.5
+offset_top = 122.5
+offset_right = 518.5
+offset_bottom = 266.5
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 50
+text = "the tube follow the mouse
+UP: increase the speed"
+horizontal_alignment = 1
+
+[node name="Button2" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -77.0
+offset_right = 92.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Restart"
+
+[node name="Button3" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -213.0
+offset_bottom = 77.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "to menu"
+
+[node name="Label" type="Label" parent="Button3"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -61.0
+offset_bottom = 35.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "coins :"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

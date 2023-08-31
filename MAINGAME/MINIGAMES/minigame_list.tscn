@@ -1,0 +1,228 @@
+[gd_scene load_steps=4 format=3 uid="uid://blaoklvesr4v3"]
+
+[ext_resource type="Script" path="res://MINIGAMES/minigame list.gd" id="1_akeev"]
+[ext_resource type="Texture2D" uid="uid://bb6rx712hg54k" path="res://MINIGAMES/global figures/48C logo@1x.png" id="2_ak455"]
+[ext_resource type="AudioStream" uid="uid://d1etf8ukbb6nh" path="res://MINIGAMES/sound/click.mp3" id="3_rpkwv"]
+
+[node name="Game list" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_akeev")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.603922, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 540)
+scale = Vector2(0.3, 0.321)
+texture = ExtResource("2_ak455")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_direction = 1
+layout_mode = 2
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 374.0
+offset_bottom = 476.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "  "
+horizontal_alignment = 1
+
+[node name="game1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Game 1"
+
+[node name="game2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Game 2"
+
+[node name="game3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Game 3"
+
+[node name="game4" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Game 4"
+
+[node name="game5" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Game 5"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -137.0
+offset_top = -224.0
+offset_right = 137.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Select Game"
+horizontal_alignment = 1
+
+[node name="game6" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Game 6"
+
+[node name="game7" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Game 7"
+
+[node name="game8" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Game 8"
+
+[node name="game9" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Game 9"
+
+[node name="game10" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Game 10"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 778.0
+offset_top = 100.0
+offset_right = 1052.0
+offset_bottom = 476.0
+
+[node name="Label" type="Label" parent="VBoxContainer3"]
+layout_mode = 2
+text = "   "
+horizontal_alignment = 1
+
+[node name="game11" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+text = "Game 11"
+
+[node name="game12" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+text = "Game 12"
+
+[node name="game13" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+text = "Game 13"
+
+[node name="game14" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+text = "Game 14"
+
+[node name="game15" type="Button" parent="VBoxContainer3"]
+layout_mode = 2
+text = "Game 15"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -477.0
+offset_top = 33.0
+offset_right = 478.0
+offset_bottom = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Random" type="Button" parent="VBoxContainer4"]
+layout_mode = 2
+text = "Survival mode !"
+
+[node name="Randomhard" type="Button" parent="VBoxContainer4"]
+layout_mode = 2
+text = "Extreme survival mode !!!"
+
+[node name="Return" type="Button" parent="VBoxContainer4"]
+layout_mode = 2
+text = "Return"
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -526.0
+offset_top = -106.0
+offset_right = 526.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="speed_run_end" type="Label" parent="VBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer5"]
+visible = false
+layout_direction = 1
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+scroll_fit_content_height = true
+
+[node name="Return_game" type="Button" parent="VBoxContainer5"]
+layout_mode = 2
+text = "Return"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 45.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "hello"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rpkwv")
+
+[connection signal="pressed" from="VBoxContainer/game1" to="." method="_on_game_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/game2" to="." method="_on_game_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/game3" to="." method="_on_game_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/game4" to="." method="_on_game_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/game5" to="." method="_on_game_5_pressed"]
+[connection signal="pressed" from="VBoxContainer2/game6" to="." method="_on_game_6_pressed"]
+[connection signal="pressed" from="VBoxContainer2/game7" to="." method="_on_game_7_pressed"]
+[connection signal="pressed" from="VBoxContainer2/game8" to="." method="_on_game_8_pressed"]
+[connection signal="pressed" from="VBoxContainer2/game9" to="." method="_on_game_9_pressed"]
+[connection signal="pressed" from="VBoxContainer2/game10" to="." method="_on_game_10_pressed"]
+[connection signal="pressed" from="VBoxContainer3/game11" to="." method="_on_game_11_pressed"]
+[connection signal="pressed" from="VBoxContainer3/game12" to="." method="_on_game_12_pressed"]
+[connection signal="pressed" from="VBoxContainer3/game13" to="." method="_on_game_13_pressed"]
+[connection signal="pressed" from="VBoxContainer3/game14" to="." method="_on_game_14_pressed"]
+[connection signal="pressed" from="VBoxContainer3/game15" to="." method="_on_game_15_pressed"]
+[connection signal="pressed" from="VBoxContainer4/Random" to="." method="_on_random_pressed"]
+[connection signal="pressed" from="VBoxContainer4/Randomhard" to="." method="_on_randomhard_pressed"]
+[connection signal="pressed" from="VBoxContainer4/Return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="VBoxContainer5/Return_game" to="." method="_on_return_game_pressed"]

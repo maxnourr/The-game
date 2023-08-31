@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://rc8tsreyb7q1"]
+
+[ext_resource type="Script" path="res://MINIGAMES/minijeu_8/Mouse.gd" id="1_frq5q"]
+[ext_resource type="Texture2D" uid="uid://gytg0j2pe81v" path="res://MINIGAMES/minijeu_8/figures/Sponge.png" id="2_kmqw3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohqn8"]
+size = Vector2(135, 115)
+
+[node name="mouse" type="Area2D"]
+script = ExtResource("1_frq5q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_kmqw3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_ohqn8")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

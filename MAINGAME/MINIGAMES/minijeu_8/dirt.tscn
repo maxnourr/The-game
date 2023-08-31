@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7vtfbey6so5v"]
+
+[ext_resource type="Script" path="res://MINIGAMES/minijeu_8/dirt.gd" id="1_apbj5"]
+[ext_resource type="Texture2D" uid="uid://qxf670u5abdg" path="res://MINIGAMES/minijeu_8/figures/dirt.png" id="2_7vsiw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7kfy"]
+size = Vector2(116, 63.3729)
+
+[node name="dirt" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_apbj5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_7vsiw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -14)
+scale = Vector2(1, -0.725862)
+shape = SubResource("RectangleShape2D_y7kfy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -14)
+scale = Vector2(1, -0.725862)
+shape = SubResource("RectangleShape2D_y7kfy")

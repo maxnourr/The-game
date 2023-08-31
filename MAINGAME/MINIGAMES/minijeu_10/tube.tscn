@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhro02jqh1yfm"]
+
+[ext_resource type="Script" path="res://MINIGAMES/minijeu_10/tube.gd" id="1_d7sxj"]
+[ext_resource type="Texture2D" uid="uid://l2uyn4on1ju" path="res://MINIGAMES/minijeu_10/figures/Emptytube@4x.png" id="2_yjfmh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uprjt"]
+radius = 49.0
+height = 208.0
+
+[node name="tube" type="Area2D"]
+script = ExtResource("1_d7sxj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_yjfmh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(38, 36)
+shape = SubResource("CapsuleShape2D_uprjt")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 79.0
+offset_bottom = 126.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

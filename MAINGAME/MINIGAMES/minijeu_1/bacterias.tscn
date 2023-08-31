@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvgk6uh1iitqp"]
+
+[ext_resource type="Script" path="res://MINIGAMES/minijeu_1/bacterias.gd" id="1_sn4p2"]
+[ext_resource type="Texture2D" uid="uid://c40xrpi3a0bc7" path="res://MINIGAMES/minijeu_1/figures/scared bacteria.png" id="1_v1svu"]
+[ext_resource type="Texture2D" uid="uid://dufhtcmer3xme" path="res://MINIGAMES/minijeu_1/figures/happy.png" id="3_vtq6e"]
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_wgp72"]
+points = PackedVector2Array(-75, -10, 75, -10, 140, 150, -140, 150)
+
+[node name="bacterias" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_sn4p2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_v1svu")
+
+[node name="bacteria" type="Sprite2D" parent="."]
+position = Vector2(0, 72)
+scale = Vector2(0.0375, 0.0375)
+texture = ExtResource("3_vtq6e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+shape = SubResource("ConvexPolygonShape2D_wgp72")
+one_way_collision_margin = 38.5
+debug_color = Color(0.662745, 0.501961, 0.305882, 0.419608)

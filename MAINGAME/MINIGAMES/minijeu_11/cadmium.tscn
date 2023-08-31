@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ykcvnqy7tap6"]
+
+[ext_resource type="Script" path="res://MINIGAMES/minijeu_11/cadmium.gd" id="1_tqv73"]
+[ext_resource type="Texture2D" uid="uid://c02t7wajk2fqc" path="res://MINIGAMES/minijeu_11/figures/Cadmium@4x.png" id="2_u8y4w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ugsq"]
+size = Vector2(24.7892, 69.8508)
+
+[node name="cadmium" type="Area2D"]
+script = ExtResource("1_tqv73")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_u8y4w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.01937, 0.416795)
+rotation = 1.29503
+shape = SubResource("RectangleShape2D_0ugsq")
+one_way_collision_margin = 0.0
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
