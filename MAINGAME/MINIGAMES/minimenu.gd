@@ -34,11 +34,6 @@ func _on_button_pressed():
 		GlobalVar.blanck()
 		Global.reset()
 
-func _on_select_game_2_pressed():
-	Global.button_sound()
-	GlobalVar.to_best_list()
-
-
 func _on_credit_pressed():
 	Global.button_sound()
 	GlobalVar.to_credit()
@@ -52,3 +47,8 @@ func _on_how_pressed():
 func _on_template_pressed():
 	Global.button_sound()
 	GlobalVar.to_template()
+
+
+func _on_best_player_pressed():
+	Global.button_sound()
+	GlobalVar.to_best_list()
