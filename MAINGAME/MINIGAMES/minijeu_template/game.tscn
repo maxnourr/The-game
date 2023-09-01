@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://csxkw4cyiqtqx"]
 
-[ext_resource type="Script" path="res://minijeu_template/game.gd" id="1_okbpp"]
-[ext_resource type="PackedScene" uid="uid://dr5dxii37bh6t" path="res://minijeu_template/player.tscn" id="3_3wrx1"]
+[ext_resource type="Script" path="res://MINIGAMES/minijeu_template/game.gd" id="1_okbpp"]
+[ext_resource type="PackedScene" uid="uid://dr5dxii37bh6t" path="res://MINIGAMES/minijeu_template/player.tscn" id="3_3wrx1"]
 [ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="5_cf807"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s08fp"]

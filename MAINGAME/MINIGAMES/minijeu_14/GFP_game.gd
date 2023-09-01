@@ -4,7 +4,7 @@ extends Node
 var time = 10
 static var nb_obstacle = 1
 var rng = RandomNumberGenerator.new()
-var linktube = preload("res://minijeu_14/obstacle.tscn") #to create new tube
+var linktube = preload("obstacle.tscn") #to create new tube
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -121,12 +121,12 @@ func _on_button_2_pressed():
 	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
-		GlobalVar.to_load(GlobalVar.game[13])
+		GlobalVar.to_load(GlobalVar.minigame[13])
 
 
 func _on_button_3_pressed():
 	reset()
-	GlobalVar.to_game_list()
+	GlobalVar.to_minigame_list()
 	
 func reset():
 	nb_obstacle = 1

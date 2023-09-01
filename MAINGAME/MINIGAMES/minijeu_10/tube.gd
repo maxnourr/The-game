@@ -9,9 +9,9 @@ var inside = false
 static var max = 2.1
 var lose = false
 
-var empty = preload("res://minijeu_10/figures/Emptytube@4x.png")
-var half = preload("res://minijeu_10/figures/Halftube@4x.png")
-var full = preload("res://minijeu_10/figures/Filledtube@4x.png")
+var empty = preload("figures/Emptytube@4x.png")
+var half = preload("figures/Halftube@4x.png")
+var full = preload("figures/Filledtube@4x.png")
 
 func texture(T):
 	if T == "empty":

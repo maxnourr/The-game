@@ -72,7 +72,7 @@ func _on_restart_pressed():
 
 func _on_menu_pressed():
 	reset()
-	GlobalVar.to_menu()
+	GlobalVar.to_minimenu()
 	
 func reset():
 	time = 20

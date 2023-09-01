@@ -7,7 +7,7 @@ var font = preload("res://font/joystix monospace.otf")
 var brick = preload("res://sprites/brick.PNG")
 
 func _ready():
-	if Global.level == "res://tuto/tuto.tscn":
+	if GlobalVar.level == "res://tuto/tuto.tscn":
 		$tuto.visible = true
 	else:
 		$tuto.visible = false
@@ -48,7 +48,7 @@ func _process(delta):
 
 
 func _on_back_button_down():
-	get_tree().change_scene_to_file(Global.level)
+	get_tree().change_scene_to_file(GlobalVar.level)
 	
 func _button_pressed(number):
 	Genome.plasmids.pop_at(number) #delete le plasmid associé au boutton :)

@@ -84,7 +84,7 @@ func _on_button_2_pressed():
 	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
-		GlobalVar.to_load(GlobalVar.game[6])
+		GlobalVar.to_load(GlobalVar.minigame[6])
 
 #if exit area, we remove from list
 func _on_eye_area_exited(area):
@@ -109,7 +109,7 @@ func _on_water_area_entered(area):
 
 func _on_button_3_pressed():
 	reset()
-	GlobalVar.to_game_list()
+	GlobalVar.to_minigame_list()
 	
 func reset():
 	nb_trash = 10

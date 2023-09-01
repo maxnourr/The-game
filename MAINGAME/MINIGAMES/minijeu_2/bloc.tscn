@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhk51yg2eceg"]
 
-[ext_resource type="Texture2D" uid="uid://sgwm6ct4eqn2" path="res://minijeu_2/figures/bande.png" id="1_4ivqo"]
+[ext_resource type="Texture2D" uid="uid://sgwm6ct4eqn2" path="res://MINIGAMES/minijeu_2/figures/bande.png" id="1_4ivqo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rohnu"]
 size = Vector2(24, 72)

@@ -6,8 +6,8 @@ var type = "obstacle"
 static var player = null
 static var running = false
 
-var normal = preload("res://minijeu_14/figures/Mechant@4x.png")
-var gfp = preload("res://minijeu_14/figures/Mechantvert@4x.png")
+var normal = preload("figures/Mechant@4x.png")
+var gfp = preload("figures/Mechantvert@4x.png")
 
 func change(nom):
 	if nom == "gfp":

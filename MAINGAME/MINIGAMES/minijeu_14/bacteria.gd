@@ -3,8 +3,8 @@ extends Area2D
 var type = "bacteria"
 var running = false
 
-var normal = preload("res://minijeu_14/figures/Bactfaim@4x.png")
-var gfp = preload("res://minijeu_14/figures/Bactpufaim@4x.png")
+var normal = preload("figures/Bactfaim@4x.png")
+var gfp = preload("figures/Bactpufaim@4x.png")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func change(nom):
 	if nom == "gfp":

@@ -12,10 +12,10 @@ func _process(delta):
 	switch += 1
 	if switch > 50:
 			switch = 0
-			if $bacteria.texture == load("res://sprites/gauche.png"):
-				$bacteria.texture = load("res://sprites/droite.png")
+			if $bacteria.texture == load("sprites/gauche.png"):
+				$bacteria.texture = load("sprites/droite.png")
 			else:
-				$bacteria.texture = load("res://sprites/gauche.png")
+				$bacteria.texture = load("sprites/gauche.png")
 
 func _on_select_game_pressed():
 	Global.button_sound()

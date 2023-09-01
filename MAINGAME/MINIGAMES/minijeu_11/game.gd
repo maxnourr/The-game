@@ -1,7 +1,7 @@
 extends Node
 static var nb_food = 3
 var count_down_time = 10
-var linktube = preload("res://minijeu_11/cadmium.tscn") #to create new tube
+var linktube = preload("cadmium.tscn") #to create new tube
 var rng = RandomNumberGenerator.new()		
 var x = 0
 var y = 0
@@ -95,11 +95,11 @@ func _on_button_2_pressed():
 	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
-		GlobalVar.to_load(GlobalVar.game[10])
+		GlobalVar.to_load(GlobalVar.minigame[10])
 
 func _on_button_3_pressed():
 	reset()
-	GlobalVar.to_game_list()
+	GlobalVar.to_minigame_list()
 	
 func reset():
 	nb_food = 3

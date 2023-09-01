@@ -94,12 +94,12 @@ func _on_button_2_pressed():
 	if GlobalVar.on_randon == true:
 		GlobalVar.pass_game()
 	else:
-		GlobalVar.to_load(GlobalVar.game[7])
+		GlobalVar.to_load(GlobalVar.minigame[7])
 		
 
 func _on_button_3_pressed():
 	reset()
-	GlobalVar.to_game_list()
+	GlobalVar.to_minigame_list()
 	
 func reset():
 	nb_dirt = 20

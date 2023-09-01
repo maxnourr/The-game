@@ -10,7 +10,7 @@ var brick = preload("res://sprites/brick.PNG")
 
 
 func _ready():
-	if Global.level == "res://tuto/tuto.tscn":
+	if GlobalVar.level == "res://tuto/tuto.tscn":
 		$tuto.visible = true
 	else:
 		$tuto.visible = false
@@ -73,11 +73,11 @@ func _on_save_button_down():
 	Global.click()
 	if (plasmid.size() > 0):
 		Genome.plasmids.push_back(plasmid) #rajoute le plasmid créé à la liste des plasmids dans l'e-coli
-	get_tree().change_scene_to_file(Global.level)
+	get_tree().change_scene_to_file(GlobalVar.level)
 
 func _on_exit_button_down():
 	Global.click()
-	get_tree().change_scene_to_file(Global.level)
+	get_tree().change_scene_to_file(GlobalVar.level)
 	
 func _button_pressed(genome):
 	plasmid.push_back(genome)

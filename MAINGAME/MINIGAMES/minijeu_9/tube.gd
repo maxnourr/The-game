@@ -5,7 +5,7 @@ var current = 2
 var clock = true
 var wait = 0
 var to_wait =25
-var tubes = [preload("res://minijeu_9/figures/1@4x.png"),preload("res://minijeu_9/figures/2@4x.png"),preload("res://minijeu_9/figures/3@4x.png"),preload("res://minijeu_9/figures/4@4x.png"),preload("res://minijeu_9/figures/5@4x.png")]
+var tubes = [preload("figures/1@4x.png"),preload("figures/2@4x.png"),preload("figures/3@4x.png"),preload("figures/4@4x.png"),preload("figures/5@4x.png")]
 
 func _ready():
 	$Sprite2D.set_texture(tubes[2])
