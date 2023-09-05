@@ -1,88 +1,50 @@
 extends Node
 
+#for all game
 static var time = 10
+var malus = false #change the time if activated
+var win_state = ""
+
+var game_intro = "What is the growing temperature\nof this strain, again ?"
+var game_rules = "click on the button to increase/decrease\n the temperature"
+
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
-	$Button2.hide() #no restart
-	$Timer.wait_time = time #set timer
-
-	if GlobalVar.on_hard_core:
-		_on_button_pressed()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if not $Timer.is_stopped():
-		var T = max(0,round($Timer.time_left))
-		
-		$clock/time.text = str(max(0,T))
-		
-		if T == 0:
-			$Timer.stop()
-			$ColorRect.color=Color(1, 0.231, 0.231)
-			$TEXT/win_state.set_text("haha looser")
-			restart()
+func on_ready():
+	pass
 			
+func process(delta):
+	pass
+	
 func _on_plate_area_entered(area):
-	if area.type=="bad" and !$Timer.is_stopped():
-		$Timer.stop()
-		$Plate.texture("sad")
-		$ColorRect.color=Color(1, 0.231, 0.231)
-		$TEXT/win_state.set_text("haha looser")
-		restart()
+	if area.type=="bad":
+		lose()
 		
-	elif area.type=="good" and !$Timer.is_stopped():
-		$Timer.stop()
-		GlobalVar.win = true
-		GlobalVar.coins += 1
-		$ColorRect.color=Color(0.643, 1, 0.486)
-		$TEXT/win_state.set_text("you win")
-		restart()
+	elif area.type=="good":
+		win()
 
 #called if start is pressed, set timer and instanciate tubes
-func _on_button_pressed():
-	$screen.hide()
-	$Button.hide() #hide start
-	$Button3.hide()
-	#instantiate tubes
-	#set timer
+func start():
 	$LB.running = true
 	$Pizza.running = true
-	
-	$clock.visible = true
-	$clock/time.text = str(round($Timer.time_left))
-	$Timer.start()
 
-#called if restart pressed
-func _on_button_2_pressed():
-	if GlobalVar.win:
-		time = max(2,time-1)
-	if GlobalVar.on_randon == true:
-		GlobalVar.pass_game()
-	else:
-		GlobalVar.to_load(GlobalVar.minigame[3])
-
-
-func _on_button_3_pressed():
-	reset()
-	GlobalVar.to_minigame_list()
 	
 func reset():
 	time = 10
 	
 func restart(): 
-	$TEXT/explanation.text = "depending of the strain\n high salt concentration can be dangerous for bacterias\n LB medium is full of good nutriments\n to make them grow !"
 	$LB.running = false
 	$Pizza.running = false
+	return "depending of the strain\n high salt concentration can be dangerous for bacterias\n LB medium is full of good nutriments\n to make them grow !"
+
+#called if restart pressed
+func win():
+	GlobalVar.win = 1
+	GlobalVar.coins +=1
+	time = max(8,time-4)
+	win_state = "you win"
 	
-	if GlobalVar.on_hard_core:
-		_on_button_2_pressed()
-	else:
-		if not GlobalVar.win:
-			$Button2.set_text("Restart")
-		else:
-			$Button2.set_text("Continue")
-		$Button2.show() # show restart
-		$Button3.show()
-		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+func lose():
+	GlobalVar.win = -1
+	win_state = "haha looser"
+	$Plate.texture("sad")

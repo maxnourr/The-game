@@ -3,8 +3,12 @@ var play = false  #lance ou non le jeu
 var max_price = 600 #play ne peut pas passer à oui si PlayerVar.cost > à ça 
 var timer= 0
 var waiting = 0
+static var first_opening = true
 
 func _ready():
+	if first_opening:
+		Genome.plasmids = []
+		first_opening = false
 	$Victory.visible = false
 	play = false
 	PlayerVar.default()
@@ -104,10 +108,12 @@ func _on_out_button_down():
 
 
 func _on_menu_pressed():
+	first_opening = true
 	Global.click()
 	GlobalVar.to_game_list()
 
 
 func _on_next_level_button_down():
+	first_opening = true
 	Global.click()
 	GlobalVar.to_game_list()

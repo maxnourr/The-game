@@ -66,6 +66,6 @@ func _on_area_exited(area):
 #entre deux variables de deux scriptes differents
 # la fonction check si dessous permet de le faire dans le scripte node.gd
 func check(fill):
-	if fill > 0 and inside and Input.is_action_just_pressed("click"):
+	if fill > 0 and inside and Input.is_action_just_pressed("click_left"):
 		filled += 5
 		

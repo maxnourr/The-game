@@ -1,5 +1,7 @@
 extends Control
-
+var R = true
+var time = 100
+var t = 0
 
 func _ready():
 	if GlobalVar.first_open:
@@ -7,6 +9,13 @@ func _ready():
 		GlobalVar.first_open = false
 	Global.music_menu()
 
+func _process(delta):
+	t +=1
+	
+	if t == time:
+		t = 0
+		$MarginContainer/VBoxContainer/Sprite2D2.visible = !$MarginContainer/VBoxContainer/Sprite2D2.visible
+	
 func _on_select_game_pressed():
 	Global.button_sound()
 	GlobalVar.to_minigame_list()

@@ -198,3 +198,8 @@ var	titles = [
 
 
 
+
+
+func _on_how_pressed():
+	Global.button_sound()
+	GlobalVar.to_mainrule()

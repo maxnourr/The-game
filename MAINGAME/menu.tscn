@@ -87,7 +87,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_0w78h")
 theme_override_styles/normal = SubResource("StyleBoxFlat_88kqu")
-text = "Play !"
+text = "MAINGAME"
 icon = SubResource("ViewportTexture_syr1k")
 
 [node name="minigames" type="Button" parent="MarginContainer/VBoxContainer"]

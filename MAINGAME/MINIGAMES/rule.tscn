@@ -1,8 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://by4jutlars40r"]
+[gd_scene load_steps=10 format=3 uid="uid://by4jutlars40r"]
 
-[ext_resource type="Script" path="res://credit.gd" id="1_dk6jc"]
-[ext_resource type="Texture2D" uid="uid://bb6rx712hg54k" path="res://global figures/48C logo@1x.png" id="2_jsnw4"]
-[ext_resource type="AudioStream" uid="uid://d1etf8ukbb6nh" path="res://click.mp3" id="3_drubg"]
+[ext_resource type="Script" path="res://MINIGAMES/rule.gd" id="1_jxue5"]
+[ext_resource type="Texture2D" uid="uid://mewsd6qc6whj" path="res://MINIGAMES/global figures/Screenshot 2023-09-05 at 00.33.49.png" id="2_hqgk7"]
+[ext_resource type="Texture2D" uid="uid://bb6rx712hg54k" path="res://MINIGAMES/global figures/48C logo@1x.png" id="2_jsnw4"]
+[ext_resource type="AudioStream" uid="uid://d1etf8ukbb6nh" path="res://MINIGAMES/sound/click.mp3" id="3_drubg"]
+[ext_resource type="FontFile" uid="uid://bnp6wesfq4jhf" path="res://font/Super Magic.ttf" id="4_iutin"]
+[ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="6_hmlgm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crro4"]
+bg_color = Color(0.6, 0.6, 0.6, 0.890196)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.254902, 0.254902, 0.254902, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2y7w"]
+bg_color = Color(0.384314, 0.364706, 0.435294, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.92549, 0.92549, 0.92549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_m41e3"]
 
 [node name="Game list" type="Control"]
 layout_mode = 3
@@ -11,7 +38,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_dk6jc")
+script = ExtResource("1_jxue5")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -21,6 +48,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.603922, 1, 1)
+
+[node name="back" type="Sprite2D" parent="."]
+position = Vector2(582.5, 328)
+scale = Vector2(0.733627, 0.8075)
+texture = ExtResource("2_hqgk7")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(2.08165e-12, 30)
@@ -39,10 +71,13 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "How to play ? "
+theme_override_colors/font_shadow_color = Color(0.0941176, 0.215686, 0.313726, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/font = ExtResource("4_iutin")
+theme_override_font_sizes/font_size = 60
+text = "How to play ?"
 horizontal_alignment = 1
 
 [node name="space" type="Label" parent="VBoxContainer"]
@@ -52,18 +87,26 @@ horizontal_alignment = 1
 
 [node name="introd" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_iutin")
 theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_crro4")
 text = "Welcome to 48C minigames ! 
 A fun and competitive way to introduce you to the (nightmare) of lab work
 
 The game is composed of 15 minigames. You will have the choose between 3 gameplay. "
 horizontal_alignment = 1
 
-[node name="gameplay" type="Label" parent="VBoxContainer"]
+[node name="space3" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "
-- Single game mode : Select a game and play only this one. Everytime you win, the game become harder. 
+horizontal_alignment = 1
+
+[node name="gameplay" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_iutin")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_crro4")
+text = "- Single game mode : Select a game and play only this one. Everytime you win, the game become harder. 
 - survival mode : Games will follow each other randomly, and become harder and harder
 - extreme survival mode : Games will follow each other with no rest for you ! 
 
@@ -86,11 +129,16 @@ position = Vector2(526, 474.5)
 scale = Vector2(0.3, 0.321)
 texture = ExtResource("2_jsnw4")
 
-[node name="return" type="Button" parent="VBoxContainer"]
+[node name="Return" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Return"
+theme_override_fonts/font = ExtResource("6_hmlgm")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2y7w")
+text = "return
+"
+icon = SubResource("ViewportTexture_m41e3")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_drubg")
 
-[connection signal="pressed" from="VBoxContainer/return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="VBoxContainer/Return" to="." method="_on_return_pressed"]

@@ -1,6 +1,6 @@
 extends Control
 
-var label = preload("res://best_player.tscn")
+var label = preload("res://MINIGAMES/best_player.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,4 +14,4 @@ func _ready():
 
 func _on_return_game_pressed():
 	Global.button_sound()
-	GlobalVar.to_menu()
+	GlobalVar.to_minigames()

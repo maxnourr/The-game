@@ -12,13 +12,16 @@ var level
 
 #minigames
 var minigame = ["res://MINIGAMES/minijeu_1/ampi_game.tscn","res://MINIGAMES/minijeu_2/node.tscn","res://MINIGAMES/minijeu_3/Plasmid_Game.tscn","res://MINIGAMES/minijeu_4/feed_bacteria_game.tscn","res://MINIGAMES/minijeu_5/node.tscn","res://MINIGAMES/minijeu_6/node.tscn","res://MINIGAMES/minijeu_7/wash_game.tscn","res://MINIGAMES/minijeu_8/game_1.tscn","res://MINIGAMES/minijeu_9/game9.tscn","res://MINIGAMES/minijeu_10/node.tscn","res://MINIGAMES/minijeu_11/game.tscn","res://MINIGAMES/minijeu_12/centrifuge_game.tscn","res://MINIGAMES/minijeu_13/game.tscn","res://MINIGAMES/minijeu_14/GFP_game.tscn","res://MINIGAMES/minijeu_15/clothe_game.tscn"]
+var minijeu = "res://MINIGAMES/scene_global.tscn"
+var game_to_load
 var do_game = minigame.duplicate()
+
 var start_score = 0
 var current_score = 0
 var max_normal_score = 0
 var max_score = 0
 
-var win = false
+var win = 0
 var on_randon = false
 var on_hard_core = false
 var first = true
@@ -27,17 +30,17 @@ var best_score = []
 var best_player = []
 
 #rng
-var rng = RandomNumberGenerator
+var rng = RandomNumberGenerator.new()
 
 func pass_game():
-	if win or first: 
+	if win == 1 or first: 
 		if first:
 			start_score = coins
 			first = false
 		randomize()
 		if do_game.is_empty():
 			do_game = minigame.duplicate()
-		var game_to_load = do_game[randi() % do_game.size()]
+		game_to_load = do_game[randi() % do_game.size()]
 		do_game.erase(game_to_load)
 		to_load(game_to_load)
 	else: 
@@ -45,9 +48,13 @@ func pass_game():
 		to_minigame_list()
 		
 func to_load(G):
-	win = false
-	if G in game or G in minigame :
+	win = 0
+	if G in game :
 		get_tree().change_scene_to_file(G)
+	elif G in minigame or G == "res://MINIGAMES/minijeu_template/game.tscn":
+		game_to_load = G
+		get_tree().change_scene_to_file(minijeu)
+		
 	
 func to_menu():
 	get_tree().change_scene_to_file("res://menu.tscn")
@@ -69,9 +76,12 @@ func to_best_list():
 	
 func to_rule():
 	get_tree().change_scene_to_file("res://MINIGAMES/rule.tscn")
+
+func to_mainrule():
+	get_tree().change_scene_to_file("res://rule.tscn")
 	
 func to_template():
-	get_tree().change_scene_to_file("res://MINIGAMES/minijeu_template/game.tscn")
+	to_load("res://MINIGAMES/minijeu_template/game.tscn")
 # Note: This can be called from anywhere inside the tree. This function is
 # path independent.
 # Go through everything in the persist category and ask them to return a
@@ -96,7 +106,9 @@ func load_game():
 		var save_dict = file.get_var()
 		coins = save_dict.coins
 		current_level = save_dict.current_level
-		max_level = save_dict.max_level
+		max_level = 8
+		#max_level = save_dict.max_level
+		
 		
 		max_normal_score = save_dict.max_normal_score
 		max_score = save_dict.max_score

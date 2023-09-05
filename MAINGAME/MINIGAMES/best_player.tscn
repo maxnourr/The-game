@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://bs27n5ffwib34"]
+[gd_scene load_steps=2 format=3 uid="uid://bs27n5ffwib34"]
+
+[ext_resource type="FontFile" uid="uid://bnp6wesfq4jhf" path="res://font/Super Magic.ttf" id="1_qy0ep"]
 
 [node name="Label" type="Label"]
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_colors/font_shadow_color = Color(0, 0, 1, 1)
+theme_override_fonts/font = ExtResource("1_qy0ep")
 theme_override_font_sizes/font_size = 30
 text = "Testing"

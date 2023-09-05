@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b0tv17ivqoc1f"]
+[gd_scene load_steps=17 format=3 uid="uid://b0tv17ivqoc1f"]
 
 [ext_resource type="Script" path="res://MINIGAMES/minijeu_15/clothe_game.gd" id="1_ky7hf"]
 [ext_resource type="Texture2D" uid="uid://dujr2crumufmu" path="res://MINIGAMES/minijeu_15/figures/background.png" id="2_co1w0"]
@@ -16,22 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://b0luxt2aqycwl" path="res://MINIGAMES/minijeu_15/figures/hair-attach.png" id="14_xlff1"]
 [ext_resource type="Texture2D" uid="uid://dxnieh5byuujx" path="res://MINIGAMES/minijeu_15/figures/mask.png" id="15_oh0hc"]
 [ext_resource type="Texture2D" uid="uid://cypnaiy1v6rdn" path="res://MINIGAMES/minijeu_15/figures/carnaval.png" id="16_wmhgm"]
-[ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="17_f2lv2"]
 
 [node name="clothe_Game" type="Node"]
 script = ExtResource("1_ky7hf")
-
-[node name="BackGround" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.870607, 0.998954, 0.983926, 1)
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
-one_shot = true
 
 [node name="body" type="Area2D" parent="."]
 position = Vector2(483.6, 299.4)
@@ -238,115 +225,6 @@ position = Vector2(320.8, -404.8)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("16_wmhgm")
 
-[node name="clock" parent="." instance=ExtResource("17_f2lv2")]
-visible = false
-
-[node name="screen" type="ColorRect" parent="."]
-self_modulate = Color(0.00392157, 0, 0.313726, 0.666667)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TEXT" type="CanvasLayer" parent="."]
-
-[node name="win_state" type="Label" parent="TEXT"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 69.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 0.603922, 1, 1)
-theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 50
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="explanation" type="Label" parent="TEXT"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -254.0
-offset_top = -38.0
-offset_right = 254.0
-offset_bottom = 38.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 0.603922, 1, 1)
-theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 40
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.5
-offset_top = -35.5
-offset_right = 75.5
-offset_bottom = 35.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "Start"
-
-[node name="Label" type="Label" parent="Button"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -550.0
-offset_top = -214.5
-offset_right = 540.0
-offset_bottom = -70.5
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
-theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 50
-text = "You are going to the lab
-Dress accordingly"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="Button"]
-layout_mode = 0
-offset_left = -369.5
-offset_top = 122.5
-offset_right = 517.5
-offset_bottom = 266.5
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
-theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 50
-text = "left mouse click/pad click : 
-select/deselect an item"
-horizontal_alignment = 1
-
-[node name="Button2" type="Button" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -92.0
-offset_top = -76.0
-offset_right = 92.0
-offset_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 50
-text = "Restart"
-
 [node name="ProgressBar" type="ProgressBar" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
@@ -360,29 +238,6 @@ min_value = -5.0
 max_value = 5.0
 step = 1.0
 
-[node name="Button3" type="Button" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -184.0
-offset_bottom = 77.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 50
-text = "to menu"
-
-[node name="Label" type="Label" parent="Button3"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -61.0
-offset_bottom = 35.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 20
-text = "coins :"
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="body/p" to="." method="_on_p_pressed"]
 [connection signal="pressed" from="body/sho" to="." method="_on_sho_pressed"]
 [connection signal="pressed" from="body/sunglass" to="." method="_on_sunglass_pressed"]
@@ -397,6 +252,3 @@ text = "coins :"
 [connection signal="pressed" from="body/h_c" to="." method="_on_h_c_pressed"]
 [connection signal="pressed" from="body/m" to="." method="_on_m_pressed"]
 [connection signal="pressed" from="body/c" to="." method="_on_c_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

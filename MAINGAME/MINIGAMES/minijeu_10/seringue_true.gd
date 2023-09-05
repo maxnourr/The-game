@@ -21,7 +21,7 @@ func _process(delta):
 		position.x = mouse_x
 		position.y = mouse_y
 	# scotch la seringue à la souris
-		if Input.is_action_just_pressed("click") and fill > 0:
+		if Input.is_action_just_pressed("click_left") and fill > 0:
 			fill = fill - 5
 		#vide la seringue, possible même en dehors d'une fiole
 		

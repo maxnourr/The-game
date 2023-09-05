@@ -1,11 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi4gelx5xhmki"]
+[gd_scene load_steps=9 format=3 uid="uid://bi4gelx5xhmki"]
 
 [ext_resource type="Script" path="res://MINIGAMES/minimenu.gd" id="1_07l24"]
 [ext_resource type="Texture2D" uid="uid://bb6rx712hg54k" path="res://MINIGAMES/global figures/48C logo@1x.png" id="2_1sqyt"]
+[ext_resource type="Texture2D" uid="uid://mewsd6qc6whj" path="res://MINIGAMES/global figures/Screenshot 2023-09-05 at 00.33.49.png" id="2_grm35"]
 [ext_resource type="FontFile" uid="uid://bnp6wesfq4jhf" path="res://font/Super Magic.ttf" id="3_2tt2x"]
+[ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="4_sejrf"]
+[ext_resource type="Texture2D" uid="uid://dufhtcmer3xme" path="res://MINIGAMES/minijeu_1/figures/happy.png" id="5_5yenb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vc7ra"]
-bg_color = Color(0.435294, 0.137255, 0.921569, 1)
+bg_color = Color(0.384314, 0.364706, 0.435294, 1)
 border_width_right = 5
 border_width_bottom = 5
 border_color = Color(0.92549, 0.92549, 0.92549, 1)
@@ -13,6 +16,8 @@ corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
+expand_margin_top = 1.0
+expand_margin_bottom = 3.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_m82qu"]
 
@@ -40,7 +45,12 @@ offset_bottom = -160.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.17356, 1.28402)
-color = Color(1, 0.603922, 1, 1)
+color = Color(0.545098, 0.713726, 0.984314, 1)
+
+[node name="back" type="Sprite2D" parent="."]
+position = Vector2(582.5, 311)
+scale = Vector2(0.733627, 0.8075)
+texture = ExtResource("2_grm35")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -49,10 +59,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -232.0
-offset_top = -291.5
-offset_right = 232.0
-offset_bottom = 291.5
+offset_left = -198.5
+offset_top = -280.5
+offset_right = 198.5
+offset_bottom = 280.5
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.00249294
@@ -60,12 +70,20 @@ pivot_offset = Vector2(172, 73.5)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="Sprite2D2" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+self_modulate = Color(100, 100, 100, 0.796078)
+position = Vector2(206.302, 396.412)
+rotation = -0.00256082
+scale = Vector2(0.822935, 0.747456)
+skew = 0.000133872
+texture = ExtResource("2_1sqyt")
 
 [node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
-position = Vector2(234.795, 386.328)
+position = Vector2(192.258, 381.451)
 rotation = -0.00256082
-scale = Vector2(0.825503, 0.747456)
+scale = Vector2(0.822935, 0.747456)
 skew = 0.000133872
 texture = ExtResource("2_1sqyt")
 
@@ -74,14 +92,14 @@ layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0.0941176, 0.215686, 0.313726, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_fonts/font = ExtResource("3_2tt2x")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 30
 text = "WELCOME TO 48C MINIGAMES"
 horizontal_alignment = 1
 
 [node name="select game" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_2tt2x")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("4_sejrf")
+theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_vc7ra")
 text = "select game
 "
@@ -89,8 +107,8 @@ icon = SubResource("ViewportTexture_m82qu")
 
 [node name="how" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_2tt2x")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("4_sejrf")
+theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_vc7ra")
 text = "How to play ? 
 "
@@ -98,8 +116,8 @@ icon = SubResource("ViewportTexture_m82qu")
 
 [node name="best_player" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_2tt2x")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("4_sejrf")
+theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_vc7ra")
 text = "best extreme survival players
 "
@@ -107,16 +125,16 @@ icon = SubResource("ViewportTexture_m82qu")
 
 [node name="template" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_2tt2x")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("4_sejrf")
+theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_vc7ra")
 text = "minigame template !"
 icon = SubResource("ViewportTexture_m82qu")
 
 [node name="quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_2tt2x")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("4_sejrf")
+theme_override_font_sizes/font_size = 15
 theme_override_styles/normal = SubResource("StyleBoxFlat_vc7ra")
 text = "return
 "
@@ -130,6 +148,12 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
+
+[node name="Happy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(198, 359)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_5yenb")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/select game" to="." method="_on_select_game_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/how" to="." method="_on_how_pressed"]

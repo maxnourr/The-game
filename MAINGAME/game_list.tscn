@@ -149,6 +149,15 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 30
 
+[node name="How" type="Button" parent="VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("7_e1co2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_g63ov")
+text = "How to 
+Play ?"
+
 [node name="Return" type="Button" parent="VBoxContainer4"]
 layout_mode = 2
 size_flags_vertical = 0
@@ -283,6 +292,7 @@ text = "Start"
 [connection signal="pressed" from="level 6" to="." method="_on_level_6_pressed"]
 [connection signal="pressed" from="level 7" to="." method="_on_level_7_pressed"]
 [connection signal="pressed" from="level 8" to="." method="_on_level_8_pressed"]
+[connection signal="pressed" from="VBoxContainer4/How" to="." method="_on_how_pressed"]
 [connection signal="pressed" from="VBoxContainer4/Return" to="." method="_on_return_pressed"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="file/x" to="." method="_on_x_pressed"]

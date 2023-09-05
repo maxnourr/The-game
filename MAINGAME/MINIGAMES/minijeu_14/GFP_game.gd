@@ -1,90 +1,42 @@
 extends Node
 
-#timer
+#for all game
 var time = 10
+var malus = false #change the time if activated
+var win_state = ""
+
+var game_intro = "Your bacteria need to catch the GFP (green)\nBe careful not to be catched before"
+var game_rules = "directional arrows : move the bacteria"
+
+#timer
 static var nb_obstacle = 1
-var rng = RandomNumberGenerator.new()
 var linktube = preload("obstacle.tscn") #to create new tube
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	$Button2.hide() #no restart
-	$Timer.wait_time = time #set timer
-	
-	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
-	
+func on_ready():
 	$Obstacle.set_player($bacteria)
-	
-	if GlobalVar.on_hard_core:
-		_on_button_pressed()
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func process(delta):
+	
+	if $Obstacle.touched == true or $GFP.destroyed ==true :
+		lose()
 		
-	#if timer running we update
-	if not $Timer.is_stopped():
-		#do not successed to remove time from timer
-		var T = max(0,round($Timer.time_left))
-		
-		#update time
-		$clock/time.text = str(max(0,T))
-		
-
-		
-		if $Obstacle.touched == true:
-			$BackGround.color=Color(1, 0.231, 0.231)
-			$TEXT/win_state.text = "haha looser"
-			restart()
-		
-		#check if won
-		
-		if $GFP.taken == true:
-			GlobalVar.win = true
-			$BackGround.color=Color(0.643, 1, 0.486)
-			$TEXT/win_state.text = "yes you won!!"
-			GlobalVar.coins += 1
-			$Timer.stop()
-			restart()
+	if $GFP.taken == true:
+		win()
 			
-		if $GFP.destroyed ==true :
-			$BackGround.color=Color(1, 0.231, 0.231)
-			$TEXT/win_state.text = "haha looser"
-			restart()
-			
-		
-		#if time runs out (do not use signal because of malus
-		if T == 0:
-			$BackGround.color=Color(1, 0.231, 0.231)
-			$TEXT/win_state.text = "haha looser"
-			restart()
 
 
 func restart(): 
-	$TEXT/explanation.text = "You can modify bacteria so they express GFP\nwhen they do they appear fluorescent and green\n it is use for verification of expression"
 	$Obstacle.running = false
 	$bacteria.running = false
 	$Obstacle.touched = false
-	
-	if GlobalVar.on_hard_core:
-		_on_button_2_pressed()
-	else:
-		if not GlobalVar.win:
-			$Button2.set_text("Restart")
-		else:
-			$Button2.set_text("Continue")
-		$Button2.show() # show restart
-		$Button3.show()
-		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+	return "You can modify bacteria so they express GFP\nwhen they do they appear fluorescent and green\n it is use for verification of expression"
 	
 
 #called if start is pressed, set timer and instanciate tubes
-func _on_button_pressed():
-	$screen.hide()
-	$Button.hide() #hide start	
-	$Button3.hide()
-	#set timer
-	$clock/time.text = str(round($Timer.time_left))
+func start():
 	$bacteria.running = true
 	$Obstacle.running = true
 	
@@ -102,31 +54,25 @@ func _on_button_pressed():
 			randomize()
 			
 			if n in range(0,nb_obstacle/2):
-				obstacle.position.x = rng.randi_range(0,1152/6-100)
-				obstacle.position.y = rng.randi_range(0,648)
+				obstacle.position.x = GlobalVar.rng.randi_range(0,1152/6-100)
+				obstacle.position.y = GlobalVar.rng.randi_range(0,648)
 			else:
-				obstacle.position.x = rng.randi_range(5*1152/6+100,1152)
-				obstacle.position.y = rng.randi_range(0,648)
+				obstacle.position.x = GlobalVar.rng.randi_range(5*1152/6+100,1152)
+				obstacle.position.y = GlobalVar.rng.randi_range(0,648)
 			
 			obstacle.set_player($bacteria)
 			add_child(obstacle)
 	
-	$clock.visible = true		
-	$Timer.start()
-
-#called if restart pressed
-func _on_button_2_pressed():
-	if GlobalVar.win:
-		nb_obstacle += 1
-	if GlobalVar.on_randon == true:
-		GlobalVar.pass_game()
-	else:
-		GlobalVar.to_load(GlobalVar.minigame[13])
-
-
-func _on_button_3_pressed():
-	reset()
-	GlobalVar.to_minigame_list()
 	
 func reset():
 	nb_obstacle = 1
+
+func win():
+	nb_obstacle += 1
+	GlobalVar.win = 1
+	GlobalVar.coins +=1
+	win_state = "you win"
+	
+func lose():
+	GlobalVar.win = -1
+	win_state = "haha looser"

@@ -1,7 +1,16 @@
 extends Node
 
+
+#for all game
+static var time = 15
+var malus = false #change the time if activated
+var win_state = ""
+var run = false
+
+var game_intro = "The centrifuge need to be equilibrated \nSo it will not break"
+var game_rules = "But the tubes on the right places"
+
 var move = false
-var rng = RandomNumberGenerator.new()
 
 var current_number = 1
 
@@ -12,16 +21,9 @@ var green_number = 0
 var blue_number = 0
 var pink_number = 0
 
-static var time = 15
 
-func _ready():
-	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
-	$Button2.hide() #no restart
-	$Timer.wait_time = time #set timer
-	
-	if GlobalVar.on_hard_core:
-		_on_button_pressed()
-
+func on_ready():
+	pass
 
 
 func random():
@@ -69,68 +71,20 @@ func sens_fleche():
 		
 func verify():
 	if (red_number == goal1  and green_number == goal2) or (red_number == goal2 and green_number == goal1):
-		
-		$ColorRect.color=Color(0.643, 1, 0.486)
-		$TEXT/win_state.text = "you win!"
-		move = false
-		GlobalVar.win = true
-		GlobalVar.coins +=1
-		$Timer.stop()
-		restart()
+		win()
 
-func _process(delta):
-	
-	var T = max(0,round($Timer.time_left))
-		#update time
-		
-	#if timer running we update
-	if not $Timer.is_stopped():
-		$clock/time.text = str(max(0,T))
-		#if time runs out (do not use signal because of malus
-		if T == 0:
-			$ColorRect.color=Color(1, 0.231, 0.231)
-			$TEXT/win_state.text = "haha looser"
-			restart()
+func process(delta):
+	pass
 	
 func restart(): 
-	$TEXT/explanation.text = "the centrifuge goes very fast\n whithout being equilibrated, it can break"
-	if GlobalVar.on_hard_core:
-		_on_button_2_pressed()
-	else:
-		if not GlobalVar.win:
-			$Button2.set_text("Restart")
-		else:
-			$Button2.set_text("Continue")
-		$Button2.show() # show restart
-		$Button3.show()
-		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+	return "the centrifuge goes very fast\n whithout being equilibrated, it can break"
+	
 		
 
-func _on_button_pressed():
-	$screen.hide()
-	$Button.hide() #hide start	
-	$Button3.hide()
-	#set timer
-	$clock.visible = true
-	$clock/time.text = str(round($Timer.time_left))
+func start():
 	move = true
 	random()
 	sens_fleche()
-	$Timer.start()
-
-#called if restart pressed
-func _on_button_2_pressed():
-	if GlobalVar.win:
-		time = max(5,time-5)
-	if GlobalVar.on_randon == true:
-		GlobalVar.pass_game()
-	else:
-		GlobalVar.to_load(GlobalVar.minigame[11])
-		
-
-func _on_button_3_pressed():
-	reset()
-	GlobalVar.to_minigame_list()
 	
 func reset():
 	time = 15
@@ -194,3 +148,15 @@ func parent(child: Node, new_parent: Node):
 	old_parent.remove_child(child)
 	new_parent.add_child(child)
 
+#called if restart pressed
+func win():
+	move = false
+	time = max(5,time-5)
+	GlobalVar.win = 1
+	GlobalVar.coins +=1
+	win_state = "you win"
+	
+func lose():
+	move = false
+	GlobalVar.win = -1
+	win_state = "haha looser"

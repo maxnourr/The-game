@@ -109,7 +109,7 @@ func _process(delta):
 func _on_return_pressed():
 	Global.button_sound()
 	GlobalVar.save_game()
-	GlobalVar.to_menu()
+	GlobalVar.to_minigames()
 
 
 func _on_return_game_pressed():

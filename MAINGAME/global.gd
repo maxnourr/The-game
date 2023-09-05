@@ -3,7 +3,7 @@ extends Node
 var music = true
 
 func reset():
-	for g in GlobalVar.game:
+	for g in GlobalVar.minigame:
 		var level = load(g).instantiate()
 		level.reset()
 		level.queue_free()

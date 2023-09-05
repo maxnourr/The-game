@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://blaoklvesr4v3"]
+[gd_scene load_steps=9 format=3 uid="uid://blaoklvesr4v3"]
 
 [ext_resource type="Script" path="res://MINIGAMES/minigame list.gd" id="1_akeev"]
 [ext_resource type="Texture2D" uid="uid://bb6rx712hg54k" path="res://MINIGAMES/global figures/48C logo@1x.png" id="2_ak455"]
+[ext_resource type="Texture2D" uid="uid://mewsd6qc6whj" path="res://MINIGAMES/global figures/Screenshot 2023-09-05 at 00.33.49.png" id="2_r7aod"]
+[ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="3_n74q1"]
 [ext_resource type="AudioStream" uid="uid://d1etf8ukbb6nh" path="res://MINIGAMES/sound/click.mp3" id="3_rpkwv"]
+[ext_resource type="FontFile" uid="uid://bnp6wesfq4jhf" path="res://font/Super Magic.ttf" id="4_h17eq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yg7ia"]
+bg_color = Color(0.384314, 0.364706, 0.435294, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.92549, 0.92549, 0.92549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ee3nt"]
 
 [node name="Game list" type="Control"]
 layout_mode = 3
@@ -18,9 +33,18 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -14.0
+offset_right = -171.0
+offset_bottom = -160.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(1, 0.603922, 1, 1)
+scale = Vector2(1.17356, 1.28402)
+color = Color(0.545098, 0.713726, 0.984314, 1)
+
+[node name="back" type="Sprite2D" parent="."]
+position = Vector2(582.5, 311)
+scale = Vector2(0.733627, 0.8075)
+texture = ExtResource("2_r7aod")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(576, 540)
@@ -35,30 +59,49 @@ offset_top = 100.0
 offset_right = 374.0
 offset_bottom = 476.0
 
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "  "
-horizontal_alignment = 1
-
 [node name="game1" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Game 1"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 1
+"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="game2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Game 2"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 2
+"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="game3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Game 3"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 3
+"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="game4" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Game 4"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 4
+"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="game5" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Game 5"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 5"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -74,30 +117,57 @@ offset_bottom = 152.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer2"]
+[node name="Label2" type="Label" parent="VBoxContainer2"]
 layout_mode = 2
-text = "Select Game"
+theme_override_colors/font_shadow_color = Color(0.0941176, 0.215686, 0.313726, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/font = ExtResource("4_h17eq")
+theme_override_font_sizes/font_size = 30
+text = "select game"
 horizontal_alignment = 1
 
 [node name="game6" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-text = "Game 6"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 6"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="game7" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-text = "Game 7"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 7
+"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="game8" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-text = "Game 8"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 8
+"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="game9" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-text = "Game 9"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 9
+"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="game10" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-text = "Game 10"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 10"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -106,30 +176,48 @@ offset_top = 100.0
 offset_right = 1052.0
 offset_bottom = 476.0
 
-[node name="Label" type="Label" parent="VBoxContainer3"]
-layout_mode = 2
-text = "   "
-horizontal_alignment = 1
-
 [node name="game11" type="Button" parent="VBoxContainer3"]
 layout_mode = 2
-text = "Game 11"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 11"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="game12" type="Button" parent="VBoxContainer3"]
 layout_mode = 2
-text = "Game 12"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 12
+"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="game13" type="Button" parent="VBoxContainer3"]
 layout_mode = 2
-text = "Game 13"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 13
+"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="game14" type="Button" parent="VBoxContainer3"]
 layout_mode = 2
-text = "Game 14"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 14
+"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="game15" type="Button" parent="VBoxContainer3"]
 layout_mode = 2
-text = "Game 15"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "game 15"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -147,15 +235,27 @@ grow_vertical = 2
 
 [node name="Random" type="Button" parent="VBoxContainer4"]
 layout_mode = 2
-text = "Survival mode !"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "Survival mode"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="Randomhard" type="Button" parent="VBoxContainer4"]
 layout_mode = 2
-text = "Extreme survival mode !!!"
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
+text = "Extreme survival mode !"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="Return" type="Button" parent="VBoxContainer4"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
 text = "Return"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="."]
 visible = false
@@ -177,14 +277,14 @@ alignment = 1
 
 [node name="speed_run_end" type="Label" parent="VBoxContainer5"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 50
+theme_override_colors/font_shadow_color = Color(0.0941176, 0.215686, 0.313726, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/font = ExtResource("4_h17eq")
+theme_override_font_sizes/font_size = 60
+text = "How to play ?"
 horizontal_alignment = 1
 
 [node name="TextEdit" type="TextEdit" parent="VBoxContainer5"]
-visible = false
 layout_direction = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
@@ -192,7 +292,11 @@ scroll_fit_content_height = true
 
 [node name="Return_game" type="Button" parent="VBoxContainer5"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_n74q1")
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_yg7ia")
 text = "Return"
+icon = SubResource("ViewportTexture_ee3nt")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -201,6 +305,7 @@ offset_bottom = 45.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_n74q1")
 theme_override_font_sizes/font_size = 20
 text = "hello"
 

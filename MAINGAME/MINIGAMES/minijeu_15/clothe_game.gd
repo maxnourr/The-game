@@ -1,8 +1,14 @@
 
 extends Node
 
-#timer
+#for all game
 static var time = 15
+var malus = false #change the time if activated
+var win_state = ""
+var running = false
+
+var game_intro = "You are going to the lab\nDress accordingly"
+var game_rules = "left mouse click/pad click : \nselect/deselect an item"
 
 #object
 var sunglasses = false
@@ -22,44 +28,16 @@ var hair_l = false
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
-	$Button2.hide() #no restart
-	$Timer.wait_time = time #set timer
-	
-	if GlobalVar.on_hard_core:
-		_on_button_pressed()
+func on_ready():
+	pass
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-		
-		
-	#if timer running we update
-	if not $Timer.is_stopped():
-		#if malus we remove some time
-		#do not successed to remove time from timer
-		var T = max(0,round($Timer.time_left))
-		#update time
-		$clock/time.text = str(max(0,T))
-		#if time runs out
-		if T == 0:
-			$BackGround.color=Color(1, 0.231, 0.231)
-			$TEXT/win_state.text = "haha looser"
-			restart()
+func process(delta):
+	pass
 
 func restart(): 
-	$TEXT/explanation.text = "you have to wear glasses, glove, blouse,\n shoes, mask in some case\n and please no eating in the lab !"
-	if GlobalVar.on_hard_core:
-		_on_button_2_pressed()
-	else:
-		if not GlobalVar.win:
-			$Button2.set_text("Restart")
-		else:
-			$Button2.set_text("Continue")
-		$Button2.show() # show restart
-		$Button3.show()
-		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+	return "you have to wear glasses, glove, blouse,\n shoes, mask in some case\n and please no eating in the lab !"
 	
 func verify():
 	var value = -7
@@ -98,132 +76,117 @@ func verify():
 	
 	#if you have the max -> you win
 	if value == 7:
-		$ProgressBar.visible = false
-		$Timer.stop()
-		
-		$BackGround.color=Color(0.643, 1, 0.486)
-		$TEXT/win_state.text = "you win"
-		GlobalVar.win = true
-		GlobalVar.coins +=1
-		restart()
+		win()
 			
 				
 
 #called if start is pressed, set timer and instanciate tubes
-func _on_button_pressed():
-	$screen.hide()
-	$Button.hide() #hide start
-	$Button3.hide()
-	#set timer
-	$clock.visible = true
-	$clock/time.text = str(round($Timer.time_left))
-	$Timer.start()
-
-#called if restart pressed
-func _on_button_2_pressed():
-	if GlobalVar.win:
-		time = max(5,time-3)
-	if GlobalVar.on_randon == true:
-		GlobalVar.pass_game()
-	else:
-		GlobalVar.to_load(GlobalVar.minigame[14])
-
+func start():
+	running = true
 
 func _on_sunglass_pressed():
-	if !$Timer.is_stopped():
+	if running:
 		sunglasses = !sunglasses
 		$body/sunglasses.visible = !$body/sunglasses.visible
 		verify()
 
 
 func _on_pglass_pressed():
-	if !$Timer.is_stopped():
+	if running:
 		protectglass = !protectglass
 		$body/protectglass.visible = !$body/protectglass.visible
 		verify()
 
 func _on_b_pressed():
-	if !$Timer.is_stopped():
+	if running:
 		blouse = !blouse
 		$body/blouse.visible = !$body/blouse.visible
 		verify()
 
 func _on_t_pressed():
-	if !$Timer.is_stopped():
+	if running:
 		teeshirt = !teeshirt
 		$body/teeshirt.visible = !$body/teeshirt.visible
 		verify()
 
 func _on_p_pressed():
-	if !$Timer.is_stopped():
+	if running:
 		pant = !pant
 		$body/pant.visible = !$body/pant.visible
 		verify()
 
 func _on_s_pressed():
-	if !$Timer.is_stopped():
+	if running:
 		shoes = !shoes
 		$body/shoes.visible = !$body/shoes.visible
 		verify()
 
 func _on_sho_pressed():
-	if !$Timer.is_stopped():
+	if running:
 		short = !short
 		$body/short.visible = !$body/short.visible
 		verify()
 
 func _on_pensho_pressed():
-	if !$Timer.is_stopped():
+	if running:
 		openshoes = !openshoes
 		$body/openshoes.visible = !$body/openshoes.visible
 		verify()
 
 func _on_m_pressed():
-	if !$Timer.is_stopped():
+	if running:
 		mask = !mask
 		$body/mask.visible = !$body/mask.visible
 		verify()
 
 func _on_c_pressed():
-	if !$Timer.is_stopped():
+	if running:
 		carnaval = !carnaval
 		$body/carnaval.visible = !$body/carnaval.visible
 		verify()
 
 func _on_g_pressed():
-	if !$Timer.is_stopped():
+	if running:
 		gant = !gant
 		$body/gant.visible = !$body/gant.visible
 		verify()
 
 
 func _on_bana_pressed():
-	if !$Timer.is_stopped():
+	if running:
 		banana = !banana
 		$body/banana.visible = !$body/banana.visible
 		verify()
 	
 
 func _on_h_c_pressed():
-	if !$Timer.is_stopped():
+	if running:
 		hair_c = !hair_c
 		$body/hair_c.visible = !$body/hair_c.visible
 		verify()
 
 func _on_h_l_pressed():
-	if !$Timer.is_stopped():
+	if running:
 		hair_l = !hair_l
 		$body/hair_l.visible = !$body/hair_l.visible
 		verify()
 
-func _on_button_3_pressed():
-	reset()
-	GlobalVar.to_minigame_list()
 	
 func reset():
 	time = 15
 
-
-
+func win():
+	running = false
+	time = max(5,time-3)
+	$ProgressBar.visible = false
+	GlobalVar.win = 1
+	GlobalVar.coins +=1
+	win_state = "you win"
+	
+func lose():
+	running = false
+	$ProgressBar.visible = false
+	GlobalVar.win = -1
+	win_state = "haha looser"
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5rlfsjjhmiop"]
+[gd_scene load_steps=12 format=3 uid="uid://b5rlfsjjhmiop"]
 
 [ext_resource type="Script" path="res://MINIGAMES/minijeu_12/centrifuge_game.gd" id="1_jcujt"]
 [ext_resource type="PackedScene" uid="uid://chip3scg6k3tt" path="res://MINIGAMES/minijeu_12/fleche.tscn" id="2_74skg"]
@@ -8,22 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://b8x5g6pmqlmpw" path="res://MINIGAMES/minijeu_12/figures/down.jpg" id="4_0vhkg"]
 [ext_resource type="Texture2D" uid="uid://vv7n4f5bseb1" path="res://MINIGAMES/minijeu_12/figures/Verttube@4x.png" id="4_mvbth"]
 [ext_resource type="Texture2D" uid="uid://iqmfoflcdbbt" path="res://MINIGAMES/minijeu_12/figures/Rougetubedessus@4x.png" id="7_c4711"]
-[ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="8_35pnl"]
 [ext_resource type="Texture2D" uid="uid://toboee6rq7xa" path="res://MINIGAMES/minijeu_12/figures/Verttubedessus@4x.png" id="8_aq3cv"]
 [ext_resource type="Texture2D" uid="uid://dmjp8pa51ootx" path="res://MINIGAMES/minijeu_12/figures/Bleutubedessus@4x.png" id="10_ljfug"]
 [ext_resource type="Texture2D" uid="uid://coahnf4hlreac" path="res://MINIGAMES/minijeu_12/figures/Rosetubedessus@4x.png" id="11_lknrv"]
 
 [node name="centrifuge_game" type="Node"]
 script = ExtResource("1_jcujt")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_default_cursor_shape = 2
-color = Color(0.870607, 0.998954, 0.983926, 1)
 
 [node name="fleche" parent="." instance=ExtResource("2_74skg")]
 position = Vector2(837, 297)
@@ -67,140 +57,6 @@ icon = ExtResource("3_ijjod")
 [node name="down" type="Button" parent="turn"]
 layout_mode = 2
 icon = ExtResource("4_0vhkg")
-
-[node name="clock" parent="." instance=ExtResource("8_35pnl")]
-visible = false
-
-[node name="screen" type="ColorRect" parent="."]
-self_modulate = Color(0.00392157, 0, 0.313726, 0.666667)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TEXT" type="CanvasLayer" parent="."]
-
-[node name="win_state" type="Label" parent="TEXT"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 69.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 0.603922, 1, 1)
-theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 50
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="explanation" type="Label" parent="TEXT"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -254.0
-offset_top = -38.0
-offset_right = 254.0
-offset_bottom = 38.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(1, 0.603922, 1, 1)
-theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 40
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
-[node name="Button" type="Button" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -63.0
-offset_top = -38.5
-offset_right = 63.0
-offset_bottom = 38.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 50
-text = "Start
-"
-
-[node name="Label" type="Label" parent="Button"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -551.0
-offset_top = -211.5
-offset_right = 539.0
-offset_bottom = -67.5
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
-theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 50
-text = "The centrifuge need to be equilibrated 
-So it will not break"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="Button"]
-layout_mode = 0
-offset_left = -375.0
-offset_top = 122.5
-offset_right = 512.0
-offset_bottom = 266.5
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0.784314, 1, 1, 1)
-theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 50
-text = "But the tubes on the right places"
-horizontal_alignment = 1
-
-[node name="Button2" type="Button" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -92.0
-offset_top = -77.0
-offset_right = 92.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 50
-text = "Restart
-"
-
-[node name="Button3" type="Button" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -184.0
-offset_bottom = 77.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 50
-text = "to menu"
-
-[node name="Label" type="Label" parent="Button3"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -61.0
-offset_bottom = 35.0
-grow_horizontal = 0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 20
-text = "coins :"
 
 [node name="blue" type="Sprite2D" parent="."]
 visible = false
@@ -246,8 +102,5 @@ expand_icon = true
 [connection signal="pressed" from="tubes/green" to="." method="_on_green_pressed"]
 [connection signal="pressed" from="turn/up" to="." method="_on_up_pressed"]
 [connection signal="pressed" from="turn/down" to="." method="_on_down_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="red/red_button" to="." method="_on_red_button_pressed"]
 [connection signal="pressed" from="green/green_button" to="." method="_on_green_button_pressed"]

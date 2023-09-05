@@ -1,84 +1,47 @@
 extends Node
 var required = 130
+
+#for all game
 var time = 15
+var malus = false #change the time if activated
+var win_state = ""
 
-func _ready():
-	$Button3/Label.set_text("coins : " + str(GlobalVar.coins))
-	$Button2.hide() #no restart
-	$Timer.wait_time = time #set timer
-	
-	if GlobalVar.on_hard_core:
-		_on_button_pressed()
+var game_intro = "theophyllin is quite toxic...\nfill the tube with the right amount\nwithout too much waste"
+var game_rules = "the bottle follow the mouse\nbut you are shaking..."
 
+func on_ready():
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if !$Timer.is_stopped():
-		var T = max(0,round($Timer.time_left))
-		#update time
-		$clock/time.text = str(max(0,T))
-		
-		#if time runs out (do not use signal because of malus
-		if T == 0:
-			$Timer.stop()
-			$tube.moving = false
-			$salt.moving = false
-			$BackGround.color=Color(1, 0.231, 0.231)
-			$TEXT/win_state.text = "haha looser"
-			restart()
+func process(delta):
 			
-			
-		if $tube.filled >= $tube.required:
-			GlobalVar.win = true
-			$Timer.stop()
-			$tube.moving = false
-			$salt.moving = false
-			$BackGround.color=Color(0.643, 1, 0.486)
-			$TEXT/win_state.text = "you win"
-			GlobalVar.coins +=1
-			restart()
+	if $tube.filled >= $tube.required:
+		win()
 
 
 func restart(): 
-	$TEXT/explanation.text = "you can use a hood while working with\n dangerous powder\n you have to follow special protocols\n work safe !"
-	if GlobalVar.on_hard_core:
-		_on_button_2_pressed()
-	else:
-		if not GlobalVar.win:
-			$Button2.set_text("Restart")
-		else:
-			$Button2.set_text("Continue")
-		$Button2.show() # show restart
-		$Button3.show()
-		$Button3/Label.set_text("coins : "+str(GlobalVar.coins))
+	return "you can use a hood while working with\n dangerous powder\n you have to follow special protocols\n work safe !"
 
 #called if start is pressed, set timer and instanciate tubes
-func _on_button_pressed():
-	$screen.hide()
-	$Button.hide() #hide start
-	$Button3.hide()
-	#instantiate tubes	
-	#set timer
-	$clock.visible = true
-	$clock/time.text = str(round($Timer.time_left))
+func start():
 	$tube.moving = true
 	$salt.moving = true
 	$salt.rotation = PI
-	$Timer.start()
-
-#called if restart pressed
-func _on_button_2_pressed():
-	if GlobalVar.win:
-		$salt.amplitude +=10
-	if GlobalVar.on_randon == true:
-		GlobalVar.pass_game()
-	else:
-		GlobalVar.to_load(GlobalVar.minigame[5])
-
-
-func _on_button_3_pressed():
-	reset()
-	GlobalVar.to_minigame_list()
 	
 func reset():
 	$salt.amplitude = 25
+
+#called if restart pressed
+func win():
+	$salt.amplitude +=10
+	GlobalVar.win = 1
+	GlobalVar.coins +=1
+	win_state = "you win"
+	$tube.moving = false
+	$salt.moving = false
+	
+func lose():
+	GlobalVar.win = -1
+	$tube.moving = false
+	$salt.moving = false	
+	win_state = "haha looser"

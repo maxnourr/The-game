@@ -1,8 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhnfj1hgdyn4q"]
+[gd_scene load_steps=10 format=3 uid="uid://dhnfj1hgdyn4q"]
 
 [ext_resource type="Script" path="res://credit.gd" id="1_djfj1"]
-[ext_resource type="Texture2D" uid="uid://bb6rx712hg54k" path="res://figures/48C logo@1x.png" id="2_gam6l"]
-[ext_resource type="AudioStream" uid="uid://d1etf8ukbb6nh" path="res://click.mp3" id="3_6tkhd"]
+[ext_resource type="Texture2D" uid="uid://bb6rx712hg54k" path="res://MINIGAMES/global figures/48C logo@1x.png" id="2_gam6l"]
+[ext_resource type="Texture2D" uid="uid://bjpv0bc5i5i12" path="res://sprites/background_menu.PNG" id="2_spvt7"]
+[ext_resource type="AudioStream" uid="uid://d1etf8ukbb6nh" path="res://MINIGAMES/sound/click.mp3" id="3_6tkhd"]
+[ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="3_it0p4"]
+[ext_resource type="FontFile" uid="uid://bnp6wesfq4jhf" path="res://font/Super Magic.ttf" id="3_vuk35"]
+[ext_resource type="PackedScene" uid="uid://bs27n5ffwib34" path="res://MINIGAMES/best_player.tscn" id="4_ewksk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5avn1"]
+bg_color = Color(0.584314, 0.243137, 0.921569, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.92549, 0.92549, 0.92549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bcath"]
 
 [node name="Game list" type="Control"]
 layout_mode = 3
@@ -21,6 +37,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0.603922, 1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ColorRect"]
+modulate = Color(0.678431, 0.431373, 0.643137, 1)
+position = Vector2(576, 308)
+scale = Vector2(1.47184, 1.65926)
+texture = ExtResource("2_spvt7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(576, 540)
@@ -44,10 +66,13 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Credit"
+theme_override_colors/font_shadow_color = Color(0.0941176, 0.215686, 0.313726, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/font = ExtResource("3_vuk35")
+theme_override_font_sizes/font_size = 40
+text = "credit"
 horizontal_alignment = 1
 
 [node name="space" type="Label" parent="VBoxContainer"]
@@ -55,9 +80,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 
-[node name="credit" type="Label" parent="VBoxContainer"]
+[node name="Label" parent="VBoxContainer" instance=ExtResource("4_ewksk")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
 text = "- FT5 records (music)
 - Pixabay (sound)
 
@@ -71,7 +95,11 @@ horizontal_alignment = 1
 
 [node name="return" type="Button" parent="VBoxContainer"]
 layout_mode = 2
-text = "Return"
+theme_override_fonts/font = ExtResource("3_it0p4")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_5avn1")
+text = "return"
+icon = SubResource("ViewportTexture_bcath")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_6tkhd")
