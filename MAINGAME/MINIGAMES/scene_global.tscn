@@ -1,0 +1,238 @@
+[gd_scene load_steps=10 format=3 uid="uid://6j27y7ec7ayy"]
+
+[ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="1_cm2jc"]
+[ext_resource type="Script" path="res://MINIGAMES/scene_global.gd" id="1_n83hy"]
+[ext_resource type="Texture2D" uid="uid://dgqot6fxktki0" path="res://MINIGAMES/global figures/Screenshot 2023-09-05 at 01.25.01.png" id="2_6ofai"]
+[ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="3_klbjr"]
+[ext_resource type="FontFile" uid="uid://bnp6wesfq4jhf" path="res://font/Super Magic.ttf" id="4_kuh1a"]
+[ext_resource type="FontFile" uid="uid://c8dndne2j7jrc" path="res://font/Spicy Chips.otf" id="5_d7002"]
+[ext_resource type="PackedScene" uid="uid://e7i0hrn0bbgq" path="res://MINIGAMES/global figures/pop.tscn" id="6_q1jws"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pffxm"]
+border_width_left = 10
+border_width_top = 10
+border_width_right = 20
+border_width_bottom = 20
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brd1d"]
+bg_color = Color(0.572831, 0.251925, 0.646192, 1)
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 25
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Scene_global" type="Node"]
+script = ExtResource("1_n83hy")
+
+[node name="Back" type="Sprite2D" parent="."]
+position = Vector2(574.5, 318)
+scale = Vector2(0.693743, 0.789474)
+texture = ExtResource("2_6ofai")
+
+[node name="pop" parent="Back" instance=ExtResource("6_q1jws")]
+modulate = Color(1, 1, 1, 0.741176)
+position = Vector2(167.93, -225.467)
+scale = Vector2(5, 4.397)
+
+[node name="pop2" parent="Back" instance=ExtResource("6_q1jws")]
+modulate = Color(1, 1, 1, 0.741176)
+position = Vector2(-570.096, 106.4)
+scale = Vector2(7, 6.156)
+
+[node name="pop3" parent="Back" instance=ExtResource("6_q1jws")]
+modulate = Color(1, 1, 1, 0.741176)
+position = Vector2(454.78, 292.6)
+scale = Vector2(10, 8.794)
+
+[node name="pop4" parent="Back" instance=ExtResource("6_q1jws")]
+modulate = Color(1, 1, 1, 0.741176)
+position = Vector2(-464.87, -188.733)
+scale = Vector2(2, 1.759)
+
+[node name="pop5" parent="Back" instance=ExtResource("6_q1jws")]
+modulate = Color(1, 1, 1, 0.741176)
+position = Vector2(502.348, -1.26666)
+scale = Vector2(2, 1.759)
+
+[node name="pop6" parent="Back" instance=ExtResource("6_q1jws")]
+modulate = Color(1, 1, 1, 0.741176)
+position = Vector2(116.037, 133)
+scale = Vector2(2, 1.759)
+
+[node name="screen2" type="ColorRect" parent="Back"]
+modulate = Color(1, 1, 1, 0.509804)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -828.117
+offset_top = -419.267
+offset_right = -828.117
+offset_bottom = -406.267
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14902, 0.866667, 1, 0.631373)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="clock" parent="." instance=ExtResource("1_cm2jc")]
+visible = false
+
+[node name="screen" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.443137)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TEXT" type="CanvasLayer" parent="."]
+
+[node name="win_state" type="Label" parent="TEXT"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -145.0
+offset_right = 156.0
+offset_bottom = 93.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("3_klbjr")
+theme_override_font_sizes/font_size = 50
+text = "hello"
+horizontal_alignment = 1
+
+[node name="explanation" type="Label" parent="TEXT"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -545.0
+offset_top = -77.5
+offset_right = 545.0
+offset_bottom = 77.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_kuh1a")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_pffxm")
+horizontal_alignment = 1
+
+[node name="start" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.5
+offset_top = -35.5
+offset_right = 75.5
+offset_bottom = 35.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.94902, 0.94902, 0.94902, 1)
+theme_override_fonts/font = ExtResource("3_klbjr")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_brd1d")
+text = "Start"
+
+[node name="Label" type="Label" parent="start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -545.0
+offset_top = -222.5
+offset_right = 545.0
+offset_bottom = -67.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_kuh1a")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_pffxm")
+text = "game intro"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="start"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -443.0
+offset_top = 90.5
+offset_right = 444.0
+offset_bottom = 208.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_kuh1a")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_pffxm")
+text = "game rules"
+horizontal_alignment = 1
+
+[node name="restart" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -92.0
+offset_top = -77.0
+offset_right = 92.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.94902, 0.94902, 0.94902, 1)
+theme_override_fonts/font = ExtResource("3_klbjr")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_brd1d")
+text = "Restart"
+
+[node name="menu" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -184.0
+offset_bottom = 77.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0.94902, 0.94902, 0.94902, 1)
+theme_override_fonts/font = ExtResource("3_klbjr")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_brd1d")
+text = "to menu"
+
+[node name="Label" type="Label" parent="menu"]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -61.0
+offset_bottom = 35.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_d7002")
+theme_override_font_sizes/font_size = 20
+text = "coins :"
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]

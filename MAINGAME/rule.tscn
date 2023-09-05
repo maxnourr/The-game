@@ -1,0 +1,142 @@
+[gd_scene load_steps=10 format=3 uid="uid://lyes5n0btv4a"]
+
+[ext_resource type="Script" path="res://rule.gd" id="1_b3qh7"]
+[ext_resource type="Texture2D" uid="uid://bjpv0bc5i5i12" path="res://sprites/background_menu.PNG" id="2_s0ri5"]
+[ext_resource type="FontFile" uid="uid://bnp6wesfq4jhf" path="res://font/Super Magic.ttf" id="3_q00j6"]
+[ext_resource type="Texture2D" uid="uid://bb6rx712hg54k" path="res://MINIGAMES/global figures/48C logo@1x.png" id="4_j0nf7"]
+[ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="5_yfsu3"]
+[ext_resource type="AudioStream" uid="uid://d1etf8ukbb6nh" path="res://MINIGAMES/sound/click.mp3" id="6_stjbe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_crro4"]
+bg_color = Color(0.6, 0.6, 0.6, 0.890196)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.254902, 0.254902, 0.254902, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2y7w"]
+bg_color = Color(0.384314, 0.364706, 0.435294, 1)
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.92549, 0.92549, 0.92549, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_m41e3"]
+
+[node name="Game list" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b3qh7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.603922, 1, 1)
+
+[node name="back" type="Sprite2D" parent="."]
+position = Vector2(581, 327)
+scale = Vector2(1.4418, 1.60494)
+texture = ExtResource("2_s0ri5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(2.08165e-12, 30)
+layout_direction = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.531
+anchor_right = 0.5
+anchor_bottom = 0.531
+offset_left = -527.0
+offset_top = -315.088
+offset_right = 525.0
+offset_bottom = 269.912
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.0941176, 0.215686, 0.313726, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/font = ExtResource("5_yfsu3")
+theme_override_font_sizes/font_size = 60
+text = "How to play ?"
+horizontal_alignment = 1
+
+[node name="space" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="introd" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_q00j6")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_crro4")
+text = "Welcome to 48C maingames ! 
+A fun challenge to introduce you to synthetic biology and genetics
+
+The game is divided in levels. In each levels, you will have to design plasmids to help the bacteria."
+horizontal_alignment = 1
+
+[node name="space3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="gameplay" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_q00j6")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_crro4")
+text = "If you want to know how the game works, follow the tutorial ! (first level)
+
+Have a good time !"
+horizontal_alignment = 1
+justification_flags = 171
+
+[node name="space2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "
+
+
+
+"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(526, 474.5)
+scale = Vector2(0.3, 0.321)
+texture = ExtResource("4_j0nf7")
+
+[node name="Return" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_yfsu3")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_f2y7w")
+text = "return
+"
+icon = SubResource("ViewportTexture_m41e3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_stjbe")
+
+[connection signal="pressed" from="VBoxContainer/Return" to="." method="_on_return_pressed"]
