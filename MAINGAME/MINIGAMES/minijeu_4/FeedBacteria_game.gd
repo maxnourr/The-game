@@ -5,8 +5,8 @@ static var time = 10
 var malus = false #change the time if activated
 var win_state = ""
 
-var game_intro = "What is the growing temperature\nof this strain, again ?"
-var game_rules = "click on the button to increase/decrease\n the temperature"
+var game_intro = "your culture is hungry !"
+var game_rules = "left click : drag and drop a item"
 
 
 # Called when the node enters the scene tree for the first time.

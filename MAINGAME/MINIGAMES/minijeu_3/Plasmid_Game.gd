@@ -13,9 +13,6 @@ var temp = 0
 
 #game
 var goal = 0 #temperature goal
-var timelapse = 0 #time at the good temp
-var to_wait = 250 #goal time at the good temp
-var is_reatched = false #are you at the good temp ? 
 var min = -20 #min temp
 var max = 60 #max temp
 
@@ -33,23 +30,22 @@ func process(delta):
 		#verif temp and play the right texture
 	if temp < goal:
 		$plate.texture("ice")
-		if is_reatched:
-			is_reatched = false
-			timelapse = 0
+		$Timer.stop()
+		$Timer.wait_time = 1
+		$ProgressBar.hide()
 	elif temp > goal:
 		$plate.texture("fire")
-		if is_reatched:
-			is_reatched = false
-			timelapse = 0
+		$Timer.stop()
+		$Timer.wait_time = 1
+		$ProgressBar.hide()
 	if temp==goal:
 		$plate.texture("normal")
-			
-		if !is_reatched: 
-			is_reatched = true
-		else: 
-			timelapse += 1 #wait at the good time
-			if timelapse == to_wait :
-				win()
+		if $Timer.is_stopped():
+			$Timer.start() 
+		$ProgressBar.show()
+		$ProgressBar.value = 1-$Timer.time_left
+				
+	
 
 func restart(): 
 	return "Each bacteria strain have a prefered temperature to grow\n when working with bacterias\n you have to be careful to use the right temperature\n fun fact: bacterias also like to be shaked !"
@@ -80,3 +76,7 @@ func win():
 	
 func lose():
 	win_state = "haha looser"
+
+
+func _on_timer_timeout():
+	win()

@@ -13,8 +13,6 @@ var secondrandom
 var move = false
 var velo = false
 var intermediate = 0
-var waiting_time = 0
-var to_wait = 300
 
 
 func on_ready():
@@ -32,19 +30,24 @@ func process(delta):
 			$velocity.visible = true
 			move = false
 			velo = true
-			$velocity/RigidBody2D.setter = true	
+			$velocity/RigidBody2D.setter = true
 		
 	if velo:
 		$tube.swing($velocity/RigidBody2D.currentVelocity)
-		if $velocity/RigidBody2D.currentVelocity >40 and $velocity/RigidBody2D.currentVelocity <60 :
-			waiting_time += 1
-			$velocity/RigidBody2D/text.visible = true
+		if $velocity/RigidBody2D.currentVelocity >30 and $velocity/RigidBody2D.currentVelocity <70 :
+			if $Timer.is_stopped():
+				$Timer.wait_time = 3
+				$Timer.start()
+			$velocity/RigidBody2D/ProgressBar.value = $Timer.wait_time -$Timer.time_left
+			$velocity/RigidBody2D/ProgressBar.show()
+			
 		else:
-			$velocity/RigidBody2D/text.visible = true
-			waiting_time = 0
-		if waiting_time >= to_wait:
-			win()
-
+			$Timer.stop()
+			$velocity/RigidBody2D/ProgressBar.hide()
+			
+func _on_timer_timeout():
+	win()
+	
 func restart(): 
 	return "Vortex are commonly used in the lab\n speed and waiting time are important\n depending of your goal"	
 
@@ -58,16 +61,19 @@ func start():
 	
 func reset():
 	time = 15
-	to_wait = 300
+	$Timer.wait_time = 3
 	
 #called if restart pressed
 func win():
 	GlobalVar.win = 1
 	GlobalVar.coins +=1
 	time = max(2,time-1) 
-	to_wait = min(500,to_wait+50) 
+	$Timer.wait_time = min(5,$Timer.wait_time+0.5) 
 	win_state = "you win"
 	
 func lose():
 	GlobalVar.win = -1
 	win_state = "haha looser"
+
+
+

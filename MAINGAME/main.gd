@@ -117,3 +117,9 @@ func _on_next_level_button_down():
 	first_opening = true
 	Global.click()
 	GlobalVar.to_game_list()
+
+
+func _on_encyclopedia_pressed():
+	Global.click()
+	Global.theme_build()
+	get_tree().change_scene_to_file("res://encyclopedia.tscn")

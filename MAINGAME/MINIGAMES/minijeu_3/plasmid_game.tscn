@@ -1,24 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm7w3i5qr5sw0"]
+[gd_scene load_steps=8 format=3 uid="uid://bm7w3i5qr5sw0"]
 
 [ext_resource type="Script" path="res://MINIGAMES/minijeu_3/Plasmid_Game.gd" id="1_ts5mb"]
 [ext_resource type="PackedScene" uid="uid://dtxnuadi5aafl" path="res://MINIGAMES/minijeu_3/plate.tscn" id="2_fp7k7"]
 [ext_resource type="Texture2D" uid="uid://tnqksvvlghf8" path="res://MINIGAMES/minijeu_3/figures/up.jpg" id="3_k3hlh"]
 [ext_resource type="PackedScene" uid="uid://coasydelfxf46" path="res://clock.tscn" id="3_m10lt"]
 [ext_resource type="Texture2D" uid="uid://dvjga2360ichd" path="res://MINIGAMES/minijeu_3/figures/down.jpg" id="4_owbfw"]
+[ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="6_ikv7n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_54yqa"]
 
 [node name="Plasmid_Game" type="Node"]
 script = ExtResource("1_ts5mb")
-
-[node name="BackGround" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.870607, 0.998954, 0.983926, 1)
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
 
 [node name="plate" parent="." instance=ExtResource("2_fp7k7")]
 position = Vector2(300, 324)
@@ -92,5 +84,17 @@ theme_override_font_sizes/font_size = 50
 text = "0"
 horizontal_alignment = 1
 
+[node name="Timer" type="Timer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = 869.0
+offset_top = 508.0
+offset_right = 1037.0
+offset_bottom = 542.0
+theme_override_fonts/font = ExtResource("6_ikv7n")
+theme_override_styles/background = SubResource("StyleBoxFlat_54yqa")
+max_value = 1.0
+
 [connection signal="pressed" from="up" to="." method="_on_up_pressed"]
 [connection signal="pressed" from="down" to="." method="_on_down_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

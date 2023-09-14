@@ -34,6 +34,7 @@ func start():
 	$food.visible = true
 	$food.position.x = GlobalVar.rng.randi_range(0,1152)
 	$food.position.y = GlobalVar.rng.randi_range(0,648)
+	$food.set_player($player)
 		
 	if nb_food >1:
 		for n in nb_food-1:
@@ -41,7 +42,6 @@ func start():
 			randomize()
 			food.position.x = GlobalVar.rng.randi_range(0,1152)
 			food.position.y = GlobalVar.rng.randi_range(0,648)
-			food.set_player($player)
 			add_child(food)
 	$food.running = true
 	$player.running = true

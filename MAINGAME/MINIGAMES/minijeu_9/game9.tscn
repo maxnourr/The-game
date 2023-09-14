@@ -18,3 +18,8 @@ position = Vector2(575, 200)
 [node name="velocity" parent="." instance=ExtResource("4_101im")]
 visible = false
 position = Vector2(378, -9)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

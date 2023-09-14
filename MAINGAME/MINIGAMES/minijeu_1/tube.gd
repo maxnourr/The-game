@@ -6,8 +6,8 @@ var type = "BLUE"
 var textureAMPI = preload("figures/AMPI.png")
 var textureBLUE = preload("figures/BLUE.png")
 var textureSOC = preload("figures/SOC.png")
-var CanDrag = false
 static var on_game = false
+var is_mouse_inside = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,14 +27,15 @@ func set_type(T):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if CanDrag and on_game:
-		$".".global_position =  get_global_mouse_position()
+	if is_mouse_inside and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and on_game:
+		var mouse_position = get_viewport().get_mouse_position()
+		position.x = mouse_position.x
+		position.y = mouse_position.y
 
+func _on_mouse_entered():
+	is_mouse_inside=true
 
-func _on_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseMotion:
-		if Input.is_action_pressed("click_left"):
-			CanDrag = true
-		else:
-			CanDrag = false
+func _on_mouse_exited():
+	is_mouse_inside=false
+
 			

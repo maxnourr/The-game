@@ -10,3 +10,4 @@ func _process(delta):
 		$val.rotation_degrees =90
 	else:
 		$val.rotation_degrees = rot
+	

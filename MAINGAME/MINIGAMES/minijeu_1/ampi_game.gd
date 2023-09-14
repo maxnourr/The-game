@@ -54,7 +54,7 @@ func restart():
 			return "SOC is a nutrition buffer\n it help bacterias grow, even unwanted bacterias !\n if you givz SOC without AMPI, you risk contamination"
 		elif nb_tube == 4:
 			return "Blue dye is just blue dye..."
-		return ""
+		return "other antibiotics can also be use such as kanamycin"
 
 #called when a tube enter the bacterias
 func _on_bacterias_area_entered(area):

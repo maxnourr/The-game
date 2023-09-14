@@ -11,7 +11,7 @@ var max_level = 0
 var level
 
 #minigames
-var minigame = ["res://MINIGAMES/minijeu_1/ampi_game.tscn","res://MINIGAMES/minijeu_2/node.tscn","res://MINIGAMES/minijeu_3/Plasmid_Game.tscn","res://MINIGAMES/minijeu_4/feed_bacteria_game.tscn","res://MINIGAMES/minijeu_5/node.tscn","res://MINIGAMES/minijeu_6/node.tscn","res://MINIGAMES/minijeu_7/wash_game.tscn","res://MINIGAMES/minijeu_8/game_1.tscn","res://MINIGAMES/minijeu_9/game9.tscn","res://MINIGAMES/minijeu_10/node.tscn","res://MINIGAMES/minijeu_11/game.tscn","res://MINIGAMES/minijeu_12/centrifuge_game.tscn","res://MINIGAMES/minijeu_13/game.tscn","res://MINIGAMES/minijeu_14/GFP_game.tscn","res://MINIGAMES/minijeu_15/clothe_game.tscn"]
+var minigame = ["res://MINIGAMES/minijeu_1/ampi_game.tscn","res://MINIGAMES/minijeu_2/node.tscn","res://MINIGAMES/minijeu_3/plasmid_game.tscn","res://MINIGAMES/minijeu_4/feed_bacteria_game.tscn","res://MINIGAMES/minijeu_5/node.tscn","res://MINIGAMES/minijeu_6/node.tscn","res://MINIGAMES/minijeu_7/wash_game.tscn","res://MINIGAMES/minijeu_8/game_1.tscn","res://MINIGAMES/minijeu_9/game9.tscn","res://MINIGAMES/minijeu_10/node.tscn","res://MINIGAMES/minijeu_11/game.tscn","res://MINIGAMES/minijeu_12/centrifuge_game.tscn","res://MINIGAMES/minijeu_13/game.tscn","res://MINIGAMES/minijeu_14/GFP_game.tscn","res://MINIGAMES/minijeu_15/clothe_game.tscn"]
 var minijeu = "res://MINIGAMES/scene_global.tscn"
 var game_to_load
 var do_game = minigame.duplicate()
@@ -96,19 +96,18 @@ func save_game():
 		"best_score" : best_score,
 		"best_player" : best_player
 	}
-	var file = FileAccess.open("savegame.save",FileAccess.WRITE)
+	var file = FileAccess.open("res://savegame.save",FileAccess.WRITE)
 	file.store_var(save_dict)
 	file.close()
 	
 func load_game():
-	var file = FileAccess.open("savegame.save",FileAccess.READ)
+	var file = FileAccess.open("res://savegame.save",FileAccess.READ)
 	if file !=null:
 		var save_dict = file.get_var()
 		coins = save_dict.coins
 		current_level = save_dict.current_level
+		max_level = save_dict.max_level
 		max_level = 8
-		#max_level = save_dict.max_level
-		
 		
 		max_normal_score = save_dict.max_normal_score
 		max_score = save_dict.max_score
@@ -118,12 +117,13 @@ func load_game():
 func blanck():
 	coins = 0
 	current_level = 0
-	max_level = 1
+	max_level = 0
 	
 	max_normal_score = 0
 	max_score = 0
 	best_player = []
 	best_score = []
+	save_game()
 		
 func best_list(N):
 	var placed = false
@@ -157,3 +157,4 @@ func best_list(N):
 		if best_score.size() <5 and placed == false:
 			best_score.append(current_score)
 			best_player.append(N)
+

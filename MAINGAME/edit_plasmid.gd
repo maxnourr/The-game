@@ -4,7 +4,8 @@ var y = 0
 var size_x = 80
 var size_y = 50
 var font = preload("res://font/joystix monospace.otf")
-var brick = preload("res://sprites/brick.PNG")
+var gene = preload("res://assets/gene.tscn")
+var molecule = preload("res://assets/molecule.tscn")
 
 func _ready():
 	if GlobalVar.level == "res://tuto/tuto.tscn":
@@ -16,13 +17,16 @@ func _ready():
 	for n in Genome.plasmids.size():
 		for i in Genome.plasmids[n].size():
 			#le baille des rectangles-----------------------------------
-			
-			var rectangle = Sprite2D.new()
-			rectangle.texture = brick
-			rectangle.scale = Vector2(0.158, 0.172)
+			var rectangle
+			if Genome.plasmids[n][i].Molecule == true:
+				rectangle = molecule.instantiate()
+			else:
+				rectangle = gene.instantiate()
+			rectangle.visible = true
 			rectangle.position = Vector2(i*size_x + 60, (size_y + 30)*n + 40)
 			rectangle.modulate = Genome.plasmids[n][i].Col  
-			add_child(rectangle)  
+			rectangle.set_text(Genome.plasmids[n][i].description)
+			add_child(rectangle)  # Add the rectangle to the scene
 			#----------------------
 		#rajoute les boutons x au bout de chaque plasmids -----------------------	
 		var button = Button.new()

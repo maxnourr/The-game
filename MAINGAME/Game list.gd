@@ -68,11 +68,11 @@ func _process(delta):
 func place_bacteria(move):
 	if !move:
 		$bacteria.position.x = get_node(level_link[GlobalVar.current_level]).position.x
-		$bacteria.position.y = get_node(level_link[GlobalVar.current_level]).position.y
+		$bacteria.position.y = get_node(level_link[GlobalVar.current_level]).position.y-20
 	else:
 		waited = 0
 		step_x = (get_node(level_link[GlobalVar.current_level]).position.x-$bacteria.position.x)/transfer_time
-		step_y = (get_node(level_link[GlobalVar.current_level]).position.y-$bacteria.position.y)/transfer_time
+		step_y = (get_node(level_link[GlobalVar.current_level]).position.y-$bacteria.position.y-20)/transfer_time
 	
 
 func _on_return_pressed():
@@ -82,84 +82,45 @@ func _on_return_pressed():
 
 
 func _on_start_pressed():
-	
-	if GlobalVar.max_level > 0:
-		Global.button_sound()
-		get_node(level_link[GlobalVar.current_level]+"/open").hide()
-		GlobalVar.current_level = 0
-		place_bacteria(true)
+	go_to(0)
 
 func _on_level_1_pressed():
-	
-	if GlobalVar.max_level >= 1:
-		Global.button_sound()
-		get_node(level_link[GlobalVar.current_level]+"/open").hide()
-		GlobalVar.current_level = 1
-		place_bacteria(true)
+	go_to(1)
 
 
 func _on_level_2_pressed():
-	
-	if GlobalVar.max_level >= 2:
-		Global.button_sound()
-		get_node(level_link[GlobalVar.current_level]+"/open").hide()
-		GlobalVar.current_level = 2
-		place_bacteria(true)
+	go_to(2)
 
 
 func _on_level_3_pressed():
-	
-	if GlobalVar.max_level >= 3:
-		Global.button_sound()
-		get_node(level_link[GlobalVar.current_level]+"/open").hide()
-		GlobalVar.current_level = 3
-		place_bacteria(true)
+	go_to(3)
 
 
 func _on_level_4_pressed():
-	
-	if GlobalVar.max_level >= 4:
-		Global.button_sound()
-		get_node(level_link[GlobalVar.current_level]+"/open").hide()
-		GlobalVar.current_level = 4
-		place_bacteria(true)
+	go_to(4)
 
 
 func _on_level_5_pressed():
-	
-	if GlobalVar.max_level >= 5:
-		Global.button_sound()
-		get_node(level_link[GlobalVar.current_level]+"/open").hide()
-		GlobalVar.current_level = 5
-		place_bacteria(true)
+	go_to(5)
 
 
 func _on_level_6_pressed():
-	
-	if GlobalVar.max_level >= 6:
-		Global.button_sound()
-		get_node(level_link[GlobalVar.current_level]+"/open").hide()
-		GlobalVar.current_level = 6
-		place_bacteria(true)
+	go_to(6)
 
 
 func _on_level_7_pressed():
-	
-	if GlobalVar.max_level >= 7:
-		Global.button_sound()
-		get_node(level_link[GlobalVar.current_level]+"/open").hide()
-		GlobalVar.current_level = 7
-		place_bacteria(true)
+	go_to(7)
 
 
 func _on_level_8_pressed():
-	
-	if GlobalVar.max_level >= 8:
+	go_to(8)
+
+func go_to(level):
+	if GlobalVar.max_level >= level and GlobalVar.current_level !=level:
 		Global.button_sound()
 		get_node(level_link[GlobalVar.current_level]+"/open").hide()
-		GlobalVar.current_level = 8
+		GlobalVar.current_level = level
 		place_bacteria(true)
-
 
 func pass_level():
 	if GlobalVar.current_level == level_link.size()-1:

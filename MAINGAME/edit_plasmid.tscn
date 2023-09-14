@@ -60,8 +60,8 @@ text = "Looks a lot like edit right?
 This is where you will be able
 to delete plasmids in the bacteria
 
-you can now press
- play to finish the level"
+go back 
+and click on encyclopedia"
 horizontal_alignment = 1
 
 [connection signal="button_down" from="back" to="." method="_on_back_button_down"]

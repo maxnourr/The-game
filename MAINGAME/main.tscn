@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://daahuqr7gjojm"]
+[gd_scene load_steps=15 format=3 uid="uid://daahuqr7gjojm"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4f6yy"]
 [ext_resource type="PackedScene" uid="uid://bgqlonx2reo62" path="res://assets/bacteria.tscn" id="4_ub1lf"]
@@ -36,6 +36,13 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptvrd"]
 bg_color = Color(0.623529, 0.407843, 0.627451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qpg3g"]
+bg_color = Color(0.439216, 0.6, 0.878431, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -131,6 +138,15 @@ offset_bottom = 58.0
 theme_override_fonts/font = ExtResource("5_4r2xc")
 theme_override_styles/normal = SubResource("StyleBoxFlat_ptvrd")
 text = "help"
+
+[node name="encyclopedia" type="Button" parent="."]
+offset_left = 949.0
+offset_top = 590.0
+offset_right = 1134.0
+offset_bottom = 636.0
+theme_override_fonts/font = ExtResource("5_4r2xc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qpg3g")
+text = " encyclopedia "
 
 [node name="menu" type="Button" parent="."]
 anchors_preset = 2
@@ -232,6 +248,7 @@ text = "next level"
 [connection signal="button_down" from="stop" to="." method="_on_stop_button_down"]
 [connection signal="button_down" from="play" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="help" to="." method="_on_help_button_down"]
+[connection signal="pressed" from="encyclopedia" to="." method="_on_encyclopedia_pressed"]
 [connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]
 [connection signal="button_down" from="explanation/out" to="." method="_on_out_button_down"]
 [connection signal="button_down" from="Victory/next_level" to="." method="_on_next_level_button_down"]

@@ -6,7 +6,9 @@ var plasmid = [] #le tableau qui contiendra tout les genes
 var size_x = 80
 var size_y = 50
 var font = preload("res://font/joystix monospace.otf")
-var brick = preload("res://sprites/brick.PNG")
+var gene = preload("res://assets/gene.tscn")
+var mol = preload("res://assets/molecule.tscn")
+var molecule = false
 
 
 func _ready():
@@ -43,26 +45,30 @@ func _process(delta):
 		$Pop.visible = true
 	$Pop.position.x = ((size_x-2) * (plasmid.size()+1))
 	
-	
-	
-
-	
-
 
 #affiche la config actuelle des plasmids
-func new_rect(x,color):
-	var rectangle = Sprite2D.new()
-	rectangle.texture = brick
-	rectangle.scale = Vector2(0.158, 0.172)
+func new_rect(x,color,description):
+	var rectangle = gene.instantiate()
 	rectangle.position = Vector2(x*size_x, 400)
 	rectangle.modulate = color  # Set rectangle color
+	rectangle.set_text(description)
 	add_child(rectangle)  # Add the rectangle to the scene
 	rectangles.append(rectangle)
-	print(rectangle.name)
+	
+#affiche la config actuelle des plasmids
+func new_circle(x,color,description):
+	var circle = mol.instantiate()
+	circle.position = Vector2(x*size_x, 400)
+	circle.modulate = color  # Set rectangle color
+	circle.set_text(description)
+	add_child(circle)  # Add the rectangle to the scene
+	rectangles.append(circle)
 
 #la petite croix
 func _on_pop_button_down():
 	plasmid.pop_back()
+	if molecule == true:
+		molecule = false
 	#permet de supprimer le dernier rectangle créé dans new_rect
 	var last_rectangle = rectangles.pop_back()
 	last_rectangle.queue_free()
@@ -80,9 +86,15 @@ func _on_exit_button_down():
 	get_tree().change_scene_to_file(GlobalVar.level)
 	
 func _button_pressed(genome):
-	plasmid.push_back(genome)
-	new_rect(plasmid.size(),genome.Col)
-	Global.click()
+	if !genome.Molecule and molecule==false:
+		plasmid.push_back(genome)
+		new_rect(plasmid.size(),genome.Col,genome.description)
+		Global.click()
+	elif plasmid.is_empty():
+		plasmid.push_back(genome)
+		new_circle(plasmid.size(),genome.Col,genome.description)
+		molecule = true
+		Global.click()
 	
 func _mouse_on(genome):
 	$explications.visible = true

@@ -8,7 +8,7 @@ func _ready():
 		GlobalVar.save_game()
 	Global.music_menu()
 	if GlobalVar.on_randon == true:
-		GlobalVar.win = false
+		GlobalVar.win = 0
 		GlobalVar.first = true
 		GlobalVar.on_randon = false
 		final_speed_run()
