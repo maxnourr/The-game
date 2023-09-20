@@ -85,6 +85,9 @@ func to_template():
 	
 func to_solution():
 	get_tree().change_scene_to_file("res://solution.tscn")
+	
+func to_custom():
+	get_tree().change_scene_to_file("res://custom.tscn")
 # Note: This can be called from anywhere inside the tree. This function is
 # path independent.
 # Go through everything in the persist category and ask them to return a
@@ -111,6 +114,7 @@ func load_game():
 		coins = save_dict.coins
 		current_level = save_dict.current_level
 		max_level = save_dict.max_level
+		max_level = 8
 		
 		max_normal_score = save_dict.max_normal_score
 		max_score = save_dict.max_score

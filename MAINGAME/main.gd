@@ -47,7 +47,9 @@ func _process(delta):
 				$bacteria.position.x += 100*delta #ce qui le fait avancer
 			$bacteria/light.visible = PlayerVar.gfp
 			$bacteria/particles.visible = PlayerVar.Interlekin
-			$bacteria/body.modulate = PlayerVar.player_color #pour l'instant pas fou que ce soit là
+			
+			#quand est ce qu'on a besoin que la couleur change ? 
+			#$bacteria/body.modulate = PlayerVar.player_color #pour l'instant pas fou que ce soit là
 		#faudra trouver un moyen de réaliser ce changement local dans express ou playervar
 			Express.back_to_back()
 			for n in Genome.plasmids.size(): #check tout les plasmids

@@ -2,12 +2,23 @@ extends Area2D
 var scalx
 var scaly
 var timer
+static var C = Color(1, 1, 1)
+static var logo = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	scalx = 0.4
 	scaly = 0.4
+	change_color(C)
+	$"48C".visible = logo
 	
-
+func change_color(color):
+	C = color
+	modulate = Color(1, 1, 1,0.624)
+	$body.modulate = C
+	$flagel.modulate = C
+	$flagel2.modulate = C
+	
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

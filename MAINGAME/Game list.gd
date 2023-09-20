@@ -169,3 +169,8 @@ func _on_how_pressed():
 func _on_solution_pressed():
 	Global.button_sound()
 	GlobalVar.to_solution()
+
+
+func _on_studio_pressed():
+	Global.button_sound()
+	GlobalVar.to_custom()
