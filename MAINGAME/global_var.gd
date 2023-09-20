@@ -82,6 +82,9 @@ func to_mainrule():
 	
 func to_template():
 	to_load("res://MINIGAMES/minijeu_template/game.tscn")
+	
+func to_solution():
+	get_tree().change_scene_to_file("res://solution.tscn")
 # Note: This can be called from anywhere inside the tree. This function is
 # path independent.
 # Go through everything in the persist category and ask them to return a
@@ -96,23 +99,24 @@ func save_game():
 		"best_score" : best_score,
 		"best_player" : best_player
 	}
-	var file = FileAccess.open("res://savegame.save",FileAccess.WRITE)
-	file.store_var(save_dict)
-	file.close()
+	var file = FileAccess.open("savegame.save",FileAccess.WRITE)
+	if file != null:
+		file.store_var(save_dict)
+		file.close()
 	
 func load_game():
-	var file = FileAccess.open("res://savegame.save",FileAccess.READ)
+	var file = FileAccess.open("savegame.save",FileAccess.READ)
 	if file !=null:
 		var save_dict = file.get_var()
 		coins = save_dict.coins
 		current_level = save_dict.current_level
 		max_level = save_dict.max_level
-		max_level = 8
 		
 		max_normal_score = save_dict.max_normal_score
 		max_score = save_dict.max_score
 		best_score = save_dict.best_score
 		best_player = save_dict.best_player
+		file.close()
 	
 func blanck():
 	coins = 0

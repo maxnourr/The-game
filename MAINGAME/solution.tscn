@@ -1,0 +1,101 @@
+[gd_scene load_steps=6 format=3 uid="uid://dpf22vdlrhv3q"]
+
+[ext_resource type="Script" path="res://solution.gd" id="1_drx2i"]
+[ext_resource type="PackedScene" uid="uid://csfs01nv8po51" path="res://assets/background_2.tscn" id="1_laxyl"]
+[ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="2_30sql"]
+[ext_resource type="PackedScene" uid="uid://3ail8uqcrlyf" path="res://level.tscn" id="3_po5s8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_en58y"]
+bg_color = Color(0.733333, 0.552941, 0.490196, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Solution" type="Node"]
+script = ExtResource("1_drx2i")
+
+[node name="background2" parent="." instance=ExtResource("1_laxyl")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0.2, 0.117647, 0.588235, 1)
+offset_right = 1156.0
+offset_bottom = 645.0
+color = Color(1, 1, 1, 0.431373)
+
+[node name="gene" type="Container" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Container" type="GridContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -503.0
+offset_top = -286.0
+offset_right = 503.0
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="level 1" parent="Container" instance=ExtResource("3_po5s8")]
+layout_mode = 2
+
+[node name="level 2" parent="Container" instance=ExtResource("3_po5s8")]
+layout_mode = 2
+
+[node name="level 3" parent="Container" instance=ExtResource("3_po5s8")]
+layout_mode = 2
+
+[node name="level 4" parent="Container" instance=ExtResource("3_po5s8")]
+layout_mode = 2
+
+[node name="level 5" parent="Container" instance=ExtResource("3_po5s8")]
+layout_mode = 2
+
+[node name="level 6" parent="Container" instance=ExtResource("3_po5s8")]
+layout_mode = 2
+
+[node name="level 7" parent="Container" instance=ExtResource("3_po5s8")]
+layout_mode = 2
+
+[node name="level 8" parent="Container" instance=ExtResource("3_po5s8")]
+layout_mode = 2
+
+[node name="exit" type="Button" parent="."]
+offset_left = 1060.0
+offset_top = 21.0
+offset_right = 1112.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("2_30sql")
+theme_override_styles/normal = SubResource("StyleBoxFlat_en58y")
+text = "exit
+"
+
+[node name="explain" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = 48.0
+offset_right = 539.0
+offset_bottom = 255.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("2_30sql")
+theme_override_font_sizes/font_size = 25
+text = "Click a level 
+to reveal The solution"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

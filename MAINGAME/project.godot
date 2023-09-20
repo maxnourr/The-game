@@ -27,6 +27,10 @@ Global="*res://global.tscn"
 
 window/stretch/mode="viewport"
 
+[editor]
+
+run/main_run_args="--verbose"
+
 [input]
 
 click_left={

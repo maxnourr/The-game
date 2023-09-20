@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cldfteu8iijuq"]
+
+[ext_resource type="Script" path="res://assets/molecule.gd" id="1_culhe"]
+[ext_resource type="Texture2D" uid="uid://bsl5i8dsvhapi" path="res://sprites/circle.png" id="2_21jl2"]
+[ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="3_dqioo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ul12e"]
+radius = 51.4198
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tyabx"]
+bg_color = Color(0.964706, 0.964706, 0.964706, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Molecule" type="Area2D"]
+script = ExtResource("1_culhe")
+
+[node name="circle" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_21jl2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.50898e-06, 0)
+shape = SubResource("CircleShape2D_ul12e")
+
+[node name="explications" type="Label" parent="."]
+visible = false
+offset_left = -38.0
+offset_top = 33.0
+offset_right = 109.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_dqioo")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxFlat_tyabx")
+text = "les explications "
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

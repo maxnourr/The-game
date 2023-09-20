@@ -9,15 +9,26 @@ var font = preload("res://font/joystix monospace.otf")
 var gene = preload("res://assets/gene.tscn")
 var mol = preload("res://assets/molecule.tscn")
 var molecule = false
-
+var stylebox_molecule := StyleBoxFlat.new()
+var stylebox_gene := StyleBoxFlat.new()
+				
 
 func _ready():
+	stylebox_molecule.border_width_left = 2
+	stylebox_molecule.border_color = Color(0,0,0,1)
+	stylebox_molecule.bg_color = Color(10,2,2,0.5)
+	
+	stylebox_gene.border_width_left = 2
+	stylebox_gene.border_color = Color(0,0,0,1)
+	stylebox_gene.bg_color = Color(2,2,10,0.5)
+				
 	if GlobalVar.level == "res://tuto/tuto.tscn":
 		$tuto.visible = true
 	else:
 		$tuto.visible = false
 		
-	var style = $gene.get_theme_stylebox("normal")
+	var style_gene = $gene.get_theme_stylebox("normal")
+	var style_molecule = $molecule.get_theme_stylebox("normal")
 	plasmid = []
 	rectangles = []
 	$Pop.position.y = 350
@@ -27,12 +38,18 @@ func _ready():
 			button.size.x = 80
 			button.size.y = 40
 			button.text = Genome.genomes[n].Name
+			if Genome.genomes[n].Molecule:
+				button.add_theme_stylebox_override("normal",style_molecule)
+			else:
+				button.add_theme_stylebox_override("normal",style_gene)
+			
+			button.add_theme_color_override("font_color", Color(255,255,255)) 
+			
 			button.position.x = 10
 			button.position.y = (size_y)*n 
 		
 			add_child(button)
 			button.add_theme_font_override("font",font)
-			button.add_theme_stylebox_override("normal",style)
 			button.pressed.connect(_button_pressed.bind(Genome.genomes[n]))
 			button.mouse_entered.connect(_mouse_on.bind(Genome.genomes[n]))
 			button.mouse_exited.connect(_mouse_out.bind(Genome.genomes[n]))

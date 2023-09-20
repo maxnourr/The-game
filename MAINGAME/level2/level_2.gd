@@ -10,7 +10,7 @@ func _ready():
 	base2 = $AMP2.position.y
 	base3 = $AMP3.position.y
 	GlobalVar.level = "res://level2/level_2.tscn"
-	$main/explanation/Label.text = " [center]Ampicilline is a common antibiotic In order to only keep genetically modified bacterias after a culture, we use it paired with a resistance gene. This way, only the changed bacterias survive[/center]"
+	$main/explanation/Label.text = " [center]Ampicilline is a common antibiotic In order to only keep genetically modified bacterias after a culture, we use it paired with a resistance gene. This way, only modified bacterias survive[/center]"
 	$background/ColorRect.visible = true
 
 

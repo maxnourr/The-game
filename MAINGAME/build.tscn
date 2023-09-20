@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfgjb4e770rse"]
+[gd_scene load_steps=10 format=3 uid="uid://bfgjb4e770rse"]
 
 [ext_resource type="Script" path="res://build.gd" id="1_dgc0j"]
 [ext_resource type="PackedScene" uid="uid://csfs01nv8po51" path="res://assets/background_2.tscn" id="2_tjmcd"]
@@ -34,6 +34,13 @@ corner_radius_bottom_left = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yb8te"]
 bg_color = Color(0.639216, 0.294118, 0.505882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yacmq"]
+bg_color = Color(0.101961, 0.666667, 0.788235, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -100,6 +107,13 @@ offset_top = -123.0
 offset_right = 171.0
 offset_bottom = -66.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_yb8te")
+
+[node name="molecule" type="Button" parent="."]
+offset_left = 223.0
+offset_top = -123.0
+offset_right = 315.0
+offset_bottom = -66.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yacmq")
 
 [node name="tuto" type="CanvasLayer" parent="."]
 visible = false

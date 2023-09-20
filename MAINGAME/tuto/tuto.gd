@@ -6,7 +6,7 @@ var base2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalVar.level = "res://tuto/tuto.tscn"
-	$main/explanation/Label.text = " [center] This place will provide explanations regarding each levels now click on the edit button [/center]"
+	$main/explanation/Label.text = " [center] This place will provide hint regarding each levels\nIf you are still struggling, you can find the solutions in the game list.\n but try before !\n now click on the edit button [/center]"
 	$background/ColorRect.visible = true
 
 
