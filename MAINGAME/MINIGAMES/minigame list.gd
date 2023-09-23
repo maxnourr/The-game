@@ -134,6 +134,7 @@ func _on_return_game_pressed():
 	$VBoxContainer2.visible=true
 	$VBoxContainer3.visible=true
 	$VBoxContainer4.visible=true
+	$VBoxContainer6.visible=true
 	
 func final_speed_run():
 	GlobalVar.current_score = GlobalVar.coins - GlobalVar.start_score
@@ -150,6 +151,7 @@ func final_speed_run():
 	$VBoxContainer2.visible=false
 	$VBoxContainer3.visible=false
 	$VBoxContainer4.visible=false
+	$VBoxContainer6.visible=false
 	$VBoxContainer5.visible = true
 	
 	
