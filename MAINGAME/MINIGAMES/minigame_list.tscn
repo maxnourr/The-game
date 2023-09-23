@@ -277,7 +277,7 @@ theme_override_colors/font_shadow_color = Color(0.0941176, 0.215686, 0.313726, 1
 theme_override_constants/shadow_offset_x = 2
 theme_override_fonts/font = ExtResource("4_h17eq")
 theme_override_font_sizes/font_size = 30
-text = "collaborative game !"
+text = "collaborative games !"
 horizontal_alignment = 1
 
 [node name="collab1" type="Button" parent="VBoxContainer6"]

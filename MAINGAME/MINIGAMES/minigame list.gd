@@ -91,7 +91,9 @@ func _on_game_15_pressed():
 	GlobalVar.to_load(GlobalVar.minigame[14])	
 	
 func _on_collab_1_pressed():
-	pass # Replace with function body.
+	Global.button_sound()
+	Global.music_game1()
+	GlobalVar.to_load(GlobalVar.minigame[15])	
 
 func _on_random_pressed():
 	Global.button_sound()

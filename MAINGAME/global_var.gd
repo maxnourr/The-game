@@ -11,7 +11,7 @@ var max_level = 0
 var level
 
 #minigames
-var minigame = ["res://MINIGAMES/minijeu_1/ampi_game.tscn","res://MINIGAMES/minijeu_2/node.tscn","res://MINIGAMES/minijeu_3/plasmid_game.tscn","res://MINIGAMES/minijeu_4/feed_bacteria_game.tscn","res://MINIGAMES/minijeu_5/node.tscn","res://MINIGAMES/minijeu_6/node.tscn","res://MINIGAMES/minijeu_7/wash_game.tscn","res://MINIGAMES/minijeu_8/game_1.tscn","res://MINIGAMES/minijeu_9/game9.tscn","res://MINIGAMES/minijeu_10/node.tscn","res://MINIGAMES/minijeu_11/game.tscn","res://MINIGAMES/minijeu_12/centrifuge_game.tscn","res://MINIGAMES/minijeu_13/game.tscn","res://MINIGAMES/minijeu_14/GFP_game.tscn","res://MINIGAMES/minijeu_15/clothe_game.tscn"]
+var minigame = ["res://MINIGAMES/minijeu_1/ampi_game.tscn","res://MINIGAMES/minijeu_2/node.tscn","res://MINIGAMES/minijeu_3/plasmid_game.tscn","res://MINIGAMES/minijeu_4/feed_bacteria_game.tscn","res://MINIGAMES/minijeu_5/node.tscn","res://MINIGAMES/minijeu_6/node.tscn","res://MINIGAMES/minijeu_7/wash_game.tscn","res://MINIGAMES/minijeu_8/game_1.tscn","res://MINIGAMES/minijeu_9/game9.tscn","res://MINIGAMES/minijeu_10/node.tscn","res://MINIGAMES/minijeu_11/game.tscn","res://MINIGAMES/minijeu_12/centrifuge_game.tscn","res://MINIGAMES/minijeu_13/game.tscn","res://MINIGAMES/minijeu_14/GFP_game.tscn","res://MINIGAMES/minijeu_15/clothe_game.tscn","res://MINIGAMES/minijeu_thessaloniki/thessaloniki_game.tscn"]
 var minijeu = "res://MINIGAMES/scene_global.tscn"
 var game_to_load
 var do_game = minigame.duplicate()
