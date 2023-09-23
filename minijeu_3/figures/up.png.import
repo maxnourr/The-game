@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmxmpuu7tha0n"
-path="res://.godot/imported/up.png-fb014a9bd0cf8dfeb47d3b5595b33f0f.ctex"
+path="res://.godot/imported/up.png-a523c50d612e680ff5253f7b6d389375.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://minijeu_3/figures/up.png"
-dest_files=["res://.godot/imported/up.png-fb014a9bd0cf8dfeb47d3b5595b33f0f.ctex"]
+source_file="res://figures/up.png"
+dest_files=["res://.godot/imported/up.png-a523c50d612e680ff5253f7b6d389375.ctex"]
 
 [params]
 
