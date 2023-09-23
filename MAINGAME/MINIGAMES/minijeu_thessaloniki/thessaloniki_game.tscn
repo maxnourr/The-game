@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdvgsu5wpt3be"]
+
+[ext_resource type="Script" path="res://MINIGAMES/minijeu_thessaloniki/thessaloniki_game.gd" id="1_xl4qk"]
+[ext_resource type="PackedScene" uid="uid://bty0hrwqi2moa" path="res://MINIGAMES/minijeu_thessaloniki/plate.tscn" id="2_3x3wg"]
+
+[node name="thessaloniki_Game" type="Node"]
+script = ExtResource("1_xl4qk")
+
+[node name="plate" parent="." instance=ExtResource("2_3x3wg")]
+position = Vector2(576, 329)
+
+[connection signal="area_entered" from="plate" to="." method="_on_plate_area_entered"]
