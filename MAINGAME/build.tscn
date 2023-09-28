@@ -91,6 +91,15 @@ theme_override_fonts/font = ExtResource("3_c10bh")
 theme_override_styles/normal = SubResource("StyleBoxFlat_1gtvx")
 text = "save"
 
+[node name="save2" type="Button" parent="."]
+offset_left = 887.0
+offset_top = 90.0
+offset_right = 1113.0
+offset_bottom = 136.0
+theme_override_fonts/font = ExtResource("3_c10bh")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1gtvx")
+text = "to bacteria 2"
+
 [node name="exit" type="Button" parent="."]
 offset_left = 1060.0
 offset_top = 21.0
@@ -147,4 +156,5 @@ horizontal_alignment = 1
 
 [connection signal="button_down" from="Pop" to="." method="_on_pop_button_down"]
 [connection signal="button_down" from="save" to="." method="_on_save_button_down"]
+[connection signal="button_down" from="save2" to="." method="_on_save_2_button_down"]
 [connection signal="button_down" from="exit" to="." method="_on_exit_button_down"]

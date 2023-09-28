@@ -12,7 +12,7 @@ var running = false
 #bacteria
 var linktube = preload("bacteria.tscn") #to create new bacteria
 
-var game_intro = "For your hydrogel to work, you need bacterias inside \ncatch them !"
+var game_intro = "For your hydrogel to work, you need the good bacterias inside \ncatch them !"
 var game_rules = "pad/left mouse button : \ncatch a bacteria"
 
 var x = 0
@@ -35,7 +35,7 @@ func process(delta):
 	pass
 
 func restart(): 
-	return "Thessaloniki IGEM team works on a hydrogel \n to apply on the soil after a fire \n they need two bacterias strain in the hydrogel"
+	return "Thessaloniki IGEM team works on a hydrogel \n to apply on the soil after a wildfire. \n They need two bacterias strains in the hydrogel"
 
 
 #called if start is pressed, set timer and instanciate tubes

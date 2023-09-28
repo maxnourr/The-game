@@ -37,5 +37,12 @@ func _on_blue_pressed():
 
 
 func _on_c_pressed():
-	$bacteria/"48C".visible = !$bacteria/"48C".visible
-	$bacteria.logo = !$bacteria.logo
+	if !$bacteria.logo or $bacteria/"48C".visible:
+		$bacteria/"48C".visible = !$bacteria/"48C".visible
+		$bacteria.logo = !$bacteria.logo
+
+
+func _on_thessaloniki_pressed():
+	if !$bacteria.logo or $bacteria/collab.visible:
+		$bacteria/collab.visible = !$bacteria/collab.visible
+		$bacteria.logo = !$bacteria.logo

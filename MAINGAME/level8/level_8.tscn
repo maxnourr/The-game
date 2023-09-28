@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://level8/level_8.gd" id="1_cmn2u"]
 [ext_resource type="PackedScene" uid="uid://baxcljd4pi2y5" path="res://assets/background.tscn" id="2_2sjxa"]
 [ext_resource type="PackedScene" uid="uid://daahuqr7gjojm" path="res://main.tscn" id="2_vf16x"]
-[ext_resource type="PackedScene" uid="uid://bp3aawqql2scf" path="res://assets/cell_wall.tscn" id="3_qpgyl"]
+[ext_resource type="PackedScene" uid="uid://iclncwq35jbw" path="res://assets/cell_wall.tscn" id="3_qpgyl"]
 [ext_resource type="PackedScene" uid="uid://sruafabg1gs5" path="res://assets/end.tscn" id="4_rte3u"]
 [ext_resource type="FontFile" uid="uid://2g7nibblpvpr" path="res://font/joystix monospace.otf" id="5_770hi"]
 
@@ -14,11 +14,11 @@ script = ExtResource("1_cmn2u")
 
 [node name="main" parent="." instance=ExtResource("2_vf16x")]
 
-[node name="cell_wall" parent="." instance=ExtResource("3_qpgyl")]
-position = Vector2(580, -2)
+[node name="cell_wall3" parent="." instance=ExtResource("3_qpgyl")]
+position = Vector2(553, 491)
 
-[node name="cell_wall2" parent="." instance=ExtResource("3_qpgyl")]
-position = Vector2(587, 484)
+[node name="cell_wall" parent="." instance=ExtResource("3_qpgyl")]
+position = Vector2(553, -2)
 
 [node name="end" parent="." instance=ExtResource("4_rte3u")]
 position = Vector2(976, 319)

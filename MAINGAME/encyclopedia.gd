@@ -8,7 +8,8 @@ var description = [
 	"allolactose activate lac operon",
 	"T cells protect the body from aggression",
 	"cadmium is a dangerous heavy metal",
-	"cell wall"
+	"cell wall",
+	"burned soil, after a wildfire"
 ] # le tableau qui keep track des rectangles, giga important pour pop
 
 
@@ -16,7 +17,7 @@ func _ready():
 	if GlobalVar.level == "res://tuto/tuto.tscn":
 		$tuto.visible = true
 	elif GlobalVar.max_level > 1:
-		for n in (GlobalVar.max_level):
+		for n in GlobalVar.max_level:
 			$Container.get_child(n+1).visible = true
 
 
@@ -54,4 +55,5 @@ func _on_cell_wall_mouse_entered():
 	$explications.text = description[8]
 
 
-
+func _on_soil_mouse_entered():
+	$explications.text = description[9]

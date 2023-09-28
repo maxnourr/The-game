@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://5cdq3qxlhjp8"]
+[gd_scene load_steps=16 format=3 uid="uid://5cdq3qxlhjp8"]
 
 [ext_resource type="Script" path="res://encyclopedia.gd" id="1_v5xwa"]
 [ext_resource type="Texture2D" uid="uid://cq8drt7ypvb8l" path="res://sprites/gutbackground.PNG" id="2_x00v3"]
@@ -10,8 +10,9 @@
 [ext_resource type="PackedScene" uid="uid://c3ua2wu7fgyl" path="res://assets/t_cells.tscn" id="8_bhr0k"]
 [ext_resource type="PackedScene" uid="uid://ba6vkbb4vj8xq" path="res://assets/uv_light.tscn" id="9_nygjy"]
 [ext_resource type="PackedScene" uid="uid://bc6kefpd2jmyr" path="res://assets/mucus.tscn" id="10_610iq"]
-[ext_resource type="PackedScene" uid="uid://bp3aawqql2scf" path="res://assets/cell_wall.tscn" id="11_jo48b"]
+[ext_resource type="PackedScene" uid="uid://iclncwq35jbw" path="res://assets/cell_wall.tscn" id="11_jo48b"]
 [ext_resource type="PackedScene" uid="uid://yvbpwom0naf0" path="res://assets/cadmium.tscn" id="12_25qad"]
+[ext_resource type="PackedScene" uid="uid://bp3aawqql2scf" path="res://assets/soil.tscn" id="13_bwh5y"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sposr"]
 bg_color = Color(0.733333, 0.552941, 0.490196, 1)
@@ -54,32 +55,28 @@ position = Vector2(207, 156)
 position = Vector2(609, 116)
 
 [node name="AMP" parent="Container" instance=ExtResource("6_hnyfj")]
-visible = false
 position = Vector2(467, 217)
 
 [node name="UV_light" parent="Container" instance=ExtResource("9_nygjy")]
-visible = false
 position = Vector2(854, 158)
 
 [node name="mucus" parent="Container" instance=ExtResource("10_610iq")]
-visible = false
-position = Vector2(-6, 390)
+position = Vector2(52, 260)
 
 [node name="Lactose" parent="Container" instance=ExtResource("7_qw20h")]
-visible = false
 position = Vector2(579, 372)
 
 [node name="T_cells" parent="Container" instance=ExtResource("8_bhr0k")]
-visible = false
 position = Vector2(506, 489)
 
 [node name="cadmium" parent="Container" instance=ExtResource("12_25qad")]
-visible = false
 position = Vector2(912, 446)
 
 [node name="cell_wall" parent="Container" instance=ExtResource("11_jo48b")]
-visible = false
-position = Vector2(795, 543)
+position = Vector2(844, 539)
+
+[node name="soil" parent="Container" instance=ExtResource("13_bwh5y")]
+position = Vector2(177, 601)
 
 [node name="explications" type="Label" parent="."]
 anchors_preset = 8
@@ -136,3 +133,4 @@ horizontal_alignment = 1
 [connection signal="mouse_entered" from="Container/T_cells" to="." method="_on_t_cells_mouse_entered"]
 [connection signal="mouse_entered" from="Container/cadmium" to="." method="_on_cadmium_mouse_entered"]
 [connection signal="mouse_entered" from="Container/cell_wall" to="." method="_on_cell_wall_mouse_entered"]
+[connection signal="mouse_entered" from="Container/soil" to="." method="_on_soil_mouse_entered"]

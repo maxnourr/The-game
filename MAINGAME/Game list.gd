@@ -1,6 +1,6 @@
 extends Control
 
-var level_link = ["start","level 1","level 2","level 3","level 4","level 5","level 6","level 7","level 8","end"]
+var level_link = ["start","level 1","level 2","level 3","level 4","level 5","level 6","level 7","level 8","Thessaloniki","end"]
 
 var transfer_time = 200
 var waited = 200
@@ -30,6 +30,7 @@ func _ready():
 	$"level 6"/Label.text = "level 6"
 	$"level 7"/Label.text = "level 7"
 	$"level 8"/Label.text = "level 8"
+	$"Thessaloniki"/Label.text = "Collab"
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -114,6 +115,9 @@ func _on_level_7_pressed():
 
 func _on_level_8_pressed():
 	go_to(8)
+	
+func _on_thessaloniki_pressed():
+	go_to(9)
 
 func go_to(level):
 	if GlobalVar.max_level >= level and GlobalVar.current_level !=level:
@@ -146,7 +150,8 @@ var explications = [
 	"make your bacteria glow using gfp",
 	"Bind to Mucus using SpaC","Add conditions to gene expressions",
 	"Learn to tame  an immunitary system","use everything you've learned to catch and evacuate cadmium",
-	"Change your bacteria shape"
+	"Change your bacteria shape",
+	"Discover corum sensing"
 ]
 
 var	titles = [
@@ -154,7 +159,8 @@ var	titles = [
 	"survival","a study in green",
 	"stick to it", "a dairy dare",
 	"police control", "the big day",
-	"fashion week"
+	"fashion week",
+	"Thessaloniki"
 ]
 
 

@@ -26,6 +26,11 @@ func _ready():
 		$tuto.visible = true
 	else:
 		$tuto.visible = false
+	
+	if GlobalVar.level == "res://level Thessaloniki/Thessaloniki.tscn":
+		$save2.visible = true
+	else:
+		$save2.visible = false
 		
 	var style_gene = $gene.get_theme_stylebox("normal")
 	var style_molecule = $molecule.get_theme_stylebox("normal")
@@ -33,26 +38,27 @@ func _ready():
 	rectangles = []
 	$Pop.position.y = 350
 	if GlobalVar.max_level > 1:
-		for n in (GlobalVar.max_level -1):
-			var button = Button.new()
-			button.size.x = 80
-			button.size.y = 40
-			button.text = Genome.genomes[n].Name
-			if Genome.genomes[n].Molecule:
-				button.add_theme_stylebox_override("normal",style_molecule)
-			else:
-				button.add_theme_stylebox_override("normal",style_gene)
+		for n in Genome.genomes.size():
+			if Genome.genomes[n].Level <= GlobalVar.max_level:
+				var button = Button.new()
+				button.size.x = 80
+				button.size.y = 40
+				button.text = Genome.genomes[n].Name
+				if Genome.genomes[n].Molecule:
+					button.add_theme_stylebox_override("normal",style_molecule)
+				else:
+					button.add_theme_stylebox_override("normal",style_gene)
 			
-			button.add_theme_color_override("font_color", Color(255,255,255)) 
+				button.add_theme_color_override("font_color", Color(255,255,255)) 
 			
-			button.position.x = 10
-			button.position.y = (size_y)*n 
+				button.position.x = 10
+				button.position.y = (size_y)*n 
 		
-			add_child(button)
-			button.add_theme_font_override("font",font)
-			button.pressed.connect(_button_pressed.bind(Genome.genomes[n]))
-			button.mouse_entered.connect(_mouse_on.bind(Genome.genomes[n]))
-			button.mouse_exited.connect(_mouse_out.bind(Genome.genomes[n]))
+				add_child(button)
+				button.add_theme_font_override("font",font)
+				button.pressed.connect(_button_pressed.bind(Genome.genomes[n]))
+				button.mouse_entered.connect(_mouse_on.bind(Genome.genomes[n]))
+				button.mouse_exited.connect(_mouse_out.bind(Genome.genomes[n]))
 
 
 func _process(delta):
@@ -60,13 +66,13 @@ func _process(delta):
 	$Pop.visible = false
 	if(plasmid.size() > 0):
 		$Pop.visible = true
-	$Pop.position.x = ((size_x-2) * (plasmid.size()+1))
+	$Pop.position.x = ((size_x-2) * (plasmid.size()+1)) +80
 	
 
 #affiche la config actuelle des plasmids
 func new_rect(x,color,description):
 	var rectangle = gene.instantiate()
-	rectangle.position = Vector2(x*size_x, 400)
+	rectangle.position = Vector2(x*size_x+100, 400)
 	rectangle.modulate = color  # Set rectangle color
 	rectangle.set_text(description)
 	add_child(rectangle)  # Add the rectangle to the scene
@@ -75,7 +81,7 @@ func new_rect(x,color,description):
 #affiche la config actuelle des plasmids
 func new_circle(x,color,description):
 	var circle = mol.instantiate()
-	circle.position = Vector2(x*size_x, 400)
+	circle.position = Vector2(x*size_x+100, 400)
 	circle.modulate = color  # Set rectangle color
 	circle.set_text(description)
 	add_child(circle)  # Add the rectangle to the scene
@@ -127,3 +133,10 @@ func _mouse_out(genome):
 	
 	
 
+
+
+func _on_save_2_button_down():
+	Global.click()
+	if (plasmid.size() > 0):
+		Genome.plasmids2.push_back(plasmid) #rajoute le plasmid créé à la liste des plasmids dans l'e-coli
+	get_tree().change_scene_to_file(GlobalVar.level)

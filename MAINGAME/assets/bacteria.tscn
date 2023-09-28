@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bgqlonx2reo62"]
+[gd_scene load_steps=15 format=3 uid="uid://bgqlonx2reo62"]
 
 [ext_resource type="Texture2D" uid="uid://ceyl7jq1dpeoa" path="res://sprites/flagel 1.png" id="1_4iybn"]
 [ext_resource type="Texture2D" uid="uid://chr627yqmycvu" path="res://sprites/body.png" id="1_7yc02"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://c2j1kgenmv1iq" path="res://sprites/happy eyes.png" id="4_d07oo"]
 [ext_resource type="Texture2D" uid="uid://drpq8p82d4pdb" path="res://sprites/SPAC.png" id="5_bq3fj"]
 [ext_resource type="Texture2D" uid="uid://cr7xvjt8cy72h" path="res://sprites/48c-removebg-preview.png" id="10_padtc"]
+[ext_resource type="Texture2D" uid="uid://ci165rfslul7u" path="res://sprites/iGEM_essaloniki-removebg-preview.png" id="11_40x10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hybv"]
 size = Vector2(460, 216)
@@ -85,6 +86,13 @@ position = Vector2(-131, -8)
 scale = Vector2(0.352978, 0.38674)
 texture = ExtResource("10_padtc")
 
+[node name="collab" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0, 0, 0.427451, 1)
+position = Vector2(-102, 16)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("11_40x10")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-4, 5)
 shape = SubResource("RectangleShape2D_2hybv")
@@ -96,3 +104,35 @@ scale = Vector2(29.5156, 26.1094)
 color = Color(0, 0.85098, 0.109804, 1)
 energy = 1.22
 texture = SubResource("GradientTexture2D_14ft1")
+
+[node name="corum" type="CPUParticles2D" parent="."]
+visible = false
+amount = 20
+lifetime = 3.0
+speed_scale = 0.8
+emission_shape = 2
+emission_sphere_radius = 100.0
+direction = Vector2(2.08165e-12, 1)
+spread = 60.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 934.21
+initial_velocity_max = 934.21
+scale_amount_min = 0.0
+scale_amount_max = 62.41
+color = Color(1, 1, 0.0235294, 1)
+
+[node name="biofertiliser" type="CPUParticles2D" parent="."]
+visible = false
+amount = 5
+lifetime = 3.0
+speed_scale = 0.5
+emission_shape = 2
+emission_sphere_radius = 100.0
+direction = Vector2(2.08165e-12, 1)
+spread = 60.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 934.21
+initial_velocity_max = 934.21
+scale_amount_min = 0.0
+scale_amount_max = 160.0
+color = Color(0.054902, 0.545098, 0.945098, 1)

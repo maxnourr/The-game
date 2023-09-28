@@ -82,6 +82,13 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_2h1ic")
 text = "48C
 "
 
+[node name="Thessaloniki" type="Button" parent="Container2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_kpww4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2h1ic")
+text = "Thessaloniki
+"
+
 [node name="Container" type="VBoxContainer" parent="."]
 offset_top = 83.0
 offset_right = 332.0
@@ -115,6 +122,7 @@ text = "yellow"
 
 [connection signal="button_down" from="exit" to="." method="_on_exit_button_down"]
 [connection signal="pressed" from="Container2/48C" to="." method="_on_c_pressed"]
+[connection signal="pressed" from="Container2/Thessaloniki" to="." method="_on_thessaloniki_pressed"]
 [connection signal="pressed" from="Container/green" to="." method="_on_green_pressed"]
 [connection signal="pressed" from="Container/red" to="." method="_on_red_pressed"]
 [connection signal="pressed" from="Container/blue" to="." method="_on_blue_pressed"]

@@ -8,6 +8,7 @@ static var first_opening = true
 func _ready():
 	if first_opening:
 		Genome.plasmids = []
+		Genome.plasmids2 = []
 		first_opening = false
 	$Victory.visible = false
 	play = false
@@ -31,33 +32,34 @@ func _process(delta):
 	PlayerVar.Play = play
 	PlayerVar.PlayerX = $bacteria.position.x
 	PlayerVar.PlayerY= $bacteria.position.y
+	waiting +=1
+	if waiting >=30:
+		waiting = 0
+		if $bacteria/flagel.visible == true:
+			$bacteria/flagel.visible = false
+			$bacteria/flagel2.visible = true
+		else:
+			$bacteria/flagel.visible = true
+			$bacteria/flagel2.visible = false
 	if play:
 		check_win()
-		waiting +=1
-		if waiting >=30:
-			waiting = 0
-			if $bacteria/flagel.visible == true:
-				$bacteria/flagel.visible = false
-				$bacteria/flagel2.visible = true
-			else:
-				$bacteria/flagel.visible = true
-				$bacteria/flagel2.visible = false
-		if play:
-			if PlayerVar.moving == true:
-				$bacteria.position.x += 100*delta #ce qui le fait avancer
-			$bacteria/light.visible = PlayerVar.gfp
-			$bacteria/particles.visible = PlayerVar.Interlekin
+		if PlayerVar.moving == true:
+			$bacteria.position.x += 100*delta #ce qui le fait avancer
+		$bacteria/light.visible = PlayerVar.gfp
+		$bacteria/particles.visible = PlayerVar.Interlekin
+		$bacteria/corum.visible = PlayerVar.Luxl
+		$bacteria/biofertiliser.visible = PlayerVar.Biofertiliser
 			
 			#quand est ce qu'on a besoin que la couleur change ? 
 			#$bacteria/body.modulate = PlayerVar.player_color #pour l'instant pas fou que ce soit là
 		#faudra trouver un moyen de réaliser ce changement local dans express ou playervar
-			Express.back_to_back()
-			for n in Genome.plasmids.size(): #check tout les plasmids
-				for i in Genome.plasmids[n].size(): #check tout les genes du plasmid n
-					Express.express(Genome.plasmids[n][i])
-					if(Genome.plasmids[n][i].State == false):
+		Express.back_to_back()
+		for n in Genome.plasmids.size(): #check tout les plasmids
+			for i in Genome.plasmids[n].size(): #check tout les genes du plasmid n
+				Express.express(Genome.plasmids[n][i],1)
+				if(Genome.plasmids[n][i].State == false):
 						#arrête la lecture du plasmid
-						break
+					break
 						
 		
 

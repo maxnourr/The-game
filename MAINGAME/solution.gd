@@ -2,7 +2,7 @@ extends Node
 
 
 var level_link = ["level 1","level 2","level 3","level 4","level 5","level 6","level 7","level 8"]
-var explain = ["You just need to encapsulate the bacteria","Express the ampicilline resistance gene","Express the ampicilline resistance gene\n and GFP gene to shine","Express the mucus binding gene","LacI permit the expression of Spac in presence of allactose\n and avoid expression after","Expressing IL10 avoid destruction by T-cells","48C !\n Express Spac only in the medium, so in presence of allolactose.\nYou need to express EC20 constitutively","Here you don't need a new gene but to inhibit a existing gene.\n Here we use a molecule inhibiting Ftsz, we could also knock-out the gene."]
+var explain = ["You just need to encapsulate the bacteria","Express the ampicilline resistance gene","Express the ampicilline resistance gene\n and GFP gene to shine","Express the mucus binding gene","LacI permit the expression of Spac in presence of allactose\n and avoid expression after","Expressing IL10 avoid destruction by T-cells","48C !\n Express Spac only in the medium, so in presence of allolactose.\nYou need to express EC20 constitutively","Here you don't need a new gene but to inhibit a existing gene.\n Here we use a molecule inhibiting Ftsz, we could also knock-out the gene.","Luxl is express in the first bacteria \n releasing AHL molecule \n catched by the second bacteria, activate LuxR \n and produce the biofertiliser"]
 
 var Sol = [
 	[[]],
@@ -12,7 +12,9 @@ var Sol = [
 	[[Genome.genomes[3],Genome.genomes[2]]],
 	[[Genome.genomes[4]]],
 	[[Genome.genomes[3],Genome.genomes[2]],[Genome.genomes[5]]],
-	[[Genome.genomes[6]]]
+	[[Genome.genomes[6]]],
+	[[Genome.genomes[8],Genome.genomes[9]],[Genome.genomes[7]]],
+	
 ]
 
 var size_x = 80
@@ -26,7 +28,10 @@ func _ready():
 		get_node("Container/"+level_link[i]+"/cadena").hide()
 		get_node("Container/"+level_link[i]+"/Label").text = level_link[i]
 		get_node("Container/"+level_link[i]).pressed.connect(solution.bind(i))
-		
+	
+	$level9/cadena.hide()
+	$level9/Label.text = "Collab"
+	$level9.pressed.connect(solution.bind(8))
 
 func solution(i):
 	$explain.text = explain[i]

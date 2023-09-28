@@ -129,6 +129,14 @@ offset_top = 319.0
 offset_right = 614.0
 offset_bottom = 387.0
 
+[node name="Thessaloniki" parent="." instance=ExtResource("6_roy2t")]
+self_modulate = Color(0.921569, 0.643137, 0.164706, 1)
+layout_mode = 0
+offset_left = 670.0
+offset_top = 419.0
+offset_right = 764.0
+offset_bottom = 487.0
+
 [node name="bacteria" type="Sprite2D" parent="."]
 position = Vector2(230, 487)
 scale = Vector2(0.2, 0.2)
@@ -310,6 +318,7 @@ text = "Start"
 [connection signal="pressed" from="level 6" to="." method="_on_level_6_pressed"]
 [connection signal="pressed" from="level 7" to="." method="_on_level_7_pressed"]
 [connection signal="pressed" from="level 8" to="." method="_on_level_8_pressed"]
+[connection signal="pressed" from="Thessaloniki" to="." method="_on_thessaloniki_pressed"]
 [connection signal="pressed" from="VBoxContainer4/How" to="." method="_on_how_pressed"]
 [connection signal="pressed" from="VBoxContainer4/studio" to="." method="_on_studio_pressed"]
 [connection signal="pressed" from="VBoxContainer4/Solution" to="." method="_on_solution_pressed"]

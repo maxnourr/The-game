@@ -5,7 +5,7 @@ var first_open = true
 var coins = 0
 
 #maingame
-var game = ["res://tuto/tuto.tscn","res://level1/level_1.tscn","res://level2/level_2.tscn","res://level3/level_3.tscn","res://level4/level_4.tscn","res://level5/level_5.tscn","res://level6/level_6.tscn","res://level7/level_7.tscn","res://level8/level_8.tscn"]
+var game = ["res://tuto/tuto.tscn","res://level1/level_1.tscn","res://level2/level_2.tscn","res://level3/level_3.tscn","res://level4/level_4.tscn","res://level5/level_5.tscn","res://level6/level_6.tscn","res://level7/level_7.tscn","res://level8/level_8.tscn","res://level Thessaloniki/Thessaloniki.tscn"]
 var current_level = 0
 var max_level = 0
 var level
@@ -114,7 +114,7 @@ func load_game():
 		coins = save_dict.coins
 		current_level = save_dict.current_level
 		max_level = save_dict.max_level
-		max_level = 8
+		max_level = 9
 		
 		max_normal_score = save_dict.max_normal_score
 		max_score = save_dict.max_score
